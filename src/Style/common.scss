@@ -1,0 +1,16 @@
+@import url('https://use.fontawesome.com/releases/v5.15.2/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+//border
+$border: 1px solid rgba(0, 0, 0, 0.1);
+
+//color
+$main-color: #00b2b2;
+$sub-color: #009595;
+$gray-color: #91949c;
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

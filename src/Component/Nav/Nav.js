@@ -45,9 +45,6 @@ class Nav extends Component {
   };
 
   render() {
-    console.log('토글값은', this.state.isNavSearch);
-    console.log('왼쪽버튼은?', this.state.isSuggestLeft);
-    console.log('오른쪽버튼은?', this.state.isSuggestRight);
     return (
       <div>
         <header className="navContainer">

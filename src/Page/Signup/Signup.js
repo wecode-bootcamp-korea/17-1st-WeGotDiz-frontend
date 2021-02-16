@@ -7,7 +7,10 @@ class Signup extends Component {
       <div className="signUpContainer">
         <h1>회원가입</h1>
         <div className="agreement">
-          <span>전체동의</span>
+          <input type="checkbox" id="agreementCheckbox" />
+          <label for="inputCheckbox" className="checkboxText">
+            전체 동의
+          </label>
           <p>
             위갓디즈 서비스 이용약관(필수), 개인정보 수집 ∙ 이용 동의(필수),
           </p>
@@ -26,12 +29,7 @@ class Signup extends Component {
           <input type="password" placeholder="비밀번호 확인" />
           <p>영문, 숫자, 특수문자 (!@#$%^&*+=-)를 조합한 8자 이상</p>
         </from>
-        <from className="recommendInput">
-          <span>추천인 코드(선택사항)</span>
-          <input type="text" placeholder="추천인 코드 입력" />
-          <p>추천인의 코드를 입력해주세요</p>
-          <button className="recommendBtn">완료</button>
-        </from>
+        <button className="recommendBtn">완료</button>
       </div>
     );
   }

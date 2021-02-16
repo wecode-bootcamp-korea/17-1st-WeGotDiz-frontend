@@ -1,0 +1,123 @@
+@import '../../Style/common.scss';
+
+.footerContainer {
+  // position: relative;
+  padding-top: 120px;
+
+  .footerMenuContainer {
+    height: 56px;
+    border-top: 1px solid #e6eaed;
+    border-bottom: 1px solid #e6eaed;
+    text-align: left;
+
+    .footerMenuBar {
+      display: flex;
+      align-items: center;
+      // margin-left: 20px;
+      // margin-right: 20px;
+      // padding: 0 80px;
+      padding-left: 80px;
+      padding-right: 80px;
+      // max-width: 1440px;
+      width: 100%;
+      height: 100%;
+      font-size: 15px;
+
+      .footerMenuContent {
+        margin-right: 25px;
+        padding-left: 0;
+        text-align: left;
+        color: #515151;
+        cursor: pointer;
+
+        i {
+          font-size: 12px;
+          margin-left: 4px;
+          color: rgba(0, 0, 0, 0.2);
+          cursor: pointer;
+        }
+      }
+
+      .footerMenuBold {
+        color: black;
+        font-weight: bold;
+        margin-bottom: 1px;
+      }
+    }
+  }
+
+  .footerInfoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 280px;
+    padding-left: 80px;
+    margin-top: 35px;
+    width: 100%;
+    height: 100%;
+
+    .footerInfoLeft {
+      width: 100%;
+      height: 100%;
+      display: flex;
+
+      .infoLeftContent {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 195px;
+        height: 50px;
+        padding-left: 30px;
+        padding-bottom: 2px;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #212529;
+        border-radius: 28px;
+
+        i {
+          position: absolute;
+          top: 17px;
+          left: 20px;
+        }
+      }
+
+      .infoRightContent {
+        margin-left: 25px;
+        padding-top: 7px;
+        font-size: 13px;
+        color: rgba(0, 0, 0, 0.4);
+
+        .infoRightTop {
+          span {
+            margin-right: 7px;
+          }
+        }
+
+        .infoRightBottom {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .footerInfoCenter {
+      width: 100%;
+      height: 100%;
+      font-size: 13px;
+      color: rgba(0, 0, 0, 0.4);
+      padding-top: 7px;
+
+      .infoTopContent {
+        margin-bottom: 10px;
+        span {
+          margin-right: 7px;
+        }
+      }
+
+      .infoCenterContent {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

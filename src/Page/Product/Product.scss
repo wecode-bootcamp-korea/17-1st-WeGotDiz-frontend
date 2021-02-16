@@ -1,0 +1,253 @@
+@import '../../Style/common.scss';
+
+.product {
+  .titleContainer {
+    @extend %flex-center;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    padding: 60px 30px;
+    // filter: blur(2px);
+    background-image: url(https://cdn.wadiz.kr/wwwwadiz/green001/2021/0113/20210113110358461_96806.jpg/wadiz/format/jpg/quality/80/optimize);
+
+    .category {
+      margin-bottom: 20px;
+      font-size: 16px;
+      font-weight: 500;
+      color: $main-color;
+    }
+
+    .productTtile {
+      font-size: 36px;
+      text-align: center;
+      line-height: 120%;
+      color: #fff;
+    }
+  }
+
+  .tabs {
+    @extend %flex-center;
+
+    border-bottom: $border;
+    .tab {
+      display: inline-block;
+      margin: 0 14px;
+      padding: 22px 6px 22px 8px;
+      font-size: 15px;
+
+      .countTotal {
+        margin-left: 4px;
+        font-size: 12px;
+        color: $main-color;
+      }
+    }
+    .tabStatus {
+      border-bottom: 3px solid $main-color;
+    }
+  }
+  .contentsContainer {
+    display: flex;
+    margin: 40px auto;
+    padding: 30px;
+    width: 1024px;
+    height: fit-content;
+    .contents {
+      width: 632px;
+    }
+    aside {
+      width: 284px;
+      color: #4a4a4a;
+      margin-left: 48px;
+
+      .daysLeft {
+        font-size: 28px;
+        padding-bottom: 25px;
+        border-bottom: solid #00c4c4 3px;
+      }
+      .productNumInfo {
+        margin-top: 25px;
+        li {
+          margin-bottom: 32px;
+          font-size: 15px;
+        }
+
+        span {
+          margin-right: 4px;
+          font-size: 24px;
+          font-weight: 500;
+        }
+      }
+
+      .fundingBtn {
+        width: 100%;
+        height: 48px;
+        color: #fff;
+        background-color: #00c4c4;
+        font-size: 17px;
+        border: none;
+        border-radius: 3px;
+      }
+      .btnWrapper {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+          width: 100%;
+          height: 38px;
+          margin-top: 10px;
+          border: $border;
+          background-color: #fff;
+        }
+
+        .likeBtn {
+          margin-right: 5px;
+
+          .fa-heart {
+            margin-right: 5px;
+          }
+
+          #unlike {
+            color: #90949c;
+          }
+
+          #like {
+            color: red;
+          }
+        }
+      }
+
+      .fundingDescription {
+        margin-top: 20px;
+        color: #90949c;
+        text-align: center;
+        font-size: 12px;
+
+        span {
+          margin: 0 4px;
+        }
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .makerTitle {
+        margin: 30px 0 10px 0;
+        font-size: 12px;
+        color: #90949c;
+      }
+
+      .makerContainer {
+        height: fit-content;
+        border: $border;
+
+        .makerProfile,
+        .makerTrustInfo,
+        .contactToMaker,
+        .makerInfo {
+          padding: 20px 16px;
+        }
+
+        .makerProfile {
+          display: flex;
+          align-items: center;
+          .makerImg {
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
+            border: $border;
+            border-radius: 50%;
+          }
+
+          .makerName {
+            font-size: 17px;
+            font-weight: bold;
+            text-decoration: none;
+          }
+        }
+
+        .beta {
+          align-items: center;
+          padding: 0 16px;
+          color: $main-color;
+          font-size: 11px;
+          font-weight: bold;
+          text-align: right;
+
+          .fa-question-circle {
+            margin-left: 14px;
+            color: #90949c;
+            font-size: 14px;
+          }
+        }
+
+        .makerTrustInfo {
+          display: flex;
+          width: 100%;
+          margin: 14px 0;
+
+          .makerGraph {
+            width: 100%;
+            padding: 0 12px;
+
+            .graphTitle {
+              padding-bottom: 6px;
+              color: #60656a;
+              font-size: 12px;
+            }
+
+            .graphStatus {
+              width: 100%;
+              height: 4px;
+            }
+
+            .off {
+              background-color: #f0f0f0;
+            }
+
+            .on {
+              background-color: $main-color;
+            }
+          }
+        }
+
+        .contactToMaker {
+          border-top: $border;
+          span {
+            font-size: 12px;
+          }
+
+          .makerResponseHours {
+            padding-left: 8px;
+            color: $main-color;
+          }
+
+          .makerContactBtn {
+            width: 100%;
+            height: 48px;
+            margin-top: 15px;
+            font-size: 17px;
+            color: #90949c;
+            background-color: #fff;
+            border: $border;
+            border-radius: 3px;
+          }
+        }
+
+        .makerInfo {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          background-color: inherit;
+          font-size: 13px;
+          border: inherit;
+
+          .fa-chevron-down {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}

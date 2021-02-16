@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from '../src/Component/Nav/Nav';
 import Main from '../src/Page/Main/Main';
 import Footer from '../src/Component/Footer/Footer';
+import Product from '../src/Page/Product/Product';
 
 class Routes extends Component {
   render() {
@@ -13,8 +14,8 @@ class Routes extends Component {
         <Switch>
           <Route exact path="/" component={Main} />
           {/* <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/product" component={Product} /> */}
+          <Route exact path="/signup" component={Signup} /> */}
+          <Route exact path="/product" component={Product} />
         </Switch>
         <Footer />
       </Router>

@@ -1,17 +1,37 @@
 import React, { Component } from 'react';
+import RankProduct from './RankProduct';
+
 import './PlanerBar.scss';
 
 class PlanerBar extends Component {
+  constructor() {
+    super();
+    this.state = {
+      rankData: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/PlanerRankData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          rankData: data,
+        });
+      });
+  }
+
   render() {
+    const { rankData } = this.state;
     return (
       <header className="planerContainer">
         <section className="planerContainerLeft">
           <div className="planerLeftHeader">기획전</div>
           <div className="planerLeftContent">
             <div className="planerContent">
-              <div className="planerContentImg">
-                <img />
-              </div>
+              <div className="planerContentImg">{/* <img /> */}</div>
               <div className="planerContentText">
                 <span>상 받은 펀딩</span>
                 <div className="planerProduct">
@@ -23,9 +43,7 @@ class PlanerBar extends Component {
                     <span>1767%</span>
                     <span>게임 취미</span>
                   </div>
-                  <div className="planerProductImg">
-                    <img></img>
-                  </div>
+                  <div className="planerProductImg">{/* <img></img> */}</div>
                 </div>
               </div>
             </div>
@@ -36,21 +54,11 @@ class PlanerBar extends Component {
           <div className="planerRightContent">
             <div className="RightContentHeader">
               <span>펀딩하기</span>
-              <i class="far fa-question-circle"></i>
+              <i className="far fa-question-circle"></i>
             </div>
-            <div className="RightContentRank">
-              <div className="RankNumber">
-                <span>1</span>
-              </div>
-              <div className="RankContent">
-                <p>fewfwefwef</p>
-                <span>1,004%</span>
-                <span>반려동물</span>
-              </div>
-              <div className="RankImg">
-                <img />
-              </div>
-            </div>
+            {rankData.map((data, index) => {
+              return <RankProduct product={data} key={index} />;
+            })}
           </div>
         </section>
       </header>

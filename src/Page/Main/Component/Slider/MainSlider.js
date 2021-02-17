@@ -25,7 +25,7 @@ class MainSlider extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 500,
+      autoplaySpeed: 300,
       // centerMode: true,
       lazyLoad: true,
       // appendDots: dots => <div style={{ color: 'red' }}>{dots}</div>,

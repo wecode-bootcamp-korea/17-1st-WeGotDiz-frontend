@@ -14,6 +14,7 @@ class Product extends Component {
       currentId: 1,
       like: false,
       likeNum: 172,
+      makerInfo: false,
     };
   }
 
@@ -28,6 +29,12 @@ class Product extends Component {
     this.setState({
       like: !like,
       likeNum: like ? likeNum - 1 : likeNum + 1,
+    });
+  };
+
+  handleMakerInfo = () => {
+    this.setState({
+      makerInfo: !this.state.makerInfo,
     });
   };
 
@@ -135,24 +142,26 @@ class Product extends Component {
                 </button>
               </div>
               <div className="makerInfo">
-                <button className="makerInfoBtn">
+                <button className="makerInfoBtn" onClick={this.handleMakerInfo}>
                   <span>메이커 정보</span>
                   <i className="fas fa-chevron-down" />
                 </button>
-                <div className="makerInfoMore">
-                  <p className="makerInfoTitle">메이커 연락처</p>
-                  <p className="makerInfoDetails">google@gmail.com</p>
-                  <p className="makerInfoDetails">01012345678</p>
-                  <p className="makerInfoDetails">카카오 플러스친구 깃깃</p>
-                  <p className="makerInfoTitle">SNS</p>
-                  <p className="makerInfoDetails">http://www.gitgit.com/</p>
-                  <p className="makerInfoDetails">http://lululala.com/</p>
-                  <div className="makerInfoSns">
-                    <a href="http://www.instagram.com">
-                      <i className="fab fa-instagram" />
-                    </a>
+                {this.state.makerInfo && (
+                  <div className="makerInfoMore">
+                    <p className="makerInfoTitle">메이커 연락처</p>
+                    <p className="makerInfoDetails">google@gmail.com</p>
+                    <p className="makerInfoDetails">01012345678</p>
+                    <p className="makerInfoDetails">카카오 플러스친구 깃깃</p>
+                    <p className="makerInfoTitle">SNS</p>
+                    <p className="makerInfoDetails">http://www.gitgit.com/</p>
+                    <p className="makerInfoDetails">http://lululala.com/</p>
+                    <div className="makerInfoSns">
+                      <a href="http://www.instagram.com">
+                        <i className="fab fa-instagram" />
+                      </a>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </aside>

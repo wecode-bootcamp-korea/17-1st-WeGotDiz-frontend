@@ -27,6 +27,7 @@
 
   .tabs {
     @extend %flex-center;
+    cursor: pointer;
 
     border-bottom: $border;
     .tab {
@@ -141,16 +142,10 @@
         height: fit-content;
         border: $border;
 
-        .makerProfile,
-        .makerTrustInfo,
-        .contactToMaker,
-        .makerInfo {
-          padding: 20px 16px;
-        }
-
         .makerProfile {
           display: flex;
           align-items: center;
+          margin: 20px 16px 0 20px;
           .makerImg {
             width: 40px;
             height: 40px;
@@ -168,7 +163,7 @@
 
         .beta {
           align-items: center;
-          padding: 0 16px;
+          padding: 5px 16px;
           color: $main-color;
           font-size: 11px;
           font-weight: bold;
@@ -184,7 +179,8 @@
         .makerTrustInfo {
           display: flex;
           width: 100%;
-          margin: 14px 0;
+          margin: 20px 0;
+          padding: 0 16px;
 
           .makerGraph {
             width: 100%;
@@ -211,8 +207,10 @@
           }
         }
 
-        .contactToMaker {
+        .makerContact {
+          padding: 16px 16px;
           border-top: $border;
+
           span {
             font-size: 12px;
           }
@@ -236,15 +234,44 @@
 
         .makerInfo {
           display: flex;
-          justify-content: space-between;
-          align-items: center;
-          width: 100%;
-          background-color: inherit;
-          font-size: 13px;
-          border: inherit;
+          flex-direction: column;
 
-          .fa-chevron-down {
-            font-size: 10px;
+          .makerInfoBtn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 16px;
+            width: 100%;
+            background-color: inherit;
+            font-size: 13px;
+            border: inherit;
+            border-top: $border;
+
+            .fa-chevron-down {
+              color: #90949c;
+              font-size: 10px;
+            }
+          }
+
+          .makerInfoMore {
+            height: fit-content;
+            background-color: #fafbfc;
+            color: #60656a;
+            padding: 0 20px;
+
+            .makerInfoTitle {
+              margin: 20px 0;
+              font-size: 12px;
+            }
+
+            .makerInfoDetails {
+              margin: 6px 0;
+              font-size: 11px;
+            }
+
+            .makerInfoSns {
+              margin: 16px 0 20px 0;
+            }
           }
         }
       }

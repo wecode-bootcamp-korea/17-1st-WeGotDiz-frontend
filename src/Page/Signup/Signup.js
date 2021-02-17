@@ -6,16 +6,17 @@ class Signup extends Component {
   constructor() {
     super();
     this.state = {
-      // checked: false,
-      // email: '',
-      // name: '',
+      checked: false,
+      email: '',
+      emailError: '',
+      name: '',
       pw: '',
       pwError: '',
       pwCheck: '',
-      emailError: '',
+      pwCheckError: '',
     };
   }
-  //체크박스 확인
+
   handleCheck = e => {
     this.setState({ checked: e.target.checked });
   };
@@ -27,58 +28,26 @@ class Signup extends Component {
       [name]: value,
     });
   };
-  //
 
+  // email value check
   isEmail = email => {
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return emailRegex.test(email);
   };
 
   onEmailValidation = () => {
-    // let emailError = '';
-
     if (!this.isEmail(this.state.email)) {
       this.setState({
         emailError: '이메일 형식이 올바르지 않습니다.',
       });
     } else {
       this.setState({ emailError: '' });
-      // return false;
-    }
-    // return true;
-  };
-
-  onSubmitEmail = e => {
-    e.preventDefault();
-    const emailValid = this.onEmailValidation();
-    if (!emailValid) {
-      console.log('check', this.state);
     }
   };
 
-  // isPassword = () => {
-  //   const pwRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-  //   return pwRegex.exec(this.state.pw);
-  // };
-
-  // onPwValidation = () => {
-  //   if (!this.isPassword(this.state.pw)) {
-  //     this.setState({ pwError: '영문, 숫자, 특수문자를 조합한 8자 이상' });
-  //   } else {
-  //     this.setState({ pwError: '' });
-  //   }
-  // };
-
-  // onSubmitPw = e => {
-  //   e.preventDefault();
-  //   const pwValid = this.onPwValidation();
-  //   if (!pwValid) {
-  //     console.log('pw check', this.state);
-  //   }
-  // };
+  // password value check
   isPassword = pw => {
     const pwRegex = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
-    console.log(pwRegex.test(pw));
     return pwRegex.test(pw);
   };
 
@@ -92,49 +61,69 @@ class Signup extends Component {
     }
   };
 
-  onSubmitPw = e => {
-    e.preventDefault();
-    const pwValid = this.onPwValidation();
-    if (!pwValid) {
-      console.log('check', this.state);
+  onPwCheckValidation = () => {
+    const checkPw = this.state.pwCheck;
+    if (this.state.pw !== checkPw) {
+      this.setState({
+        pwCheckError: '비밀번호가 일치하지 않습니다.',
+      });
+    } else {
+      this.setState({
+        pwCheckError: '',
+      });
     }
   };
 
+  goToMain = () => {
+    fetch('', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.email,
+        name: this.state.name,
+        pw: this.state.pw,
+        pwCheck: this.state.pwCheck,
+      }),
+    })
+      .then(response => response.json())
+      .then(result =>
+        result.message === 'SUCCESS'
+          ? this.props.history.push('/')
+          : alert('회원가입 실패')
+      );
+  };
+
   render() {
-    console.log(this.state);
+    const { emailError, pwError, pwCheckError } = this.state;
     return (
       <div className="signUpContainer">
-        <h1>회원가입</h1>
-        <div className="agreement">
-          <input
-            type="checkbox"
-            id="agreementCheckbox"
-            checkbox={this.state.checkde}
-            onChange={this.handleCheck}
-          />
-          <label for="inputCheckbox" className="checkboxText">
-            전체 동의
-          </label>
-          <p>
-            위갓디즈 서비스 이용약관(필수), 개인정보 수집 ∙ 이용 동의(필수),
-          </p>
-          <p>마케팅 정보 수신 동의(선택)</p>
-        </div>
-
-        <form className="signUpEmail" onKeyUp={this.onSubmitEmail}>
-          <input
-            className="emailInput"
-            type="text"
-            placeholder="이메일 계정"
-            name="email"
-            onChange={this.handleInput}
-          />
-          {/* <button className="emailSubmit">인증하기</button>
-          <p>위 이메일로 인증번호가 발송됩니다.</p> */}
-          <div style={{ color: 'red' }}>{this.state.emailError}</div>
-        </form>
-
-        <form>
+        <form className="signUpbox">
+          <h1>회원가입</h1>
+          <div className="agreement">
+            <input
+              type="checkbox"
+              id="agreementCheckbox"
+              checkbox={this.state.checkde}
+              onChange={this.handleCheck}
+            />
+            <label for="inputCheckbox" className="checkboxText">
+              전체 동의
+            </label>
+            <p>
+              위갓디즈 서비스 이용약관(필수), 개인정보 수집 ∙ 이용 동의(필수),
+            </p>
+            <p>마케팅 정보 수신 동의(선택)</p>
+          </div>
+          <div className="signUpEmail">
+            <input
+              className="emailInput"
+              type="text"
+              placeholder="이메일 계정"
+              name="email"
+              onChange={this.handleInput}
+              onKeyUp={this.onEmailValidation}
+            />
+            <div className="errorMessage">{emailError}</div>
+          </div>
           <input
             className="nameInput"
             type="text"
@@ -142,25 +131,26 @@ class Signup extends Component {
             name="name"
             onChange={this.handleInput}
           />
+          <div className="passwordInput">
+            <input
+              type="password"
+              placeholder="비밀번호 입력"
+              name="pw"
+              onChange={this.handleInput}
+              onKeyUp={this.onPwValidation}
+            />
+            {<div className="errorMessage">{pwError}</div>}
+            <input
+              type="password"
+              placeholder="비밀번호 확인"
+              name="pwCheck"
+              onChange={this.handleInput}
+              onKeyUp={this.onPwCheckValidation}
+            />
+            {<div className="errorMessage">{pwCheckError}</div>}
+          </div>
+          <button className="recommendBtn">완료</button>
         </form>
-        <form className="passwordInput" onKeyUp={this.onSubmitPw}>
-          <input
-            type="password"
-            placeholder="비밀번호 입력"
-            name="pw"
-            onChange={this.handleInput}
-          />
-          {<div style={{ color: 'red' }}>{this.state.pwError}</div>}
-
-          <input
-            type="password"
-            placeholder="비밀번호 확인"
-            name="pwCheck"
-            onChange={this.handleInput}
-          />
-          <p>영문, 숫자, 특수문자 (!@#$%^&*+=-)를 조합한 8자 이상</p>
-        </form>
-        <button className="recommendBtn">완료</button>
       </div>
     );
   }

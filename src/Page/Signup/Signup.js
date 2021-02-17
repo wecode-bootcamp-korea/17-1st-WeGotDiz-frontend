@@ -82,8 +82,8 @@ class Signup extends Component {
             name="email"
             onChange={this.handleInput}
           />
-          <button className="emailSubmit">인증하기</button>
-          <p>위 이메일로 인증번호가 발송됩니다.</p>
+          {/* <button className="emailSubmit">인증하기</button> */}
+          {/* <p>위 이메일로 인증번호가 발송됩니다.</p> */}
           <div style={{ color: 'red' }}>{this.state.emailError}</div>
         </form>
 

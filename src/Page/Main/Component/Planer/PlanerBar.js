@@ -8,6 +8,7 @@ class PlanerBar extends Component {
     super();
     this.state = {
       rankData: [],
+      planData: [],
     };
   }
 
@@ -31,7 +32,28 @@ class PlanerBar extends Component {
           <div className="planerLeftHeader">기획전</div>
           <div className="planerLeftContent">
             <div className="planerContent">
-              <div className="planerContentImg">{/* <img /> */}</div>
+              <div className="planerContentImg">
+                <img src="./images/b1.jpg" alt="planerProduct" />
+              </div>
+              <div className="planerContentText">
+                <span>상 받은 펀딩</span>
+                <div className="planerProduct">
+                  <div className="planerProductText">
+                    <p>
+                      [3.5억 앵콜] 화제의 보드게임 #렉시오 플러스가
+                      돌아왔습니다.
+                    </p>
+                    <span>1767%</span>
+                    <span>게임 취미</span>
+                  </div>
+                  <div className="planerProductImg">{/* <img></img> */}</div>
+                </div>
+              </div>
+            </div>
+            <div className="planerContent">
+              <div className="planerContentImg">
+                <img src="./images/b1.jpg" alt="planerProduct" />
+              </div>
               <div className="planerContentText">
                 <span>상 받은 펀딩</span>
                 <div className="planerProduct">

@@ -1,0 +1,172 @@
+@import '../../Style/common.scss';
+
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 120px;
+
+  .footerMenuContainer {
+    height: 56px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: left;
+    padding: 0px 100px;
+
+    .footerMenuBar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      font-size: 15px;
+
+      .footerMenuContent {
+        margin-right: 25px;
+        padding-left: 0;
+        text-align: text;
+        color: #515151;
+        cursor: pointer;
+
+        i {
+          font-size: 12px;
+          margin-left: 4px;
+          color: rgba(0, 0, 0, 0.2);
+          cursor: pointer;
+        }
+      }
+
+      .footerMenuBold {
+        color: black;
+        font-weight: bold;
+        margin-bottom: 1px;
+      }
+    }
+  }
+
+  .footerInfoContainer {
+    margin: 35px 100px 0px;
+    text-align: left;
+
+    .footerInfo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 100px;
+      width: 100%;
+      height: 100%;
+
+      .footerInfoSectionLeft {
+        display: flex;
+
+        .footerInfoLeft {
+          display: flex;
+          align-items: center;
+
+          .infoLeftContent {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 195px;
+            height: 50px;
+            padding-left: 30px;
+            padding-bottom: 2px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #212529;
+            border-radius: 28px;
+
+            i {
+              position: absolute;
+              top: 17px;
+              left: 20px;
+            }
+          }
+
+          .infoRightContent {
+            margin-left: 25px;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.4);
+
+            .infoRightTop {
+              span {
+                margin-right: 7px;
+              }
+              span:nth-child(1) {
+                color: black;
+                font-weight: bold;
+              }
+            }
+
+            .infoRightBottom {
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+
+      .footerInfoCenter {
+        width: 100%;
+        height: 100%;
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.4);
+        padding-top: 7px;
+        padding-left: 50px;
+
+        .infoTopContent {
+          margin-bottom: 10px;
+          span {
+            margin-right: 7px;
+          }
+        }
+
+        .infoCenterContent {
+          margin-bottom: 10px;
+        }
+      }
+
+      .footerInfoSectionRight {
+        display: flex;
+        margin-left: 35px;
+        font-size: 12px;
+
+        .infoRightApple {
+          margin-right: 20px;
+        }
+        i {
+          margin-right: 10px;
+        }
+        span {
+          color: rgba(0, 0, 0, 0.8);
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .footerNoticeContainer {
+    height: 80px;
+    margin-top: 40px;
+    padding: 24px 16px 40px;
+    background-color: #292929;
+
+    p {
+      padding-top: 10px;
+      text-align: center;
+      color: #babdc0;
+      font-size: 12px;
+
+      .noticeFirst {
+        font-weight: 700;
+        padding-right: 8px;
+      }
+      .noticeSecond {
+        font-weight: 400;
+        text-decoration: underline;
+        padding-left: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "스토리",
+    "count": null
+  },
+  {
+    "id": 2,
+    "name": "반환∙정책",
+    "count": null
+  },
+  {
+    "id": 3,
+    "name": "새소식",
+    "count": 4
+  },
+  {
+    "id": 4,
+    "name": "커뮤니티",
+    "count": 6
+  },
+  {
+    "id": 5,
+    "tabName": "서포터",
+    "count": 759
+  }
+]

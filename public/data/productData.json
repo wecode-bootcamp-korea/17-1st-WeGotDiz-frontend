@@ -1,0 +1,46 @@
+{
+  "tabsData": [
+    {
+      "id": 1,
+      "name": "스토리",
+      "count": null
+    },
+    {
+      "id": 2,
+      "name": "반환∙정책",
+      "count": null
+    },
+    {
+      "id": 3,
+      "name": "새소식",
+      "count": 4
+    },
+    {
+      "id": 4,
+      "name": "커뮤니티",
+      "count": 6
+    },
+    {
+      "id": 5,
+      "name": "서포터",
+      "count": 759
+    }
+  ],
+  "makerTrustData": [
+    {
+      "id": 1,
+      "graphTitle": "평판",
+      "level": "on"
+    },
+    {
+      "id": 2,
+      "graphTitle": "소통",
+      "level": "off"
+    },
+    {
+      "id": 3,
+      "graphTitle": "인기",
+      "level": "off"
+    }
+  ]
+}

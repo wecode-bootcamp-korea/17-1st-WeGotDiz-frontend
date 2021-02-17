@@ -11,8 +11,7 @@
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     text-align: left;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding: 0px 100px;
 
     .footerMenuBar {
       display: flex;
@@ -46,17 +45,14 @@
   }
 
   .footerInfoContainer {
-    margin-right: 100px;
-    margin-left: 100px;
-    margin-top: 35px;
+    margin: 35px 100px 0px;
     text-align: left;
 
     .footerInfo {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding-left: 100px;
-      padding-right: 100px;
+      padding: 0px 100px;
       width: 100%;
       height: 100%;
 

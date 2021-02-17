@@ -6,11 +6,12 @@ class Signup extends Component {
   constructor() {
     super();
     this.state = {
-      checked: false,
-      email: '',
+      // checked: false,
+      // email: '',
       // name: '',
-      // pw: '',
-      // pwCheck: '',
+      pw: '',
+      pwError: '',
+      pwCheck: '',
       emailError: '',
     };
   }
@@ -19,36 +20,82 @@ class Signup extends Component {
     this.setState({ checked: e.target.checked });
   };
 
-  //이메일 입력 확인
+  //Value 확인
   handleInput = e => {
     const { value, name } = e.target;
     this.setState({
       [name]: value,
     });
   };
+  //
 
   isEmail = email => {
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return emailRegex.test(email);
   };
 
-  onTextValidation = () => {
-    let emailError = '';
+  onEmailValidation = () => {
+    // let emailError = '';
 
     if (!this.isEmail(this.state.email)) {
-      emailError = '이메일 형식이 올바르지 않습니다.';
+      this.setState({
+        emailError: '이메일 형식이 올바르지 않습니다.',
+      });
+    } else {
+      this.setState({ emailError: '' });
+      // return false;
     }
-    if (emailError === '') {
-      this.setState({ emailError });
-      return false;
-    }
-    return true;
+    // return true;
   };
 
   onSubmitEmail = e => {
     e.preventDefault();
-    const emailValid = this.onTextValidation();
+    const emailValid = this.onEmailValidation();
     if (!emailValid) {
+      console.log('check', this.state);
+    }
+  };
+
+  // isPassword = () => {
+  //   const pwRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+  //   return pwRegex.exec(this.state.pw);
+  // };
+
+  // onPwValidation = () => {
+  //   if (!this.isPassword(this.state.pw)) {
+  //     this.setState({ pwError: '영문, 숫자, 특수문자를 조합한 8자 이상' });
+  //   } else {
+  //     this.setState({ pwError: '' });
+  //   }
+  // };
+
+  // onSubmitPw = e => {
+  //   e.preventDefault();
+  //   const pwValid = this.onPwValidation();
+  //   if (!pwValid) {
+  //     console.log('pw check', this.state);
+  //   }
+  // };
+  isPassword = pw => {
+    const pwRegex = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+    console.log(pwRegex.test(pw));
+    return pwRegex.test(pw);
+  };
+
+  onPwValidation = () => {
+    if (!this.isPassword(this.state.pw)) {
+      this.setState({
+        pwError: '영문, 숫자, 특수문자를 조합한 8자 이상',
+      });
+    } else {
+      this.setState({ pwError: '' });
+    }
+  };
+
+  onSubmitPw = e => {
+    e.preventDefault();
+    const pwValid = this.onPwValidation();
+    if (!pwValid) {
       console.log('check', this.state);
     }
   };
@@ -74,7 +121,7 @@ class Signup extends Component {
           <p>마케팅 정보 수신 동의(선택)</p>
         </div>
 
-        <form className="signUpEmail" onSubmit={this.onSubmitEmail}>
+        <form className="signUpEmail" onKeyUp={this.onSubmitEmail}>
           <input
             className="emailInput"
             type="text"
@@ -82,8 +129,8 @@ class Signup extends Component {
             name="email"
             onChange={this.handleInput}
           />
-          {/* <button className="emailSubmit">인증하기</button> */}
-          {/* <p>위 이메일로 인증번호가 발송됩니다.</p> */}
+          {/* <button className="emailSubmit">인증하기</button>
+          <p>위 이메일로 인증번호가 발송됩니다.</p> */}
           <div style={{ color: 'red' }}>{this.state.emailError}</div>
         </form>
 
@@ -96,13 +143,15 @@ class Signup extends Component {
             onChange={this.handleInput}
           />
         </form>
-        <form className="passwordInput">
+        <form className="passwordInput" onKeyUp={this.onSubmitPw}>
           <input
             type="password"
             placeholder="비밀번호 입력"
             name="pw"
             onChange={this.handleInput}
           />
+          {<div style={{ color: 'red' }}>{this.state.pwError}</div>}
+
           <input
             type="password"
             placeholder="비밀번호 확인"

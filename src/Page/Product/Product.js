@@ -33,17 +33,19 @@ class Product extends Component {
   };
 
   handleMakerInfo = () => {
+    const { makerInfo } = this.state;
     this.setState({
-      makerInfo: !this.state.makerInfo,
+      makerInfo: !makerInfo,
     });
   };
 
-  // goToPurchase = () => {
-  // };
+  goToPurchase = () => {
+    this.props.history.push('/purchase');
+  };
 
   render() {
-    const { handleTab, handleLike, goToPurchase } = this;
-    const { like, likeNum } = this.state;
+    const { handleTab, handleLike, goToPurchase, handleMakerInfo } = this;
+    const { like, likeNum, makerInfo } = this.state;
     return (
       <main className="product">
         <div className="titleContainer">
@@ -142,11 +144,11 @@ class Product extends Component {
                 </button>
               </div>
               <div className="makerInfo">
-                <button className="makerInfoBtn" onClick={this.handleMakerInfo}>
+                <button className="makerInfoBtn" onClick={handleMakerInfo}>
                   <span>메이커 정보</span>
                   <i className="fas fa-chevron-down" />
                 </button>
-                {this.state.makerInfo && (
+                {makerInfo && (
                   <div className="makerInfoMore">
                     <p className="makerInfoTitle">메이커 연락처</p>
                     <p className="makerInfoDetails">google@gmail.com</p>

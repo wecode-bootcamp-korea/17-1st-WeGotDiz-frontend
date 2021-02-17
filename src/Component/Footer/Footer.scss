@@ -1,24 +1,27 @@
 @import '../../Style/common.scss';
 
 .footerContainer {
-  // position: relative;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  // margin-left: 40px;
+  // margin-right: 40px;
+  width: 100%;
   padding-top: 120px;
 
   .footerMenuContainer {
     height: 56px;
-    border-top: 1px solid #e6eaed;
-    border-bottom: 1px solid #e6eaed;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     text-align: left;
+    padding-left: 100px;
+    padding-right: 100px;
 
     .footerMenuBar {
       display: flex;
+      justify-content: center;
       align-items: center;
-      // margin-left: 20px;
-      // margin-right: 20px;
-      // padding: 0 80px;
-      padding-left: 80px;
-      padding-right: 80px;
-      // max-width: 1440px;
       width: 100%;
       height: 100%;
       font-size: 15px;
@@ -26,7 +29,7 @@
       .footerMenuContent {
         margin-right: 25px;
         padding-left: 0;
-        text-align: left;
+        text-align: text;
         color: #515151;
         cursor: pointer;
 
@@ -47,76 +50,130 @@
   }
 
   .footerInfoContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 280px;
-    padding-left: 80px;
+    margin-right: 100px;
+    margin-left: 100px;
     margin-top: 35px;
-    width: 100%;
-    height: 100%;
+    text-align: left;
 
-    .footerInfoLeft {
+    .footerInfo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-left: 100px;
+      padding-right: 100px;
       width: 100%;
       height: 100%;
-      display: flex;
 
-      .infoLeftContent {
-        position: relative;
+      .footerInfoSectionLeft {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 195px;
-        height: 50px;
-        padding-left: 30px;
-        padding-bottom: 2px;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        background-color: #212529;
-        border-radius: 28px;
 
-        i {
-          position: absolute;
-          top: 17px;
-          left: 20px;
+        .footerInfoLeft {
+          display: flex;
+          align-items: center;
+
+          .infoLeftContent {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 195px;
+            height: 50px;
+            padding-left: 30px;
+            padding-bottom: 2px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #212529;
+            border-radius: 28px;
+
+            i {
+              position: absolute;
+              top: 17px;
+              left: 20px;
+            }
+          }
+
+          .infoRightContent {
+            margin-left: 25px;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.4);
+
+            .infoRightTop {
+              span {
+                margin-right: 7px;
+              }
+              span:nth-child(1) {
+                color: black;
+                font-weight: bold;
+              }
+            }
+
+            .infoRightBottom {
+              margin-top: 10px;
+            }
+          }
         }
       }
 
-      .infoRightContent {
-        margin-left: 25px;
-        padding-top: 7px;
-        font-size: 13px;
+      .footerInfoCenter {
+        width: 100%;
+        height: 100%;
+        font-size: 12px;
         color: rgba(0, 0, 0, 0.4);
+        padding-top: 7px;
+        padding-left: 50px;
 
-        .infoRightTop {
+        .infoTopContent {
+          margin-bottom: 10px;
           span {
             margin-right: 7px;
           }
         }
 
-        .infoRightBottom {
-          margin-top: 10px;
+        .infoCenterContent {
+          margin-bottom: 10px;
+        }
+      }
+
+      .footerInfoSectionRight {
+        display: flex;
+        margin-left: 35px;
+        font-size: 12px;
+
+        .infoRightApple {
+          margin-right: 20px;
+        }
+        i {
+          margin-right: 10px;
+        }
+        span {
+          color: rgba(0, 0, 0, 0.8);
+          font-weight: bold;
         }
       }
     }
+  }
 
-    .footerInfoCenter {
-      width: 100%;
-      height: 100%;
-      font-size: 13px;
-      color: rgba(0, 0, 0, 0.4);
-      padding-top: 7px;
+  .footerNoticeContainer {
+    height: 80px;
+    margin-top: 40px;
+    padding: 24px 16px 40px;
+    background-color: #292929;
 
-      .infoTopContent {
-        margin-bottom: 10px;
-        span {
-          margin-right: 7px;
-        }
+    p {
+      padding-top: 10px;
+      text-align: center;
+      color: #babdc0;
+      font-size: 12px;
+
+      .noticeFirst {
+        font-weight: 700;
+        padding-right: 8px;
       }
-
-      .infoCenterContent {
-        margin-bottom: 10px;
+      .noticeSecond {
+        font-weight: 400;
+        text-decoration: underline;
+        padding-left: 5px;
       }
     }
   }

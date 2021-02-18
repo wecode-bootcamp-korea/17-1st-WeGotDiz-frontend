@@ -1,16 +1,21 @@
 //슬라이더 부분
 
 .sliderContainer {
-  background-color: #babdc0;
+  // background-color: #babdc0;
   border: none;
   outline: none;
 }
 
 .sliderImg {
   width: 1519px;
-  height: 380px;
+  height: 360px;
+  border: none;
+  outline: none;
 
   img {
     width: 100%;
+    height: 100%;
+    // border: none;
+    // outline: none;
   }
 }

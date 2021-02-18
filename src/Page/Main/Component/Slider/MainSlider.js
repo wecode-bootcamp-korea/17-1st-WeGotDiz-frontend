@@ -24,7 +24,7 @@ class MainSlider extends Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      autoplay: true,
+      // autoplay: true,
       autoplaySpeed: 300,
       // centerMode: true,
       lazyLoad: true,

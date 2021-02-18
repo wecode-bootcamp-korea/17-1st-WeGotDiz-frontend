@@ -1,0 +1,74 @@
+@import '../../../../Style/common.scss';
+
+.alertModal {
+  @extend %flex-center;
+  z-index: 10;
+  background-color: #000;
+
+  .modalContainer {
+    width: 560px;
+    height: fit-content;
+    background-color: #f9f9f9;
+
+    .modalMain {
+      padding: 30px 32px 20px 32px;
+
+      .backToStoryBtn {
+        display: flex;
+        align-items: center;
+        height: 42px;
+        color: #000;
+        background-color: inherit;
+        border: none;
+        font-size: 17px;
+
+        .fa-arrow-left {
+          font-size: 12px;
+          margin-right: 4px;
+        }
+      }
+
+      header {
+        margin-bottom: 30px;
+        font-size: 28px;
+        font-weight: 200;
+        line-height: 1.3;
+
+        span {
+          font-weight: bold;
+        }
+      }
+
+      .checkboxWrapper {
+        border: $border;
+
+        .checkboxContainer,
+        p {
+          padding: 12px;
+        }
+
+        .checkboxContainer {
+          width: 100%;
+          border-bottom: $border;
+        }
+
+        p {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .continueToFundingBtn {
+      width: 100%;
+      height: 56px;
+      color: #fff;
+      background-color: $main-color;
+      border: none;
+      font-size: 17px;
+
+      &:disabled {
+        background-color: #e3e7ea;
+      }
+    }
+  }
+}

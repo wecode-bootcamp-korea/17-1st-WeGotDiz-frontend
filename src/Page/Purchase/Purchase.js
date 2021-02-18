@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import './PurchaseModal.scss';
+import AlertModal from './Component/AlertModal/AlertModal';
 
-class PurchaseModal extends Component {
+class Purchase extends Component {
   render() {
     return (
-      <div className="purchaseModal">
-        <div className="modalContainer">
-          <p>ddd</p>
-        </div>
-        <i class="fas fa-arrow-left" />
+      <div className="purchase">
+        {/* <AlertModal /> */}
+        <header></header>
       </div>
     );
   }
 }
 
-export default PurchaseModal;
+export default Purchase;

@@ -5,24 +5,26 @@ class Aside extends Component {
   constructor() {
     super();
     this.state = {
-      like: false,
+      isLikeCliked: false,
       likeNum: 172,
-      makerInfo: false,
+      isMakerInfoClicked: false,
     };
   }
 
   handleLike = () => {
-    const { like, likeNum } = this.state;
+    const { isLikeCliked, likeNum } = this.state;
+
     this.setState({
-      like: !like,
-      likeNum: like ? likeNum - 1 : likeNum + 1,
+      isLikeCliked: !isLikeCliked,
+      likeNum: isLikeCliked ? likeNum - 1 : likeNum + 1,
     });
   };
 
   handleMakerInfo = () => {
-    const { makerInfo } = this.state;
+    const { isMakerInfoClicked } = this.state;
+
     this.setState({
-      makerInfo: !makerInfo,
+      isMakerInfoClicked: !isMakerInfoClicked,
     });
   };
 
@@ -32,29 +34,29 @@ class Aside extends Component {
 
   render() {
     const { handleLike, goToPurchase, handleMakerInfo } = this;
-    const { like, likeNum, makerInfo } = this.state;
-    const { data } = this.props;
+    const { isLikeCliked, likeNum, isMakerInfoClicked } = this.state;
+    const { makerTrustData, numData } = this.props;
 
     return (
       <aside>
         <p className="daysLeft">1일 남음</p>
         <ul className="productNumInfo">
-          <li className="achievement">
-            <span>1752</span>% 달성
-          </li>
-          <li className="totalAmmount">
-            <span>17,528,010</span>원 펀딩
-          </li>
-          <li className="supporters">
-            <span>761</span>명의 서포터
-          </li>
+          {numData &&
+            numData.map(num => {
+              return (
+                <li className="achievement" key={num.id}>
+                  <span>{num.amount}</span>
+                  {num.name}
+                </li>
+              );
+            })}
         </ul>
         <button onClick={goToPurchase} className="fundingBtn">
           펀딩하기
         </button>
         <div className="btnWrapper">
           <button className="likeBtn" onClick={handleLike}>
-            <i className="fas fa-heart" id={like ? 'like' : 'unlike'} />
+            <i className="fas fa-heart" id={isLikeCliked ? 'like' : 'unlike'} />
             {likeNum}
           </button>
           <button>공유하기</button>
@@ -83,8 +85,8 @@ class Aside extends Component {
             <i className="far fa-question-circle" />
           </div>
           <div className="makerTrustInfo">
-            {data &&
-              data.map(info => {
+            {makerTrustData &&
+              makerTrustData.map(info => {
                 return (
                   <div className="makerGraph" key={info.id}>
                     <p className="graphTitle">{info.graphTitle}</p>
@@ -105,7 +107,7 @@ class Aside extends Component {
               <span>메이커 정보</span>
               <i className="fas fa-chevron-down" />
             </button>
-            {makerInfo && (
+            {isMakerInfoClicked && (
               <div className="makerInfoMore">
                 <p className="makerInfoTitle">메이커 연락처</p>
                 <p className="makerInfoDetails">google@gmail.com</p>

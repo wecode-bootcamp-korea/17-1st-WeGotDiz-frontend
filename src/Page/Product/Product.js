@@ -16,19 +16,29 @@ class Product extends Component {
     this.state = {
       currentId: 1,
       productData: {},
+      bannerData: [],
+      tabsData: [],
+      makerTrustData: [],
     };
   }
 
   componentDidMount() {
+    this.handleData();
+  }
+
+  handleData = () => {
     fetch('/data/productData.json')
       .then(res => res.json())
       .then(res => {
         this.setState({
+          productData: res,
+          bannerData: res.bannerData,
           tabsData: res.tabsData,
           makerTrustData: res.makerTrustData,
+          numData: res.numData,
         });
       });
-  }
+  };
 
   handleTab = id => {
     this.setState({
@@ -38,16 +48,26 @@ class Product extends Component {
 
   render() {
     const { handleTab } = this;
-    const { currentId, tabsData, makerTrustData } = this.state;
+    const {
+      currentId,
+      tabsData,
+      makerTrustData,
+      productData,
+      bannerData,
+      numData,
+    } = this.state;
+
     return (
       <main className="product">
-        <Banner />
-        {this.state.productData && (
-          <Tabs handleTab={handleTab} data={tabsData} />
+        {productData && (
+          <>
+            <Banner bannerData={bannerData} />
+            <Tabs handleTab={handleTab} tabsData={tabsData} />
+          </>
         )}
         <div className="contentsContainer">
           <content className="contents">{MAPPING_TAB[currentId]}</content>
-          <Aside data={makerTrustData} />
+          <Aside makerTrustData={makerTrustData} numData={numData} />
         </div>
       </main>
     );

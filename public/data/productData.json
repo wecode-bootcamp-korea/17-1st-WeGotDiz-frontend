@@ -1,4 +1,25 @@
 {
+  "bannerData": {
+    "category": "반려동물",
+    "productTtile": "당기는 산책 습관? 베이컨박스 신제품, 산책 안전벨트로 #충격완화"
+  },
+  "numData": [
+    {
+      "id": 1,
+      "amount": "1752",
+      "name": "% 달성"
+    },
+    {
+      "id": 2,
+      "amount": "17,528,010",
+      "name": "원 펀딩"
+    },
+    {
+      "id": 3,
+      "amount": "761",
+      "name": "명의 서포터"
+    }
+  ],
   "tabsData": [
     {
       "id": 1,

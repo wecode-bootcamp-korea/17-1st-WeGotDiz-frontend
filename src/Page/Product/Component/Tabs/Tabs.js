@@ -3,11 +3,12 @@ import './Tabs.scss';
 
 class Tabs extends Component {
   render() {
-    const { handleTab, data } = this.props;
+    const { handleTab, tabsData } = this.props;
+
     return (
       <ul className="tabs">
-        {data &&
-          data.map(tab => {
+        {tabsData &&
+          tabsData.map(tab => {
             return (
               <li
                 key={tab.id}

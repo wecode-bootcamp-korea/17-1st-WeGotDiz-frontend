@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RankProduct from './RankProduct';
-
+import PlanerContent from './PlanerContent';
 import './PlanerBar.scss';
 
 class PlanerBar extends Component {
@@ -14,6 +14,7 @@ class PlanerBar extends Component {
 
   componentDidMount() {
     this.rankDataAdd();
+    this.planDataAdd();
   }
 
   rankDataAdd = () => {
@@ -28,91 +29,34 @@ class PlanerBar extends Component {
       });
   };
 
-  planDataAdd = () => {};
+  planDataAdd = () => {
+    fetch('http://localhost:3000/data/PlanerData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          planData: data,
+        });
+      });
+  };
 
   render() {
-    const { rankData } = this.state;
+    console.log('과연', this.state.planeData);
+    const { rankData, planData } = this.state;
     return (
       <header className="planerContainer">
         <section className="planerContainerLeft">
           <div className="planerLeftHeader">기획전</div>
-          <div className="planerPageBtn">
-            <button>1</button>
-            <button>2</button>
+          <div className="planerPageBtnList">
+            <button className="planerPageBtn">1</button>
+            <button className="planerPageBtn">2</button>
+            <button className="planerPageBtn">3</button>
           </div>
           <div className="planerLeftContent">
-            <div className="planerContent">
-              <div className="planerContentImg">
-                <img src="./images/b1.jpg" alt="planerProduct" />
-              </div>
-              <div className="planerContentText">
-                <span className="planerTitle">상 받은 펀딩</span>
-                <div className="planerProductList">
-                  <div className="planerProduct">
-                    <div className="planerProductText">
-                      <p>
-                        [3.5억 앵콜] 화제의 보드게임 #렉시오 플러스가
-                        돌아왔습니다.
-                      </p>
-                      <span className="planerPercent">1767%</span>
-                      <span className="planerCategori">게임 취미</span>
-                    </div>
-                    <div className="planerProductImg">
-                      <img src="./images/fnvl.PNG" />
-                    </div>
-                  </div>
-                  <div className="planerProduct">
-                    <div className="planerProductText">
-                      <p>
-                        [3.5억 앵콜] 화제의 보드게임 #렉시오 플러스가
-                        돌아왔습니다.
-                      </p>
-                      <span className="planerPercent">1767%</span>
-                      <span className="planerCategori">게임 취미</span>
-                    </div>
-                    <div className="planerProductImg">
-                      <img src="./images/fnvl.PNG" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="planerContent">
-              <div className="planerContentImg">
-                <img src="./images/b1.jpg" alt="planerProduct" />
-              </div>
-              <div className="planerContentText">
-                <span className="planerTitle">기분 좋아지는 선물 펀딩</span>
-                <div className="planerProductList">
-                  <div className="planerProduct">
-                    <div className="planerProductText">
-                      <p>
-                        [3.5억 앵콜] 화제의 보드게임 #렉시오 플러스가
-                        돌아왔습니다.
-                      </p>
-                      <span className="planerPercent">1767%</span>
-                      <span className="planerCategori">게임 취미</span>
-                    </div>
-                    <div className="planerProductImg">
-                      <img src="./images/fnvl.PNG" />
-                    </div>
-                  </div>
-                  <div className="planerProduct">
-                    <div className="planerProductText">
-                      <p>
-                        [3.5억 앵콜] 화제의 보드게임 #렉시오 플러스가
-                        돌아왔습니다.
-                      </p>
-                      <span className="planerPercent">1767%</span>
-                      <span className="planerCategori">게임 취미</span>
-                    </div>
-                    <div className="planerProductImg">
-                      <img src="./images/fnvl.PNG" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {planData.map((data, index) => {
+              return <PlanerContent planContent={data} key={index} />;
+            })}
           </div>
         </section>
         <section className="planerContainerRight">

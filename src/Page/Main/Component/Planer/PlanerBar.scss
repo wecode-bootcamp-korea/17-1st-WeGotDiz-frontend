@@ -22,6 +22,29 @@
       font-weight: 700;
       padding-bottom: 20px;
     }
+    .planerPageBtnList {
+      position: absolute;
+      right: 0;
+      top: 12px;
+
+      // font-size: 15px;
+      .planerPageBtn {
+        background-color: #ffffff;
+        border: none;
+        // text-align: center;
+        margin-left: 5px;
+        // margin-bottom: 5px;
+        cursor: pointer;
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 13px;
+        font-weight: 400;
+
+        :active {
+          color: #00b2b2;
+          font-size: 20px;
+        }
+      }
+    }
     .planerLeftContent {
       display: flex;
       justify-content: space-between;

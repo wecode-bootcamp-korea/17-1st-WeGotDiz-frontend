@@ -1,7 +1,7 @@
 const SLIDERIMG = [
   {
     id: 1,
-    img: './images/b1.jpg',
+    img: './images/Artboard.png',
   },
   {
     id: 2,

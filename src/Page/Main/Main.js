@@ -10,6 +10,7 @@ class Main extends Component {
       <div>
         <MainSlider />
         <PlanerBar />
+        카테고리 상품시작 사ㅣㅇ품 상품 상품 상품
       </div>
     );
   }

@@ -27,12 +27,16 @@ class PlanerContent extends Component {
             </div>
             <div className="planerProduct">
               <div className="planerProductText">
-                <p>{planContent}</p>
-                <span className="planerPercent">1767%</span>
-                <span className="planerCategori">게임 취미</span>
+                <p>{planContent.planText2}</p>
+                <span className="planerPercent">
+                  {planContent.planPercent2}
+                </span>
+                <span className="planerCategori">
+                  {planContent.planCategori2}
+                </span>
               </div>
               <div className="planerProductImg">
-                <img src="./images/fnvl.PNG" />
+                <img src={planContent.planImg2} />
               </div>
             </div>
           </div>

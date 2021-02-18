@@ -63,12 +63,12 @@ class Product extends Component {
           <>
             <Banner bannerData={bannerData} />
             <Tabs handleTab={handleTab} tabsData={tabsData} />
+            <div className="contentsContainer">
+              <content className="contents">{MAPPING_TAB[currentId]}</content>
+              <Aside makerTrustData={makerTrustData} numData={numData} />
+            </div>
           </>
         )}
-        <div className="contentsContainer">
-          <content className="contents">{MAPPING_TAB[currentId]}</content>
-          <Aside makerTrustData={makerTrustData} numData={numData} />
-        </div>
       </main>
     );
   }

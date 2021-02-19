@@ -3,23 +3,18 @@ import './Liked.scss';
 
 class Liked extends Component {
   render() {
+    console.log('props>', this.props);
+    const { imgUrl, title, makerCompany, catagory } = this.props;
     return (
       <div className="likedContainer">
         <div className="likedBox">
-          <img src={this.props.imgUrl} alt={this.props.catagory} />
+          <img src={imgUrl} alt={catagory} />
           <div className="textBox">
-            <h4>{this.props.title}</h4>
-            <p>{this.props.company}</p>
-            <p>{this.props.catagory}</p>
+            <h4>{title}</h4>
+            <p>{makerCompany}</p>
+            <p>{catagory}</p>
           </div>
         </div>
-        <div className="likedBox">Liked test</div>
-        <div className="likedBox">Liked test</div>
-        <div className="likedBox">Liked test</div>
-        <div className="likedBox">Liked test</div>
-        <div className="likedBox">Liked test</div>
-        <div className="likedBox">Liked test</div>
-        <div className="likedBox">Liked test</div>
       </div>
     );
   }

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Funded from './Funded/Funded';
-import Liked from './Liked/Liked';
+//import Liked from './Liked/Liked';
+import LikeList from './Liked/LikeLIst/LikeList';
 import './Mypage.scss';
 
-export default class Mypage extends Component {
+class Mypage extends Component {
   constructor() {
     super();
     this.state = {
@@ -30,22 +31,12 @@ export default class Mypage extends Component {
           name: '팔로잉',
         },
       ],
-      fundingList: [
-        {
-          id: 1,
-          imgUrl: 2,
-          title: 3,
-          makerCompany: 4,
-          catagory: 5,
-        },
-      ],
       likeList: [
         {
           id: 1,
           imgUrl:
             'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80',
-          title:
-            '[풍미작렬] 입안 가득감칠맛, 육향끝판왕! 드라이에이징 숙성육포',
+          title: '[풍미작렬] 입안 가득 감칠맛, 드라이에이징 스테이크',
           makerCompany: '플레이버 키친',
           catagory: '푸드',
         },
@@ -68,7 +59,13 @@ export default class Mypage extends Component {
   };
 
   render() {
+    console.log('state>', this.state.likeList);
     const { currentId } = this.state;
+    const MAPPING_OBJ = {
+      1: <Funded />,
+      2: <LikeList data={this.state.likeList} />,
+    };
+    const CATEGORY_ARR = ['펀딩한', '좋아한'];
     return (
       <div className="myPageContainer">
         <div className="topInfo">
@@ -100,16 +97,11 @@ export default class Mypage extends Component {
               );
             })}
           </ul>
-          <div className="content">{MAPPING_OBJ[currentId].map()}</div>
+          <div className="content">{MAPPING_OBJ[currentId]}</div>
         </div>
       </div>
     );
   }
 }
 
-const MAPPING_OBJ = {
-  1: <Funded likeList={this.state.fundList} />,
-  2: <Liked />,
-};
-
-const CATEGORY_ARR = ['펀딩한', '좋아한'];
+export default Mypage;

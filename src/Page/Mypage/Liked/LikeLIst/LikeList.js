@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import Mypage from '../../Mypage';
+import Liked from '../Liked';
+//import Mypage from '../../Mypage';
+
 class LikeList extends Component {
   render() {
-    console.log(this.props);
+    console.log('props likelist>', this.props.data);
+    const { data } = this.props;
     return (
       <div>
-        {this.state.likeList.map(like => {
+        {data.map(like => {
           return (
-            <Mypage
+            <Liked
               key={like.id}
               img={like.imgUrl}
               title={like.title}

@@ -24,27 +24,28 @@ class Signup extends Component {
   //Value 확인
   handleInput = e => {
     const { value, name } = e.target;
+    console.log('value >>', e.target.value);
     this.setState({
       [name]: value,
     });
   };
 
   // email value check
-  isEmail = email => {};
-
-  onEmailValidation = () => {
+  isEmail = email => {
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const isEmailVailed = emailRegex.test(email);
-
-    this.setState({ emailError: isEmailVailed });
+    return emailRegex.test(email);
   };
-  // if (!this.isEmail(this.state.email)) {
-  //   this.setState({
-  //     emailError: '이메일 형식이 올바르지 않습니다.',
-  //   });
-  // } else {
-  //   this.setState({ emailError: '' });
-  // }
+
+  onEmailVaildation = () => {
+    console.log('onEmailvaildation>', this.state.email);
+    if (!this.isEmail(this.state.email)) {
+      this.setState({
+        emailError: '이메일 형식이 올바르지 않습니다.',
+      });
+    } else {
+      this.setState({ emailError: '' });
+    }
+  };
 
   // password value check
   isPassword = pw => {
@@ -121,7 +122,7 @@ class Signup extends Component {
               placeholder="이메일 계정"
               name="email"
               onChange={this.handleInput}
-              onKeyUp={this.onEmailValidation}
+              onKeyUp={this.onEmailVaildation}
             />
             <div className="errorMessage">{emailError}</div>
           </div>

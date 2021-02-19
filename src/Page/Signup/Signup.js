@@ -30,20 +30,21 @@ class Signup extends Component {
   };
 
   // email value check
-  isEmail = email => {
-    const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return emailRegex.test(email);
-  };
+  isEmail = email => {};
 
   onEmailValidation = () => {
-    if (!this.isEmail(this.state.email)) {
-      this.setState({
-        emailError: '이메일 형식이 올바르지 않습니다.',
-      });
-    } else {
-      this.setState({ emailError: '' });
-    }
+    const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const isEmailVailed = emailRegex.test(email);
+
+    this.setState({ emailError: isEmailVailed });
   };
+  // if (!this.isEmail(this.state.email)) {
+  //   this.setState({
+  //     emailError: '이메일 형식이 올바르지 않습니다.',
+  //   });
+  // } else {
+  //   this.setState({ emailError: '' });
+  // }
 
   // password value check
   isPassword = pw => {

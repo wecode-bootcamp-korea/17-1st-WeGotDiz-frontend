@@ -1,0 +1,135 @@
+@import '../../../../Style/common.scss';
+
+.productListContainer {
+  margin: 40px auto;
+  width: 1150px;
+  .productListHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    span {
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .productForm {
+      display: flex;
+      .productSearchOn {
+        border: none;
+        outline: none;
+        font-size: 13px;
+      }
+
+      .productSearchOff {
+        display: none;
+      }
+
+      .searchToggleBtn {
+        width: 35px;
+        height: 35px;
+        background-color: #ffffff;
+        border: none;
+        outline: none;
+        color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+      }
+      .productSelectLeft {
+        border: none;
+        outline: none;
+      }
+      .productSelectRight {
+        border: none;
+        outline: none;
+      }
+    }
+  }
+
+  .productList {
+    width: 1150px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .productContent {
+      width: 330px;
+      margin-bottom: 40px;
+
+      .productImg {
+        height: 180px;
+        border-radius: 3px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        img {
+          border-radius: 3px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .productText {
+        padding: 5px;
+        .productTitle {
+          p {
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+          span {
+            font-size: 12px;
+            margin-right: 7px;
+            color: #90949c;
+            font-weight: 600;
+          }
+        }
+
+        .progressBarAll {
+          background-color: #e6eaed;
+          width: 100%;
+          height: 4px;
+          border-radius: 20px;
+          margin-top: 10px;
+          margin-bottom: 3px;
+
+          .progressBarPlay {
+            background-color: #00b2b2;
+            height: 4px;
+            border-radius: 20px;
+          }
+        }
+
+        .productSubTitle {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 14px;
+          text-align: center;
+          .subTitleContent {
+            .productPercent {
+              font-size: 17px;
+              font-weight: 700;
+              color: #00b2b2;
+            }
+
+            .productDot {
+              color: #90949c;
+            }
+
+            .productPrice {
+              font-size: 13px;
+              color: #90949c;
+              font-weight: 600;
+            }
+          }
+          .productDate {
+            font-size: 13px;
+            color: #90949c;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

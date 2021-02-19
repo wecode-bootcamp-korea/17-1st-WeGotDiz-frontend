@@ -1,0 +1,50 @@
+@import '../../../../Style/common.scss';
+
+.categoriContainer {
+  margin: 90px auto;
+  width: 1150px;
+
+  .categoriList {
+    display: flex;
+    height: 120px;
+    white-space: nowrap;
+    overflow: auto;
+
+    .categoriContent {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin: 0 20px;
+      cursor: pointer;
+
+      .categoriImg {
+        width: 70px;
+        height: 60px;
+        border-radius: 20px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+
+      .categoriName {
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  .categoriList::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+  }
+
+  .categoriList::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+}

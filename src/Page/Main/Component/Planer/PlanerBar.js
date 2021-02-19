@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RankProduct from './RankProduct';
-import PlanerContent from './PlanerContent';
+
 import './PlanerBar.scss';
 
 class PlanerBar extends Component {
@@ -36,13 +36,12 @@ class PlanerBar extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          planData: data,
+          planData: data.test,
         });
       });
   };
 
   render() {
-    console.log('과연', this.state.planeData);
     const { rankData, planData } = this.state;
     return (
       <header className="planerContainer">
@@ -55,7 +54,36 @@ class PlanerBar extends Component {
           </div>
           <div className="planerLeftContent">
             {planData.map((data, index) => {
-              return <PlanerContent planContent={data} key={index} />;
+              return (
+                <div className="planerContent" key={index}>
+                  <div className="planerContentImg">
+                    <img src={data.planImg} alt="planerProduct" />
+                  </div>
+                  <div className="planerContentText">
+                    <span className="planerTitle">{data.planTitle}</span>
+                    <div className="planerProductList">
+                      {data.products.map((subdata, index) => {
+                        return (
+                          <div className="planerProduct" key={index}>
+                            <div className="planerProductText">
+                              <p>{subdata.text}</p>
+                              <span className="planerPercent">
+                                {subdata.percent}
+                              </span>
+                              <span className="planerCategori">
+                                {subdata.categori}
+                              </span>
+                            </div>
+                            <div className="planerProductImg">
+                              <img src={subdata.img} alt="product" />
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              );
             })}
           </div>
         </section>

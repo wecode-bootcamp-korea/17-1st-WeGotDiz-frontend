@@ -1,0 +1,64 @@
+{
+  "test": [
+    {
+      "id": 1,
+      "img": "./images/fnvl.PNG",
+      "name": "전체보기"
+    },
+    {
+      "id": 2,
+      "img": "./images/테크가전.jpg",
+      "name": "테크·가전"
+    },
+    {
+      "id": 3,
+      "img": "./images/패션잡화.jpg",
+      "name": "패션·잡화"
+    },
+    {
+      "id": 4,
+      "img": "./images/뷰티.jpg",
+      "name": "뷰티"
+    },
+    {
+      "id": 5,
+      "img": "./images/푸드.jpg",
+      "name": "푸드"
+    },
+    {
+      "id": 6,
+      "img": "./images/홈리빙.jpg",
+      "name": "홈리빙"
+    },
+    {
+      "id": 7,
+      "img": "./images/디자인소품.jpg",
+      "name": "디자인소품"
+    },
+    {
+      "id": 8,
+      "img": "./images/여행레저.jpg",
+      "name": "여행·레저"
+    },
+    {
+      "id": 9,
+      "img": "./images/스포츠모빌리티.jpg",
+      "name": "스포츠·모빌리티"
+    },
+    {
+      "id": 10,
+      "img": "./images/반려동물.jpg",
+      "name": "반려동물"
+    },
+    {
+      "id": 9,
+      "img": "./images/스포츠모빌리티.jpg",
+      "name": "스포츠·모빌리티"
+    },
+    {
+      "id": 9,
+      "img": "./images/스포츠모빌리티.jpg",
+      "name": "스포츠·모빌리티"
+    }
+  ]
+}

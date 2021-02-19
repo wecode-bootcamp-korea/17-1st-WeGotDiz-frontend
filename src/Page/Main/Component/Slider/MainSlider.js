@@ -20,31 +20,24 @@ class MainSlider extends Component {
     const settings = {
       dots: true,
       infinite: true,
-      // arrows: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      // autoplay: true,
-      // autoplaySpeed: 300,
-      // centerMode: true,
       lazyLoad: true,
-      // appendDots: dots => <div style={{ color: 'red' }}>{dots}</div>,
     };
     const { data } = this.state;
     return (
-      <>
-        <div class="sliderContainer">
-          <Slider {...settings}>
-            {data.map(data => {
-              return (
-                <div className="sliderImg">
-                  <img src={data.img} alt="상품배너사진" key={data.id} />
-                </div>
-              );
-            })}
-          </Slider>
-        </div>
-      </>
+      <div class="sliderContainer">
+        <Slider {...settings}>
+          {data.map((data, index) => {
+            return (
+              <div className="sliderImg" key={index}>
+                <img src={data.img} alt={data.id} />
+              </div>
+            );
+          })}
+        </Slider>
+      </div>
     );
   }
 }

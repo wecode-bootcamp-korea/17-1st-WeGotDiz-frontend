@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import MainSlider from './Component/Slider/MainSlider';
 import PlanerBar from './Component/Planer/PlanerBar';
+import CategoriList from './Component/CategoriList/CategoriList';
+import MainProductList from './Component/ProductList/MainProductList';
 
 import './Main.scss';
 
@@ -10,7 +12,8 @@ class Main extends Component {
       <div>
         <MainSlider />
         <PlanerBar />
-        카테고리 상품시작 사ㅣㅇ품 상품 상품 상품
+        <CategoriList />
+        <MainProductList />
       </div>
     );
   }

@@ -79,6 +79,7 @@
           .planerProductList {
             display: flex;
             flex-direction: column;
+            cursor: pointer;
             .planerProduct {
               display: flex;
               margin: 10px 0;

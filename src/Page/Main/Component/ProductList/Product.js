@@ -17,12 +17,12 @@ class Product extends Component {
           <div className="progressBarAll">
             <div
               className="progressBarPlay"
-              style={{ width: `${productData.percent}` }}
+              style={{ width: `${productData.percent}%` }}
             ></div>
           </div>
           <div className="productSubTitle">
             <div className="subTitleContent">
-              <span className="productPercent">{productData.percent}</span>
+              <span className="productPercent">{productData.percent}%</span>
               <span className="productDot">·</span>
               <span className="productPrice">{productData.price}</span>
             </div>

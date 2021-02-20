@@ -9,6 +9,9 @@ class PlanerBar extends Component {
     this.state = {
       rankData: [],
       planData: [],
+      prevPlan: 0,
+      endPlan: 2,
+      page: '1',
     };
   }
 
@@ -34,11 +37,39 @@ class PlanerBar extends Component {
       method: 'GET',
     })
       .then(res => res.json())
-      .then(data => {
+      .then(res => {
+        let result = res.planData.slice(
+          this.state.prevPlan,
+          this.state.endPlan
+        );
         this.setState({
-          planData: data.test,
+          planData: result,
         });
       });
+  };
+
+  // ============================================
+
+  // 기획전 페이지 이동
+
+  changePlanData = e => {
+    if (e.target.value === '1') {
+      this.setState({
+        prevPlan: 0,
+        endPlan: 2,
+      });
+    } else if (e.target.value === '2') {
+      this.setState({
+        prevPlan: 2,
+        endPlan: 4,
+      });
+    } else if (e.target.value === '3') {
+      this.setState({
+        prevPlan: 4,
+        endPlan: 6,
+      });
+    }
+    this.planDataAdd();
   };
 
   render() {
@@ -48,9 +79,27 @@ class PlanerBar extends Component {
         <section className="planerContainerLeft">
           <div className="planerLeftHeader">기획전</div>
           <div className="planerPageBtnList">
-            <button className="planerPageBtn">1</button>
-            <button className="planerPageBtn">2</button>
-            <button className="planerPageBtn">3</button>
+            <button
+              className="planerPageBtn"
+              value="1"
+              onClick={this.changePlanData}
+            >
+              1
+            </button>
+            <button
+              className="planerPageBtn"
+              value="2"
+              onClick={this.changePlanData}
+            >
+              2
+            </button>
+            <button
+              className="planerPageBtn"
+              value="3"
+              onClick={this.changePlanData}
+            >
+              3
+            </button>
           </div>
           <div className="planerLeftContent">
             {planData.map((data, index) => {
@@ -64,7 +113,15 @@ class PlanerBar extends Component {
                     <div className="planerProductList">
                       {data.products.map((subdata, index) => {
                         return (
-                          <div className="planerProduct" key={index}>
+                          <div
+                            className="planerProduct"
+                            key={index}
+                            onClick={() => {
+                              //this.props.history.push(`/product/detail/${subdata.id}`);
+                              console.log('확인좀 >>>>>' + subdata.id);
+                              console.log('뭐눌름 ? >>>>>' + subdata.id);
+                            }}
+                          >
                             <div className="planerProductText">
                               <p>{subdata.text}</p>
                               <span className="planerPercent">

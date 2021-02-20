@@ -8,10 +8,11 @@ class MainProductList extends Component {
     this.state = {
       isSearch: false,
       searchText: '',
-      selectLeft: 'none',
+      selectLeft: 'all',
       selectRight: 'recommend',
-      percent: '',
       products: [],
+      items: 6,
+      preItems: 0,
     };
   }
 
@@ -20,15 +21,18 @@ class MainProductList extends Component {
   }
 
   productDataAdd() {
+    const { preItems, items } = this.state;
     fetch('http://localhost:3000/data/ProductListData.json', {
       method: 'GET',
     })
       .then(res => res.json())
-      .then(res =>
+      .then(res => {
+        let result = res.product.slice(preItems, items);
         this.setState({
-          products: res.product,
-        })
-      );
+          products: [...this.state.products, ...result],
+        });
+      });
+    window.addEventListener('scroll', this.infiniteScroll, true);
   }
 
   //검색창 On Off
@@ -41,40 +45,50 @@ class MainProductList extends Component {
 
   //검색 체인지
   handleSearchChange = e => {
-    this.setState(
-      {
-        searchText: e.target.value,
-      },
-      () => {
-        // console.log(this.state.searchText);
-      }
-    );
+    this.setState({
+      searchText: e.target.value,
+    });
   };
 
-  //검색 엔터 누를 시
+  //검색 엔터 누를 시 검색 되면서 텍스트 초기화
   handleSearchEnter = e => {
     const { searchText } = this.state;
     if (e.key === 'Enter' && searchText) {
-      this.goSearch();
+      this.setState({
+        searchText: '',
+      });
     }
   };
 
-  //검색 되면서 텍스트 초기화
-  goSearch = () => {
+  //셀렉트 박스 값 받기
+
+  handleSelect = e => {
     this.setState({
-      searchText: '',
+      [e.target.name]: e.target.value,
     });
   };
 
   //========================================
 
-  //셀렉트 박스 값 받기
+  //무한 스크롤
 
-  handleSelect = e => {
-    // console.log('뭘까? >>>>>', e.target.options[e.target.selectedIndex].value);
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+  infiniteScroll = () => {
+    const { documentElement, body } = document;
+    const { items } = this.state;
+    let scrollHeight = Math.max(
+      documentElement.scrollHeight,
+      body.scrollHeight
+    );
+    let scrollTop = Math.max(documentElement.scrollTop, body.scrollTop);
+    let clientHeight = documentElement.clientHeight;
+
+    if (scrollTop + clientHeight >= scrollHeight) {
+      this.setState({
+        preItems: items,
+        items: items + 6,
+      });
+      this.componentDidMount();
+    }
   };
 
   render() {
@@ -83,9 +97,6 @@ class MainProductList extends Component {
     const filteredProducts = products.filter(product => {
       return product.text.toLowerCase().includes(searchText.toLowerCase());
     });
-    console.log('부모/ 뭐가지고옴? >>>' + products);
-    console.log('왼쪽의 값 >>>>' + this.state.selectLeft);
-    console.log('오른쪽의 값 >>>>' + this.state.selectRight);
     return (
       <div className="productListContainer">
         <header className="productListHeader">
@@ -111,7 +122,7 @@ class MainProductList extends Component {
               onChange={this.handleSelect}
               name="selectLeft"
             >
-              <option value="none">전체</option>
+              <option value="all">전체</option>
               <option value="ing">진행중</option>
               <option value="end">종료된</option>
             </select>

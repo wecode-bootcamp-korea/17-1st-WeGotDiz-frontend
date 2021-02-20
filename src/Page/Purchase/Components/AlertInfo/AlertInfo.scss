@@ -1,0 +1,124 @@
+@import '../../../../Style/common.scss';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+.alertInfo {
+  margin-bottom: 10px;
+  border: $border;
+
+  .checkboxInfo,
+  .checkboxInfoDetailsBtn,
+  .checkboxInfoDetailsText {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .checkboxContainer {
+    width: 100%;
+    height: fit-content;
+    padding: 12px;
+    font-size: 17px;
+    line-height: 1.2;
+
+    .container {
+      display: block;
+      position: relative;
+      padding-left: 30px;
+      cursor: pointer;
+      color: #b4aea4;
+      font-size: 17px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      &:hover input ~ .checkmark {
+        border: 1px solid $main-color;
+        transition: border 0.2s;
+      }
+
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        &:checked ~ .checkmark {
+          background-color: $main-color;
+          border: 1px solid $main-color;
+
+          &::after {
+            display: block;
+          }
+        }
+      }
+
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #fff;
+        border: $border;
+        border-radius: 50%;
+
+        &::after {
+          content: '';
+          position: absolute;
+          display: none;
+          left: 6px;
+          top: 3px;
+          width: 4px;
+          height: 8px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  .checkboxInfo {
+    border-top: $border;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.2;
+
+    p {
+      padding: 4px 0;
+
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .checkboxInfoDetails {
+    // display: none;
+    width: 100%;
+
+    .checkboxInfoDetailsBtn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: fit-content;
+      background-color: inherit;
+      border: none;
+      border-top: $border;
+      font-size: 15px;
+
+      .fa-chevron-down {
+        margin-right: 5px;
+      }
+    }
+
+    .checkboxInfoDetailsText p {
+      height: fit-content;
+      font-size: 10px;
+    }
+  }
+}

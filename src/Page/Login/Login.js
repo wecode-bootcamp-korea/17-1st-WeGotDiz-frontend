@@ -15,7 +15,6 @@ class Login extends Component {
 
   handleInput = e => {
     const { value, name } = e.target;
-    console.log('handleInput value >>> ', e.target.value);
     this.setState(
       {
         [name]: value,
@@ -25,8 +24,6 @@ class Login extends Component {
   };
 
   onEmailCheck = () => {
-    console.log('onEmailCheck value >>> ', this.state.email);
-
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const isEmailVaild = emailRegex.test(this.state.email);
 

@@ -13,7 +13,7 @@ class Purchase extends Component {
     this.state = {
       isModalOn: true,
       isReservationShow: true,
-      isPurchaseCompleted: false,
+      isPurchaseCompleted: true,
     };
   }
 
@@ -32,7 +32,7 @@ class Purchase extends Component {
         {isModalOn && <AlertModal handleModal={handleModal} />}
         <ProductHeader />
         <PurchaseStep />
-        {/* <ChooseReward /> */}
+        <ChooseReward />
         {isReservationShow && <PurchaseReservation />}
         {isPurchaseCompleted && <PurchaseComplete />}
       </div>

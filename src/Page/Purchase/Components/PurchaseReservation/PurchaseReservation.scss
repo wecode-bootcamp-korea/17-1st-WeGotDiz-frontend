@@ -1,1 +1,71 @@
 @import '../../../../Style/common.scss';
+
+.purchaseReservation {
+  width: 650px;
+  margin: auto;
+
+  .purchaseDetails {
+    border-top: 1px solid #000;
+    background-color: #dedede;
+
+    dd {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+  }
+
+  .supporterInfoWrapper {
+    display: flex;
+    margin-top: 50px;
+
+    p {
+      font-size: 24px;
+    }
+
+    .fundingSupporter,
+    .deliveryAddress {
+      width: 315px;
+    }
+    .supporterInfo,
+    .address {
+      margin-top: 20px;
+    }
+
+    .supporterInfo {
+      padding: 15px 12px 24px;
+      background-color: #eeede9;
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    .deliveryAddress {
+      margin-left: 20px;
+    }
+
+    .address label {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .paymentMethod {
+    display: flex;
+
+    .paymentMethodInput {
+      width: 900px;
+    }
+  }
+
+  .submitPurchaseReservation {
+    width: fit-content;
+    margin: auto;
+    height: 48px;
+    padding: 0 24px;
+    background-color: $main-color;
+    color: #fff;
+    font-size: 17px;
+    border-radius: 3px;
+  }
+}

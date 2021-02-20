@@ -31,25 +31,31 @@ class Mypage extends Component {
           name: '팔로잉',
         },
       ],
-      likeList: [
-        {
-          id: 1,
-          imgUrl:
-            'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80',
-          title: '[풍미작렬] 입안 가득 감칠맛, 드라이에이징 스테이크',
-          makerCompany: '플레이버 키친',
-          catagory: '푸드',
-        },
-        {
-          id: 2,
-          imgUrl:
-            'https://images.unsplash.com/photo-1558403194-611308249627?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-          title: '퇴근 후 열리는 개발자 특별한 모임',
-          makerCompany: '위코드',
-          catagory: '모임',
-        },
-      ],
+      likeList: [],
+      fundingList: [],
     };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/data/likeList.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          likeList: data,
+        });
+      });
+
+    fetch('http://localhost:3001/data/fundingList.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          fundingList: data,
+        });
+      });
   }
 
   clickHandler = currentId => {
@@ -59,15 +65,15 @@ class Mypage extends Component {
   };
 
   render() {
-    console.log('state>', this.state.likeList);
+    console.log('state >>>', this.state.likeList);
     const { currentId } = this.state;
     const MAPPING_OBJ = {
-      1: <Funded />,
+      1: <Funded data={this.state.fundingList} />,
       2: <LikeList data={this.state.likeList} />,
     };
     const CATEGORY_ARR = ['펀딩한', '좋아한'];
     return (
-      <div className="myPageContainer">
+      <div className="myPage">
         <div className="topInfo">
           <h1>허혜성</h1>
           <p>개인회원</p>
@@ -97,7 +103,10 @@ class Mypage extends Component {
               );
             })}
           </ul>
-          <div className="content">{MAPPING_OBJ[currentId]}</div>
+          {/* <div className="bigBox"> */}
+          {MAPPING_OBJ[currentId]}
+          {/* <div className="content">{MAPPING_OBJ[currentId]}</div> */}
+          {/* </div> */}
         </div>
       </div>
     );

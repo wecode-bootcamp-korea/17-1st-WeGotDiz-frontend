@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Liked from '../Liked';
+import './LikeList.scss';
 //import Mypage from '../../Mypage';
 
 class LikeList extends Component {
   render() {
-    console.log('props likelist>', this.props.data);
+    console.log('props likelist >>>', this.props.data);
     const { data } = this.props;
     return (
-      <div>
+      <div className="likeList">
         {data.map(like => {
           return (
             <Liked

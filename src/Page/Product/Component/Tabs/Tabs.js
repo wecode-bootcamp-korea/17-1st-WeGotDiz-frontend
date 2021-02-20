@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import './Tabs.scss';
 
 class Tabs extends Component {
+  constructor() {
+    super();
+    this.state = {
+      now: true,
+    };
+  }
   render() {
     const { handleTab, tabsData } = this.props;
 
@@ -13,7 +19,7 @@ class Tabs extends Component {
               <li
                 key={tab.id}
                 onClick={() => handleTab(tab.id)}
-                className="tab"
+                className={`tab`}
               >
                 {tab.name}
                 <span className="countTotal">{tab.count}</span>

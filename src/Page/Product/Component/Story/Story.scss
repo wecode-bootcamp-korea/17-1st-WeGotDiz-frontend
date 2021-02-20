@@ -1,1 +1,37 @@
-@import '../../Style/common.scss';
+@import '../../../../Style/common.scss';
+
+.story {
+  margin-right: 40px;
+
+  img {
+    width: 100%;
+  }
+
+  .productDescription {
+    padding: 40px 16px;
+    color: #676363;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+  }
+
+  .fundingInfo {
+    padding: 24px;
+    background-color: #00c4c41a;
+
+    .goal,
+    .term {
+      font-size: 13px;
+      line-height: 1.5;
+      color: $main-color;
+    }
+
+    .fundingNotice {
+      padding: 14px 0;
+      font-size: 12px;
+      color: #4a4a4a;
+      line-height: 1.5;
+      border-radius: 3px;
+    }
+  }
+}

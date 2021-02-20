@@ -24,7 +24,6 @@ class Signup extends Component {
   //Value 확인
   handleInput = e => {
     const { value, name } = e.target;
-    console.log('value >>', e.target.value);
     this.setState({
       [name]: value,
     });
@@ -37,7 +36,6 @@ class Signup extends Component {
   };
 
   onEmailVaildation = () => {
-    console.log('onEmailvaildation>', this.state.email);
     if (!this.isEmail(this.state.email)) {
       this.setState({
         emailError: '이메일 형식이 올바르지 않습니다.',
@@ -77,20 +75,21 @@ class Signup extends Component {
   };
 
   goToMain = () => {
-    fetch('', {
+    // e.preventDefault();
+    fetch('http://10.58.4.47:8000/user/signup', {
       method: 'POST',
       body: JSON.stringify({
         email: this.state.email,
-        name: this.state.name,
-        pw: this.state.pw,
-        pwCheck: this.state.pwCheck,
+        fullname: this.state.name,
+        password: this.state.pw,
+        //pwCheck: this.state.pwCheck,
       }),
     })
       .then(response => response.json())
       .then(result =>
         result.message === 'SUCCESS'
-          ? this.props.history.push('/')
-          : alert('회원가입 실패')
+          ? this.props.history.push('/login')
+          : alert('회원가입실패')
       );
   };
 
@@ -98,7 +97,7 @@ class Signup extends Component {
     const { emailError, pwError, pwCheckError } = this.state;
     return (
       <div className="signUpContainer">
-        <form className="signUpbox">
+        <div className="signUpbox">
           <h1>회원가입</h1>
           <div className="agreement">
             <input
@@ -151,8 +150,10 @@ class Signup extends Component {
             />
             {<div className="errorMessage">{pwCheckError}</div>}
           </div>
-          <button className="recommendBtn">완료</button>
-        </form>
+          <button onClick={this.goToMain} className="recommendBtn">
+            완료
+          </button>
+        </div>
       </div>
     );
   }

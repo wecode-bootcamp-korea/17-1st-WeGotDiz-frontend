@@ -37,7 +37,7 @@ class ChooseReward extends Component {
               <div>
                 <div>
                   <button> - </button>
-                  <input type="number"></input>
+                  <input type="number" />
                   <button> + </button>
                 </div>
                 <div>
@@ -82,7 +82,9 @@ class ChooseReward extends Component {
           아무나 먹는 비건 소스 3종 비건, 이제는 '맛있게' 받아들이세요!에 0 원을
           펀딩합니다.
         </p>
-        <button className="nextBtn">다음 단계로 </button>
+        <button className="nextBtn">
+          다음 단계로 <i className="fas fa-chevron-right" />
+        </button>
       </div>
     );
   }

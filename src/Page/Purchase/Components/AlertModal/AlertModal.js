@@ -21,7 +21,7 @@ class AlertModal extends Component {
             <AlertInfo />
           </div>
           <button
-            onClick={this.props.modalOff}
+            onClick={this.props.handleModal}
             className="continueToFundingBtn"
           >
             계속해서 펀딩하기

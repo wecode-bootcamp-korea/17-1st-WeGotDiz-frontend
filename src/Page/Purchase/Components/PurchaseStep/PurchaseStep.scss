@@ -1,0 +1,46 @@
+@import '../../../../Style/common.scss';
+
+.purchaseStep {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0 42px;
+
+  .step1,
+  .step2,
+  .step3 {
+    @extend %flex-center;
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin: 0 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .step1 {
+    background-color: #00c4c4;
+    color: #fff;
+  }
+
+  .step2,
+  .step3 {
+    border: dashed 1px #000;
+  }
+
+  .stepOn {
+    background-color: #00c4c4;
+    color: #fff;
+  }
+
+  .stepOff {
+    border: dashed 1px $gray-color;
+    color: #fff;
+  }
+
+  .line {
+    position: absolute;
+    border: 1px solid #000;
+  }
+}

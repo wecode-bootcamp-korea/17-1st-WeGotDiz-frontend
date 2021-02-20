@@ -1,56 +1,40 @@
 import React, { Component } from 'react';
-import AlertModal from './Component/AlertModal/AlertModal';
+import AlertModal from './Components/AlertModal/AlertModal';
 import ChooseReward from './Components/ChooseReward/ChooseReward';
+import ProductHeader from './Components/ProductHeader/ProductHeader';
+import PurchaseReservation from './Components/PurchaseReservation/PurchaseReservation';
+import PurchaseStep from './Components/PurchaseStep/PurchaseStep';
+import PurchaseComplete from './Components/PurchaseComplete/PurchaseComplete';
 import './Purchase.scss';
 
 class Purchase extends Component {
   constructor() {
     super();
     this.state = {
-      modalOn: true,
+      isModalOn: true,
+      isReservationShow: false,
+      isPurchaseCompleted: false,
     };
   }
 
-  modalOff = () => {
+  handleModal = () => {
     this.setState({
-      modalOn: false,
+      isModalOn: false,
     });
   };
 
   render() {
+    const { isModalOn, isReservationShow, isPurchaseCompleted } = this.state;
+    const { handleModal } = this;
+
     return (
       <div className="purchase">
-        {this.state.modalOn && <AlertModal modalOff={this.modalOff} />}
-
-        <div className="productTitle">
-          <button className="backToStoryBtn">
-            <i class="fas fa-chevron-left" />
-            스토리로 돌아가기
-          </button>
-          <p>[2.2억 업그레이드 앵콜] 9가지 컬러 9기능 돌아온 화제의 후드티</p>
-          <img
-            alt="Maker profile"
-            className="makerImg"
-            src="https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1484722933/ypd1aluy7j0x7gqhjczv.png"
-          />
-          <span className="makerName">gitgit</span>
-        </div>
-        <div className="purchaseStep">
-          <div className="step1">
-            <span>
-              리워드
-              <br />
-              선택
-            </span>
-          </div>
-          <div className="step2">
-            <span>결제 예약</span>
-          </div>
-          <div className="step3">소문내기</div>
-        </div>
-        <div className="wrapper">
-          <ChooseReward />
-        </div>
+        {isModalOn && <AlertModal handleModal={handleModal} />}
+        <ProductHeader />
+        <PurchaseStep />
+        <ChooseReward />
+        {isReservationShow && <PurchaseReservation />}
+        {isPurchaseCompleted && <PurchaseComplete />}
       </div>
     );
   }

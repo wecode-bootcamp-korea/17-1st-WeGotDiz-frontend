@@ -1,32 +1,40 @@
 import React, { Component } from 'react';
+import Progressbar from '../../../../Component/Progressbar/Progressbar';
 
 class Product extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      percent: this.props.percent,
+    };
+  }
+
+  goProductDetail = () => {
+    // this.props.history.push(`/product/detail/${this.props.id}`);
+    console.log('누른거 ID값 >>>>>' + this.props.id);
+  };
+
   render() {
-    const { productData } = this.props;
+    const { id, img, text, categori, brand, percent, price, date } = this.props;
     return (
-      <div className="productContent">
+      <div className="productContent" onClick={this.goProductDetail}>
         <div className="productImg">
-          <img src={productData.img} alt="productImg" />
+          <img src={img} alt="productImg" />
         </div>
         <div className="productText">
           <div className="productTitle">
-            <p>{productData.text}</p>
-            <span>{productData.categori}</span>
-            <span>{productData.brand}</span>
+            <p>{text}</p>
+            <span>{categori}</span>
+            <span>{brand}</span>
           </div>
-          <div className="progressBarAll">
-            <div
-              className="progressBarPlay"
-              style={{ width: `${productData.percent}%` }}
-            ></div>
-          </div>
+          <Progressbar percent={percent} />
           <div className="productSubTitle">
             <div className="subTitleContent">
-              <span className="productPercent">{productData.percent}%</span>
+              <span className="productPercent">{percent}%</span>
               <span className="productDot">·</span>
-              <span className="productPrice">{productData.price}</span>
+              <span className="productPrice">{price}</span>
             </div>
-            <span className="productDate">{productData.date}</span>
+            <span className="productDate">{date}</span>
           </div>
         </div>
       </div>

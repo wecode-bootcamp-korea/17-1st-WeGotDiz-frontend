@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Product from './Product';
+import ProductList from './ProductList';
 import './MainProductList.scss';
 
 class MainProductList extends Component {
@@ -11,7 +11,7 @@ class MainProductList extends Component {
       selectLeft: 'none',
       selectRight: 'recommend',
       percent: '',
-      product: [],
+      products: [],
     };
   }
 
@@ -24,11 +24,11 @@ class MainProductList extends Component {
       method: 'GET',
     })
       .then(res => res.json())
-      .then(data => {
+      .then(res =>
         this.setState({
-          product: data.product,
-        });
-      });
+          products: res.product,
+        })
+      );
   }
 
   //검색창 On Off
@@ -71,14 +71,21 @@ class MainProductList extends Component {
   //셀렉트 박스 값 받기
 
   handleSelect = e => {
-    console.log('뭘까? >>>>>', e);
+    // console.log('뭘까? >>>>>', e.target.options[e.target.selectedIndex].value);
     this.setState({
       [e.target.name]: e.target.value,
     });
   };
 
   render() {
-    const { isSearch, searchText, product } = this.state;
+    const { isSearch, searchText, products } = this.state;
+    //필터링 로직
+    const filteredProducts = products.filter(product => {
+      return product.text.toLowerCase().includes(searchText.toLowerCase());
+    });
+    console.log('부모/ 뭐가지고옴? >>>' + products);
+    console.log('왼쪽의 값 >>>>' + this.state.selectLeft);
+    console.log('오른쪽의 값 >>>>' + this.state.selectRight);
     return (
       <div className="productListContainer">
         <header className="productListHeader">
@@ -122,11 +129,7 @@ class MainProductList extends Component {
             </select>
           </form>
         </header>
-        <main className="productList">
-          {product.map((data, index) => {
-            return <Product productData={data} key={index} />;
-          })}
-        </main>
+        <ProductList products={filteredProducts} />
       </div>
     );
   }

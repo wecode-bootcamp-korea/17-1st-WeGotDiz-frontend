@@ -11,6 +11,7 @@ class Nav extends Component {
       isSuggestLeft: true,
       isSuggestRight: false,
       searchText: '',
+      // searchTextLog
       searchArr: [],
     };
   }
@@ -67,6 +68,7 @@ class Nav extends Component {
 
   render() {
     const { isNavSearch, searchText, isloggedIn } = this.state;
+    console.log('뭐라적혔니 ㅋㅋㅋㅋ >>>>>>' + searchText);
     return (
       <div>
         <header className="navContainer">

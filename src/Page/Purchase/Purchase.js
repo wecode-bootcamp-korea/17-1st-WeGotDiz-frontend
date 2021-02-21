@@ -15,8 +15,23 @@ class Purchase extends Component {
       isChooseRewardShow: true,
       isReservationShow: false,
       isPurchaseCompleted: false,
+      rewardData: [],
     };
   }
+
+  componentDidMount() {
+    this.handleData();
+  }
+
+  handleData = () => {
+    fetch('/data/rewardData.json')
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          rewardData: res,
+        });
+      });
+  };
 
   handleModal = () => {
     this.setState({
@@ -24,7 +39,7 @@ class Purchase extends Component {
     });
   };
 
-  handleRewardData = () => {
+  handleReward = () => {
     this.setState({
       isChooseRewardShow: false,
       isReservationShow: true,
@@ -50,9 +65,17 @@ class Purchase extends Component {
       isReservationShow,
       isPurchaseCompleted,
       isChooseRewardShow,
+      rewardData,
     } = this.state;
-    const { handleModal, handleRewardData, handleSubmit, goToStory } = this;
+    const {
+      handleModal,
+      handleReward,
+      handleSubmit,
+      goToStory,
+      handleData,
+    } = this;
 
+    console.log(this.state.rewardData);
     return (
       <div className="purchase">
         {isModalOn && (
@@ -65,7 +88,11 @@ class Purchase extends Component {
           isPurchaseCompleted={isPurchaseCompleted}
         />
         {isChooseRewardShow && (
-          <ChooseReward handleRewardData={handleRewardData} />
+          <ChooseReward
+            handleReward={handleReward}
+            handleData={handleData}
+            rewardData={rewardData}
+          />
         )}
 
         {isReservationShow && (

@@ -9,6 +9,7 @@ class Login extends Component {
       email: '',
       pw: '',
       emailError: '',
+      pwError: '',
       loginError: '',
     };
   }
@@ -99,7 +100,7 @@ class Login extends Component {
               placeholder="비밀번호(영문, 숫자, 특수문자 포함 8자 이상)"
             />
             {<div className="errorMessage">{pwError}</div>}
-            {<div className="errorMessage">{this.state.passwordError}</div>}
+            {/* {<div className="errorMessage">{this.state.passwordError}</div>} */}
             <button type="submit" className="loginBtn">
               로그인
             </button>

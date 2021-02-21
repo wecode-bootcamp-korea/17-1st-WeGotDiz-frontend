@@ -1,0 +1,11 @@
+@import '../../../../Styles/common.scss';
+
+.fundingList {
+  display: flex;
+  width: 900px;
+  background-color: tomato;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 50px;
+}

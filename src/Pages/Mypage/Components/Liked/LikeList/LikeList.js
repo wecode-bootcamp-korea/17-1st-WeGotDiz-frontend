@@ -5,11 +5,11 @@ import './LikeList.scss';
 
 class LikeList extends Component {
   render() {
-    console.log('props likelist >>>', this.props.data);
-    const { data } = this.props;
+    //console.log('2. propsLikeList>>>', this.props.likeData);
+    const { likeData } = this.props;
     return (
       <div className="likeList">
-        {data.map(like => {
+        {likeData.map(like => {
           return (
             <Liked
               key={like.id}

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Funded from './Funded/Funded';
+//import Funded from './Funded/Funded';
 //import Liked from './Liked/Liked';
-import LikeList from './Liked/LikeLIst/LikeList';
+import FundingList from './Funded/FundingList/FundingList';
+import LikeList from './Liked/LikeList/LikeList';
 import './Mypage.scss';
 
 class Mypage extends Component {
@@ -37,23 +38,23 @@ class Mypage extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/data/likeList.json', {
+    fetch('http://localhost:3002/data/likeList.json', {
       method: 'GET',
     })
       .then(res => res.json())
-      .then(data => {
+      .then(likeData => {
         this.setState({
-          likeList: data,
+          likeList: likeData,
         });
       });
 
-    fetch('http://localhost:3001/data/fundingList.json', {
+    fetch('http://localhost:3002/data/fundingList.json', {
       method: 'GET',
     })
       .then(res => res.json())
-      .then(data => {
+      .then(fundData => {
         this.setState({
-          fundingList: data,
+          fundingList: fundData,
         });
       });
   }
@@ -65,11 +66,12 @@ class Mypage extends Component {
   };
 
   render() {
-    console.log('state >>>', this.state.likeList);
+    //console.log('1. stateLike>>>', this.state.likeList);
+    console.log('1. stateFund >>>', this.state.fundingList);
     const { currentId } = this.state;
     const MAPPING_OBJ = {
-      1: <Funded data={this.state.fundingList} />,
-      2: <LikeList data={this.state.likeList} />,
+      1: <FundingList fundData={this.state.fundingList} />,
+      2: <LikeList likeData={this.state.likeList} />,
     };
     const CATEGORY_ARR = ['펀딩한', '좋아한'];
     return (
@@ -104,8 +106,8 @@ class Mypage extends Component {
             })}
           </ul>
           {/* <div className="bigBox"> */}
-          {MAPPING_OBJ[currentId]}
-          {/* <div className="content">{MAPPING_OBJ[currentId]}</div> */}
+          {/* {MAPPING_OBJ[currentId]} */}
+          <div className="content">{MAPPING_OBJ[currentId]}</div>
           {/* </div> */}
         </div>
       </div>

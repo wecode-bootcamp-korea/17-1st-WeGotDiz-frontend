@@ -3,7 +3,7 @@ import './Liked.scss';
 
 class Liked extends Component {
   render() {
-    console.log('props >>>', this.props);
+    //console.log('3. propsLiked >>>', this.props);
     const { img, title, company, catagory } = this.props;
     return (
       // <div className="liked">
@@ -12,9 +12,9 @@ class Liked extends Component {
           <img src={img} alt={catagory} />
         </div>
         <div className="textBox">
-          <h4>{title}</h4>
-          <p>{company}</p>
-          <p>{catagory}</p>
+          <h4 className="title">{title}</h4>
+          <p className="companyName">{company}</p>
+          <p className="catagoryName">{catagory}</p>
         </div>
         {/* </div> */}
       </div>

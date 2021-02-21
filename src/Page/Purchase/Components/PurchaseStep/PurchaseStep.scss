@@ -7,7 +7,7 @@
   .line {
     position: absolute;
     width: 300px;
-    border-top: 1px dashed $gray-color;
+    border-top: 1px dashed $color-gray;
   }
 
   .steps {
@@ -31,7 +31,7 @@
     }
 
     .stepOff {
-      border: dashed 0.5px $gray-color;
+      border: dashed 0.5px $color-gray;
       background-color: #fff;
       color: #4a4a4a;
     }

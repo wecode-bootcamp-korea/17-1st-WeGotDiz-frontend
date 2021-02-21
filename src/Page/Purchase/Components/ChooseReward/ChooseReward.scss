@@ -24,11 +24,13 @@
     }
 
     a {
+      color: $color-main;
+      text-decoration: none;
       position: absolute;
       text-align: right;
       text-decoration: underline;
       font-size: 12px;
-      color: $main-color;
+      color: $color-main;
       right: 0;
     }
   }
@@ -83,7 +85,7 @@
     color: #4a4a4a;
 
     .totalPrice {
-      color: $main-color;
+      color: $color-main;
       text-decoration: underline;
     }
   }
@@ -95,7 +97,7 @@
     height: 48px;
     padding: 0 30px;
     color: #fff;
-    background-color: $main-color;
+    background-color: $color-main;
     border: none;
     border-radius: 3px;
     font-size: 17px;

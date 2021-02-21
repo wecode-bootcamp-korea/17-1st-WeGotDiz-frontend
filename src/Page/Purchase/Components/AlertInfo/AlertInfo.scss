@@ -31,7 +31,7 @@
       user-select: none;
 
       &:hover input ~ .checkmark {
-        border: 1px solid $main-color;
+        border: 1px solid $color-main;
         transition: border 0.2s;
       }
 
@@ -43,8 +43,8 @@
         width: 0;
 
         &:checked ~ .checkmark {
-          background-color: $main-color;
-          border: 1px solid $main-color;
+          background-color: $color-main;
+          border: 1px solid $color-main;
 
           &::after {
             display: block;

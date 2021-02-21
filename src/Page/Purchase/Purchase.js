@@ -12,8 +12,9 @@ class Purchase extends Component {
     super();
     this.state = {
       isModalOn: true,
-      isReservationShow: true,
-      isPurchaseCompleted: true,
+      isChooseRewardShow: true,
+      isReservationShow: false,
+      isPurchaseCompleted: false,
     };
   }
 
@@ -23,17 +24,53 @@ class Purchase extends Component {
     });
   };
 
+  handleRewardData = () => {
+    this.setState({
+      isChooseRewardShow: false,
+      isReservationShow: true,
+    });
+    window.scrollTo(0, 0);
+  };
+
+  handleSubmit = () => {
+    this.setState({
+      isReservationShow: false,
+      isPurchaseCompleted: true,
+    });
+    window.scrollTo(0, 0);
+  };
+
+  goToStory = () => {
+    this.props.history.push('/product/details');
+  };
+
   render() {
-    const { isModalOn, isReservationShow, isPurchaseCompleted } = this.state;
-    const { handleModal } = this;
+    const {
+      isModalOn,
+      isReservationShow,
+      isPurchaseCompleted,
+      isChooseRewardShow,
+    } = this.state;
+    const { handleModal, handleRewardData, handleSubmit, goToStory } = this;
 
     return (
       <div className="purchase">
-        {isModalOn && <AlertModal handleModal={handleModal} />}
-        <ProductHeader />
-        <PurchaseStep />
-        <ChooseReward />
-        {isReservationShow && <PurchaseReservation />}
+        {isModalOn && (
+          <AlertModal handleModal={handleModal} goToStory={goToStory} />
+        )}
+        <ProductHeader goToStory={goToStory} />
+        <PurchaseStep
+          isChooseRewardShow={isChooseRewardShow}
+          isReservationShow={isReservationShow}
+          isPurchaseCompleted={isPurchaseCompleted}
+        />
+        {isChooseRewardShow && (
+          <ChooseReward handleRewardData={handleRewardData} />
+        )}
+
+        {isReservationShow && (
+          <PurchaseReservation handleSubmit={handleSubmit} />
+        )}
         {isPurchaseCompleted && <PurchaseComplete />}
       </div>
     );

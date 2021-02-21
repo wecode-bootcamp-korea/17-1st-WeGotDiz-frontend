@@ -3,12 +3,36 @@ import AlertInfo from '../AlertInfo/AlertInfo';
 import './AlertModal.scss';
 
 class AlertModal extends Component {
+  constructor() {
+    super();
+    this.state = {
+      alertInfoData: [],
+    };
+  }
+
+  componentDidMount() {
+    this.handleAlertInfo();
+  }
+
+  handleAlertInfo = () => {
+    fetch('/data/alertInfoData.json')
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          alertInfoData: res,
+        });
+      });
+  };
+
   render() {
+    const { alertInfoData } = this.state;
+    const { goToStory } = this.props;
+
     return (
       <div className="alertModal">
         <div className="modalContainer">
           <div className="modalMain">
-            <button className="backToStoryBtn">
+            <button onClick={goToStory} className="backToStoryBtn">
               <i className="fas fa-arrow-left" />
               스토리로 돌아가기
             </button>
@@ -16,9 +40,16 @@ class AlertModal extends Component {
               <span>잠깐!</span> 결제하기가 아닌 펀딩하기인 이유를 확인하고,
               펀딩하세요.
             </header>
-            <AlertInfo />
-            <AlertInfo />
-            <AlertInfo />
+            {alertInfoData.map(info => (
+              <AlertInfo
+                id={info.id}
+                key={info.id}
+                title={info.title}
+                content={info.content}
+                details={info.details}
+                detailsInfo={info.detailsInfo}
+              />
+            ))}
           </div>
           <button
             onClick={this.props.handleModal}

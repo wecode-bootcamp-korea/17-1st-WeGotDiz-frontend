@@ -35,24 +35,14 @@ class Reward extends Component {
             <div className="line" />
             <span>리워드 제공 예상일 : 2021년 04월 중순 (11~20일) 예정</span>
           </div>
-          {/* <div>
+          <div>
             <p>수량</p>
             <div className="option">
-              <div>
-                <button> - </button>
-                <input type="number" min="1" max="20" />
-                <button> + </button>
-              </div>
-              <div>
-                <select>
-                  <option>옵션을 선택하세요</option>
-                  <option>블랙</option>
-                  <option>레드</option>
-                  <option>그린</option>
-                </select>
-              </div>
+              <button> - </button>
+              <input type="number" min="1" max="20" />
+              <button> + </button>
             </div>
-          </div> */}
+          </div>
         </div>
       </li>
     );

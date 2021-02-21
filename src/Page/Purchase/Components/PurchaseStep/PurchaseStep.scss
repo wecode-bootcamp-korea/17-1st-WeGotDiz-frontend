@@ -13,8 +13,9 @@
   .steps {
     display: flex;
 
-    .stepOn,
-    .stepOff {
+    .step1,
+    .step2,
+    .step3 {
       @extend %flex-center;
       position: relative;
       width: 90px;
@@ -25,12 +26,13 @@
       line-height: 1.2;
     }
 
-    .stepOn {
+    .on {
+      border: 1px solid $color-main;
       background-color: #00c4c4;
       color: #fff;
     }
 
-    .stepOff {
+    .off {
       border: dashed 0.5px $color-gray;
       background-color: #fff;
       color: #4a4a4a;

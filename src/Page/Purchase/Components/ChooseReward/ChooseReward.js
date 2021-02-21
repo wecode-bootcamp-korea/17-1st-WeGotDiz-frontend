@@ -3,7 +3,13 @@ import Reward from '../Reward/Reward';
 import './ChooseReward.scss';
 
 class ChooseReward extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
   render() {
+    const { handleRewardData } = this.props;
     return (
       <div className="chooseReward">
         <header>
@@ -30,7 +36,7 @@ class ChooseReward extends Component {
             </p>
             <div>
               <label>
-                <input type="text" placeholder="0" />
+                <input type="number" placeholder="0" />
               </label>
               <span>원을 추가로 후원합니다.</span>
             </div>
@@ -53,7 +59,7 @@ class ChooseReward extends Component {
           아무나 먹는 비건 소스 3종 비건, 이제는 '맛있게' 받아들이세요!에{' '}
           <em className="totalPrice">0</em> 원을 펀딩합니다.
         </p>
-        <button className="nextBtn">
+        <button className="nextBtn" onClick={handleRewardData}>
           다음 단계로 <i className="fas fa-chevron-right" />
         </button>
       </div>

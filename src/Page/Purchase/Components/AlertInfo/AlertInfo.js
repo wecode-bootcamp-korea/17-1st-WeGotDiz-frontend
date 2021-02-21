@@ -6,11 +6,10 @@ class AlertInfo extends Component {
     super();
     this.state = {
       isDetailsClicked: false,
-      userExtist: false,
     };
   }
 
-  handleDetails = () => {
+  handleDetails = e => {
     const { isDetailsClicked } = this.state;
 
     this.setState({
@@ -19,56 +18,38 @@ class AlertInfo extends Component {
   };
 
   render() {
-    const { isDetailsClicked, userExtist } = this.state;
+    const { isDetailsClicked } = this.state;
+    const { title, content, details, detailsInfo, id } = this.props;
 
     return (
-      <form className="alertInfo">
+      <div className="alertInfo">
         <dl>
           <dt className="checkboxContainer">
             <label className="container">
-              펀딩한 리워드는 새롭게 준비하고 있는 제품・서비스입니다.
-              <input type="checkbox" />
+              <span className="label">{title}</span>
+              <input type="checkbox" name={id} onClick={this.test} />
               <span className="checkmark" />
             </label>
           </dt>
-          <dd className="checkboxInfo">
-            <p>
-              펀딩 후, 리워드를 제작・준비하는 크라우드펀딩 특성상, 품질 이슈가
-              발생할 수 있습니다.
-            </p>
-            <p>
-              리워드 품질 이슈 발생 시 반환·정책 - <span>상세 정책</span>을 꼭
-              확인해주세요.
-            </p>
-          </dd>
-          {userExtist && (
+          <dd className="checkboxInfo">{content}</dd>
+          {details && (
             <dd className="checkboxInfoDetails">
               <button
                 className="checkboxInfoDetailsBtn"
                 onClick={this.handleDetails}
               >
-                <span>프로젝트 상세 정책</span>
+                {details}
                 <i className="fas fa-chevron-down" />
               </button>
-
               {isDetailsClicked && (
                 <div className="checkboxInfoDetailsText">
-                  <p>
-                    프로젝트 상세 정책프로젝트 상세 정책프로젝트 상세
-                    정책프로젝트 상세 정책프로젝트 상세 정책프로젝트 상세
-                    정책프로젝트 상세 정책프로젝트 상세 정책프로젝트 상세
-                    정책프로젝트 상세 정책프로젝트 상세 정책프로젝트 상세
-                    정책프로젝트 상세 정책프로젝트 상세 정책프로젝트 상세
-                    정책프로젝트 상세 정책프로젝트 상세 정책프로젝트 상세
-                    정책프로젝트 상세 정책프로젝트 상세 정책프로젝트 상세
-                    정책프로젝트 상세 정책프로젝트 상세 정책프로젝트 상세 정책
-                  </p>
+                  <p>{detailsInfo}</p>
                 </div>
               )}
             </dd>
           )}
         </dl>
-      </form>
+      </div>
     );
   }
 }

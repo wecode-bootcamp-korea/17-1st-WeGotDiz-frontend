@@ -3,6 +3,7 @@ import './PurchaseReservation.scss';
 
 class PurchaseReservation extends Component {
   render() {
+    const { handleSubmit } = this.props;
     return (
       <div className="purchaseReservation">
         <dl className="purchaseDetails">
@@ -135,7 +136,9 @@ class PurchaseReservation extends Component {
             </dd>
           </dl>
         </div>
-        <button className="submitPurchaseReservation">결제 예약하기</button>
+        <button className="submitPurchaseReservation" onClick={handleSubmit}>
+          결제 예약하기
+        </button>
       </div>
     );
   }

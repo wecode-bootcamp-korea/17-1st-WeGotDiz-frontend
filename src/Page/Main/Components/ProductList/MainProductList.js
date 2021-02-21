@@ -22,7 +22,7 @@ class MainProductList extends Component {
 
   productDataAdd() {
     const { preItems, items } = this.state;
-    fetch('/data/test.json', {
+    fetch('/data/ProductListData.json', {
       method: 'GET',
     })
       .then(res => res.json())

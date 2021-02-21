@@ -25,7 +25,7 @@ class Product extends Component {
           <div className="productTitle">
             <p>{text}</p>
             <span>{categori}</span>
-            <span>{brand}</span>
+            {/* <span>{brand}</span> */}
           </div>
           <Progressbar percent={percent} />
           <div className="productSubTitle">
@@ -34,7 +34,7 @@ class Product extends Component {
               <span className="productDot">·</span>
               <span className="productPrice">{price}</span>
             </div>
-            <span className="productDate">{date}</span>
+            <span className="productDate">{date}일 남음</span>
           </div>
         </div>
       </div>

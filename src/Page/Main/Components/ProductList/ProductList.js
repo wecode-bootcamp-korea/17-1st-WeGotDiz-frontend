@@ -10,13 +10,13 @@ class ProductList extends Component {
           return (
             <Product
               id={data.id}
-              img={data.img}
-              text={data.text}
-              categori={data.categori}
-              brand={data.brand}
-              percent={data.percent}
-              price={data.price}
-              date={data.date}
+              img={data.thumbnail}
+              text={data.title}
+              categori={data.category}
+              // brand={data.brand}
+              percent={data.achieved_rate}
+              price={data.toal_amount}
+              // date={data.date}
               key={index}
             />
           );

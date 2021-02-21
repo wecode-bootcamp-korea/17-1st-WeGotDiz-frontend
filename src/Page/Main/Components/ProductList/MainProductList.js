@@ -22,14 +22,22 @@ class MainProductList extends Component {
 
   productDataAdd() {
     const { preItems, items } = this.state;
-    fetch('http://localhost:3000/data/ProductListData.json', {
+    fetch('/data/test.json', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(res => {
-        let result = res.product.slice(preItems, items);
+        let result = res.data.product;
+        let length = result.length;
+        while (length) {
+          let index = Math.floor(length-- * Math.random());
+          let temp = result[length];
+          result[length] = result[index];
+          result[index] = temp;
+        }
+        let realResult = result.slice(preItems, items);
         this.setState({
-          products: [...this.state.products, ...result],
+          products: [...this.state.products, ...realResult],
         });
       });
     window.addEventListener('scroll', this.infiniteScroll, true);
@@ -95,7 +103,7 @@ class MainProductList extends Component {
     const { isSearch, searchText, products } = this.state;
     //필터링 로직
     const filteredProducts = products.filter(product => {
-      return product.text.toLowerCase().includes(searchText.toLowerCase());
+      return product.title.toLowerCase().includes(searchText.toLowerCase());
     });
     return (
       <div className="productListContainer">

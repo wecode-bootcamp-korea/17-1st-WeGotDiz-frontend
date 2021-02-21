@@ -22,7 +22,8 @@ class MainSlider extends Component {
     const settings = {
       dots: true,
       infinite: true,
-      speed: 500,
+      speed: 1000,
+      autoplay: true,
       slidesToShow: 1,
       slidesToScroll: 1,
       lazyLoad: true,

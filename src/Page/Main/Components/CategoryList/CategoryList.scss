@@ -1,16 +1,16 @@
 @import '../../../../Style/common.scss';
 
-.categoriContainer {
+.categoryContainer {
   margin: 90px auto;
   width: 1150px;
 
-  .categoriList {
+  .categoryList {
     display: flex;
     height: 120px;
     white-space: nowrap;
     overflow: auto;
 
-    .categoriContent {
+    .categoryContent {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -18,7 +18,7 @@
       margin: 0 20px;
       cursor: pointer;
 
-      .categoriImg {
+      .categoryImg {
         width: 70px;
         height: 60px;
         border-radius: 20px;
@@ -30,7 +30,7 @@
         }
       }
 
-      .categoriName {
+      .categoryName {
         font-size: 14px;
         font-weight: 500;
         margin-top: 8px;
@@ -38,12 +38,12 @@
     }
   }
 
-  .categoriList::-webkit-scrollbar-thumb {
+  .categoryList::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 30px;
   }
 
-  .categoriList::-webkit-scrollbar {
+  .categoryList::-webkit-scrollbar {
     width: 10px;
     height: 10px;
   }

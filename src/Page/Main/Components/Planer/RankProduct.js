@@ -11,7 +11,7 @@ class RankProduct extends Component {
         <div className="RankContent">
           <p>{product.rankText}</p>
           <span className="RankPercent">{product.rankPercent}</span>
-          <span className="RankCategori">{product.rankCategori}</span>
+          <span className="Rankcategory">{product.rankcategory}</span>
         </div>
         <div className="RankImg">
           <img src={product.rankImg} alt="" />

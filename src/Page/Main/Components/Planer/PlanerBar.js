@@ -127,8 +127,8 @@ class PlanerBar extends Component {
                               <span className="planerPercent">
                                 {subdata.percent}
                               </span>
-                              <span className="planerCategori">
-                                {subdata.categori}
+                              <span className="planercategory">
+                                {subdata.category}
                               </span>
                             </div>
                             <div className="planerProductImg">

@@ -15,7 +15,7 @@ class Product extends Component {
   };
 
   render() {
-    const { id, img, text, categori, brand, percent, price, date } = this.props;
+    const { id, img, text, category, brand, percent, price, date } = this.props;
     return (
       <div className="productContent" onClick={this.goProductDetail}>
         <div className="productImg">
@@ -24,7 +24,7 @@ class Product extends Component {
         <div className="productText">
           <div className="productTitle">
             <p>{text}</p>
-            <span>{categori}</span>
+            <span>{category}</span>
             {/* <span>{brand}</span> */}
           </div>
           <Progressbar percent={percent} />

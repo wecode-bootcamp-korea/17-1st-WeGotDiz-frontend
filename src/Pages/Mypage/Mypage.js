@@ -61,7 +61,7 @@ class Mypage extends Component {
 
   render() {
     //console.log('1. stateLike>>>', this.state.likeList);
-    console.log('1. stateFund >>>', this.state.fundingList);
+    console.log('1. stateFund >>>', this.state.fundDataList);
     //const { currentId } = this.state;
     // const MAPPING_OBJ = {
     //   1: <FundingList fundData={this.state.fundingList} />,
@@ -73,7 +73,7 @@ class Mypage extends Component {
         <MypageHeader userInfo={this.state.userInfo} />
         <MypageList
           likeData={this.state.likeList}
-          fundDataList={this.state.fundingList}
+          fundDataList={this.state.fundDataList}
           clickHandler={this.clickHandler}
         />
         {/* <div className="topInfo">

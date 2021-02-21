@@ -27,7 +27,7 @@ class MypageList extends Component {
         {/* {MAPPING_OBJ[currentId]} */}
         <div>
           <div className="wrapper">
-            {/* <div className="content">{MAPPING_OBJ[0]}</div> */}
+            <div className="content">{MAPPING_OBJ[0]}</div>
             {/* </div> */}
           </div>
         </div>

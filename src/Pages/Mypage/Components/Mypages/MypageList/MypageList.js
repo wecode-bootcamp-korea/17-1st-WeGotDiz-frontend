@@ -23,12 +23,9 @@ class MypageList extends Component {
             );
           })}
         </ul>
-        {/* <div className="bigBox"> */}
-        {/* {MAPPING_OBJ[currentId]} */}
         <div>
           <div className="wrapper">
             <div className="content">{MAPPING_OBJ[0]}</div>
-            {/* </div> */}
           </div>
         </div>
       </div>

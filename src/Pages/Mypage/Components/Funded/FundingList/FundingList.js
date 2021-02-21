@@ -5,7 +5,6 @@ import './FundingList.scss';
 
 class FundingList extends Component {
   render() {
-    console.log('hi');
     console.log('3. propsFundingList >>>', this.props);
     const { fundDataList } = this.props;
     return (

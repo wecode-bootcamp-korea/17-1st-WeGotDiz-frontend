@@ -3,7 +3,7 @@ import './Funded.scss';
 
 class Funded extends Component {
   render() {
-    console.log('3. propsFunded >>>', this.props);
+    console.log('4. propsFunded >>>', this.props);
     const { img, percent, price, title, company, catagory } = this.props;
     return (
       <div className="fundedBox">

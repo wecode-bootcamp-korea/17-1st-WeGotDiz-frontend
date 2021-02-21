@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import MainSlider from './Component/Slider/MainSlider';
-import PlanerBar from './Component/Planer/PlanerBar';
-import CategoriList from './Component/CategoriList/CategoriList';
-import MainProductList from './Component/ProductList/MainProductList';
+import MainSlider from './Components/Slider/MainSlider';
+import PlanerBar from './Components/Planer/PlanerBar';
+import CategoriList from './Components/CategoriList/CategoriList';
+import MainProductList from './Components/ProductList/MainProductList';
 
 import './Main.scss';
 

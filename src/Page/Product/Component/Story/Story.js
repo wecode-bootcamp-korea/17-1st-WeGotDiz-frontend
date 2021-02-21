@@ -41,7 +41,6 @@ class Story extends Component {
             모이지 않으면 결제가 진행되지 않습니다.
           </p>
         </div>
-        {}
       </div>
     );
   }

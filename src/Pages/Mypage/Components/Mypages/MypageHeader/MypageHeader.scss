@@ -1,0 +1,72 @@
+.MypageHeader {
+  //background-color: olive;
+  // width: 100%;
+  height: 120x;
+  flex-direction: row;
+  // margin-bottom: 30px;
+  // margin-left: 47px;
+  margin: 0 0 30px 47px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 40px;
+    color: #000;
+    padding-bottom: 15px;
+  }
+
+  p {
+    font-size: 13px;
+    color: #a5a2ac;
+    margin-bottom: 30px;
+  }
+
+  .userImg {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 80px;
+    left: 120px;
+  }
+
+  .activityList {
+    display: inline-block;
+    //background-color: yellow;
+    // width: 100%;
+    height: 60px;
+    //margin-bottom: 30px;
+    //margin: 0 0 30px 40px;
+    display: flex;
+    // flex-wrap: nowrap;
+    flex-direction: row;
+
+    .box {
+      display: flex;
+      flex-direction: column;
+      //justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 100%;
+      //border: 1px solid black;
+      // flex-direction: row;
+
+      strong {
+        color: #5577f2;
+        // display: block;
+        font-size: 24px;
+        // text-align: center;
+        padding: 5px 0 10px 0;
+      }
+
+      p {
+        font-size: 13px;
+        color: #5577f2;
+        //text-align: center;
+      }
+    }
+  }
+}

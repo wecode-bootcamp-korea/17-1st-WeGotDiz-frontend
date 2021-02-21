@@ -8,5 +8,10 @@
     "id": 2,
     "likecount": 1,
     "name": "좋아요"
+  },
+  {
+    "id": 3,
+    "likecount": 4,
+    "name": "팔로잉"
   }
 ]

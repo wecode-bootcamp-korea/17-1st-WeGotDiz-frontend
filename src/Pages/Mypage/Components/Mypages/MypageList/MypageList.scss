@@ -1,0 +1,46 @@
+@import '../../../../../Styles/common.scss';
+
+.mypageList {
+  .tabList {
+    cursor: pointer;
+    // display: flex;
+    // align-items: center;
+    //background-color: palegreen;
+    margin-left: 47px;
+
+    margin-bottom: 50px;
+    width: 100%;
+    height: 50px;
+    // border: 1px solid black;
+
+    li {
+      display: inline-block;
+      font-size: 15px;
+      padding: 20px 5px;
+      margin-right: 20px;
+      //margin-bottom: 67px;
+      color: $gray-color;
+      border-bottom: solid #5577f2;
+    }
+  }
+}
+
+div {
+  //background-color: pink;
+  .wrapper {
+    margin-left: 47px;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    width: 1000px;
+    // height: 60px;
+    // display: flex;
+    // flex-direction: column;
+    background-color: orange;
+  }
+
+  .content {
+    background-color: #5577f2;
+  }
+}

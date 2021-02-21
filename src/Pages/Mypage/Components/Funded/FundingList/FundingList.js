@@ -5,12 +5,12 @@ import './FundingList.scss';
 
 class FundingList extends Component {
   render() {
-    console.log('2. propsFundingList >>>', this.props.fundData);
-    const { fundData } = this.props;
+    console.log('3. propsFundingList >>>', this.props.fundDataList);
+    const { fundDataList } = this.props;
     return (
       <div>
         <div className="fundingList">
-          {fundData.map(funded => {
+          {fundDataList.map(funded => {
             return (
               <Funded
                 key={funded.id}

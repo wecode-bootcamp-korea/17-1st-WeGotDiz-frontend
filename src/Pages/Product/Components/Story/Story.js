@@ -11,6 +11,7 @@ class Story extends Component {
       goal_amount: '',
       opening_date: '',
       closing_date: '',
+      story: '',
     };
   }
 
@@ -19,7 +20,7 @@ class Story extends Component {
   }
 
   handleData = () => {
-    fetch('/data/productData.json')
+    fetch('http://10.58.1.217:8000/product/28')
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -29,6 +30,7 @@ class Story extends Component {
           goal_amount: res.data.goal_amount,
           opening_date: res.data.opening_date,
           closing_date: res.data.closing_date,
+          story: res.data.story,
         });
       });
   };
@@ -57,7 +59,7 @@ class Story extends Component {
             모이지 않으면 결제가 진행되지 않습니다.
           </p>
         </div>
-        <div dangerouslySetInnerHTML={story}></div>
+        <div dangerouslySetInnerHTML={{ __html: story }}></div>
       </div>
     );
   }

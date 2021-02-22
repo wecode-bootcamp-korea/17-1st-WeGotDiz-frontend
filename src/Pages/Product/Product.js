@@ -14,6 +14,7 @@ class Product extends Component {
     this.state = {
       currentId: 1,
       productData: {},
+      infoData: {},
     };
   }
 
@@ -22,11 +23,12 @@ class Product extends Component {
   }
 
   handleData = () => {
-    fetch('/data/productData.json')
+    fetch('http://10.58.1.217:8000/product/28')
       .then(res => res.json())
       .then(res => {
         this.setState({
           productData: res.data,
+          infoData: res.data.info_box,
         });
       });
   };
@@ -39,7 +41,7 @@ class Product extends Component {
 
   render() {
     const { handleTab } = this;
-    const { currentId, productData } = this.state;
+    const { currentId, productData, infoData } = this.state;
 
     return (
       <main className="product">
@@ -49,7 +51,7 @@ class Product extends Component {
             <Tabs handleTab={handleTab} tabData={productData.tab_names} />
             <div className="contentsContainer">
               <content className="contents">{MAPPING_TAB[currentId]}</content>
-              <Aside productData={productData} />
+              <Aside productData={productData} infoData={infoData} />
             </div>
           </>
         )}

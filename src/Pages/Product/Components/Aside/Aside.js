@@ -36,26 +36,32 @@ class Aside extends Component {
     const { handleLike, goToPurchase, handleMakerInfo } = this;
     const { isLikeCliked, isMakerInfoClicked } = this.state;
     const {
-      closing_date,
       total_likes,
       maker_name,
-      info_box,
       maker_levels,
+      days_left,
     } = this.props.productData;
+
+    const {
+      achieved_rate,
+      total_amount,
+      total_supporters,
+    } = this.props.infoData;
 
     return (
       <aside>
-        <p className="daysLeft">{closing_date}일 남음</p>
+        <p className="daysLeft">{days_left}일 남음</p>
         <ul className="productNumInfo">
-          {info_box &&
-            info_box.map((info, idx) => {
-              return (
-                <li className="achievement" key={idx}>
-                  <span>{info.num}</span>
-                  {info.text}
-                </li>
-              );
-            })}
+          <li className="achievement">
+            <span>{achieved_rate}</span>% 달성
+          </li>
+          <li className="achievement">
+            <span>{total_amount}</span>원 펀딩
+          </li>
+          <li className="achievement">
+            <span>{total_supporters}</span>
+            명의 서포터
+          </li>
         </ul>
         <button onClick={goToPurchase} className="fundingBtn">
           펀딩하기

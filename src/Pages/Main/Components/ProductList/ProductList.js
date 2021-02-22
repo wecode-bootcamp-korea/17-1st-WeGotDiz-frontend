@@ -16,7 +16,7 @@ class ProductList extends Component {
               // brand={data.brand}
               percent={Math.floor(data.achieved_rate)}
               price={Math.floor(data.toal_amount).toLocaleString()}
-              // date={data.date}
+              date={data.closing_date}
               key={index}
             />
           );

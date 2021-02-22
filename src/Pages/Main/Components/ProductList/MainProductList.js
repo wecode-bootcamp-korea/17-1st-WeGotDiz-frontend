@@ -81,24 +81,12 @@ class MainProductList extends Component {
   //무한 스크롤
 
   infiniteScroll = () => {
-    console.log('document는 >>>>>' + document);
-    console.log('document.documentElement는 >>>>>' + document.documentElement);
-    console.log('document.body는 >>>>>' + document.body);
-    console.log(
-      'document.documentElement.scrollHeight는 >>>>>' +
-        document.documentElement.scrollHeight
-    );
-    console.log(
-      'document.body.scrollHeight는 >>>>>' + document.body.scrollHeight
-    );
-
     const { documentElement, body } = document;
     const { items } = this.state;
     let scrollHeight = Math.max(
       documentElement.scrollHeight,
       body.scrollHeight
     );
-    console.log('scrollHeight어케되니 ? >>>>>>' + scrollHeight);
     let scrollTop = Math.max(documentElement.scrollTop, body.scrollTop);
     let clientHeight = documentElement.clientHeight;
 

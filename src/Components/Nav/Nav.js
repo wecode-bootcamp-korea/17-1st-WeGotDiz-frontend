@@ -8,12 +8,11 @@ class Nav extends Component {
   constructor() {
     super();
     this.state = {
-      isloggedIn: true,
+      isloggedIn: false,
       isNavSearch: false,
       isSuggestLeft: true,
       isSuggestRight: false,
       text: '',
-      // searchTextLog
       searchArr: [],
     };
   }
@@ -73,11 +72,24 @@ class Nav extends Component {
       });
     }
   };
+  //로그인테스트
+
+  login = () => {
+    this.setState({
+      isloggedIn: true,
+    });
+  };
+  //로그아웃
+  logOut = () => {
+    localStorage.clear();
+    console.log('clear 됨');
+    this.setState({
+      isloggedIn: false,
+    });
+  };
 
   render() {
-    const { isNavSearch, searchText, isloggedIn, searchArr } = this.state;
-    console.log('뭐라적혔니 ㅋㅋㅋㅋ >>>>>>' + searchText);
-    console.log('배열안에 뭐담겨있냐고', this.state.searchArr);
+    const { isNavSearch, isloggedIn, searchArr } = this.state;
     return (
       <div>
         <header className="navContainer">
@@ -181,15 +193,27 @@ class Nav extends Component {
               </div>
               {isloggedIn && (
                 <span className="myPage">
-                  <Link to="/mypage"></Link>
+                  <Link to="/mypage">
+                    <img
+                      className="userPhoto"
+                      src="./images/userPhoto.png"
+                      alt="profilephoto"
+                    />
+                  </Link>
                 </span>
               )}
-
-              <span className="navJoin">
-                <Link to={isloggedIn ? '/' : '/login'}>
-                  {isloggedIn ? '로그아웃' : '로그인'}
-                </Link>
-              </span>
+              {!isloggedIn && (
+                <span className="navJoin" onClick={this.login}>
+                  <Link to="/">로그인</Link>
+                  {/* 로그인 */}
+                </span>
+              )}
+              {isloggedIn && (
+                <span className="navJoin" onClick={this.logOut}>
+                  <Link to="/">로그아웃</Link>
+                  {/* 로그아웃 */}
+                </span>
+              )}
               {!isloggedIn && (
                 <span className="navJoin">
                   <Link to="/signup">회원가입</Link>

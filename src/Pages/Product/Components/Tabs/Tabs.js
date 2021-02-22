@@ -2,27 +2,23 @@ import React, { Component } from 'react';
 import './Tabs.scss';
 
 class Tabs extends Component {
-  constructor() {
-    super();
-    this.state = {
-      now: true,
-    };
-  }
   render() {
-    const { handleTab, tabsData } = this.props;
+    const { handleTab } = this.props;
+    const { tab_names } = this.props.productData;
 
     return (
       <ul className="tabs">
-        {tabsData &&
-          tabsData.map(tab => {
+        {tab_names &&
+          tab_names.map((tab, idx) => {
             return (
               <li
-                key={tab.id}
-                onClick={() => handleTab(tab.id)}
+                key={idx}
+                id={idx + 1}
+                onClick={() => handleTab(idx + 1)}
                 className={`tab`}
               >
-                {tab.name}
-                <span className="countTotal">{tab.count}</span>
+                {tab}
+                <span className="countTotal">1</span>
               </li>
             );
           })}

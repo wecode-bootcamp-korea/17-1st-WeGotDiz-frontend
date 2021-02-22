@@ -6,17 +6,17 @@ class Aside extends Component {
     super();
     this.state = {
       isLikeCliked: false,
-      likeNum: 172,
       isMakerInfoClicked: false,
     };
   }
 
   handleLike = () => {
-    const { isLikeCliked, likeNum } = this.state;
+    const { isLikeCliked } = this.state;
+    const { total_likes } = this.props.productData;
 
     this.setState({
       isLikeCliked: !isLikeCliked,
-      likeNum: isLikeCliked ? likeNum - 1 : likeNum + 1,
+      likeNum: isLikeCliked ? total_likes - 1 : total_likes + 1,
     });
   };
 
@@ -34,17 +34,23 @@ class Aside extends Component {
 
   render() {
     const { handleLike, goToPurchase, handleMakerInfo } = this;
-    const { isLikeCliked, likeNum, isMakerInfoClicked } = this.state;
-    const { makerTrustData, numData } = this.props;
+    const { isLikeCliked, isMakerInfoClicked } = this.state;
+    const {
+      today,
+      closing_date,
+      total_likes,
+      maker_name,
+      info_box,
+    } = this.props.productData;
 
     return (
       <aside>
-        <p className="daysLeft">1일 남음</p>
+        <p className="daysLeft">{today - closing_date}일 남음</p>
         <ul className="productNumInfo">
-          {numData &&
-            numData.map(num => {
+          {info_box &&
+            info_box.map((num, idx) => {
               return (
-                <li className="achievement" key={num.id}>
+                <li className="achievement" key={idx}>
                   <span>{num.amount}</span>
                   {num.name}
                 </li>
@@ -57,16 +63,14 @@ class Aside extends Component {
         <div className="btnWrapper">
           <button className="likeBtn" onClick={handleLike}>
             <i className="fas fa-heart" id={isLikeCliked ? 'like' : 'unlike'} />
-            {likeNum}
+            {total_likes}
           </button>
           <button>공유하기</button>
         </div>
         <div className="fundingDescription">
           <i className="fas fa-exclamation-circle" />
           <span>펀딩하기는 쇼핑하기가 아닙니다!</span>
-          <a href="https://help.wadiz.kr/ko/articles/1092633-%ED%8E%80%EB%94%A9%ED%95%98%EA%B8%B0%EB%8A%94-%EC%87%BC%ED%95%91%ED%95%98%EA%B8%B0%EA%B0%80-%EC%95%84%EB%8B%99%EB%8B%88%EB%8B%A4">
-            자세히 알아보기
-          </a>
+          <a href="https://help.wadiz.kr/ko/articles/">자세히 알아보기</a>
         </div>
         <p className="makerTitle">메이커 정보</p>
         <div className="makerContainer">
@@ -77,7 +81,7 @@ class Aside extends Component {
               src="https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1484722933/ypd1aluy7j0x7gqhjczv.png"
             />
             <a className="makerName" href="/mypage">
-              주식회사 깃깃
+              {maker_name}
             </a>
           </div>
           <div className="beta">
@@ -86,9 +90,9 @@ class Aside extends Component {
           </div>
           <div className="makerTrustInfo">
             {makerTrustData &&
-              makerTrustData.map(info => {
+              makerTrustData.map((info, idx) => {
                 return (
-                  <div className="makerGraph" key={info.id}>
+                  <div className="makerGraph" key={idx}>
                     <p className="graphTitle">{info.graphTitle}</p>
                     <div className="graphStatus" id={info.level} />
                   </div>

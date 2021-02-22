@@ -16,9 +16,6 @@ class Product extends Component {
     this.state = {
       currentId: 1,
       productData: {},
-      bannerData: [],
-      tabsData: [],
-      makerTrustData: [],
     };
   }
 
@@ -31,11 +28,7 @@ class Product extends Component {
       .then(res => res.json())
       .then(res => {
         this.setState({
-          productData: res,
-          bannerData: res.bannerData,
-          tabsData: res.tabsData,
-          makerTrustData: res.makerTrustData,
-          numData: res.numData,
+          productData: res.data,
         });
       });
   };
@@ -48,24 +41,17 @@ class Product extends Component {
 
   render() {
     const { handleTab } = this;
-    const {
-      currentId,
-      tabsData,
-      makerTrustData,
-      productData,
-      bannerData,
-      numData,
-    } = this.state;
+    const { currentId, productData } = this.state;
 
     return (
       <main className="product">
         {productData && (
           <>
-            <Banner bannerData={bannerData} />
-            <Tabs handleTab={handleTab} tabsData={tabsData} />
+            <Banner productData={productData} />
+            <Tabs handleTab={handleTab} productData={productData} />
             <div className="contentsContainer">
               <content className="contents">{MAPPING_TAB[currentId]}</content>
-              <Aside makerTrustData={makerTrustData} numData={numData} />
+              <Aside productData={productData} />
             </div>
           </>
         )}

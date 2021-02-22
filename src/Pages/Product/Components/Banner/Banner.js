@@ -3,12 +3,12 @@ import './Banner.scss';
 
 class Banner extends Component {
   render() {
-    const { bannerData } = this.props;
+    const { thumbnail_url, category, title } = this.props.productData;
 
     return (
-      <div className="banner">
-        <p className="category">{bannerData.category}</p>
-        <p className="productTtile">{bannerData.productTtile}</p>
+      <div className="banner" style={{ backgroundImage: URL(thumbnail_url) }}>
+        <p className="category">{category}</p>
+        <p className="productTtile">{title}</p>
         <div className="titleBackground" />
       </div>
     );

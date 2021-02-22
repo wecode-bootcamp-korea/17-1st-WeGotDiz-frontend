@@ -1,0 +1,223 @@
+@import '../../styles/common.scss';
+
+.navContainer {
+  position: fixed;
+  height: 56px;
+  width: 100%;
+  z-index: 1000;
+  padding: 0;
+  border-bottom: 1px solid #f0f2f5;
+  background-color: #ffffff;
+
+  .navInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 80px;
+    margin: 0 auto;
+    max-width: 1440px;
+    width: 100%;
+    height: 100%;
+
+    .navInnerLeft {
+      display: flex;
+      height: 100%;
+      align-items: center;
+
+      .navLogo {
+        margin-top: 1px;
+        width: 123px;
+        height: 30px;
+      }
+
+      .navMenu {
+        display: flex;
+        align-items: center;
+        margin-left: 24px;
+
+        .navMenuLink {
+          text-decoration: none;
+          font-size: 20px;
+          font-weight: 700;
+        }
+        .navMenuLink span {
+          padding: 0 16px;
+          .mainGo {
+            color: $color-main;
+          }
+        }
+      }
+    }
+
+    .navRight {
+      display: flex;
+      align-items: center;
+
+      height: 100%;
+
+      .navSearchContainer {
+        display: inline-block;
+        padding-right: 16px;
+        min-width: 295px;
+
+        .navSearchForm {
+          display: block;
+          position: relative;
+          background: #f0f2f5;
+          height: 40px;
+          border-radius: 20px;
+
+          i {
+            position: absolute;
+            top: 13px;
+            left: 17px;
+            font-size: 15px;
+            opacity: 0.5;
+          }
+
+          .navSearch {
+            border: none;
+            background: none;
+            outline: none;
+            text-align: left;
+            padding: 0 17px 3px 48px;
+            font-size: 15px;
+            height: 100%;
+          }
+        }
+
+        .navSearchSuggestClose {
+          display: none;
+        }
+
+        .navSearchSuggestOpen {
+          position: absolute;
+          top: 100%;
+          background-color: #fff;
+          width: auto;
+          border: $border;
+
+          .suggestLayer {
+            width: 300px;
+            height: 420px;
+
+            .suggestLayerTab {
+              display: flex;
+              height: 44px;
+              border: none;
+              .suggestLayerTabBtnOn {
+                width: 100%;
+                text-align: center;
+                border: none;
+                outline: none;
+                border-bottom: 1px solid #1d2129;
+                font-weight: bold;
+                background-color: #ffffff;
+                cursor: pointer;
+              }
+              .suggestLayerTabBtnOff {
+                width: 100%;
+                text-align: center;
+                border: none;
+                outline: none;
+                border-bottom: $border;
+                background-color: #ffffff;
+                opacity: 0.7;
+                cursor: pointer;
+              }
+            }
+
+            .suggestLayerContent {
+              display: flex;
+              padding: 0;
+              height: calc(100% - 84px);
+
+              .suggestLayerContentSet {
+                display: flex;
+                flex: 1 1 auto;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+
+                .suggestLayerContentList {
+                  display: flex;
+                  flex-direction: column;
+                  flex: 1 1 auto;
+                  width: 100%;
+                  padding-top: 12px;
+                  overflow-y: auto;
+
+                  .suggestContent {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: stretch;
+                    cursor: pointer;
+                    width: 100%;
+                    padding-left: 16px;
+                    font-size: 14px;
+                    height: 36px;
+
+                    .suggestContentBtn {
+                      display: flex;
+                      margin-right: 5px;
+                      background: none;
+                      border: none;
+                      cursor: pointer;
+                      color: #dadce0;
+                    }
+                  }
+                }
+              }
+            }
+
+            .suggestLayerButton {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-end;
+              position: absolute;
+              bottom: 0;
+              padding: 10px 15px;
+              border-top: 1px solid #f0f2f5;
+              width: 100%;
+              height: 40px;
+              button {
+                height: 100%;
+                font-size: 13px;
+                color: #90949c;
+                cursor: pointer;
+                background: none;
+                border: 0;
+                outline: 0;
+                font-weight: 400;
+                padding: 0;
+              }
+            }
+          }
+        }
+      }
+      .myPage {
+        text-decoration: none;
+        width: 35px;
+        height: 35px;
+        margin: 0 5px;
+        // border-radius: 50%;
+        .userPhoto {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+      .navJoin * {
+        color: #60656a;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 15px;
+        padding: 0 8px;
+        cursor: pointer;
+        span {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

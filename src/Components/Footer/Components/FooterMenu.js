@@ -6,12 +6,16 @@ class FooterMenu extends Component {
     return (
       <div className="footerMenuContainer">
         <div className="footerMenuBar">
-          {menu.map(footerData => {
+          {menu.map((footerData, index) => {
             if (footerData.isItag === false) {
-              return <div className="footerMenuContent">{footerData.name}</div>;
+              return (
+                <div className="footerMenuContent" key={index}>
+                  {footerData.name}
+                </div>
+              );
             } else {
               return (
-                <div className="footerMenuContent">
+                <div className="footerMenuContent" key={index}>
                   {footerData.name}
                   <i className="fas fa-chevron-down" />
                 </div>

@@ -75,7 +75,6 @@ class Purchase extends Component {
       handleData,
     } = this;
 
-    console.log(this.state.rewardData);
     return (
       <div className="purchase">
         {isModalOn && (

@@ -5,9 +5,7 @@ import Tabs from './Components/Tabs/Tabs';
 import Aside from './Components/Aside/Aside';
 import Story from './Components/Story/Story';
 import Policy from './Components/Policy/Policy';
-import News from './Components/News/News';
 import Community from './Components/Community/Community';
-import Supporter from './Components/Supporter/Supporter';
 import './Product.scss';
 
 class Product extends Component {
@@ -24,7 +22,7 @@ class Product extends Component {
   }
 
   handleData = () => {
-    fetch('/data/productData.json')
+    fetch('http://10.58.1.217:8000/product/65')
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -48,7 +46,7 @@ class Product extends Component {
         {productData && (
           <>
             <Banner productData={productData} />
-            <Tabs handleTab={handleTab} productData={productData} />
+            <Tabs handleTab={handleTab} tabData={productData.tab_names} />
             <div className="contentsContainer">
               <content className="contents">{MAPPING_TAB[currentId]}</content>
               <Aside productData={productData} />
@@ -63,9 +61,7 @@ class Product extends Component {
 const MAPPING_TAB = {
   1: <Story />,
   2: <Policy />,
-  3: <News />,
-  4: <Community />,
-  5: <Supporter />,
+  3: <Community />,
 };
 
 export default Product;

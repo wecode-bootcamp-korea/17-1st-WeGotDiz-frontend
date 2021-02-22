@@ -1,4 +1,3 @@
-import { info } from 'node-sass';
 import React, { Component } from 'react';
 import './Aside.scss';
 
@@ -37,7 +36,6 @@ class Aside extends Component {
     const { handleLike, goToPurchase, handleMakerInfo } = this;
     const { isLikeCliked, isMakerInfoClicked } = this.state;
     const {
-      today,
       closing_date,
       total_likes,
       maker_name,
@@ -47,18 +45,17 @@ class Aside extends Component {
 
     return (
       <aside>
-        <p className="daysLeft">{today - closing_date}일 남음</p>
+        <p className="daysLeft">{closing_date}일 남음</p>
         <ul className="productNumInfo">
-          <p></p>
-          <li className="achievement">
-            <span>{info_box.achieved_rate}</span>% 달성
-          </li>
-          <li className="totalAmmount">
-            <span>{info_box.total_amount.toLocaleScale()}</span>원 펀딩
-          </li>
-          <li className="supporters">
-            <span>{info_box.total_supporters}</span>명의 서포터
-          </li>
+          {info_box &&
+            info_box.map((info, idx) => {
+              return (
+                <li className="achievement" key={idx}>
+                  <span>{info.num}</span>
+                  {info.text}
+                </li>
+              );
+            })}
         </ul>
         <button onClick={goToPurchase} className="fundingBtn">
           펀딩하기

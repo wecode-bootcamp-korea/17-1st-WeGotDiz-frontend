@@ -6,7 +6,10 @@ class Banner extends Component {
     const { thumbnail_url, category, title } = this.props.productData;
 
     return (
-      <div className="banner" style={{ backgroundImage: URL(thumbnail_url) }}>
+      <div
+        className="banner"
+        style={{ backgroundImage: `url(${thumbnail_url})` }}
+      >
         <p className="category">{category}</p>
         <p className="productTtile">{title}</p>
         <div className="titleBackground" />

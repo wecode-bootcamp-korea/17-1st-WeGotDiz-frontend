@@ -6,18 +6,21 @@
     "thumbnail_url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaG5vbG9neXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     "description": "아직도 맥북으로 개발하시나요? 이제 맥북 말고 자동으로 개발되는 원하는 틀만짜주면 알아서 처리해주는 AI 인공지능 컴퓨터!!",
     "goal_amount": "1000000.00",
-    "today": "2021-02-22T05:26:12.112",
+    "today": "2021-02-22T08:42:20.126",
     "opening_date": "2021-01-02T00:00:00Z",
     "closing_date": "2021-02-10T00:00:00Z",
     "info_box": [
       {
-        "achieved_rate": "30.00"
+        "num": "30.00",
+        "text": "% 달성"
       },
       {
-        "total_amount": "29818000.00"
+        "num": "29818000.00",
+        "text": "원 펀딩"
       },
       {
-        "total_supporters": 305
+        "num": 305,
+        "text": "명의 서포터"
       }
     ],
     "total_likes": 23,
@@ -25,13 +28,16 @@
     "maker_name": "주식회사 윈도우",
     "maker_levels": [
       {
-        "reputation_level": "9.4"
+        "name": "평판",
+        "level": "9.4"
       },
       {
-        "communication_level": "7.1"
+        "name": "소통",
+        "level": "7.1"
       },
       {
-        "popularity_level": "9.3"
+        "name": "인기",
+        "level": "9.3"
       }
     ]
   }

@@ -6,6 +6,11 @@ class Story extends Component {
     super();
     this.state = {
       productData: {},
+      thumbnail_url: '',
+      description: '',
+      goal_amount: '',
+      opening_date: '',
+      closing_date: '',
     };
   }
 
@@ -14,11 +19,16 @@ class Story extends Component {
   }
 
   handleData = () => {
-    fetch('/data/productData.json')
+    fetch('http://10.58.1.217:8000/product/74')
       .then(res => res.json())
       .then(res => {
         this.setState({
-          productData: res,
+          productData: res.data,
+          thumbnail_url: res.data.thumbnail_url,
+          description: res.data.description,
+          goal_amount: res.data.goal_amount,
+          opening_date: res.data.opening_date,
+          closing_date: res.data.closing_date,
         });
       });
   };
@@ -31,14 +41,14 @@ class Story extends Component {
       opening_date,
       closing_date,
       story,
-    } = this.state.productData;
+    } = this.state;
 
     return (
       <div className="story">
         <img src={thumbnail_url} alt="Product" />
         <p className="productDescription">{description}</p>
         <div className="fundingInfo">
-          <p className="goal">목표 금액 {goal_amount.toLocaleScale()}원</p>
+          <p className="goal">목표 금액 {goal_amount}원</p>
           <p className="term">
             펀딩 기간 {opening_date}-{closing_date}
           </p>
@@ -47,7 +57,7 @@ class Story extends Component {
             모이지 않으면 결제가 진행되지 않습니다.
           </p>
         </div>
-        <div>{story}</div>
+        <div dangerouslySetInnerHTML={story}></div>
       </div>
     );
   }

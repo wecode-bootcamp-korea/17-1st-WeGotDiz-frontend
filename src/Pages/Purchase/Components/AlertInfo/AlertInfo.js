@@ -19,10 +19,22 @@ class AlertInfo extends Component {
 
   render() {
     const { isDetailsClicked } = this.state;
-    const { title, content, details, detailsInfo, id } = this.props;
+    const {
+      title,
+      content,
+      details,
+      detailsInfo,
+      id,
+      handleReward,
+      rewardOn,
+    } = this.props;
 
     return (
-      <div className="alertInfo">
+      <div
+        className={`alertInfo` + ' ' + (rewardOn ? 'on' : '')}
+        onClick={handleReward}
+        c
+      >
         <dl>
           <dt className="checkboxContainer">
             <label className="container">

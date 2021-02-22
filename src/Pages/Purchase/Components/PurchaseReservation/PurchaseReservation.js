@@ -83,25 +83,24 @@ class PurchaseReservation extends Component {
         </div>
         <p>결제 정보</p>
         <p>결제 정보 입력</p>
-        {/* <div className="paymentMethod">
+        <div className="paymentMethod">
           <div className="paymentMethodInput">
-            <label>
+            <label className="cardNumberInput">
               <input />
               <input />
               <input />
               <input />
             </label>
             <div>
-              <label>
+              <label className="expirationDate">
                 유효기간
                 <input placeholder="MM/YY" />
               </label>
-              <label>
+              <label className="cardNum">
                 카드 비밀번호
                 <input placeholder="앞 2자리" />
               </label>
             </div>
-
             <label>
               생년월일 (주민번호 앞 6자리)
               <p>무기명 법인카드는 사업자등록번호 10자리를 입력하세요.</p>
@@ -141,7 +140,7 @@ class PurchaseReservation extends Component {
               책임 규정에 대한 동의
             </dd>
           </dl>
-        </div> */}
+        </div>
         <button className="submitPurchaseReservation" onClick={handleSubmit}>
           결제 예약하기
         </button>

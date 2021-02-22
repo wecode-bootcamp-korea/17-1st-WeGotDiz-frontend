@@ -15,6 +15,7 @@ class Purchase extends Component {
       isChooseRewardShow: true,
       isReservationShow: false,
       isPurchaseCompleted: false,
+      rewardOn: false,
       rewardData: [],
     };
   }
@@ -41,6 +42,12 @@ class Purchase extends Component {
 
   handleReward = () => {
     this.setState({
+      rewardOn: true,
+    });
+  };
+
+  handleChooseReward = () => {
+    this.setState({
       isChooseRewardShow: false,
       isReservationShow: true,
     });
@@ -55,6 +62,8 @@ class Purchase extends Component {
     window.scrollTo(0, 0);
   };
 
+  handle;
+
   goToStory = () => {
     this.props.history.push('/product/details');
   };
@@ -66,13 +75,15 @@ class Purchase extends Component {
       isPurchaseCompleted,
       isChooseRewardShow,
       rewardData,
+      rewardOn,
     } = this.state;
     const {
       handleModal,
-      handleReward,
+      handleChooseReward,
       handleSubmit,
       goToStory,
       handleData,
+      handleReward,
     } = this;
 
     return (
@@ -88,9 +99,11 @@ class Purchase extends Component {
         />
         {isChooseRewardShow && (
           <ChooseReward
-            handleReward={handleReward}
+            handleChooseReward={handleChooseReward}
             handleData={handleData}
+            handleReward={handleReward}
             rewardData={rewardData}
+            rewardOn={rewardOn}
           />
         )}
         {isReservationShow && (

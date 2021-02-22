@@ -9,7 +9,13 @@ class ChooseReward extends Component {
   }
 
   render() {
-    const { handleReward, rewardData } = this.props;
+    const {
+      handleChooseReward,
+      rewardData,
+      handleReward,
+      rewardOn,
+    } = this.props;
+
     return (
       <div className="chooseReward">
         <header>
@@ -26,10 +32,13 @@ class ChooseReward extends Component {
           {rewardData.map(reward => (
             <Reward
               key={reward.id}
+              id={reward.id}
               price={reward.price}
               stock={reward.stock}
               name={reward.name}
               details={reward.details}
+              handleReward={handleReward}
+              rewardOn={rewardOn}
             />
           ))}
         </dl>
@@ -65,7 +74,7 @@ class ChooseReward extends Component {
           아무나 먹는 비건 소스 3종 비건, 이제는 '맛있게' 받아들이세요!에{' '}
           <em className="totalPrice">0</em> 원을 펀딩합니다.
         </p>
-        <button className="nextBtn" onClick={handleReward}>
+        <button className="nextBtn" onClick={handleChooseReward}>
           다음 단계로 <i className="fas fa-chevron-right" />
         </button>
       </div>

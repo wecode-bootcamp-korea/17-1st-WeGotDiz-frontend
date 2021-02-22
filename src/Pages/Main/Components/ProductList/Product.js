@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Progressbar from '../../../../Component/Progressbar/Progressbar';
+import Progressbar from '../../../../Components/Progressbar/Progressbar';
 
 class Product extends Component {
   constructor(props) {

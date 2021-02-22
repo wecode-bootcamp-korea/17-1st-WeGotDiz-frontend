@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import FooterMenu from './Component/FooterMenu';
-import FooterInfo from './Component/FooterInfo';
-import FooterNotice from './Component/FooterNotice';
-import MENUDATA from './Component/FooterMenuData';
+import FooterMenu from './Components/FooterMenu';
+import FooterInfo from './Components/FooterInfo';
+import FooterNotice from './Components/FooterNotice';
+import MENUDATA from './Components/FooterMenuData';
 
 import './Footer.scss';
 

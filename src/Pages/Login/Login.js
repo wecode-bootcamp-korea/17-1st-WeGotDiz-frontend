@@ -63,14 +63,10 @@ class Login extends Component {
     })
       .then(response => response.json())
       .then(result => {
-        if (result.message === 'SUCCESS') {
+        if (result.access_token) {
           localStorage.setItem('access_token', result.access_token);
           this.props.history.push('/main');
-          console.log(result.message);
-        } else {
-          this.setState({ loginError: 'error' });
-          alert('실패');
-        }
+        } else alert('로그인 실패!');
       });
   };
 

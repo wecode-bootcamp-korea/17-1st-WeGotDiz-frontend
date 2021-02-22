@@ -4,7 +4,7 @@ import './LikeList.scss';
 
 class LikeList extends Component {
   render() {
-    console.log('this.props.likeDataList>>', this.props);
+    //console.log('this.props.likeDataList>>', this.props);
     const { likeList } = this.props;
     return (
       <div className="likeList">
@@ -13,6 +13,9 @@ class LikeList extends Component {
             <Liked
               key={like.id}
               img={like.imgUrl}
+              percent={like.percent}
+              price={like.price}
+              data={like.data}
               title={like.title}
               company={like.makerCompany}
               catagory={like.catagory}

@@ -2,30 +2,32 @@
 
 .myPage {
   .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     position: relative;
+    margin-top: 0;
     width: 100%;
     height: 200px;
     background-color: olive;
 
-    .tabList {
-      display: inline-block;
-      //margin-right: 50px;
-      // padding-left: 360px;
-      // padding-left: 360px;
-      //background-color: green;
-
-      div {
-        // position: absolute;
-        border: 1px solid black;
-        width: 50px;
-        height: 30px;
-        span {
-          position: absolute;
-          //left: 100px;
-          bottom: 0;
-          font-size: 15px;
-          color: blue;
-        }
+    .category {
+      display: flex;
+      position: relative;
+      right: 50px;
+      margin-top: 5px;
+      width: 900px;
+      height: 30px;
+      border: 1px solid black;
+      span {
+        cursor: pointer;
+        //border: 1px solid black;
+        border-bottom: 2px solid red;
+        margin-right: 15px;
+        bottom: 0;
+        font-size: 15px;
+        color: blue;
       }
     }
   }
@@ -34,6 +36,10 @@
     // width: 900px;
     // height: 100vh;
     background-color: lightcoral;
-    //background-color: $color-light-gray;
+    padding-top: 30px; //background-color: $color-light-gray;
+    .click {
+      font-weight: 700;
+      border: 2px none none solid none red;
+    }
   }
 }

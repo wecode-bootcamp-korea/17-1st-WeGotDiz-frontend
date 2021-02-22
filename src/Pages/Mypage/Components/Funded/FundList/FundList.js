@@ -4,7 +4,7 @@ import './FundList.scss';
 
 class FundList extends Component {
   render() {
-    console.log('this.props.fundDataList>>', this.props);
+    //console.log('this.props.fundDataList>>', this.props);
     const { fundList } = this.props;
     return (
       <div className="fundList">
@@ -12,10 +12,13 @@ class FundList extends Component {
           return (
             <Funded
               key={fund.id}
-              img={fund.imgUrl}
-              title={fund.title}
+              img={fund.product_image}
+              percent={fund.percent}
+              price={fund.product_total_amount}
+              date={fund.date}
+              title={fund.product_itle}
               company={fund.makerCompany}
-              catagory={fund.catagory}
+              catagory={fund.product_catagory}
             />
           );
         })}

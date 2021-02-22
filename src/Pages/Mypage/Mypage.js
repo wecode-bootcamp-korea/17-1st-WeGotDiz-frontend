@@ -55,23 +55,25 @@ class Mypage extends Component {
 
   render() {
     const { currentId, userInfo, fundDataList, likeDataList } = this.state;
-    console.log('currentId', this.state.currentId);
+    //console.log('currentId', this.state.currentId);
     return (
       <div className="myPage">
         <div className="header">
           <MypageHeader userInfo={userInfo} />
-          {CATEGORY_ARR.map((category, idx) => {
-            return (
-              <li key={category} onClick={() => this.clickHandler(idx + 1)}>
-                {category}
-              </li>
-            );
-          })}
+          <div className="category">
+            {CATEGORY_ARR.map((category, idx) => {
+              return (
+                <span key={category} onClick={() => this.clickHandler(idx + 1)}>
+                  {category}
+                </span>
+              );
+            })}
+          </div>
         </div>
         <div className="body">
           <div className="contents">
-            {this.state.currentId === 1 && <FundList fundList={fundDataList} />}
-            {this.state.currentId === 2 && <LikeList likeList={likeDataList} />}
+            {currentId === 1 && <FundList fundList={fundDataList} />}
+            {currentId === 2 && <LikeList likeList={likeDataList} />}
           </div>
         </div>
       </div>
@@ -80,10 +82,5 @@ class Mypage extends Component {
 }
 
 export default Mypage;
-
-// const MAPPING_OBJ = {
-//   1: <Funded />,
-//   2: <Liked />,
-// };
 
 const CATEGORY_ARR = ['펀딩한', '좋아한'];

@@ -12,11 +12,15 @@
       width: 100%;
       height: 100%;
     }
+
+    .percentBox {
+      font-size: 24px;
+    }
   }
 
   .textBox {
     padding: 16px;
-    background-color: yellowgreen;
+    background-color: yellow;
 
     .title {
       margin-bottom: 8px;

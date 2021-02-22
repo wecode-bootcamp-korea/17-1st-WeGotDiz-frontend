@@ -3,7 +3,7 @@ import './Liked.scss';
 
 class Liked extends Component {
   render() {
-    console.log('this.props.likeDataList>>', this.props);
+    //console.log('this.props.likeDataList>>', this.props);
     const { img, percent, price, title, company, date, catagory } = this.props;
     return (
       <div className="liked">
@@ -12,7 +12,7 @@ class Liked extends Component {
           <div className="info">
             <div className="leftText">
               <span className="percentBox">{percent}</span>
-              <span>{price}</span>
+              <span className="price">{price}</span>
             </div>
             <span className="rightText">{date}</span>
           </div>
@@ -22,7 +22,6 @@ class Liked extends Component {
           <p className="companyName">{company}</p>
           <p className="catagoryName">{catagory}</p>
         </div>
-        {/* </div> */}
       </div>
     );
   }

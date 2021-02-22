@@ -3,10 +3,9 @@ import './Funded.scss';
 
 class Funded extends Component {
   render() {
-    console.log('4. propsFunded >>>', this.props);
-    const { img, percent, price, title, company, catagory } = this.props;
+    const { img, percent, price, title, company, date, catagory } = this.props;
     return (
-      <div className="fundedBox">
+      <div className="liked">
         <div className="imgBox">
           <img src={img} alt={catagory} />
           <div className="info">
@@ -14,7 +13,7 @@ class Funded extends Component {
               <span className="percentBox">{percent}</span>
               <span>{price}</span>
             </div>
-            {/* <span className="rightText">{date}</span> */}
+            <span className="rightText">{date}</span>
           </div>
         </div>
         <div className="textBox">

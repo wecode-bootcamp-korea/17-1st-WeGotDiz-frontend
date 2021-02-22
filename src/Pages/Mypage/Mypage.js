@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import MypageHeader from './Components/Mypages/MypageHeader/MypageHeader';
-import MypageList from './Components/Mypages/MypageList/MypageList';
+import Funded from '../Mypage/Components/Funded/Funded';
+import Liked from '../Mypage/Components/Liked/Liked';
+import FundList from './Components/Funded/FundList/FundList';
+import LikeList from './Components/Liked/LikeList/LikeList';
+import MypageHeader from './Components/MypageHeader';
 import './Mypage.scss';
 
 class Mypage extends Component {
@@ -9,23 +12,29 @@ class Mypage extends Component {
     this.state = {
       currentId: 1,
       userInfo: [],
-      likeList: [],
+      likeDataList: [],
       fundDataList: [],
     };
   }
 
+  clickHandler = currentId => {
+    this.setState({
+      currentId,
+    });
+  };
+
   componentDidMount() {
-    fetch('http://localhost:3002/data/likeList.json', {
+    fetch('/data/likeList.json', {
       method: 'GET',
     })
       .then(res => res.json())
-      .then(likeData => {
+      .then(likeDataList => {
         this.setState({
-          likeList: likeData,
+          likeDataList: likeDataList,
         });
       });
 
-    fetch('http://localhost:3002/data/fundingList.json', {
+    fetch('/data/fundingList.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -35,7 +44,7 @@ class Mypage extends Component {
         });
       });
 
-    fetch('http://localhost:3002/data/userInfo.json', {
+    fetch('/data/userInfo.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -46,24 +55,39 @@ class Mypage extends Component {
       });
   }
 
-  clickHandler = currentId => {
-    this.setState({
-      currentId,
-    });
-  };
-
   render() {
-    //console.log('1. stateLike>>>', this.state.likeList);
-    console.log('1. stateFund >>>', this.state.fundDataList);
-    // const { currentId } = this.state;
+    const { currentId, userInfo, fundDataList, likeDataList } = this.state;
+    const MAPPING_OBJ = {
+      1: <Funded />,
+      2: <Liked />,
+    };
+    const CATEGORY_ARR = ['펀딩한', '좋아한'];
+    console.log('currentId', this.state.currentId);
     return (
       <div className="myPage">
-        <MypageHeader userInfo={this.state.userInfo} />
-        <MypageList
-          likeData={this.state.likeList}
-          fundDataList={this.state.fundDataList}
-          clickHandler={this.clickHandler}
-        />
+        <div className="header">
+          <MypageHeader userInfo={userInfo} />
+          {CATEGORY_ARR.map((category, idx) => {
+            return (
+              <li key={category} onClick={() => this.clickHandler(idx + 1)}>
+                {category}
+              </li>
+            );
+          })}
+        </div>
+        <div className="body">
+          <div className="contents">
+            {MAPPING_OBJ[currentId]}
+            <FundList fundList={fundDataList} />
+            <LikeList likeList={likeDataList} />
+            {/* {MAPPING_OBJ[currentId === 1] && (
+              <FundList fundList={fundDataList} />
+            )}
+            {MAPPING_OBJ[currentId === 2] && (
+              <LikeList likeList={likeDataList} />
+            )} */}
+          </div>
+        </div>
       </div>
     );
   }

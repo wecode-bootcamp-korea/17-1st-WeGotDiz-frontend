@@ -1,8 +1,9 @@
 .likeList {
   display: flex;
   width: 1000px;
-  //background-color: palevioletred;
+  // background-color: palevioletred;
   flex-wrap: wrap;
+  margin: auto;
   justify-content: flex-start;
   // align-items: center;
 }

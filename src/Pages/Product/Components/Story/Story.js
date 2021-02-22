@@ -19,7 +19,7 @@ class Story extends Component {
   }
 
   handleData = () => {
-    fetch('http://10.58.1.217:8000/product/74')
+    fetch('/data/productData.json')
       .then(res => res.json())
       .then(res => {
         this.setState({

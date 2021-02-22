@@ -18,15 +18,10 @@ class Nav extends Component {
   }
 
   //검색 input시 드롭다운 생성
-  handleSuggestDisplayOn = () => {
+  handleSuggestDisplayOnOff = () => {
+    const searchOnOff = !this.state.isNavSearch;
     this.setState({
-      isNavSearch: true,
-    });
-  };
-
-  handleSuggestDisplayOff = () => {
-    this.setState({
-      isNavSearch: false,
+      isNavSearch: searchOnOff,
     });
   };
 
@@ -54,12 +49,12 @@ class Nav extends Component {
     this.setState({
       text: e.target.value,
     });
+    e.preventDefault();
   };
 
   //검색 기록 값 추가
   addSearch = e => {
     const { text, searchArr } = this.state;
-    e.preventDefault();
     if (e.key === 'Enter' && text) {
       const newComment = {
         searchId: Date.now(),
@@ -70,6 +65,7 @@ class Nav extends Component {
       this.setState({
         searchArr: newComments,
       });
+      e.preventDefault();
     }
   };
   //로그인테스트
@@ -89,7 +85,8 @@ class Nav extends Component {
   };
 
   render() {
-    const { isNavSearch, isloggedIn, searchArr } = this.state;
+    console.log(this.state.text);
+    const { isNavSearch, isloggedIn, searchArr, text } = this.state;
     return (
       <div>
         <header className="navContainer">
@@ -103,18 +100,16 @@ class Nav extends Component {
               <ul className="navMenu">
                 <li className="navMenuLink">
                   <span>
-                    <Link to="/">펀딩하기</Link>
+                    <Link to="/" className="mainGo">
+                      펀딩하기
+                    </Link>
                   </span>
                 </li>
                 <li className="navMenuLink">
-                  <span>
-                    <Link to="/">투자하기</Link>
-                  </span>
+                  <span>투자하기</span>
                 </li>
                 <li className="navMenuLink">
-                  <span>
-                    <Link to="/">스타트업 찾기</Link>
-                  </span>
+                  <span>스타트업 찾기</span>
                 </li>
               </ul>
             </div>
@@ -123,12 +118,15 @@ class Nav extends Component {
                 <form className="navSearchForm" onSubmit="return false">
                   <i className="fas fa-search"></i>
                   <input
+                    type="text"
                     name="isNavSearch"
                     className="navSearch"
-                    onClick={this.handleSuggestDisplayOn}
+                    onClick={this.handleSuggestDisplayOnOff}
                     onChange={this.handleSearchChange}
                     onKeyPress={this.addSearch}
                     placeholder="어떤 프로젝트를 찾고 계신가요?"
+                    value={text}
+                    autoComplete="off"
                   />
                 </form>
                 <div

@@ -1,3 +1,4 @@
+import { info } from 'node-sass';
 import React, { Component } from 'react';
 import './Aside.scss';
 
@@ -41,21 +42,23 @@ class Aside extends Component {
       total_likes,
       maker_name,
       info_box,
+      maker_levels,
     } = this.props.productData;
 
     return (
       <aside>
         <p className="daysLeft">{today - closing_date}일 남음</p>
         <ul className="productNumInfo">
-          {info_box &&
-            info_box.map((num, idx) => {
-              return (
-                <li className="achievement" key={idx}>
-                  <span>{num.amount}</span>
-                  {num.name}
-                </li>
-              );
-            })}
+          <p></p>
+          <li className="achievement">
+            <span>{info_box.achieved_rate}</span>% 달성
+          </li>
+          <li className="totalAmmount">
+            <span>{info_box.total_amount.toLocaleScale()}</span>원 펀딩
+          </li>
+          <li className="supporters">
+            <span>{info_box.total_supporters}</span>명의 서포터
+          </li>
         </ul>
         <button onClick={goToPurchase} className="fundingBtn">
           펀딩하기
@@ -89,15 +92,13 @@ class Aside extends Component {
             <i className="far fa-question-circle" />
           </div>
           <div className="makerTrustInfo">
-            {makerTrustData &&
-              makerTrustData.map((info, idx) => {
-                return (
-                  <div className="makerGraph" key={idx}>
-                    <p className="graphTitle">{info.graphTitle}</p>
-                    <div className="graphStatus" id={info.level} />
-                  </div>
-                );
-              })}
+            <div className="makerGraph">
+              <p className="graphTitle"></p>
+              <div
+                className="graphStatus"
+                style={{ width: { maker_levels } }}
+              />
+            </div>
           </div>
           <div className="makerContact">
             <span>메이커 평균 응답 시간</span>

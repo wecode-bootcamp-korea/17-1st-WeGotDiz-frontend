@@ -1,68 +1,22 @@
 {
-  "bannerData": {
-    "category": "반려동물",
-    "productTtile": "당기는 산책 습관? 베이컨박스 신제품, 산책 안전벨트로 #충격완화",
-    "imgUrl": "https://images.unsplash.com/photo-1593642532009-6ba71e22f468?ixid=MXwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
-  },
-  "numData": [
-    {
-      "id": 1,
-      "amount": "1752",
-      "name": "% 달성"
-    },
-    {
-      "id": 2,
-      "amount": "17,528,010",
-      "name": "원 펀딩"
-    },
-    {
-      "id": 3,
-      "amount": "761",
-      "name": "명의 서포터"
-    }
-  ],
-  "tabsData": [
-    {
-      "id": 1,
-      "name": "스토리",
-      "count": null
-    },
-    {
-      "id": 2,
-      "name": "반환∙정책",
-      "count": null
-    },
-    {
-      "id": 3,
-      "name": "새소식",
-      "count": 4
-    },
-    {
-      "id": 4,
-      "name": "커뮤니티",
-      "count": 6
-    },
-    {
-      "id": 5,
-      "name": "서포터",
-      "count": 759
-    }
-  ],
-  "makerTrustData": [
-    {
-      "id": 1,
-      "graphTitle": "평판",
-      "level": "on"
-    },
-    {
-      "id": 2,
-      "graphTitle": "소통",
-      "level": "off"
-    },
-    {
-      "id": 3,
-      "graphTitle": "인기",
-      "level": "off"
-    }
-  ]
+  "data": {
+    "category": "테크·가전",
+    "title": "[누적 2억] 리얼 개발 잘되는 노트북 (맥북보다 좋음)",
+    "tab_names": ["스토리", "반환정책", "커뮤니티"],
+    "thumbnail_url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaG5vbG9neXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "description": "아직도 맥북으로 개발하시나요? 이제 맥북 말고 자동으로 개발되는 원하는 틀만짜주면 알아서 처리해주는 AI 인공지능 컴퓨터!!",
+    "goal_amount": "1000000.00",
+    "today": "2021-02-22T02:19:44.301",
+    "opening_date": "2021-01-02T00:00:00Z",
+    "closing_date": "2021-02-10T00:00:00Z",
+    "achieved_rate": "30.00",
+    "total_amount": "29818000.00",
+    "total_supporters": 305,
+    "total_likes": 23,
+    "story": "<div class=\"inner-contents fr-view\">",
+    "maker_name": "주식회사 윈도우",
+    "reputation_level": "9.4",
+    "communication_level": "7.1",
+    "popularity_level": "9.3"
+  }
 }

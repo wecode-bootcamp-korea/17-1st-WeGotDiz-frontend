@@ -27,7 +27,7 @@ class Product extends Component {
   }
 
   handleData = () => {
-    fetch('/data/productData.json')
+    fetch('http://10.58.1.217:8000/product/1')
       .then(res => res.json())
       .then(res => {
         this.setState({

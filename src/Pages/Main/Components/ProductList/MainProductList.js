@@ -28,13 +28,13 @@ class MainProductList extends Component {
       .then(res => res.json())
       .then(res => {
         let result = res.data.product;
-        let length = result.length;
-        while (length) {
-          let index = Math.floor(length-- * Math.random());
-          let temp = result[length];
-          result[length] = result[index];
-          result[index] = temp;
-        }
+        // let length = result.length;
+        // while (length) {
+        //   let index = Math.floor(length-- * Math.random());
+        //   let temp = result[length];
+        //   result[length] = result[index];
+        //   result[index] = temp;
+        // }
         let realResult = result.slice(preItems, items);
         this.setState({
           products: [...this.state.products, ...realResult],

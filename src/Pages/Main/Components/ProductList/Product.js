@@ -9,8 +9,9 @@ class Product extends Component {
     };
   }
 
+  // changeDate()
   goProductDetail = () => {
-    // this.props.history.push(`/product/detail/${this.props.id}`);
+    // this.props.history.push(`/product/${this.props.id}`);
     console.log('누른거 ID값 >>>>>' + this.props.id);
   };
 
@@ -32,9 +33,15 @@ class Product extends Component {
             <div className="subTitleContent">
               <span className="productPercent">{percent}%</span>
               <span className="productDot">·</span>
-              <span className="productPrice">{price}</span>
+              <span className="productPrice">{price}원</span>
             </div>
-            <span className="productDate">{date}일 남음</span>
+            {/* {this.changeDate(date)} */}
+            {date[0] === '-' ? (
+              <span className="productDate">종료</span>
+            ) : (
+              <span className="productDate">{date}일 남음</span>
+            )}
+            {/* <span className="productDate">{date}일 남음</span> */}
           </div>
         </div>
       </div>

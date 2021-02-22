@@ -5,7 +5,15 @@ class Progressbar extends Component {
     const { percent } = this.props;
     return (
       <div className="progressBarAll">
-        <div className="progressBarPlay" style={{ width: `${percent}%` }} />
+        {Number(percent) >= 100 ? (
+          <div className="progressBarAll">
+            <div className="progressBarPlay" style={{ width: '100%' }} />
+          </div>
+        ) : (
+          <div className="progressBarAll">
+            <div className="progressBarPlay" style={{ width: `${percent}%` }} />
+          </div>
+        )}
       </div>
     );
   }

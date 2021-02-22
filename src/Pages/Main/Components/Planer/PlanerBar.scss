@@ -35,7 +35,7 @@
         font-weight: 400;
 
         :active {
-          color: #00b2b2;
+          color: $color-sub;
           font-size: 20px;
         }
       }
@@ -89,17 +89,17 @@
                 font-size: 14px;
                 margin-right: 40px;
                 p {
-                  color: #1d2129;
+                  color: $color-black;
                   font-weight: 400;
                   margin-bottom: 5px;
                 }
                 .planerPercent {
-                  color: #00a2a2;
+                  color: $color-sub;
                   font-weight: 700;
                   margin-right: 5px;
                 }
                 .planercategory {
-                  color: #90949c;
+                  color: $color-gray;
                   font-weight: 400;
                 }
               }
@@ -139,7 +139,7 @@
         justify-content: space-between;
         font-size: 13px;
         padding: 20px 0;
-        color: #1d2129;
+        color: $color-black;
         font-weight: 400;
 
         i {
@@ -163,19 +163,19 @@
           font-weight: 400;
 
           p {
-            color: #1d2129;
+            color: $color-black;
             font-weight: 400;
             margin-bottom: 5px;
           }
 
           .RankPercent {
-            color: #00a2a2;
+            color: $color-sub;
             font-weight: 700;
             margin-right: 5px;
           }
 
           .Rankcategory {
-            color: #90949c;
+            color: $color-gray;
             font-weight: 400;
           }
         }

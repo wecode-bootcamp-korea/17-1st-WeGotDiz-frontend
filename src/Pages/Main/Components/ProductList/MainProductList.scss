@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: space-between;
     padding-bottom: 30px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: $border;
 
     span {
       font-size: 30px;
@@ -85,7 +85,7 @@
           span {
             font-size: 12px;
             margin-right: 7px;
-            color: #90949c;
+            color: $color-gray;
             font-weight: 600;
           }
         }
@@ -100,23 +100,24 @@
             .productPercent {
               font-size: 17px;
               font-weight: 700;
-              color: #00b2b2;
+              color: $color-sub;
             }
 
             .productDot {
-              color: #90949c;
+              color: $color-gray;
             }
 
             .productPrice {
-              font-size: 13px;
-              color: #90949c;
-              font-weight: 600;
+              font-size: 14px;
+              color: $color-gray;
+              font-weight: 700;
             }
           }
           .productDate {
-            font-size: 13px;
-            color: #90949c;
-            font-weight: 600;
+            font-size: 14px;
+            color: $color-gray;
+            font-weight: 700;
+            padding-top: 3px;
           }
         }
       }

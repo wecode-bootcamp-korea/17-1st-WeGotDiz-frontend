@@ -12,7 +12,7 @@ class Nav extends Component {
       isNavSearch: false,
       isSuggestLeft: true,
       isSuggestRight: false,
-      searchText: '',
+      text: '',
       // searchTextLog
       searchArr: [],
     };
@@ -53,28 +53,26 @@ class Nav extends Component {
   //검색 값 담기
   handleSearchChange = e => {
     this.setState({
-      searchText: e.target.value,
+      text: e.target.value,
     });
   };
 
+  //검색 기록 값 추가
   addSearch = e => {
-    const { searchText, searchArr } = this.state;
-    // if(e.key ===)
-
-    const newComment = {
-      searchId: Date.now(),
-      searchTexts: searchText,
-    };
-
-    const newComments = [...searchArr, newComment];
-
-    this.setState({
-      searchArr: newComments,
-    });
+    const { text, searchArr } = this.state;
     e.preventDefault();
-  };
+    if (e.key === 'Enter' && text) {
+      const newComment = {
+        searchId: Date.now(),
+        searchTexts: text,
+      };
 
-  //검색 값 추가
+      const newComments = [...searchArr, newComment];
+      this.setState({
+        searchArr: newComments,
+      });
+    }
+  };
 
   render() {
     const { isNavSearch, searchText, isloggedIn, searchArr } = this.state;
@@ -110,7 +108,7 @@ class Nav extends Component {
             </div>
             <div className="navRight">
               <div className="navSearchContainer">
-                <form className="navSearchForm" onSubmit={() => this.addSearch}>
+                <form className="navSearchForm" onSubmit="return false">
                   <i className="fas fa-search"></i>
                   <input
                     name="isNavSearch"

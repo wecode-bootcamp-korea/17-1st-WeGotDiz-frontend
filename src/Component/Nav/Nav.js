@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+import SearchText from './Components/SearchText';
 import './Nav.scss';
 
 class Nav extends Component {
@@ -55,20 +57,29 @@ class Nav extends Component {
     });
   };
 
-  addSearch = () => {
+  addSearch = e => {
     const { searchText, searchArr } = this.state;
+    // if(e.key ===)
 
     const newComment = {
       searchId: Date.now(),
-      searchText: searchText,
+      searchTexts: searchText,
     };
 
     const newComments = [...searchArr, newComment];
+
+    this.setState({
+      searchArr: newComments,
+    });
+    e.preventDefault();
   };
 
+  //검색 값 추가
+
   render() {
-    const { isNavSearch, searchText, isloggedIn } = this.state;
+    const { isNavSearch, searchText, isloggedIn, searchArr } = this.state;
     console.log('뭐라적혔니 ㅋㅋㅋㅋ >>>>>>' + searchText);
+    console.log('배열안에 뭐담겨있냐고', this.state.searchArr);
     return (
       <div>
         <header className="navContainer">
@@ -99,15 +110,14 @@ class Nav extends Component {
             </div>
             <div className="navRight">
               <div className="navSearchContainer">
-                <form className="navSearchForm">
+                <form className="navSearchForm" onSubmit={() => this.addSearch}>
                   <i className="fas fa-search"></i>
                   <input
                     name="isNavSearch"
                     className="navSearch"
                     onClick={this.handleSuggestDisplayOn}
                     onChange={this.handleSearchChange}
-                    value={searchText}
-                    // onBlur={this.handleSuggestDisplayOff}
+                    onKeyPress={this.addSearch}
                     placeholder="어떤 프로젝트를 찾고 계신가요?"
                   />
                 </form>
@@ -146,12 +156,9 @@ class Nav extends Component {
                     <div className="suggestLayerContent">
                       <div className="suggestLayerContentSet">
                         <ul className="suggestLayerContentList">
-                          <li className="suggestContent">
-                            <span>피카츄 라이츄</span>
-                            <button className="suggestContentBtn">
-                              <i className="fas fa-times" />
-                            </button>
-                          </li>
+                          {searchArr.map((text, index) => {
+                            return <SearchText text={text} key={index} />;
+                          })}
                         </ul>
                       </div>
                     </div>

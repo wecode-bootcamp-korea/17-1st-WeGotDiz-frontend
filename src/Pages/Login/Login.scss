@@ -53,7 +53,7 @@
 
     .loginBtn {
       margin-top: 16px;
-      background-color: $main-color;
+      background-color: $color-main;
       border: none;
       border-radius: 4px;
       color: #fff;
@@ -61,7 +61,7 @@
 
     button:hover {
       cursor: pointer;
-      background-color: $sub-color;
+      background-color: $color-sub;
     }
   }
 }

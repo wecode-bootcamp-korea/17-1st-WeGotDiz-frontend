@@ -12,11 +12,9 @@ class Aside extends Component {
 
   handleLike = () => {
     const { isLikeCliked } = this.state;
-    const { total_likes } = this.props.productData;
 
     this.setState({
       isLikeCliked: !isLikeCliked,
-      likeNum: isLikeCliked ? total_likes - 1 : total_likes + 1,
     });
   };
 
@@ -70,7 +68,7 @@ class Aside extends Component {
         <div className="btnWrapper">
           <button className="likeBtn" onClick={handleLike}>
             <i className="fas fa-heart" id={isLikeCliked ? 'like' : 'unlike'} />
-            {total_likes}
+            {isLikeCliked ? total_likes + 1 : total_likes}
           </button>
           <button>공유하기</button>
         </div>
@@ -95,15 +93,7 @@ class Aside extends Component {
             <span>BETA</span>
             <i className="far fa-question-circle" />
           </div>
-          <div className="makerTrustInfo">
-            <div className="makerGraph">
-              <p className="graphTitle"></p>
-              <div
-                className="graphStatus"
-                style={{ width: { makerLevelData } }}
-              />
-            </div>
-          </div>
+          <div className="makerTrustInfo" />
           <div className="makerContact">
             <span>메이커 평균 응답 시간</span>
             <span className="makerResponseHours">17시간 이내</span>

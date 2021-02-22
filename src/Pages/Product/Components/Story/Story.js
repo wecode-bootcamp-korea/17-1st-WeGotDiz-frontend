@@ -6,12 +6,6 @@ class Story extends Component {
     super();
     this.state = {
       productData: {},
-      thumbnail_url: '',
-      description: '',
-      goal_amount: '',
-      opening_date: '',
-      closing_date: '',
-      story: '',
     };
   }
 
@@ -25,12 +19,6 @@ class Story extends Component {
       .then(res => {
         this.setState({
           productData: res.data,
-          thumbnail_url: res.data.thumbnail_url,
-          description: res.data.description,
-          goal_amount: res.data.goal_amount,
-          opening_date: res.data.opening_date,
-          closing_date: res.data.closing_date,
-          story: res.data.story,
         });
       });
   };
@@ -43,7 +31,7 @@ class Story extends Component {
       opening_date,
       closing_date,
       story,
-    } = this.state;
+    } = this.state.productData;
 
     return (
       <div className="story">

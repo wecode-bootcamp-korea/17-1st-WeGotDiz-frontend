@@ -115,7 +115,7 @@ class Nav extends Component {
             </div>
             <div className="navRight">
               <div className="navSearchContainer">
-                <form className="navSearchForm" onSubmit="return false">
+                <form className="navSearchForm">
                   <i className="fas fa-search"></i>
                   <input
                     type="text"

@@ -54,7 +54,7 @@ class Login extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    fetch('http://10.58.95:8000/user/signin', {
+    fetch('http://10.58.2.95:8000/user/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: this.state.email,
@@ -63,8 +63,8 @@ class Login extends Component {
     })
       .then(response => response.json())
       .then(result => {
-        if (result.access_token) {
-          localStorage.setItem('access_token', result.access_token);
+        if (result.TOKEN) {
+          localStorage.setItem('access_token', result.TOKEN);
           this.props.history.push('/');
         } else alert('로그인 실패!');
       });

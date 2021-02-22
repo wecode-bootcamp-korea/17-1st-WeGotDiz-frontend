@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-//import Funded from '../Mypage/Components/Funded/Funded';
-//import Liked from '../Mypage/Components/Liked/Liked';
 import FundList from './Components/Funded/FundList/FundList';
 import LikeList from './Components/Liked/LikeList/LikeList';
 import MypageHeader from './Components/MypageHeader';

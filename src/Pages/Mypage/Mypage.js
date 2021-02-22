@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Funded from '../Mypage/Components/Funded/Funded';
-import Liked from '../Mypage/Components/Liked/Liked';
+//import Funded from '../Mypage/Components/Funded/Funded';
+//import Liked from '../Mypage/Components/Liked/Liked';
 import FundList from './Components/Funded/FundList/FundList';
 import LikeList from './Components/Liked/LikeList/LikeList';
 import MypageHeader from './Components/MypageHeader';
@@ -57,11 +57,6 @@ class Mypage extends Component {
 
   render() {
     const { currentId, userInfo, fundDataList, likeDataList } = this.state;
-    const MAPPING_OBJ = {
-      1: <Funded />,
-      2: <Liked />,
-    };
-    const CATEGORY_ARR = ['펀딩한', '좋아한'];
     console.log('currentId', this.state.currentId);
     return (
       <div className="myPage">
@@ -77,15 +72,8 @@ class Mypage extends Component {
         </div>
         <div className="body">
           <div className="contents">
-            {MAPPING_OBJ[currentId]}
-            <FundList fundList={fundDataList} />
-            <LikeList likeList={likeDataList} />
-            {/* {MAPPING_OBJ[currentId === 1] && (
-              <FundList fundList={fundDataList} />
-            )}
-            {MAPPING_OBJ[currentId === 2] && (
-              <LikeList likeList={likeDataList} />
-            )} */}
+            {this.state.currentId === 1 && <FundList fundList={fundDataList} />}
+            {this.state.currentId === 2 && <LikeList likeList={likeDataList} />}
           </div>
         </div>
       </div>
@@ -94,3 +82,10 @@ class Mypage extends Component {
 }
 
 export default Mypage;
+
+// const MAPPING_OBJ = {
+//   1: <Funded />,
+//   2: <Liked />,
+// };
+
+const CATEGORY_ARR = ['펀딩한', '좋아한'];

@@ -21,7 +21,6 @@ class Funded extends Component {
           <p className="companyName">{company}</p>
           <p className="catagoryName">{catagory}</p>
         </div>
-        {/* </div> */}
       </div>
     );
   }

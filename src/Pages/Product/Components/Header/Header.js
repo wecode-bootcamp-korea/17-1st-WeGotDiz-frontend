@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
-import './Banner.scss';
+import './Header.scss';
 
-class Banner extends Component {
+class Header extends Component {
   render() {
     const { thumbnail_url, category, title } = this.props.productData;
 
     return (
       <div
-        className="banner"
+        className="header"
         style={{ backgroundImage: `url(${thumbnail_url})` }}
       >
         <p className="category">{category}</p>
-        <p className="productTtile">{title}</p>
-        <div className="titleBackground" />
+        <h1 className="productTtile">{title}</h1>
       </div>
     );
   }
 }
 
-export default Banner;
+export default Header;

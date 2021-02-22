@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Banner from './Components/Banner/Banner';
+import Header from './Components/Header/Header';
 import Tabs from './Components/Tabs/Tabs';
 import Aside from './Components/Aside/Aside';
 import Story from './Components/Story/Story';
@@ -15,6 +15,8 @@ class Product extends Component {
       currentId: 1,
       productData: {},
       infoData: {},
+      makerLevelData: [],
+      tabsData: [],
     };
   }
 
@@ -23,12 +25,22 @@ class Product extends Component {
   }
 
   handleData = () => {
-    fetch('http://10.58.1.217:8000/product/28')
+    fetch('/data/productData.json')
       .then(res => res.json())
       .then(res => {
         this.setState({
           productData: res.data,
           infoData: res.data.info_box,
+          makerLevelData: res.data.maker_levels,
+          tabsData: res.data.tab_names,
+        });
+      });
+
+    fetch('/data/makerInfoData.json')
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          makerInfoData: res,
         });
       });
   };
@@ -41,17 +53,33 @@ class Product extends Component {
 
   render() {
     const { handleTab } = this;
-    const { currentId, productData, infoData } = this.state;
+    const {
+      currentId,
+      productData,
+      infoData,
+      makerLevelData,
+      tabsData,
+      makerInfoData,
+    } = this.state;
 
     return (
       <main className="product">
         {productData && (
           <>
-            <Banner productData={productData} />
-            <Tabs handleTab={handleTab} tabData={productData.tab_names} />
+            <Header productData={productData} />
+            <Tabs
+              handleTab={handleTab}
+              tabsData={tabsData}
+              currentId={currentId}
+            />
             <div className="contentsContainer">
-              <content className="contents">{MAPPING_TAB[currentId]}</content>
-              <Aside productData={productData} infoData={infoData} />
+              <content>{MAPPING_TAB[currentId]}</content>
+              <Aside
+                productData={productData}
+                infoData={infoData}
+                makerInfoData={makerInfoData}
+                makerLevelData={makerLevelData}
+              />
             </div>
           </>
         )}

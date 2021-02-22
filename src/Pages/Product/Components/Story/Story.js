@@ -20,7 +20,7 @@ class Story extends Component {
   }
 
   handleData = () => {
-    fetch('http://10.58.1.217:8000/product/28')
+    fetch('/data/productData.json')
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -50,9 +50,11 @@ class Story extends Component {
         <img src={thumbnail_url} alt="Product" />
         <p className="productDescription">{description}</p>
         <div className="fundingInfo">
-          <p className="goal">목표 금액 {goal_amount}원</p>
+          <p className="goal">
+            목표 금액 {Math.floor(goal_amount).toLocaleString()}원
+          </p>
           <p className="term">
-            펀딩 기간 {opening_date}-{closing_date}
+            펀딩 기간 {opening_date} - {closing_date}
           </p>
           <p className="fundingNotice">
             100% 이상 모이면 펀딩이 성공되며, 펀딩 마감일까지 목표 금액이 100%

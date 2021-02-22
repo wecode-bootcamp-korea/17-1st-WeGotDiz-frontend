@@ -8,21 +8,18 @@
   .tab {
     display: inline-block;
     margin: 0 14px;
-    padding: 22px 6px 22px 8px;
+    padding: 22px 5px 22px 12px;
     font-size: 15px;
+    border-bottom: 3px solid #fff;
 
     .countTotal {
-      margin-left: 4px;
+      margin: 0 0 4px 4px;
       color: $color-main;
       font-size: 12px;
     }
   }
 
   .on {
-    border-bottom: 4px solid $color-main;
-  }
-
-  .tabStatus {
     border-bottom: 3px solid $color-main;
   }
 }

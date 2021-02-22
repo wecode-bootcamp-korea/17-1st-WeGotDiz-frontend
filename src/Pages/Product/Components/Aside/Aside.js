@@ -35,6 +35,7 @@ class Aside extends Component {
   render() {
     const { handleLike, goToPurchase, handleMakerInfo } = this;
     const { isLikeCliked, isMakerInfoClicked } = this.state;
+    const { makerInfoData, makerLevelData } = this.props;
     const {
       total_likes,
       maker_name,
@@ -53,10 +54,10 @@ class Aside extends Component {
         <p className="daysLeft">{days_left}일 남음</p>
         <ul className="productNumInfo">
           <li className="achievement">
-            <span>{achieved_rate}</span>% 달성
+            <span>{Math.floor(achieved_rate)}</span>% 달성
           </li>
           <li className="achievement">
-            <span>{total_amount}</span>원 펀딩
+            <span>{Math.floor(total_amount).toLocaleString()}</span>원 펀딩
           </li>
           <li className="achievement">
             <span>{total_supporters}</span>
@@ -99,7 +100,7 @@ class Aside extends Component {
               <p className="graphTitle"></p>
               <div
                 className="graphStatus"
-                style={{ width: { maker_levels } }}
+                style={{ width: { makerLevelData } }}
               />
             </div>
           </div>
@@ -117,13 +118,18 @@ class Aside extends Component {
             </button>
             {isMakerInfoClicked && (
               <div className="makerInfoMore">
-                <p className="makerInfoTitle">메이커 연락처</p>
-                <p className="makerInfoDetails">google@gmail.com</p>
-                <p className="makerInfoDetails">01012345678</p>
-                <p className="makerInfoDetails">카카오 플러스친구 깃깃</p>
-                <p className="makerInfoTitle">SNS</p>
-                <p className="makerInfoDetails">http://www.gitgit.com/</p>
-                <p className="makerInfoDetails">http://lululala.com/</p>
+                {makerInfoData.map((info, idx) => {
+                  return (
+                    <div key={idx}>
+                      <p className="makerInfoTitle">{info.title}</p>
+                      <p className="makerInfoDetails">
+                        <div
+                          dangerouslySetInnerHTML={{ __html: info.details }}
+                        ></div>
+                      </p>
+                    </div>
+                  );
+                })}
                 <div className="makerInfoSns">
                   <a href="http://www.instagram.com">
                     <i className="fab fa-instagram" />

@@ -2,7 +2,7 @@
 
 aside {
   width: 284px;
-  color: #4a4a4a;
+  color: $color-dark-gray;
 
   .daysLeft {
     padding-bottom: 25px;
@@ -203,22 +203,22 @@ aside {
 
       .makerInfoMore {
         height: fit-content;
-        padding: 0 20px;
+        padding: 0 20px 20px 20px;
         color: #60656a;
         background-color: #fafbfc;
 
         .makerInfoTitle {
-          margin: 20px 0;
+          margin: 20px 0 14px 0;
           font-size: 12px;
         }
 
         .makerInfoDetails {
-          margin: 6px 0;
           font-size: 11px;
+          line-height: 1.4;
         }
 
         .makerInfoSns {
-          margin: 16px 0 20px 0;
+          margin: 16px 0 0 0;
         }
       }
     }

@@ -1,45 +1,37 @@
 {
   "data": {
-    "id": 2,
-    "category": "테크·가전",
-    "title": "강아지 마저 좋아하는 아이패드 보면 볼수록 설렌다!",
-    "tab_names": ["스토리", "반환정책", "커뮤니티"],
-    "thumbnail_url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8Y29tcHV0ZXJ8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    "description": "강아지도 너무 좋아서 쓰다가 안경을 썼습니다. 댕댕이 전용 노트북 입니다. 사람만 개발하기에는 너무 힘들어요 반려동물에게 개발 하청을!!",
-    "goal_amount": "1000000.00",
-    "today": "2021-02-22T10:32:09.661",
-    "opening_date": "2021-01-03T00:00:00Z",
-    "closing_date": "2021-02-11T00:00:00Z",
-    "info_box": [
-      {
-        "num": "32.00",
-        "text": "% 달성"
-      },
-      {
-        "num": "32156800.00",
-        "text": "원 펀딩"
-      },
-      {
-        "num": 854,
-        "text": "명의 서포터"
-      }
-    ],
-    "total_likes": 100,
-    "story": "<div class=\"inner-content\">\n    <h1>Heading 1 to be placed here</h1>\n    <H2>and heading 2</H2>\n    <p>p tag</p>\n</div>\n",
-    "maker_name": "주식회사 포유",
+    "category": "기부·후원",
+    "closing_date": "2021-03-05T00:00:00",
+    "days_left": 10,
+    "description": "11일 동안 먹고 자도 해도 물샘없이 야생동물도 오지않습니다. 아주 시몬 침대같은 안락함",
+    "goal_amount": "5000000.00",
+    "id": 21,
+    "info_box": {
+      "achieved_rate": "0.00",
+      "total_amount": "840000.00",
+      "total_supporters": 150
+    },
+    "maker_image": "https://images.unsplash.com/photo-1592249503965-c3c7806f9074?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=801&q=80",
     "maker_levels": [
       {
-        "name": "평판",
-        "level": "9.6"
+        "level": "8.9",
+        "name": "평판"
       },
       {
-        "name": "소통",
-        "level": "6.4"
+        "level": "6.5",
+        "name": "소통"
       },
       {
-        "name": "인기",
-        "level": "8.8"
+        "level": "9.8",
+        "name": "인기"
       }
-    ]
+    ],
+    "maker_name": "씨드솔트(주)",
+    "opening_date": "2021-01-01T00:00:00",
+    "story": "",
+    "tab_names": ["스토리", "반환정책", "커뮤니티"],
+    "thumbnail_url": "https://images.unsplash.com/photo-1550957886-ac45931e5779?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80",
+    "title": "[10박 11일] 텐트!",
+    "total_likes": 281
   }
 }

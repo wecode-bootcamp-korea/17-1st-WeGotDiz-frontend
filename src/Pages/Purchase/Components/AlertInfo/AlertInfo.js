@@ -31,7 +31,9 @@ class AlertInfo extends Component {
               <span className="checkmark" />
             </label>
           </dt>
-          <dd className="checkboxInfo">{content}</dd>
+          <dd className="checkboxInfo">
+            <div dangerouslySetInnerHTML={{ __html: content }} />
+          </dd>
           {details && (
             <dd className="checkboxInfoDetails">
               <button

@@ -6,56 +6,62 @@ class PurchaseReservation extends Component {
     const { handleSubmit } = this.props;
     return (
       <div className="purchaseReservation">
-        <dl className="purchaseDetails">
-          <dd>[얼리버드] 딥소스 3종 세트 ( 10% 할인 )</dd>
-          <dd>
-            화이트 딥소스 1개 ( 200g ) 옐로우 딥소스 1개 ( 200g ) 블랙 딥소스
-            1개 ( 200g )
-          </dd>
-          <dd>
-            <span>수량 1개</span>
-            <span>50,000원</span>
-          </dd>
-          <dd>
-            <span>추가 후원금</span>
-            <span>0원</span>
-          </dd>
-          <dd>
-            <span>배송비</span>
-            <span>3,000원</span>
-          </dd>
-          <dd>
-            <span>펀딩 금액</span>
-            <span>50,000 원</span>
-          </dd>
-          <dd>
-            <span>추가 후원금</span>
-            <span>0원</span>
-          </dd>
-          <dd>
-            <span>배송비</span>
-            <span>3,000원</span>
-          </dd>
-          <dd>
-            <span>최종결제금액</span>
-            <span>50,000원</span>
-          </dd>
-        </dl>
-        <div className="supporterInfoWrapper">
-          <div className="fundingSupporter">
-            <p>펀딩 서포터</p>
-            <div className="supporterInfo">
-              <p>이름</p>
-              <p>이사랑</p>
-              <p>이메일</p>
-              <p>rosaranglee@gmail.com</p>
-              <p>휴대폰 번호</p>
-              <p>01042068806</p>
+        <div className="purchaseInfo">
+          <div className="purchaseReward">
+            <p className="title">[얼리버드] 딥소스 3종 세트 ( 10% 할인 )</p>
+            <p className="details">
+              화이트 딥소스 1개 ( 200g ) 옐로우 딥소스 1개 ( 200g ) 블랙 딥소스
+              1개 ( 200g )
+            </p>
+            <div className="amountPriceContainer">
+              <span>수량 1개</span>
+              <span>50,000원</span>
+            </div>
+            <div className="extraShippingFeeContainer">
+              <dl>
+                <dt>추가 후원금</dt>
+                <dd>0원</dd>
+              </dl>
+              <dl>
+                <dt>배송비</dt>
+                <dd>2,500원</dd>
+              </dl>
             </div>
           </div>
-          <div className="deliveryAddress">
-            <p>리워드 배송지</p>
-            <div className="address">
+          <div className="totalPriceContainer">
+            <dl>
+              <dt>펀딩 금액</dt>
+              <dd>50,000 원</dd>
+            </dl>
+            <dl>
+              <dt>추가 후원금</dt>
+              <dd>0원</dd>
+            </dl>
+            <dl>
+              <dt>배송비</dt>
+              <dd>3,000원</dd>
+            </dl>
+            <dl>
+              <dt className="totalPriceTitle">최종결제금액</dt>
+              <dd className="totalPrice">50,000원</dd>
+            </dl>
+          </div>
+        </div>
+        <div className="supporterInfoWrapper">
+          <div className="fundingSupporterContainer">
+            <p className="supporterInfoContainerTitle">펀딩 서포터</p>
+            <div className="supporterInfo">
+              <p className="supporterInfoTitle">이름</p>
+              <p className="supporterInfoContent">이사랑</p>
+              <p className="supporterInfoTitle">이메일</p>
+              <p className="supporterInfoContent">rosaranglee@gmail.com</p>
+              <p className="supporterInfoTitle">휴대폰 번호</p>
+              <p className="supporterInfoContent">01042068806</p>
+            </div>
+          </div>
+          <div className="shippingAddressContainer">
+            <p className="supporterInfoContainerTitle">리워드 배송지</p>
+            <div className="addressInfo">
               <label>
                 이름
                 <input />
@@ -77,7 +83,7 @@ class PurchaseReservation extends Component {
         </div>
         <p>결제 정보</p>
         <p>결제 정보 입력</p>
-        <div className="paymentMethod">
+        {/* <div className="paymentMethod">
           <div className="paymentMethodInput">
             <label>
               <input />
@@ -135,7 +141,7 @@ class PurchaseReservation extends Component {
               책임 규정에 대한 동의
             </dd>
           </dl>
-        </div>
+        </div> */}
         <button className="submitPurchaseReservation" onClick={handleSubmit}>
           결제 예약하기
         </button>

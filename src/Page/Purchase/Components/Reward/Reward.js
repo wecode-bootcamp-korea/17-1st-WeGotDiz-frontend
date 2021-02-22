@@ -19,7 +19,7 @@ class Reward extends Component {
         </div>
         <div className="rewardDetailsContainer">
           <div className="price">
-            <span>{price}원</span>
+            <span>{price.toLocaleString()}원</span>
             <span> 펀딩합니다.</span>
           </div>
           <div className="rewardName">

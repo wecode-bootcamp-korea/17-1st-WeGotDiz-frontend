@@ -7,6 +7,7 @@ class AlertModal extends Component {
     super();
     this.state = {
       alertInfoData: [],
+      isbtnDisabled: false,
     };
   }
 
@@ -24,8 +25,10 @@ class AlertModal extends Component {
       });
   };
 
+  handleBtn = () => {};
+
   render() {
-    const { alertInfoData } = this.state;
+    const { alertInfoData, isbtnDisabled } = this.state;
     const { goToStory } = this.props;
 
     return (
@@ -54,6 +57,7 @@ class AlertModal extends Component {
           <button
             onClick={this.props.handleModal}
             className="continueToFundingBtn"
+            disabled={isbtnDisabled}
           >
             계속해서 펀딩하기
           </button>

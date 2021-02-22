@@ -4,52 +4,128 @@
   width: 650px;
   margin: auto;
 
-  .purchaseDetails {
-    border-top: 1px solid #000;
-    background-color: #dedede;
+  .purchaseInfo {
+    color: $color-dark-gray;
+    font-size: 14px;
 
-    dd {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px;
+    border-top: 1px solid $color-gray;
+
+    .purchaseReward {
+      .title,
+      .details {
+        padding: 15px;
+        font-weight: 400;
+      }
+
+      .title {
+        color: $color-main;
+      }
+
+      .details {
+        font-size: 12px;
+        color: $color-gray;
+      }
+
+      .amountPriceContainer {
+        display: flex;
+        justify-content: flex-end;
+
+        span {
+          font-weight: 400;
+          padding: 15px;
+        }
+      }
+
+      .extraShippingFeeContainer {
+        dl {
+          display: flex;
+          justify-content: space-between;
+          border-top: 1px solid #e4e4e4;
+          padding: 15px;
+        }
+      }
+    }
+
+    .totalPriceContainer {
+      padding: 4px 0;
+      background-color: #f9f9f9;
+      border-top: 1px dashed $color-gray;
+      border-bottom: 1px solid $color-gray;
+
+      dl {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        dt {
+          padding: 15px 0 15px 15px;
+        }
+
+        dd {
+          padding: 15px 15px 15px 0;
+        }
+
+        .totalPriceTitle {
+          color: $color-main;
+        }
+
+        .totalPrice {
+          color: $color-main;
+          font-size: 22px;
+        }
+      }
     }
   }
 
   .supporterInfoWrapper {
     display: flex;
     margin-top: 50px;
+    font-size: 14px;
 
-    p {
+    .supporterInfoContainerTitle {
       font-size: 24px;
     }
 
-    .fundingSupporter,
-    .deliveryAddress {
-      width: 315px;
-    }
-    .supporterInfo,
-    .address {
-      margin-top: 20px;
-    }
+    .fundingSupporterContainer {
+      .supporterInfo {
+        width: 315px;
+        margin-top: 20px;
+        padding: 15px 12px 24px;
+        color: $color-black;
+        background-color: #eeede9;
+        font-weight: 300;
 
-    .supporterInfo {
-      padding: 15px 12px 24px;
-      background-color: #eeede9;
+        p {
+          padding: 8px 0;
+        }
 
-      p {
-        font-size: 14px;
+        .supporterInfoContent {
+          color: $color-gray;
+        }
       }
     }
+    .shippingAddressContainer {
+      margin-left: 30px;
 
-    .deliveryAddress {
-      margin-left: 20px;
-    }
+      .addressInfo {
+        width: 300px;
+        margin-top: 20px;
 
-    .address label {
-      display: flex;
-      flex-direction: column;
+        label {
+          font-size: 14px;
+          color: $color-gray;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+
+          input {
+            width: 100%;
+          }
+        }
+      }
     }
   }
+
   .paymentMethod {
     display: flex;
 

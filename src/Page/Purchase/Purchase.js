@@ -94,7 +94,6 @@ class Purchase extends Component {
             rewardData={rewardData}
           />
         )}
-
         {isReservationShow && (
           <PurchaseReservation handleSubmit={handleSubmit} />
         )}

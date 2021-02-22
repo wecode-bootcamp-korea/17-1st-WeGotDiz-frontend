@@ -1,16 +1,17 @@
 @import '../../styles/common.scss';
 
 .myPage {
+  // margin-top: 50px;
   .header {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
-    margin-top: 0;
+    // margin-top: 0;
     width: 100%;
-    height: 200px;
-    background-color: olive;
+    height: 300px;
+    //background-color: olive;
 
     .category {
       display: flex;
@@ -19,15 +20,30 @@
       margin-top: 5px;
       width: 900px;
       height: 30px;
-      border: 1px solid black;
+      //border: 1px solid black;
+
+      // .clickColor {
+      //   color: $color-main;
+      //   border-bottom: 2px solid $color-main;
+      // }
       span {
         cursor: pointer;
+        color: gray;
         //border: 1px solid black;
-        border-bottom: 2px solid red;
         margin-right: 15px;
         bottom: 0;
         font-size: 15px;
-        color: blue;
+      }
+
+      .tabOff {
+        color: gray;
+        border: none;
+        // display: none;
+      }
+
+      .tabOn {
+        color: $color-main;
+        border-bottom: 2px solid $color-main;
       }
     }
   }
@@ -35,11 +51,12 @@
   .contents {
     // width: 900px;
     // height: 100vh;
-    background-color: lightcoral;
+    //background-color: lightcoral;
+    background-color: $color-light-gray;
     padding-top: 30px; //background-color: $color-light-gray;
     .click {
       font-weight: 700;
-      border: 2px none none solid none red;
+      border: 2px none none solid none $color-main;
     }
   }
 }

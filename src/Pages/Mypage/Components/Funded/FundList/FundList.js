@@ -8,17 +8,17 @@ class FundList extends Component {
     const { fundList } = this.props;
     return (
       <div className="fundList">
-        {fundList.map(fund => {
+        {fundList.map(data => {
           return (
             <Funded
-              key={fund.id}
-              img={fund.product_image}
-              percent={fund.percent}
-              price={fund.product_total_amount}
-              date={fund.date}
-              title={fund.product_itle}
-              company={fund.makerCompany}
-              catagory={fund.product_catagory}
+              key={data.product_id}
+              img={data.product_image}
+              percent={Math.floor(data.product_achieved_rate)}
+              price={Math.floor(data.product_total_amount).toLocaleString()}
+              title={data.product_title}
+              date={data.product_closing_date}
+              company={data.product_maker_info}
+              catagory={data.product_catagory}
             />
           );
         })}

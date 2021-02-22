@@ -9,6 +9,8 @@ class Mypage extends Component {
     super();
     this.state = {
       currentId: 1,
+      isFunded: true,
+      isLiked: false,
       userInfo: [],
       likeDataList: [],
       fundDataList: [],
@@ -56,18 +58,38 @@ class Mypage extends Component {
   render() {
     const { currentId, userInfo, fundDataList, likeDataList } = this.state;
     //console.log('currentId', this.state.currentId);
+    //console.log('-----');
+    //console.log('t:f is F>>>', !this.state.isFunded);
+    //console.log('f:t is L>>>', this.state.isLiked);
     return (
       <div className="myPage">
         <div className="header">
           <MypageHeader userInfo={userInfo} />
           <div className="category">
-            {CATEGORY_ARR.map((category, idx) => {
+            {/* {CATEGORY_ARR.map((category, idx) => {
               return (
-                <span key={category} onClick={() => this.clickHandler(idx + 1)}>
+                <span
+                  className={
+                    (currentId === 1 && 'clickColor') ||
+                    (currentId === 2 && 'clickColor')
+                  }
+                  key={category}
+                  onClick={() => this.clickHandler(idx + 1)}
+                >
                   {category}
-                </span>
-              );
-            })}
+                </span> */}
+            <span
+              className={this.state.isFunded ? 'tabOn' : 'tabOff'}
+              onClick={() => this.clickHandler(1)}
+            >
+              펀딩한
+            </span>
+            <span
+              className={this.state.isLiked ? 'tabOn' : 'tabOff'}
+              onClick={() => this.clickHandler(2)}
+            >
+              좋아한
+            </span>
           </div>
         </div>
         <div className="body">
@@ -83,4 +105,4 @@ class Mypage extends Component {
 
 export default Mypage;
 
-const CATEGORY_ARR = ['펀딩한', '좋아한'];
+// const CATEGORY_ARR = ['펀딩한', '좋아한'];

@@ -8,17 +8,16 @@ class LikeList extends Component {
     const { likeList } = this.props;
     return (
       <div className="likeList">
-        {likeList.map(like => {
+        {likeList.map(data => {
           return (
             <Liked
-              key={like.id}
-              img={like.imgUrl}
-              percent={like.percent}
-              price={like.price}
-              data={like.data}
-              title={like.title}
-              company={like.makerCompany}
-              catagory={like.catagory}
+              key={data.product_id}
+              img={data.product_image}
+              percent={Math.floor(data.product_achieved_rate)}
+              price={Math.floor(data.product_total_amount).toLocaleString()}
+              title={data.product_title}
+              company={data.product_maker_info}
+              catagory={data.product_catagory}
             />
           );
         })}

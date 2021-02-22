@@ -3,7 +3,7 @@ import './MypageHeader.scss';
 
 class MypageHeader extends Component {
   render() {
-    console.log('this.props.userInfo>>', this.props);
+    //console.log('this.props.userInfo>>', this.props);
     const { userInfo } = this.props;
     return (
       <div className="mypageHeader">

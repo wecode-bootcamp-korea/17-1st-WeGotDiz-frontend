@@ -1,78 +1,65 @@
 [
   {
-    "id": 1,
-    "product_image":
-    "https://mblogthumb-phinf.pstatic.net/MjAxODEwMTFfMjU2/MDAxNTM5MjU2MzYwMzQx.z9LnqcMzPIUceswexmG5X0e6Wa_SSl7HcUfwbei1OPQg.sFZp8g_kn9_WYXeeyIgvi-8UWza5WLAlWfxFUrmPofcg.JPEG.yzzzii/3472387408838554668_20181010180541018.jpg?type=w800",
-    "product_percent":"1,085%",
-    "product_total_amount":"5,428,300원 달성",
-    "date":"13일 남음",
+    "product_achieved_rate":"12.00",
+    "product_catagory":"테크 ∙ 가전",
+    "product_id":1,
+    "product_image":"https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA0MDRfMjA0%2FMDAxNTU0MzA4NTU2Mjg4.YWGpp7rYQC50dXHyfals4XCFZ55wAmr0hBQk8M-P0Qgg.dYf9qCpbwZgeeCPKUvPubA6fOtIyF5fnv_FlVEpCD1Mg.JPEG.seraphic_xx%2FIMG_9452.JPG&type=sc960_832",
+    "product_maker_info":"찰리브라운",
     "product_title":"[귀여운] 찰리브라운 찰리브라운 찰리브라운",
-    "product_maker_info": "찰리브라운",
-    "product_catagory": "찰리"
+    "product_total_amount":"12345670.00"
   },
   {
-    "id": 2,
-    "imgUrl":
-    "https://mblogthumb-phinf.pstatic.net/MjAxODEwMTFfMjU2/MDAxNTM5MjU2MzYwMzQx.z9LnqcMzPIUceswexmG5X0e6Wa_SSl7HcUfwbei1OPQg.sFZp8g_kn9_WYXeeyIgvi-8UWza5WLAlWfxFUrmPofcg.JPEG.yzzzii/3472387408838554668_20181010180541018.jpg?type=w800",
-    "percent":"1,085%",
-    "price":"5,428,300원 달성",
-    "date":"13일 남음",
-    "title":"[귀여운] 찰리브라운 찰리브라운 찰리브라운",
-    "makerCompany": "찰리브라운",
-    "catagory": "찰리"
+    "product_achieved_rate":"12.00",
+    "product_catagory":"테크 ∙ 가전",
+    "product_id":2,
+    "product_image":"https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA0MDRfMjA0%2FMDAxNTU0MzA4NTU2Mjg4.YWGpp7rYQC50dXHyfals4XCFZ55wAmr0hBQk8M-P0Qgg.dYf9qCpbwZgeeCPKUvPubA6fOtIyF5fnv_FlVEpCD1Mg.JPEG.seraphic_xx%2FIMG_9452.JPG&type=sc960_832",
+    "product_maker_info":"찰리브라운",
+    "product_title":"[귀여운] 찰리브라운 찰리브라운 찰리브라운",
+    "product_total_amount":"12345670.00"
   },
   {
-    "id": 3,
-    "imgUrl":
-    "https://mblogthumb-phinf.pstatic.net/MjAxODEwMTFfMjU2/MDAxNTM5MjU2MzYwMzQx.z9LnqcMzPIUceswexmG5X0e6Wa_SSl7HcUfwbei1OPQg.sFZp8g_kn9_WYXeeyIgvi-8UWza5WLAlWfxFUrmPofcg.JPEG.yzzzii/3472387408838554668_20181010180541018.jpg?type=w800",
-    "percent":"1,085%",
-    "price":"5,428,300원 달성",
-    "date":"13일 남음",
-    "title":"[귀여운] 찰리브라운 찰리브라운 찰리브라운",
-    "makerCompany": "찰리브라운",
-    "catagory": "찰리"
+    "product_achieved_rate":"12.00",
+    "product_catagory":"테크 ∙ 가전",
+    "product_id":3,
+    "product_image":"https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA0MDRfMjA0%2FMDAxNTU0MzA4NTU2Mjg4.YWGpp7rYQC50dXHyfals4XCFZ55wAmr0hBQk8M-P0Qgg.dYf9qCpbwZgeeCPKUvPubA6fOtIyF5fnv_FlVEpCD1Mg.JPEG.seraphic_xx%2FIMG_9452.JPG&type=sc960_832",
+    "product_maker_info":"찰리브라운",
+    "product_title":"[귀여운] 찰리브라운 찰리브라운 찰리브라운",
+    "product_total_amount":"12345670.00"
   },
   {
-    "id": 4,
-    "imgUrl":
-    "https://mblogthumb-phinf.pstatic.net/MjAxODEwMTFfMjU2/MDAxNTM5MjU2MzYwMzQx.z9LnqcMzPIUceswexmG5X0e6Wa_SSl7HcUfwbei1OPQg.sFZp8g_kn9_WYXeeyIgvi-8UWza5WLAlWfxFUrmPofcg.JPEG.yzzzii/3472387408838554668_20181010180541018.jpg?type=w800",
-    "percent":"1,085%",
-    "price":"5,428,300원 달성",
-    "date":"13일 남음",
-    "title":"[귀여운] 찰리브라운 찰리브라운 찰리브라운",
-    "makerCompany": "찰리브라운",
-    "catagory": "찰리"
+    "product_achieved_rate":"12.00",
+    "product_catagory":"테크 ∙ 가전",
+    "product_id":4,
+    "product_image":"https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA0MDRfMjA0%2FMDAxNTU0MzA4NTU2Mjg4.YWGpp7rYQC50dXHyfals4XCFZ55wAmr0hBQk8M-P0Qgg.dYf9qCpbwZgeeCPKUvPubA6fOtIyF5fnv_FlVEpCD1Mg.JPEG.seraphic_xx%2FIMG_9452.JPG&type=sc960_832",
+    "product_maker_info":"찰리브라운",
+    "product_title":"[귀여운] 찰리브라운 찰리브라운 찰리브라운",
+    "product_total_amount":"12345670.00"
   },
   {
-    "id": 5,
-    "imgUrl":
-    "https://mblogthumb-phinf.pstatic.net/MjAxODEwMTFfMjU2/MDAxNTM5MjU2MzYwMzQx.z9LnqcMzPIUceswexmG5X0e6Wa_SSl7HcUfwbei1OPQg.sFZp8g_kn9_WYXeeyIgvi-8UWza5WLAlWfxFUrmPofcg.JPEG.yzzzii/3472387408838554668_20181010180541018.jpg?type=w800",
-    "percent":"1,085%",
-    "price":"5,428,300원 달성",
-    "date":"13일 남음",
-    "title":"[귀여운] 찰리브라운 찰리브라운 찰리브라운",
-    "makerCompany": "찰리브라운",
-    "catagory": "찰리"
+    "product_achieved_rate":"12.00",
+    "product_catagory":"테크 ∙ 가전",
+    "product_id":5,
+    "product_image":"https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA0MDRfMjA0%2FMDAxNTU0MzA4NTU2Mjg4.YWGpp7rYQC50dXHyfals4XCFZ55wAmr0hBQk8M-P0Qgg.dYf9qCpbwZgeeCPKUvPubA6fOtIyF5fnv_FlVEpCD1Mg.JPEG.seraphic_xx%2FIMG_9452.JPG&type=sc960_832",
+    "product_maker_info":"찰리브라운",
+    "product_title":"[귀여운] 찰리브라운 찰리브라운 찰리브라운",
+    "product_total_amount":"12345670.00"
   },
   {
-    "id": 6,
-    "imgUrl":
-    "https://mblogthumb-phinf.pstatic.net/MjAxODEwMTFfMjU2/MDAxNTM5MjU2MzYwMzQx.z9LnqcMzPIUceswexmG5X0e6Wa_SSl7HcUfwbei1OPQg.sFZp8g_kn9_WYXeeyIgvi-8UWza5WLAlWfxFUrmPofcg.JPEG.yzzzii/3472387408838554668_20181010180541018.jpg?type=w800",
-    "percent":"1,085%",
-    "price":"5,428,300원 달성",
-    "date":"13일 남음",
-    "title":"[귀여운] 찰리브라운 찰리브라운 찰리브라운",
-    "makerCompany": "찰리브라운",
-    "catagory": "찰리"
-  },  {
-    "id": 7,
-    "imgUrl":
-    "https://mblogthumb-phinf.pstatic.net/MjAxODEwMTFfMjU2/MDAxNTM5MjU2MzYwMzQx.z9LnqcMzPIUceswexmG5X0e6Wa_SSl7HcUfwbei1OPQg.sFZp8g_kn9_WYXeeyIgvi-8UWza5WLAlWfxFUrmPofcg.JPEG.yzzzii/3472387408838554668_20181010180541018.jpg?type=w800",
-    "percent":"1,085%",
-    "price":"5,428,300원 달성",
-    "date":"13일 남음",
-    "title":"[귀여운] 찰리브라운 찰리브라운 찰리브라운",
-    "makerCompany": "찰리브라운",
-    "catagory": "찰리"
+    "product_achieved_rate":"12.00",
+    "product_catagory":"테크 ∙ 가전",
+    "product_id":6,
+    "product_image":"https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA0MDRfMjA0%2FMDAxNTU0MzA4NTU2Mjg4.YWGpp7rYQC50dXHyfals4XCFZ55wAmr0hBQk8M-P0Qgg.dYf9qCpbwZgeeCPKUvPubA6fOtIyF5fnv_FlVEpCD1Mg.JPEG.seraphic_xx%2FIMG_9452.JPG&type=sc960_832",
+    "product_maker_info":"찰리브라운",
+    "product_title":"[귀여운] 찰리브라운 찰리브라운 찰리브라운",
+    "product_total_amount":"12345670.00"
+  },    
+  {
+    "product_achieved_rate":"12.00",
+    "product_catagory":"테크 ∙ 가전",
+    "product_id":7,
+    "product_image":"https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA0MDRfMjA0%2FMDAxNTU0MzA4NTU2Mjg4.YWGpp7rYQC50dXHyfals4XCFZ55wAmr0hBQk8M-P0Qgg.dYf9qCpbwZgeeCPKUvPubA6fOtIyF5fnv_FlVEpCD1Mg.JPEG.seraphic_xx%2FIMG_9452.JPG&type=sc960_832",
+    "product_maker_info":"찰리브라운",
+    "product_title":"[귀여운] 찰리브라운 찰리브라운 찰리브라운",
+    "product_total_amount":"12345670.00"
   }
 ]

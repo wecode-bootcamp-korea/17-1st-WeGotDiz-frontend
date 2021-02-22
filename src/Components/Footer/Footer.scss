@@ -1,4 +1,4 @@
-@import '../../Styles/common.scss';
+@import '../../styles/common.scss';
 
 .footerContainer {
   display: flex;
@@ -8,8 +8,8 @@
 
   .footerMenuContainer {
     height: 56px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: $border;
+    border-bottom: $border;
     text-align: left;
     padding: 0px 100px;
 
@@ -25,7 +25,7 @@
         margin-right: 25px;
         padding-left: 0;
         text-align: text;
-        color: #515151;
+        color: $color-dark-gray;
         cursor: pointer;
 
         i {
@@ -75,7 +75,7 @@
             color: white;
             font-size: 16px;
             font-weight: bold;
-            background-color: #212529;
+            background-color: $color-black;
             border-radius: 28px;
 
             i {
@@ -150,7 +150,7 @@
     height: 80px;
     margin-top: 40px;
     padding: 24px 16px 40px;
-    background-color: #292929;
+    background-color: $color-black;
 
     p {
       padding-top: 10px;

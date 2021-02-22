@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import Banner from './Component/Banner/Banner';
-import Tabs from './Component/Tabs/Tabs';
-import Aside from './Component/Aside/Aside';
-import Story from './Component/Story/Story';
-import Policy from './Component/Policy/Policy';
-import News from './Component/News/News';
-import Community from './Component/Community/Community';
-import Supporter from './Component/Supporter/Supporter';
+import Banner from './Components/Banner/Banner';
+import Tabs from './Components/Tabs/Tabs';
+import Aside from './Components/Aside/Aside';
+import Story from './Components/Story/Story';
+import Policy from './Components/Policy/Policy';
+import News from './Components/News/News';
+import Community from './Components/Community/Community';
+import Supporter from './Components/Supporter/Supporter';
 import './Product.scss';
 
 class Product extends Component {
@@ -27,7 +27,7 @@ class Product extends Component {
   }
 
   handleData = () => {
-    fetch('http://10.58.1.217:8000/product/1')
+    fetch('/data/productData.json')
       .then(res => res.json())
       .then(res => {
         this.setState({

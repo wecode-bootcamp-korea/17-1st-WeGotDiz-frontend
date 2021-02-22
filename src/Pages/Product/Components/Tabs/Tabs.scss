@@ -1,4 +1,4 @@
-@import '../../../../Style/common.scss';
+@import '../../../../styles/common.scss';
 
 .tabs {
   @extend %flex-center;
@@ -13,16 +13,16 @@
 
     .countTotal {
       margin-left: 4px;
-      color: $main-color;
+      color: $color-main;
       font-size: 12px;
     }
   }
 
   .on {
-    border-bottom: 4px solid $main-color;
+    border-bottom: 4px solid $color-main;
   }
 
   .tabStatus {
-    border-bottom: 3px solid $main-color;
+    border-bottom: 3px solid $color-main;
   }
 }

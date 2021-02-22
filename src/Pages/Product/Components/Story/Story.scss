@@ -1,4 +1,4 @@
-@import '../../../../Style/common.scss';
+@import '../../../../styles/common.scss';
 
 .story {
   margin-right: 40px;
@@ -23,7 +23,7 @@
     .term {
       font-size: 13px;
       line-height: 1.5;
-      color: $main-color;
+      color: $color-main;
     }
 
     .fundingNotice {

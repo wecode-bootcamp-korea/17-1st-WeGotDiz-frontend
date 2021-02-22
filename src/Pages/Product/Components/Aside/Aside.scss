@@ -1,4 +1,4 @@
-@import '../../../../Style/common.scss';
+@import '../../../../styles/common.scss';
 
 aside {
   width: 284px;
@@ -109,7 +109,7 @@ aside {
     .beta {
       align-items: center;
       padding: 5px 16px;
-      color: $main-color;
+      color: $color-main;
       font-size: 11px;
       font-weight: bold;
       text-align: right;
@@ -150,7 +150,7 @@ aside {
         }
 
         #on {
-          background-color: $main-color;
+          background-color: $color-main;
         }
       }
     }
@@ -165,7 +165,7 @@ aside {
 
       .makerResponseHours {
         padding-left: 8px;
-        color: $main-color;
+        color: $color-main;
       }
 
       .makerContactBtn {

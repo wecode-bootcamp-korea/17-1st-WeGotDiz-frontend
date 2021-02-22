@@ -1,4 +1,4 @@
-@import '../../../../Style/common.scss';
+@import '../../../../styles/common.scss';
 
 .banner {
   @extend %flex-center;
@@ -10,7 +10,7 @@
 
   .category {
     margin-bottom: 20px;
-    color: $main-color;
+    color: $color-main;
     font-size: 16px;
     font-weight: 500;
   }

@@ -120,9 +120,23 @@
   .option {
     display: flex;
 
+    button,
+    input {
+      border-radius: 3px;
+    }
+
+    button {
+      width: 32px;
+      margin: 0 4px;
+    }
+
     input {
       text-align: right;
       width: 60px;
+      height: 32px;
+      border: 1px solid $color-main;
+      text-align: right;
+      padding-right: 10px;
 
       &::-webkit-outer-spin-button,
       &::-webkit-inner-spin-button {

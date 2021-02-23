@@ -4,11 +4,11 @@ import './Reward.scss';
 class Reward extends Component {
   constructor() {
     super();
-    this.state = { rewardContainerColor: true };
+    this.state = { amount: 1 };
   }
 
   render() {
-    const { price, stock, name, details } = this.props;
+    const { price, stock, name, details, handleAmount } = this.props;
     return (
       <li className="reward" onClick="chooseReward">
         <div className="checkboxContainer">
@@ -35,9 +35,9 @@ class Reward extends Component {
           <div>
             <p>수량</p>
             <div className="option">
-              <button> - </button>
-              <input type="number" min="1" max="20" />
-              <button> + </button>
+              <button className="minusBtn"> - </button>
+              <input type="number" min="1" max="20" onChange={handleAmount} />
+              <button className="plusBtn"> + </button>
             </div>
           </div>
         </div>

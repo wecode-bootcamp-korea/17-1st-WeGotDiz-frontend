@@ -3,17 +3,13 @@ import Reward from '../Reward/Reward';
 import './ChooseReward.scss';
 
 class ChooseReward extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
   render() {
     const {
       handleChooseReward,
       rewardData,
       handleReward,
       rewardOn,
+      handleAmount,
     } = this.props;
 
     return (
@@ -39,6 +35,7 @@ class ChooseReward extends Component {
               details={reward.details}
               handleReward={handleReward}
               rewardOn={rewardOn}
+              handleAmount={handleAmount}
             />
           ))}
         </dl>

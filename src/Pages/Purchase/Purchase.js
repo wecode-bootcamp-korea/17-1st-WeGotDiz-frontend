@@ -62,7 +62,11 @@ class Purchase extends Component {
     window.scrollTo(0, 0);
   };
 
-  handle;
+  handleAmount = e => {
+    this.setState({
+      amount: e.target.value,
+    });
+  };
 
   goToStory = () => {
     this.props.history.push('/product/details');
@@ -84,6 +88,7 @@ class Purchase extends Component {
       goToStory,
       handleData,
       handleReward,
+      handleAmount,
     } = this;
 
     return (
@@ -104,6 +109,7 @@ class Purchase extends Component {
             handleReward={handleReward}
             rewardData={rewardData}
             rewardOn={rewardOn}
+            handleAmount={handleAmount}
           />
         )}
         {isReservationShow && (

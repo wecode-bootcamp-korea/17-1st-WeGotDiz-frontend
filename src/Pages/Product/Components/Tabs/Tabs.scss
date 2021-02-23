@@ -1,0 +1,25 @@
+@import '../../../../styles/common.scss';
+
+.tabs {
+  @extend %flex-center;
+  border-bottom: $border;
+  cursor: pointer;
+
+  .tab {
+    display: inline-block;
+    margin: 0 14px;
+    padding: 22px 5px 22px 12px;
+    font-size: 15px;
+    border-bottom: 3px solid #fff;
+
+    .countTotal {
+      margin: 0 0 4px 4px;
+      color: $color-main;
+      font-size: 12px;
+    }
+  }
+
+  .on {
+    border-bottom: 3px solid $color-main;
+  }
+}

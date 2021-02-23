@@ -118,8 +118,6 @@ class PlanerBar extends Component {
                             key={index}
                             onClick={() => {
                               //this.props.history.push(`/product/detail/${subdata.id}`);
-                              console.log('확인좀 >>>>>' + subdata.id);
-                              console.log('뭐눌름 ? >>>>>' + subdata.id);
                             }}
                           >
                             <div className="planerProductText">

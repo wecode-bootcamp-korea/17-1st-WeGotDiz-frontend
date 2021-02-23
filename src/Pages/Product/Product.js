@@ -61,7 +61,6 @@ class Product extends Component {
       tabsData,
       makerInfoData,
     } = this.state;
-    console.log('파람몇이야 여긴 프로덕트 >>>>' + this.props.match.params.id);
     return (
       <main className="product">
         {productData && (

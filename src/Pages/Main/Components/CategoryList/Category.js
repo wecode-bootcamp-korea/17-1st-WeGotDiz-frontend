@@ -4,10 +4,7 @@ class Category extends Component {
   render() {
     const { category, categoryClick } = this.props;
     return (
-      <div
-        className="categoryContent"
-        onClick={() => categoryClick(category.id)}
-      >
+      <div className="categoryContent" onClick={() => categoryClick(category)}>
         <div className="categoryImg">
           <img src={category.img} alt={category.id} />
         </div>

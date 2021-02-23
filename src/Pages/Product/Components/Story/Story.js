@@ -47,7 +47,6 @@ class Story extends Component {
     } = this.state.productData;
 
     const { openingDate, closingDate } = this.state;
-    console.log('파람몇이야 여긴스토리 >>>>' + this.props.match);
     return (
       <div className="story">
         <img src={thumbnail_url} alt="Product" />

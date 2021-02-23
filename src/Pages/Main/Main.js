@@ -34,7 +34,6 @@ class Main extends Component {
           categoryData: data.test,
         });
       });
-    // console.log('fff' + e);
   };
 
   // 전체상품받기
@@ -69,27 +68,23 @@ class Main extends Component {
       })
         .then(res => res.json())
         .then(res => {
+          console.log('여기 메인 >>>', res);
           this.setState({
             products: res.DATA,
             categoryName: category.name,
           });
         });
     } else if (category.path === 'category') {
-      console.log('누른거 이름 뭐니' + category.name);
       fetch(`http://10.58.2.108:8000/product/main/${category.id}`, {
         method: 'GET',
       })
         .then(res => res.json())
         .then(res => {
-          this.setState(
-            {
-              products: res.DATA,
-              categoryName: category.name,
-            },
-            () => {
-              console.log('ggg2' + this.state.categoryName);
-            }
-          );
+          console.log('여기 카테고리 >>>', res);
+          this.setState({
+            products: res.DATA,
+            categoryName: category.name,
+          });
         });
     }
   };
@@ -115,9 +110,7 @@ class Main extends Component {
   };
 
   render() {
-    console.log('여기메인 >>>>> ' + this.state.products);
     const { categoryData, categoryName, products } = this.state;
-    console.log('g2' + this.state.products.path);
     return (
       <div>
         <MainSlider />
@@ -125,7 +118,7 @@ class Main extends Component {
         <CategoryList
           categoryData={categoryData}
           categoryClick={this.categoryClick}
-          categoryId={categoryData.id}
+          // categoryId={categoryData}
         />
         <MainProductList cateProducts={products} categoryName={categoryName} />
       </div>

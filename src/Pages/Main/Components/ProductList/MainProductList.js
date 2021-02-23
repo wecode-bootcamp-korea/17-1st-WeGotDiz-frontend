@@ -57,7 +57,6 @@ class MainProductList extends Component {
     const filteredProducts = this.props.cateProducts.filter(product => {
       return product.title.toLowerCase().includes(searchText.toLowerCase());
     });
-    console.log('말해' + this.props.cateProducts.category);
     return (
       <div className="productListContainer">
         <header className="productListHeader">

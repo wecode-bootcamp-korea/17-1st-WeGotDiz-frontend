@@ -13,12 +13,10 @@ class Product extends Component {
   // changeDate()
   // goProductDetail = () => {
   //   this.props.history.push(`/product/${this.props.id}`);
-  //   console.log('누른거 ID값 >>>>>' + this.props.id);
   // };
 
   render() {
     const { id, img, text, category, brand, percent, price, date } = this.props;
-    console.log('지금 아이디 몇번 ? 보내주고있음 >>>>>' + this.props.id);
     return (
       <div
         className="productContent"

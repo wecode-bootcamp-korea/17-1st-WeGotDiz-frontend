@@ -29,7 +29,6 @@ class CategoryList extends Component {
   // };
 
   // category = data => {
-  //   // console.log('과연 ? >>>>>' + data);
   //   this.setState({
   //     categoryId: data,
   //   });
@@ -37,11 +36,6 @@ class CategoryList extends Component {
 
   render() {
     const { categoryData } = this.props;
-    console.log('여기 카테고리 찍어 >>>>' + this.props.categoryData);
-    console.log('여기 카테고리 찍어 2>>>>' + this.props.categoryId);
-    console.log(
-      '이건 카테눌렀을때 스테이츠로 옮김 >>>> ' + this.state.categoryData.path
-    );
     return (
       <>
         <div className="categoryContainer">

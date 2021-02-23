@@ -27,14 +27,9 @@ class Login extends Component {
   };
 
   onEmailCheck = () => {
-    console.log('onEmailCheck value >>> ', this.state.email);
-    if (!this.isEmail(this.state.email)) {
-      this.setState({
-        emailError: '이메일 형식이 올바르지 않습니다.',
-      });
-    } else {
-      this.setState({ emailError: '' });
-    }
+    !this.isEmail(this.state.email)
+      ? this.setState({ emailError: '이메일 형식이 올바르지 않습니다.' })
+      : this.setState({ emailError: '' });
   };
 
   isPassword = pw => {
@@ -43,13 +38,9 @@ class Login extends Component {
   };
 
   onPwValidation = () => {
-    if (!this.isPassword(this.state.pw)) {
-      this.setState({
-        pwError: '영문, 숫자, 특수문자를 조합한 8자 이상',
-      });
-    } else {
-      this.setState({ pwError: '' });
-    }
+    !this.isPassword(this.state.pw)
+      ? this.setState({ pwError: '영문, 숫자, 특수문자를 조합한 8자 이상' })
+      : this.setState({ pwError: '' });
   };
 
   onSubmit = e => {
@@ -71,7 +62,6 @@ class Login extends Component {
   };
 
   render() {
-    console.log(this.state);
     const { emailError, pwError } = this.state;
     return (
       <section className="login">
@@ -96,7 +86,7 @@ class Login extends Component {
               placeholder="비밀번호(영문, 숫자, 특수문자 포함 8자 이상)"
             />
             {<div className="errorMessage">{pwError}</div>}
-            {/* {<div className="errorMessage">{this.state.passwordError}</div>} */}
+            {<div className="errorMessage">{this.state.passwordError}</div>}
             <button type="submit" className="loginBtn">
               로그인
             </button>

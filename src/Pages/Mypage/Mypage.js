@@ -54,26 +54,12 @@ class Mypage extends Component {
   }
 
   render() {
-    console.log(this.state.currentId);
-    console.log('isFunded>>>', this.state.isFunded);
     const { currentId, userInfo, fundDataList, likeDataList } = this.state;
     return (
       <div className="myPage">
         <div className="header">
           <MypageHeader userInfo={userInfo} />
           <div className="category">
-            {/* {CATEGORY_ARR.map((category, idx) => {
-              return (
-                <span
-                  className={
-                    (currentId === 1 && 'clickColor') ||
-                    (currentId === 2 && 'clickColor')
-                  }
-                  key={category}
-                  onClick={() => this.clickHandler(idx + 1)}
-                >
-                  {category}
-                </span> */}
             <span
               className={currentId === 1 ? 'tabOn' : 'tabOff'}
               onClick={() => this.clickHandler(1)}

@@ -1,17 +1,14 @@
 @import '../../styles/common.scss';
 
 .myPage {
-  // margin-top: 50px;
   .header {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
-    // margin-top: 0;
     width: 100%;
     height: 300px;
-    //background-color: olive;
 
     .category {
       display: flex;
@@ -20,16 +17,10 @@
       margin-top: 5px;
       width: 900px;
       height: 30px;
-      //border: 1px solid black;
 
-      // .clickColor {
-      //   color: $color-main;
-      //   border-bottom: 2px solid $color-main;
-      // }
       span {
         cursor: pointer;
         color: gray;
-        //border: 1px solid black;
         margin-right: 15px;
         bottom: 0;
         font-size: 15px;
@@ -38,7 +29,6 @@
       .tabOff {
         color: gray;
         border: none;
-        // display: none;
       }
 
       .tabOn {
@@ -49,11 +39,9 @@
   }
 
   .contents {
-    // width: 900px;
-    // height: 100vh;
     //background-color: lightcoral;
     background-color: $color-light-gray;
-    padding-top: 30px; //background-color: $color-light-gray;
+    padding-top: 30px;
     .click {
       font-weight: 700;
       border: 2px none none solid none $color-main;

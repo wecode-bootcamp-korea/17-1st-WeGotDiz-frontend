@@ -3,7 +3,6 @@
 .funded {
   width: 260px;
   height: 370px;
-  //background-color: green;
   margin-right: 60px;
   margin-bottom: 20px;
   border: 1px solid $color-gray;
@@ -11,7 +10,7 @@
   .imgBox {
     width: 258px;
     height: 230px;
-    //padding-top: 30px;
+
     img {
       width: 100%;
       height: 100%;
@@ -33,10 +32,9 @@
   }
 
   .textBox {
-    //display: flex;
-    // flex-direction: column;
+    height: 135px;
     padding: 16px;
-    //background-color: yellowgreen;
+    background-color: #fff;
 
     .title {
       margin-bottom: 8px;

@@ -56,11 +56,8 @@ class Mypage extends Component {
   }
 
   render() {
+    console.log('isFunded>>>', this.state.isFunded);
     const { currentId, userInfo, fundDataList, likeDataList } = this.state;
-    //console.log('currentId', this.state.currentId);
-    //console.log('-----');
-    //console.log('t:f is F>>>', !this.state.isFunded);
-    //console.log('f:t is L>>>', this.state.isLiked);
     return (
       <div className="myPage">
         <div className="header">

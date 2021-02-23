@@ -4,7 +4,6 @@ import './FundList.scss';
 
 class FundList extends Component {
   render() {
-    //console.log('this.props.fundDataList>>', this.props);
     const { fundList } = this.props;
     return (
       <div className="fundList">

@@ -3,7 +3,6 @@ import './Liked.scss';
 
 class Liked extends Component {
   render() {
-    //console.log('this.props.likeDataList>>', this.props);
     const { img, percent, price, title, company, catagory } = this.props;
     return (
       <div className="liked">

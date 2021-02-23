@@ -10,10 +10,10 @@ class Funded extends Component {
       <div className="funded">
         <div className="imgBox">
           <img src={img} alt={catagory} />
-          {/* <div className="info"> */}
           <div className="test">
             <Progressbar percent={percent} />
           </div>
+          {/* <div className="info"> */}
           <div className="leftText">
             <span className="percent">{percent}%</span>
             <span className="price">{price}원 달성</span>

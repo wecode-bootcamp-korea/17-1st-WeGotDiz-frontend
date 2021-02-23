@@ -3,7 +3,7 @@ import './Liked.scss';
 
 class Liked extends Component {
   render() {
-    const { img, percent, price, title, company, catagory } = this.props;
+    const { img, percent, price, title, date, company, catagory } = this.props;
     return (
       <div className="liked">
         <div className="imgBox">
@@ -12,7 +12,7 @@ class Liked extends Component {
             <div className="leftText">
               <span className="percent">{percent}%</span>
               <span className="price">{price}원 달성</span>
-              <span className="date">00일 남음</span>
+              <span className="date">{date}일 남음</span>
             </div>
             {/* {date[0] === '-' ? (
               <span className="productDate">종료</span>

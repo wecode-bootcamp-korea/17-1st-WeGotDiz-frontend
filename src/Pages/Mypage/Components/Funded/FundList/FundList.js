@@ -15,7 +15,7 @@ class FundList extends Component {
               percent={Math.floor(data.product_achieved_rate)}
               price={Math.floor(data.product_total_amount).toLocaleString()}
               title={data.product_title}
-              date={data.product_closing_date}
+              date={data.product_date_countdown}
               company={data.product_maker_info}
               catagory={data.product_catagory}
             />

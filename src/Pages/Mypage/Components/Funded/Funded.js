@@ -13,7 +13,7 @@ class Funded extends Component {
             <div className="leftText">
               <span className="percent">{percent}%</span>
               <span className="price">{price}원 달성</span>
-              <span className="date">00일 남음</span>
+              <span className="date">{date}일 남음</span>
             </div>
             {/* {date[0] === '-' ? (
               <span className="productDate">종료</span>

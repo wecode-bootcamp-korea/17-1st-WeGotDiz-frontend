@@ -62,7 +62,7 @@ class Signup extends Component {
 
   goToMain = () => {
     // e.preventDefault();
-    fetch('http://10.58.2.95:8000/user/signup', {
+    fetch('http://172.20.10.7:8000/user/signup', {
       method: 'POST',
       body: JSON.stringify({
         email: this.state.email,
@@ -73,7 +73,7 @@ class Signup extends Component {
       .then(response => response.json())
       .then(result =>
         result.message === 'SUCCESS'
-          ? this.props.history.push('/login')
+          ? this.props.history.push('/')
           : alert('회원가입실패')
       );
   };

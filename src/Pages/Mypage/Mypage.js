@@ -9,8 +9,6 @@ class Mypage extends Component {
     super();
     this.state = {
       currentId: 1,
-      isFunded: true,
-      isLiked: false,
       userInfo: [],
       likeDataList: [],
       fundDataList: [],
@@ -56,6 +54,7 @@ class Mypage extends Component {
   }
 
   render() {
+    console.log(this.state.currentId);
     console.log('isFunded>>>', this.state.isFunded);
     const { currentId, userInfo, fundDataList, likeDataList } = this.state;
     return (
@@ -76,13 +75,13 @@ class Mypage extends Component {
                   {category}
                 </span> */}
             <span
-              className={this.state.isFunded ? 'tabOn' : 'tabOff'}
+              className={currentId === 1 ? 'tabOn' : 'tabOff'}
               onClick={() => this.clickHandler(1)}
             >
               펀딩한
             </span>
             <span
-              className={this.state.isLiked ? 'tabOn' : 'tabOff'}
+              className={currentId === 2 ? 'tabOn' : 'tabOff'}
               onClick={() => this.clickHandler(2)}
             >
               좋아한
@@ -101,5 +100,3 @@ class Mypage extends Component {
 }
 
 export default Mypage;
-
-// const CATEGORY_ARR = ['펀딩한', '좋아한'];

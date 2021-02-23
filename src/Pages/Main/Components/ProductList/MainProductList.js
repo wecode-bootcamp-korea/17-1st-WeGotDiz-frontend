@@ -10,48 +10,10 @@ class MainProductList extends Component {
       searchText: '',
       selectLeft: 'all',
       selectRight: 'recommend',
-      products: [],
       items: 6,
       preItems: 0,
-      categoryId: this.props.id,
     };
   }
-
-  componentDidMount() {
-    if (this.state.categoryId === 1) {
-      this.productDataAdd();
-    }
-  }
-
-  productDataAdd() {
-    const { preItems, items } = this.state;
-    fetch(`http://10.58.2.108:8000/product/main/${this.props.id}`, {
-      // fetch(`/data/ProductListData.json/${this.props.id}`, {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(res => {
-        // let result = res.DATA;
-        let result = res.data.product;
-        let length = result.length;
-        while (length) {
-          let index = Math.floor(length-- * Math.random());
-          let temp = result[length];
-          result[length] = result[index];
-          result[index] = temp;
-        }
-        let realResult = result.slice(preItems, items);
-        this.setState({
-          products: [...this.state.products, ...realResult],
-        });
-      });
-    window.addEventListener('scroll', this.infiniteScroll, true);
-  }
-
-  productDataCategory() {
-    'POST';
-  }
-
   //검색창 On Off
   handleSearchToggle = e => {
     this.setState({
@@ -87,41 +49,19 @@ class MainProductList extends Component {
 
   //========================================
 
-  //무한 스크롤
-
-  infiniteScroll = () => {
-    const { documentElement, body } = document;
-    const { items } = this.state;
-    let scrollHeight = Math.max(
-      documentElement.scrollHeight,
-      body.scrollHeight
-    );
-    let scrollTop = Math.max(documentElement.scrollTop, body.scrollTop);
-    let clientHeight = documentElement.clientHeight;
-
-    if (scrollTop + clientHeight >= scrollHeight) {
-      this.setState({
-        preItems: items,
-        items: items + 6,
-      });
-      this.componentDidMount();
-    }
-  };
-
   render() {
     const { isSearch, searchText, products } = this.state;
-    // const { id } = this.props;
-    //필터링 로직
-    const filteredProducts = products.filter(product => {
+    const { categoryName } = this.props;
+
+    //필터링
+    const filteredProducts = this.props.cateProducts.filter(product => {
       return product.title.toLowerCase().includes(searchText.toLowerCase());
     });
-    console.log('여기까진 왔다 >>>' + this.props.id);
-    console.log('이건바뀌었냐 ? >>>>>' + this.state.categoryId);
-
+    console.log('말해' + this.props.cateProducts.category);
     return (
       <div className="productListContainer">
         <header className="productListHeader">
-          <span>전체보기</span>
+          <span>{categoryName}</span>
           <form className="productForm">
             <input
               className={!isSearch ? 'productSearchOff' : 'productSearchOn'}

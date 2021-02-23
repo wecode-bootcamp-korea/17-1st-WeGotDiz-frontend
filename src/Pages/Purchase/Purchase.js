@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import AlertModal from './Components/AlertModal/AlertModal';
 import ChooseReward from './Components/ChooseReward/ChooseReward';
 import ProductHeader from './Components/ProductHeader/ProductHeader';
@@ -15,21 +16,23 @@ class Purchase extends Component {
       isChooseRewardShow: true,
       isReservationShow: false,
       isPurchaseCompleted: false,
-      rewardOn: false,
+      productData: {},
       rewardData: [],
     };
   }
 
   componentDidMount() {
-    this.handleData();
+    document.body.style.overflow = 'hidden';
+    this.handlePurchaseData();
   }
 
-  handleData = () => {
-    fetch('/data/rewardData.json')
+  handlePurchaseData = () => {
+    fetch('/data/purchaseData.json')
       .then(res => res.json())
       .then(res => {
         this.setState({
-          rewardData: res,
+          productData: res.Product_info,
+          rewardData: res.Reward_list,
         });
       });
   };
@@ -38,12 +41,7 @@ class Purchase extends Component {
     this.setState({
       isModalOn: false,
     });
-  };
-
-  handleReward = () => {
-    this.setState({
-      rewardOn: true,
-    });
+    document.body.style.overflow = 'unset';
   };
 
   handleChooseReward = () => {
@@ -62,12 +60,6 @@ class Purchase extends Component {
     window.scrollTo(0, 0);
   };
 
-  handleAmount = e => {
-    this.setState({
-      amount: e.target.value,
-    });
-  };
-
   goToStory = () => {
     this.props.history.push('/product/details');
   };
@@ -75,20 +67,19 @@ class Purchase extends Component {
   render() {
     const {
       isModalOn,
+      isChooseRewardShow,
       isReservationShow,
       isPurchaseCompleted,
-      isChooseRewardShow,
+      productData,
       rewardData,
-      rewardOn,
     } = this.state;
+
     const {
       handleModal,
       handleChooseReward,
       handleSubmit,
       goToStory,
-      handleData,
-      handleReward,
-      handleAmount,
+      handlePurchaseData,
     } = this;
 
     return (
@@ -105,11 +96,9 @@ class Purchase extends Component {
         {isChooseRewardShow && (
           <ChooseReward
             handleChooseReward={handleChooseReward}
-            handleData={handleData}
-            handleReward={handleReward}
+            handleData={handlePurchaseData}
+            productData={productData}
             rewardData={rewardData}
-            rewardOn={rewardOn}
-            handleAmount={handleAmount}
           />
         )}
         {isReservationShow && (
@@ -121,4 +110,4 @@ class Purchase extends Component {
   }
 }
 
-export default Purchase;
+export default withRouter(Purchase);

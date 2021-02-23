@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './PurchaseReservation.scss';
 
 class PurchaseReservation extends Component {
@@ -149,4 +150,4 @@ class PurchaseReservation extends Component {
   }
 }
 
-export default PurchaseReservation;
+export default withRouter(PurchaseReservation);

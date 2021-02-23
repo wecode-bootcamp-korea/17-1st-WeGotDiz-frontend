@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Reward from '../Reward/Reward';
 import './ChooseReward.scss';
 
@@ -79,4 +80,4 @@ class ChooseReward extends Component {
   }
 }
 
-export default ChooseReward;
+export default withRouter(ChooseReward);

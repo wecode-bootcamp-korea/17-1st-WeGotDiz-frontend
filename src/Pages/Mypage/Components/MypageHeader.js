@@ -19,11 +19,11 @@ class MypageHeader extends Component {
               />
               <ul className="headerText">
                 <li>
-                  <strong>{info.funding_Sum}</strong>
+                  <strong>{info.total_fundings}</strong>
                   <span>펀딩</span>
                 </li>
                 <li>
-                  <strong>{info.like_Sum}</strong>
+                  <strong>{info.total_likes}</strong>
                   <span>좋아요</span>
                 </li>
               </ul>

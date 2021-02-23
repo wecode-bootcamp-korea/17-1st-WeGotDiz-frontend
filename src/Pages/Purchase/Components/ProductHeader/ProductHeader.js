@@ -3,6 +3,7 @@ import './ProductHeader.scss';
 
 class ProductHeader extends Component {
   render() {
+    const { title, maker_name, maker_image } = this.props.productData;
     const { goToStory } = this.props;
     return (
       <header className="productHeader">
@@ -11,13 +12,9 @@ class ProductHeader extends Component {
           스토리로 돌아가기
         </button>
         <div className="productInfoContainer">
-          <p>[2.2억 업그레이드 앵콜] 9가지 컬러 9기능 돌아온 화제의 후드티</p>
-          <img
-            alt="Maker profile"
-            className="makerImg"
-            src="https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1484722933/ypd1aluy7j0x7gqhjczv.png"
-          />
-          <span className="makerName">gitgit</span>
+          <p>{title}</p>
+          <img alt="Maker profile" className="makerImg" src={maker_image} />
+          <span className="makerName">{maker_name}</span>
         </div>
       </header>
     );

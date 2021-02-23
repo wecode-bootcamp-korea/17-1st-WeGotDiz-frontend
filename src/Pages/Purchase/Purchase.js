@@ -74,20 +74,14 @@ class Purchase extends Component {
       rewardData,
     } = this.state;
 
-    const {
-      handleModal,
-      handleChooseReward,
-      handleSubmit,
-      goToStory,
-      handlePurchaseData,
-    } = this;
+    const { handleModal, handleChooseReward, handleSubmit, goToStory } = this;
 
     return (
       <div className="purchase">
         {isModalOn && (
           <AlertModal handleModal={handleModal} goToStory={goToStory} />
         )}
-        <ProductHeader goToStory={goToStory} />
+        <ProductHeader goToStory={goToStory} productData={productData} />
         <PurchaseStep
           isChooseRewardShow={isChooseRewardShow}
           isReservationShow={isReservationShow}
@@ -96,8 +90,6 @@ class Purchase extends Component {
         {isChooseRewardShow && (
           <ChooseReward
             handleChooseReward={handleChooseReward}
-            handleData={handlePurchaseData}
-            productData={productData}
             rewardData={rewardData}
           />
         )}

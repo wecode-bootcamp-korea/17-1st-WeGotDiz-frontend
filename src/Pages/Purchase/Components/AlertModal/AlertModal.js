@@ -29,7 +29,7 @@ class AlertModal extends Component {
 
   render() {
     const { alertInfoData, isbtnDisabled } = this.state;
-    const { goToStory } = this.props;
+    const { goToStory, handleModal } = this.props;
 
     return (
       <div className="alertModal">
@@ -55,7 +55,7 @@ class AlertModal extends Component {
             ))}
           </div>
           <button
-            onClick={this.props.handleModal}
+            onClick={handleModal}
             className="continueToFundingBtn"
             disabled={isbtnDisabled}
           >

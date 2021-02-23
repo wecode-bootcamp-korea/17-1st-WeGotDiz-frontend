@@ -5,7 +5,7 @@ import './ChooseReward.scss';
 
 class ChooseReward extends Component {
   render() {
-    const { handleChooseReward, rewardData } = this.props;
+    const { handleChooseReward, rewardData, amount } = this.props;
 
     return (
       <div className="chooseReward">
@@ -25,9 +25,11 @@ class ChooseReward extends Component {
               key={reward.id}
               id={reward.id}
               price={reward.price}
-              stock={reward.stock}
+              stock={reward.remaining_stock}
               name={reward.name}
-              details={reward.details}
+              combination={reward.combination}
+              deliveryFee={reward.delivery_fee}
+              amount={amount}
             />
           ))}
         </dl>

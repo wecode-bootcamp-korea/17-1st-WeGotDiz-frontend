@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
+import CheckboxRect from '../CheckboxRect/CheckboxRect';
 import './Reward.scss';
 
 class Reward extends Component {
-  constructor() {
-    super();
-    this.state = { amount: 1 };
-  }
-
+  addAmount = () => {};
+  reduceAmount = () => {};
   render() {
-    const { price, stock, name, details, handleAmount } = this.props;
+    const { id, price, stock, name, combination, amount } = this.props;
+
+    const { addAmount, reduceAmount } = this;
+
     return (
-      <li className="reward" onClick="chooseReward">
+      <li className="reward" onClick="chooseReward" id={id}>
         <div className="checkboxContainer">
-          <label className="container">
-            <input type="checkbox" />
-            <span className="checkmark" />
-          </label>
+          <CheckboxRect />
         </div>
         <div className="rewardDetailsContainer">
           <div className="price">
@@ -26,7 +24,7 @@ class Reward extends Component {
             <span>{name}</span>
             <span className="amount">({stock}개 남음)</span>
           </div>
-          <p>{details}</p>
+          <p>{combination}</p>
           <div className="deliveryInfo">
             <span>배송비 2,500원</span>
             <div className="line" />
@@ -35,9 +33,15 @@ class Reward extends Component {
           <div>
             <p>수량</p>
             <div className="option">
-              <button className="minusBtn"> - </button>
-              <input type="number" min="1" max="20" onChange={handleAmount} />
-              <button className="plusBtn"> + </button>
+              <button className="minusBtn" onClick={reduceAmount}>
+                {' '}
+                -{' '}
+              </button>
+              <input type="number" min="1" max="20" value={amount} />
+              <button className="plusBtn" onClick={addAmount}>
+                {' '}
+                +{' '}
+              </button>
             </div>
           </div>
         </div>

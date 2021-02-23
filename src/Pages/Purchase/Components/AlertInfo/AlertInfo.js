@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CheckboxRound from '../CheckboxRound/CheckboxRound';
 import './AlertInfo.scss';
 
 class AlertInfo extends Component {
@@ -19,29 +20,13 @@ class AlertInfo extends Component {
 
   render() {
     const { isDetailsClicked } = this.state;
-    const {
-      title,
-      content,
-      details,
-      detailsInfo,
-      id,
-      handleReward,
-      rewardOn,
-    } = this.props;
+    const { title, content, details, detailsInfo } = this.props;
 
     return (
-      <div
-        className={`alertInfo` + ' ' + (rewardOn ? 'on' : '')}
-        onClick={handleReward}
-        c
-      >
+      <div className="alertInfo">
         <dl>
           <dt className="checkboxContainer">
-            <label className="container">
-              <span className="label">{title}</span>
-              <input type="checkbox" name={id} onClick={this.test} />
-              <span className="checkmark" />
-            </label>
+            <CheckboxRound label={title} />
           </dt>
           <dd className="checkboxInfo">
             <div dangerouslySetInnerHTML={{ __html: content }} />

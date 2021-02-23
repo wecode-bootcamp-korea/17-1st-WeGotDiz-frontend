@@ -13,66 +13,6 @@
     justify-content: center;
     width: 100px;
     padding: 50px;
-
-    .container {
-      display: block;
-      position: relative;
-      cursor: pointer;
-      color: #b4aea4;
-      font-size: 17px;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-
-      &:hover input ~ .checkmark {
-        border: 1px solid $color-main;
-        transition: border 0.2s;
-      }
-
-      input {
-        margin: 20px;
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-
-        &:checked ~ .checkmark {
-          background-color: $color-main;
-          border: 1px solid $color-main;
-
-          &::after {
-            display: block;
-          }
-        }
-      }
-
-      .checkmark {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 20px;
-        width: 20px;
-        background-color: #fff;
-        border: $border;
-
-        &::after {
-          content: '';
-          position: absolute;
-          display: none;
-          left: 6px;
-          top: 3px;
-          width: 4px;
-          height: 8px;
-          border: 1px solid #fff;
-          border-width: 0 2px 2px 0;
-          -webkit-transform: rotate(45deg);
-          -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-        }
-      }
-    }
   }
 
   .rewardDetailsContainer {

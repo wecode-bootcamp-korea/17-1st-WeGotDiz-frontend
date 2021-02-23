@@ -12,17 +12,17 @@ class Purchase extends Component {
   constructor() {
     super();
     this.state = {
-      isModalOn: true,
-      isChooseRewardShow: true,
-      isReservationShow: false,
+      isModalOn: false,
+      isChooseRewardShow: false,
+      isReservationShow: true,
       isPurchaseCompleted: false,
       productData: {},
       rewardData: [],
+      amount: 1,
     };
   }
 
   componentDidMount() {
-    document.body.style.overflow = 'hidden';
     this.handlePurchaseData();
   }
 
@@ -31,17 +31,18 @@ class Purchase extends Component {
       .then(res => res.json())
       .then(res => {
         this.setState({
-          productData: res.Product_info,
-          rewardData: res.Reward_list,
+          productData: res.product_info,
+          rewardData: res.reward_list,
         });
       });
   };
 
   handleModal = () => {
+    const { isModalOn } = this.state;
+    document.body.style.overflow = isModalOn ? 'hidden' : 'unset';
     this.setState({
       isModalOn: false,
     });
-    document.body.style.overflow = 'unset';
   };
 
   handleChooseReward = () => {
@@ -72,6 +73,7 @@ class Purchase extends Component {
       isPurchaseCompleted,
       productData,
       rewardData,
+      amount,
     } = this.state;
 
     const { handleModal, handleChooseReward, handleSubmit, goToStory } = this;
@@ -91,6 +93,7 @@ class Purchase extends Component {
           <ChooseReward
             handleChooseReward={handleChooseReward}
             rewardData={rewardData}
+            amount={amount}
           />
         )}
         {isReservationShow && (

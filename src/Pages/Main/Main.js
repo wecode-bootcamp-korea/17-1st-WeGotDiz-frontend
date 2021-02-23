@@ -81,10 +81,15 @@ class Main extends Component {
       })
         .then(res => res.json())
         .then(res => {
-          this.setState({
-            products: res.DATA,
-            categoryName: category.name,
-          });
+          this.setState(
+            {
+              products: res.DATA,
+              categoryName: category.name,
+            },
+            () => {
+              console.log('ggg2' + this.state.categoryName);
+            }
+          );
         });
     }
   };
@@ -112,6 +117,7 @@ class Main extends Component {
   render() {
     console.log('여기메인 >>>>> ' + this.state.products);
     const { categoryData, categoryName, products } = this.state;
+    console.log('g2' + this.state.products.path);
     return (
       <div>
         <MainSlider />

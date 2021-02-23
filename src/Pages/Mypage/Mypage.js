@@ -22,9 +22,7 @@ class Mypage extends Component {
   };
 
   componentDidMount() {
-    fetch('/data/likeList.json', {
-      method: 'GET',
-    })
+    fetch('/data/likeList.json', {})
       .then(res => res.json())
       .then(likeDataList => {
         this.setState({
@@ -32,9 +30,7 @@ class Mypage extends Component {
         });
       });
 
-    fetch('/data/fundingList.json', {
-      method: 'GET',
-    })
+    fetch('/data/fundingList.json', {})
       .then(res => res.json())
       .then(fundDataList => {
         this.setState({
@@ -42,9 +38,7 @@ class Mypage extends Component {
         });
       });
 
-    fetch('/data/userInfo.json', {
-      method: 'GET',
-    })
+    fetch('/data/userInfo.json', {})
       .then(res => res.json())
       .then(userInfo => {
         this.setState({

@@ -36,13 +36,9 @@ class Signup extends Component {
   };
 
   onEmailVaildation = () => {
-    if (!this.isEmail(this.state.email)) {
-      this.setState({
-        emailError: '이메일 형식이 올바르지 않습니다.',
-      });
-    } else {
-      this.setState({ emailError: '' });
-    }
+    !this.isEmail(this.state.email)
+      ? this.setState({ emailError: '이메일 형식이 올바르지 않습니다.' })
+      : this.setState({ emailError: '' });
   };
 
   // password value check
@@ -52,26 +48,16 @@ class Signup extends Component {
   };
 
   onPwValidation = () => {
-    if (!this.isPassword(this.state.pw)) {
-      this.setState({
-        pwError: '영문, 숫자, 특수문자를 조합한 8자 이상',
-      });
-    } else {
-      this.setState({ pwError: '' });
-    }
+    !this.isPassword(this.state.pw)
+      ? this.setState({ pwError: '영문, 숫자, 특수문자를 조합한 8자 이상' })
+      : this.setState({ pwError: '' });
   };
 
   onPwCheckValidation = () => {
     const checkPw = this.state.pwCheck;
-    if (this.state.pw !== checkPw) {
-      this.setState({
-        pwCheckError: '비밀번호가 일치하지 않습니다.',
-      });
-    } else {
-      this.setState({
-        pwCheckError: '',
-      });
-    }
+    this.state.pw !== checkPw
+      ? this.setState({ pwCheckError: '비밀번호가 일치하지 않습니다.' })
+      : this.setState({ pwCheckError: '' });
   };
 
   goToMain = () => {
@@ -82,7 +68,6 @@ class Signup extends Component {
         email: this.state.email,
         fullname: this.state.name,
         password: this.state.pw,
-        //pwCheck: this.state.pwCheck,
       }),
     })
       .then(response => response.json())

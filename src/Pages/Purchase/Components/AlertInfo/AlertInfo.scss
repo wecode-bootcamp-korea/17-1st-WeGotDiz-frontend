@@ -22,11 +22,11 @@
       display: block;
       position: relative;
       padding-left: 30px;
-      cursor: pointer;
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+      cursor: pointer;
 
       .label {
         color: #b4aea4;
@@ -40,10 +40,10 @@
 
       input {
         position: absolute;
+        width: 0;
+        height: 0;
         opacity: 0;
         cursor: pointer;
-        height: 0;
-        width: 0;
 
         &:checked ~ .checkmark {
           background-color: $color-main;
@@ -71,13 +71,13 @@
 
         &::after {
           content: '';
-          position: absolute;
           display: none;
-          left: 6px;
+          position: absolute;
           top: 3px;
+          left: 6px;
           width: 4px;
           height: 8px;
-          border: solid white;
+          border: solid #fff;
           border-width: 0 2px 2px 0;
           -webkit-transform: rotate(45deg);
           -ms-transform: rotate(45deg);
@@ -88,11 +88,11 @@
   }
 
   .checkboxInfo {
+    color: $color-dark-gray;
     border-top: $border;
     font-size: 15px;
     font-weight: 400;
     line-height: 1.4;
-    color: $color-dark-gray;
 
     p {
       padding: 4px 0;
@@ -112,11 +112,11 @@
       align-items: center;
       width: 100%;
       height: fit-content;
+      color: $color-gray;
       background-color: inherit;
       border: none;
       border-top: $border;
       font-size: 15px;
-      color: $color-gray;
 
       .fa-chevron-down {
         margin-right: 5px;

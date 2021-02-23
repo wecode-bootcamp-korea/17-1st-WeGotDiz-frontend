@@ -27,11 +27,11 @@
       color: $color-main;
       text-decoration: none;
       position: absolute;
+      right: 0;
+      color: $color-main;
+      font-size: 12px;
       text-align: right;
       text-decoration: underline;
-      font-size: 12px;
-      color: $color-main;
-      right: 0;
     }
   }
 
@@ -42,8 +42,8 @@
     margin-top: 50px;
 
     .sectionTitle {
-      font-size: 16px;
       width: 200px;
+      font-size: 16px;
     }
   }
 
@@ -52,34 +52,33 @@
       line-height: 1.2;
 
       input {
-        margin-top: 20px;
-        font-size: 17px;
-        text-align: right;
         width: 202px;
         height: 48px;
-        border: $border;
-        margin-right: 10px;
+        margin: 20px 10px 0 0;
         padding: 0 16px;
+        border: $border;
+        font-size: 17px;
+        text-align: right;
 
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {
-          -webkit-appearance: none;
           margin: 0;
+          -webkit-appearance: none;
         }
       }
     }
   }
 
   .publicPrivateOption {
+    color: $color-dark-gray;
+
     .sectionDescription {
       font-size: 14px;
       font-weight: 500;
-      color: #4a4a4a;
     }
     .subSectionDescription {
       margin: 5px 0;
       font-size: 13px;
-      color: #4a4a4a;
     }
   }
 
@@ -88,7 +87,6 @@
     text-align: center;
     font-size: 16px;
     font-weight: 500;
-    color: #4a4a4a;
 
     .totalPrice {
       color: $color-main;
@@ -99,8 +97,8 @@
   .nextBtn {
     display: flex;
     align-items: center;
-    margin: 20px auto;
     height: 48px;
+    margin: 20px auto;
     padding: 0 30px;
     color: #fff;
     background-color: $color-main;

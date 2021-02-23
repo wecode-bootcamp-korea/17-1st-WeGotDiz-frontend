@@ -1,23 +1,24 @@
 @import '../../../styles/common.scss';
 .mypageHeader {
   display: flex;
-  justify-content: center;
-  align-items: center;
 
   .contentHeader {
     position: relative;
     right: 50px;
     width: 900px;
-    padding-top: 50px;
+    padding-top: 60px;
 
     h1 {
+      text-align: start;
       font-size: 40px;
       font-weight: 500;
-      margin-top: 40px;
+      margin-top: 50px;
       margin-bottom: 20px;
+      color: $color-black;
     }
 
     p {
+      text-align: start;
       font-size: 12px;
       color: $color-gray;
       margin-bottom: 30px;
@@ -25,14 +26,15 @@
 
     img {
       position: absolute;
-      top: 80px;
-      right: 60px;
+      top: 100px;
+      right: 40px;
       width: 96px;
       height: 96px;
       border-radius: 50%;
     }
 
     .headerText {
+      text-align: start;
       li {
         display: inline-block;
         width: 60px;

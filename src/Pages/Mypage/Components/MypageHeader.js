@@ -7,9 +7,9 @@ class MypageHeader extends Component {
     const { userInfo } = this.props;
     return (
       <div className="mypageHeader">
-        {userInfo.map(info => {
+        {userInfo.map((info, idx) => {
           return (
-            <div className="contentHeader" key={info.id}>
+            <div className="contentHeader" key={idx}>
               <h1>{info.userName}</h1>
               <p>개인회원</p>
               <img

@@ -9,9 +9,10 @@ class Mypage extends Component {
     super();
     this.state = {
       currentId: 1,
+      MypageData: {},
       userInfo: [],
-      likeDataList: [],
-      fundDataList: [],
+      funding_list: [],
+      like_list: [],
     };
   }
 
@@ -22,33 +23,20 @@ class Mypage extends Component {
   };
 
   componentDidMount() {
-    fetch('/data/likeList.json', {})
+    fetch('/data/myPageData.json')
       .then(res => res.json())
-      .then(likeDataList => {
+      .then(res => {
         this.setState({
-          likeDataList: likeDataList,
-        });
-      });
-
-    fetch('/data/fundingList.json', {})
-      .then(res => res.json())
-      .then(fundDataList => {
-        this.setState({
-          fundDataList: fundDataList,
-        });
-      });
-
-    fetch('/data/userInfo.json', {})
-      .then(res => res.json())
-      .then(userInfo => {
-        this.setState({
-          userInfo: userInfo,
+          MypageData: res.data,
+          userInfo: res.data.user_info,
+          funding_list: res.data.funding_list,
+          like_list: res.data.like_list,
         });
       });
   }
 
   render() {
-    const { currentId, userInfo, fundDataList, likeDataList } = this.state;
+    const { currentId, userInfo, funding_list, like_list } = this.state;
     return (
       <div className="myPage">
         <div className="header">
@@ -70,8 +58,8 @@ class Mypage extends Component {
         </div>
         <div className="body">
           <div className="contents">
-            {currentId === 1 && <FundList fundList={fundDataList} />}
-            {currentId === 2 && <LikeList likeList={likeDataList} />}
+            {currentId === 1 && <FundList fundList={funding_list} />}
+            {currentId === 2 && <LikeList likeList={like_list} />}
           </div>
         </div>
       </div>

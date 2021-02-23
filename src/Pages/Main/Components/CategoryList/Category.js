@@ -9,9 +9,13 @@ class Category extends Component {
   }
 
   render() {
-    const { category } = this.props;
+    const { category, categoryClick } = this.props;
+    // console.log('여긴카테고리' + ca);
     return (
-      <div className="categoryContent">
+      <div
+        className="categoryContent"
+        onClick={() => categoryClick(category.id)}
+      >
         <div className="categoryImg">
           <img src={category.img} alt={category.id} />
         </div>

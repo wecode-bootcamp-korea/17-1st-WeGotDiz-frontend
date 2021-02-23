@@ -13,7 +13,7 @@ class Main extends Component {
         <MainSlider />
         <PlanerBar />
         <CategoryList />
-        <MainProductList />
+        {/* <MainProductList /> */}
       </div>
     );
   }

@@ -37,7 +37,7 @@ class Product extends Component {
             </div>
             {/* {this.changeDate(date)} */}
             {date[0] === '-' ? (
-              <span className="productDate">종료</span>
+              <span className="productDate">마감</span>
             ) : (
               <span className="productDate">{date}일 남음</span>
             )}

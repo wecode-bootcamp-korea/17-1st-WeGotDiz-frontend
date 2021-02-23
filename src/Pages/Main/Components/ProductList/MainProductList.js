@@ -3,8 +3,8 @@ import ProductList from './ProductList';
 import './MainProductList.scss';
 
 class MainProductList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       isSearch: false,
       searchText: '',
@@ -13,34 +13,43 @@ class MainProductList extends Component {
       products: [],
       items: 6,
       preItems: 0,
+      categoryId: this.props.id,
     };
   }
 
   componentDidMount() {
-    this.productDataAdd();
+    if (this.state.categoryId === 1) {
+      this.productDataAdd();
+    }
   }
 
   productDataAdd() {
     const { preItems, items } = this.state;
-    fetch('/data/ProductListData.json', {
+    fetch(`http://10.58.2.108:8000/product/main/${this.props.id}`, {
+      // fetch(`/data/ProductListData.json/${this.props.id}`, {
       method: 'GET',
     })
       .then(res => res.json())
       .then(res => {
+        // let result = res.DATA;
         let result = res.data.product;
-        // let length = result.length;
-        // while (length) {
-        //   let index = Math.floor(length-- * Math.random());
-        //   let temp = result[length];
-        //   result[length] = result[index];
-        //   result[index] = temp;
-        // }
+        let length = result.length;
+        while (length) {
+          let index = Math.floor(length-- * Math.random());
+          let temp = result[length];
+          result[length] = result[index];
+          result[index] = temp;
+        }
         let realResult = result.slice(preItems, items);
         this.setState({
           products: [...this.state.products, ...realResult],
         });
       });
     window.addEventListener('scroll', this.infiniteScroll, true);
+  }
+
+  productDataCategory() {
+    'POST';
   }
 
   //검색창 On Off
@@ -101,10 +110,13 @@ class MainProductList extends Component {
 
   render() {
     const { isSearch, searchText, products } = this.state;
+    // const { id } = this.props;
     //필터링 로직
     const filteredProducts = products.filter(product => {
       return product.title.toLowerCase().includes(searchText.toLowerCase());
     });
+    console.log('여기까진 왔다 >>>' + this.props.id);
+    console.log('이건바뀌었냐 ? >>>>>' + this.state.categoryId);
 
     return (
       <div className="productListContainer">
@@ -149,7 +161,7 @@ class MainProductList extends Component {
             </select>
           </form>
         </header>
-        <ProductList products={filteredProducts} />
+        <ProductList products={filteredProducts} id={this.props.id} />
       </div>
     );
   }

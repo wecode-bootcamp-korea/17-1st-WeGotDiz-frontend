@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './Story.scss';
 
 class Story extends Component {
@@ -16,7 +17,8 @@ class Story extends Component {
   }
 
   handleData = () => {
-    fetch('/data/productData.json')
+    // fetch('/data/productData.json')
+    fetch(`http://10.58.2.108:8000/product/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(res => {
         this.setState(
@@ -45,7 +47,7 @@ class Story extends Component {
     } = this.state.productData;
 
     const { openingDate, closingDate } = this.state;
-
+    console.log('파람몇이야 여긴스토리 >>>>' + this.props.match);
     return (
       <div className="story">
         <img src={thumbnail_url} alt="Product" />
@@ -68,4 +70,4 @@ class Story extends Component {
   }
 }
 
-export default Story;
+export default withRouter(Story);

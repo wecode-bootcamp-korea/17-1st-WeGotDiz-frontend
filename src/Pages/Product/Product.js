@@ -25,7 +25,7 @@ class Product extends Component {
   }
 
   handleData = () => {
-    fetch('/data/productData.json')
+    fetch(`http://10.58.2.108:8000/product/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -61,7 +61,7 @@ class Product extends Component {
       tabsData,
       makerInfoData,
     } = this.state;
-
+    console.log('파람몇이야 여긴 프로덕트 >>>>' + this.props.match.params.id);
     return (
       <main className="product">
         {productData && (

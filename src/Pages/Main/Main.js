@@ -110,6 +110,7 @@ class Main extends Component {
   };
 
   render() {
+    console.log('여기메인 >>>>> ' + this.state.products);
     const { categoryData, categoryName, products } = this.state;
     return (
       <div>
@@ -118,6 +119,7 @@ class Main extends Component {
         <CategoryList
           categoryData={categoryData}
           categoryClick={this.categoryClick}
+          categoryId={categoryData.id}
         />
         <MainProductList cateProducts={products} categoryName={categoryName} />
       </div>

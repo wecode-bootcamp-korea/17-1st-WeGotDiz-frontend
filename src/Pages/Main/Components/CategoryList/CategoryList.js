@@ -4,10 +4,10 @@ import React, { Component } from 'react';
 import './CategoryList.scss';
 
 class CategoryList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      // categoryData: [],
+      categoryData: this.props.categoryData,
     };
   }
 
@@ -37,6 +37,11 @@ class CategoryList extends Component {
 
   render() {
     const { categoryData } = this.props;
+    console.log('여기 카테고리 찍어 >>>>' + this.props.categoryData);
+    console.log('여기 카테고리 찍어 2>>>>' + this.props.categoryId);
+    console.log(
+      '이건 카테눌렀을때 스테이츠로 옮김 >>>> ' + this.state.categoryData.path
+    );
     return (
       <>
         <div className="categoryContainer">
@@ -46,6 +51,7 @@ class CategoryList extends Component {
                 <div
                   className="categoryContent"
                   onClick={() => this.props.categoryClick(data)}
+                  key={index}
                 >
                   <div className="categoryImg">
                     <img src={data.img} alt={data.id} />

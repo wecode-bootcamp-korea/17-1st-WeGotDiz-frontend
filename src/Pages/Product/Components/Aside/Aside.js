@@ -46,10 +46,16 @@ class Aside extends Component {
       total_amount,
       total_supporters,
     } = this.props.infoData;
-
+    // console.log('너 뭐야 ?' + typeof days_left);
+    // console.log('너 뭐야 2?' + days_left[0]);
     return (
       <aside>
-        <p className="daysLeft">{days_left}일 남음</p>
+        {String(days_left)[0] === '-' ? (
+          <p className="daysLeft">마감</p>
+        ) : (
+          <p className="daysLeft">{days_left}일 남음</p>
+        )}
+        {/* <p className="daysLeft">{days_left}일 남음</p> */}
         <ul className="productNumInfo">
           <li className="achievement">
             <span>{Math.floor(achieved_rate)}</span>% 달성

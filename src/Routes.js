@@ -13,6 +13,7 @@ import Mypage from '../src/Pages/Mypage/Mypage';
 
 //사랑님
 import Product from '../src/Pages/Product/Product';
+// import Story from '../src/Pages/Product/Components/Story/Story';
 import Purchase from '../src/Pages/Purchase/Purchase';
 
 class Routes extends Component {
@@ -25,7 +26,9 @@ class Routes extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/mypage" component={Mypage} />
-          <Route exact path="/product/details" component={Product} />
+          {/* <Route exact path="/product/details" component={Product} /> */}
+          <Route exact path="/product/:id" component={Product} />
+          {/* <Route exact path="/product/:id" component={Story} /> */}
           <Route exact path="/product/purchase" component={Purchase} />
         </Switch>
         <Footer />

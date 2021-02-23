@@ -115,7 +115,7 @@ class Aside extends Component {
                       <p className="makerInfoDetails">
                         <div
                           dangerouslySetInnerHTML={{ __html: info.details }}
-                        ></div>
+                        />
                       </p>
                     </div>
                   );

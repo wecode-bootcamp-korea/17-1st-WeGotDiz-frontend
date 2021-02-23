@@ -6,6 +6,8 @@ class Story extends Component {
     super();
     this.state = {
       productData: {},
+      openingDate: '',
+      closingDate: '',
     };
   }
 
@@ -17,9 +19,20 @@ class Story extends Component {
     fetch('/data/productData.json')
       .then(res => res.json())
       .then(res => {
-        this.setState({
-          productData: res.data,
-        });
+        this.setState(
+          {
+            productData: res.data,
+          },
+          () => {
+            const { productData } = this.state;
+            const openingDate = productData.opening_date.slice(0, 10);
+            const closingDate = productData.closing_date.slice(0, 10);
+            this.setState({
+              openingDate: openingDate,
+              closingDate: closingDate,
+            });
+          }
+        );
       });
   };
 
@@ -28,10 +41,10 @@ class Story extends Component {
       thumbnail_url,
       description,
       goal_amount,
-      opening_date,
-      closing_date,
       story,
     } = this.state.productData;
+
+    const { openingDate, closingDate } = this.state;
 
     return (
       <div className="story">
@@ -42,14 +55,14 @@ class Story extends Component {
             목표 금액 {Math.floor(goal_amount).toLocaleString()}원
           </p>
           <p className="term">
-            펀딩 기간 {opening_date} - {closing_date}
+            펀딩 기간 {openingDate} ~ {closingDate}
           </p>
           <p className="fundingNotice">
             100% 이상 모이면 펀딩이 성공되며, 펀딩 마감일까지 목표 금액이 100%
             모이지 않으면 결제가 진행되지 않습니다.
           </p>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: story }}></div>
+        <div dangerouslySetInnerHTML={{ __html: story }} />
       </div>
     );
   }

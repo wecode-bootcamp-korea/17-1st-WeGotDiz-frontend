@@ -10,9 +10,9 @@ class Mypage extends Component {
     super();
     this.state = {
       currentId: 1,
-      MypageData: {},
-      userInfo: [],
+      funding_user_Info: [],
       funding_list: [],
+      like_user_Info: [],
       like_list: [],
     };
   }
@@ -23,26 +23,51 @@ class Mypage extends Component {
     });
   };
 
+  componentDidUpdate() {}
+
   componentDidMount() {
-    fetch('/data/myPageData.json')
+    this.fundingDataAdd();
+    this.likedDataAdd();
+  }
+
+  fundingDataAdd = () => {
+    fetch('/data/fundingData.json')
       .then(res => res.json())
       .then(res => {
         this.setState({
-          MypageData: res.data,
-          userInfo: res.data.user_info,
+          funding_user_Info: res.data.user_info,
           funding_list: res.data.funding_list,
+        });
+      });
+  };
+
+  likedDataAdd = () => {
+    fetch('/data/likeData.json')
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          like_user_Info: res.data.user_info,
           like_list: res.data.like_list,
         });
       });
-  }
+  };
 
   render() {
-    const { currentId, userInfo, funding_list, like_list } = this.state;
+    const {
+      currentId,
+      funding_user_Info,
+      funding_list,
+      like_list,
+    } = this.state;
     const CATEGORY_ARR = ['펀딩한', '좋아한'];
     return (
       <div className="myPage">
         <div className="header">
-          <MypageHeader userInfo={userInfo} fundList={funding_list} />
+          <MypageHeader
+            fundingTotalCount={funding_list.length}
+            likeTotalCount={like_list.length}
+            funding_user_Info={funding_user_Info}
+          />
           <div className="category">
             {CATEGORY_ARR.map((category, idx) => {
               return (
@@ -58,8 +83,8 @@ class Mypage extends Component {
         </div>
         <div className="body">
           <div className="contents">
-            {currentId === 1 && <FundList fundList={funding_list} />}
-            {currentId === 2 && <LikeList likeList={like_list} />}
+            {currentId === 1 && <FundList fund_List={funding_list} />}
+            {currentId === 2 && <LikeList like_List={like_list} />}
           </div>
         </div>
       </div>

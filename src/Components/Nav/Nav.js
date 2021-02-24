@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import SearchText from './Components/SearchText';
 import './Nav.scss';
+
 class Nav extends Component {
   constructor() {
     super();
@@ -69,11 +70,11 @@ class Nav extends Component {
   };
   //로그인테스트
 
-  login = () => {
-    this.setState({
-      isloggedIn: true,
-    });
-  };
+  // login = () => {
+  //   this.setState({
+  //     isloggedIn: true,
+  //   });
+  // };
   //로그아웃
   logOut = () => {
     localStorage.clear();
@@ -82,6 +83,13 @@ class Nav extends Component {
       isloggedIn: false,
     });
   };
+
+  componentDidMount() {
+    const isLoggedIn = localStorage.getItem('access_token');
+    if (isLoggedIn) {
+      this.setState({ isloggedIn: true });
+    }
+  }
 
   render() {
     console.log(this.state.text);
@@ -200,7 +208,7 @@ class Nav extends Component {
                 </span>
               )}
               {!isloggedIn && (
-                <span className="navJoin" onClick={this.login}>
+                <span className="navJoin">
                   <Link to="/login">로그인</Link>
                   {/* 로그인 */}
                 </span>
@@ -223,4 +231,5 @@ class Nav extends Component {
     );
   }
 }
+
 export default Nav;

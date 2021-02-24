@@ -4,13 +4,14 @@ import './FundList.scss';
 
 class FundList extends Component {
   render() {
-    const { fundList } = this.props;
+    const { fund_List } = this.props;
     return (
       <div className="fundList">
-        {fundList.map(data => {
+        {fund_List.map(data => {
           return (
             <Funded
               key={data.product_id}
+              id={data.product_id}
               img={data.product_image}
               percent={Math.floor(data.product_achieved_rate)}
               price={Math.floor(data.product_total_amount).toLocaleString()}

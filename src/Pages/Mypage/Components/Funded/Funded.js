@@ -1,27 +1,38 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Progressbar from '../../../../Components/Progressbar/Progressbar';
 import './Funded.scss';
 
 class Funded extends Component {
   render() {
-    const { img, percent, price, title, date, company, catagory } = this.props;
+    const {
+      id,
+      img,
+      percent,
+      price,
+      title,
+      date,
+      company,
+      catagory,
+    } = this.props;
     return (
-      <div className="funded">
+      <div
+        key={id}
+        className="funded"
+        onClick={() => this.props.history.push(`/product/details/${id}`)}
+      >
         <div className="imgBox">
           <span className="label">리워드</span>
-          <img src={img} alt={catagory} />
+          <img src={img} alt={catagory[0]} />
           <div className="test">
             <Progressbar percent={percent} />
           </div>
           <div className="leftText">
             <span className="percent">{percent}%</span>
             <span className="price">{price}원 달성</span>
-            {/* <span className="date">{date}일 남음</span> */}
-            {date[0] === '-' ? (
-              <span className="date">종료</span>
-            ) : (
-              <span className="date">{date}일 남음</span>
-            )}
+            <span className="date">
+              {date[0] === '-' ? '종료' : `${date}일 남음`}
+            </span>
           </div>
         </div>
         <div className="textBox">
@@ -37,4 +48,4 @@ class Funded extends Component {
   }
 }
 
-export default Funded;
+export default withRouter(Funded);

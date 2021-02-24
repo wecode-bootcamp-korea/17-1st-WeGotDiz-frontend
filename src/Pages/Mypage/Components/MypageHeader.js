@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import FundList from './Funded/FundList/FundList';
 import './MypageHeader.scss';
 
 class MypageHeader extends Component {
   render() {
-    const { userInfo } = this.props;
+    const { funding_user_Info, fundingTotalCount, likeTotalCount } = this.props;
     return (
       <div className="mypageHeader">
-        {userInfo.map((info, idx) => {
+        {funding_user_Info.map((info, idx) => {
           return (
             <div className="contentHeader" key={idx}>
               <h1>{info.userName}</h1>
@@ -19,11 +18,11 @@ class MypageHeader extends Component {
               />
               <ul className="headerText">
                 <li>
-                  <strong>99</strong>
+                  <strong>{fundingTotalCount}</strong>
                   <span>펀딩</span>
                 </li>
                 <li>
-                  <strong>99</strong>
+                  <strong>{likeTotalCount}</strong>
                   <span>좋아요</span>
                 </li>
               </ul>

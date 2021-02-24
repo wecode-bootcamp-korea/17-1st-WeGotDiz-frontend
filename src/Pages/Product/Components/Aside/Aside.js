@@ -5,18 +5,9 @@ class Aside extends Component {
   constructor() {
     super();
     this.state = {
-      isLikeCliked: false,
       isMakerInfoClicked: false,
     };
   }
-
-  handleLike = () => {
-    const { isLikeCliked } = this.state;
-
-    this.setState({
-      isLikeCliked: !isLikeCliked,
-    });
-  };
 
   handleMakerInfo = () => {
     const { isMakerInfoClicked } = this.state;
@@ -31,9 +22,14 @@ class Aside extends Component {
   };
 
   render() {
-    const { handleLike, goToPurchase, handleMakerInfo } = this;
-    const { isLikeCliked, isMakerInfoClicked } = this.state;
-    const { makerInfoData, makerLevelData } = this.props;
+    const { goToPurchase, handleMakerInfo } = this;
+    const { isMakerInfoClicked } = this.state;
+    const {
+      makerInfoData,
+      makerLevelData,
+      isLikeCliked,
+      handleLike,
+    } = this.props;
     const {
       total_likes,
       maker_name,

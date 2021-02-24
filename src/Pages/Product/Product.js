@@ -17,12 +17,35 @@ class Product extends Component {
       infoData: {},
       makerLevelData: [],
       tabsData: [],
+      isLikeCliked: false,
     };
   }
 
   componentDidMount() {
     this.handleData();
   }
+
+  handleLike = () => {
+    const { isLikeCliked } = this.props;
+
+    this.setState({
+      isLikeCliked: !isLikeCliked,
+    });
+
+    isLikeCliked
+      ? fetch('ip', {
+          method: 'POST',
+          headers: {
+            Authorization: localStorage.getItem.access_token,
+          }.then(),
+        })
+      : fetch('ip', {
+          method: 'DELETE',
+          headers: {
+            Authorization: localStorage.getItem.access_token,
+          },
+        });
+  };
 
   handleData = () => {
     fetch('/data/productData.json')
@@ -52,7 +75,7 @@ class Product extends Component {
   };
 
   render() {
-    const { handleTab } = this;
+    const { handleTab, handleLike } = this;
     const {
       currentId,
       productData,
@@ -60,6 +83,7 @@ class Product extends Component {
       makerLevelData,
       tabsData,
       makerInfoData,
+      isLikeCliked,
     } = this.state;
 
     return (
@@ -79,6 +103,8 @@ class Product extends Component {
                 infoData={infoData}
                 makerInfoData={makerInfoData}
                 makerLevelData={makerLevelData}
+                isLikeCliked={isLikeCliked}
+                handleLike={handleLike}
               />
             </div>
           </>

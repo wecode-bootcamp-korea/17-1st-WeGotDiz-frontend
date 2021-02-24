@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import SearchText from './Components/SearchText';
 import './Nav.scss';
-
 class Nav extends Component {
   constructor() {
     super();
@@ -200,7 +199,7 @@ class Nav extends Component {
               )}
               {!isloggedIn && (
                 <span className="navJoin" onClick={this.login}>
-                  <Link to="/">로그인</Link>
+                  <Link to="/login">로그인</Link>
                   {/* 로그인 */}
                 </span>
               )}
@@ -222,5 +221,4 @@ class Nav extends Component {
     );
   }
 }
-
 export default Nav;

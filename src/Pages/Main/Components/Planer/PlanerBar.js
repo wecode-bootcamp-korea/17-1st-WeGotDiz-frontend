@@ -12,6 +12,14 @@ class PlanerBar extends Component {
       prevPlan: 0,
       endPlan: 2,
       page: '1',
+      planImg: [
+        'http://www.mediafine.co.kr/news/photo/201811/5789_16258_92.jpg',
+        'https://contents.sixshop.com/thumbnails/uploadedFiles/27688/product/image_1540739607928_750.jpg',
+        'http://weekly.chosun.com/up_fd/wc_News/2618/limg_org/2618_54_02.jpg',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR90ZLrkePse6-eqRmQQrgN_UtfPgVyzC_JcQ&usqp=CAU',
+        'https://lh3.googleusercontent.com/proxy/xOsJ9BpBKk-jpQ1WQnvrp_aFZORbNZktaTDWHHB6bgrAsdI5xLdmIHNQxS4PvgDYqeghHx_pSaRkop4I6d8Y4DfgH7eCOXsu8qKMtwWSoaaL4DKhQG9UoHlXGfc2_p_ha_yKdaSyybqVDVtGhk1mfvEPfzaohVZJ2ENhOkYOcWvSWUdCziJAvItSa9vh2tpK5nPJV5tBkfznp_IadPS9o0_9I7LC6uKtXMZahaXlRuiT911ENZp2nmL4Y18_RTQppgM5o1eTqnjQ_jVuvx1g1iiHEJnsQocyVUM3MbU6kAjYBfbwVsYdvFex6iWLu1r2F-2piCE0XQ',
+        'https://i2.wp.com/sharehows.com/wp-content/uploads/2018/05/800-400-4.jpg?fit=800%2C400&ssl=1',
+      ],
     };
   }
 
@@ -33,15 +41,22 @@ class PlanerBar extends Component {
   };
 
   planDataAdd = () => {
-    fetch('http://localhost:3000/data/PlanerData.json', {
+    console.log('여긴통과~!~!');
+    fetch('http://10.58.1.148:8000/product/main', {
       method: 'GET',
     })
       .then(res => res.json())
+      // .then(res => {
+      //   console.log(
+      //     'zz',
+      //     res.data.slice(this.state.prevPlan, this.state.endPlan)
+      //   );
+      // });
+
       .then(res => {
-        let result = res.planData.slice(
-          this.state.prevPlan,
-          this.state.endPlan
-        );
+        // res.planData;
+        let result = res.data.slice(this.state.prevPlan, this.state.endPlan);
+        console.log('?? >>>>> ', result);
         this.setState({
           planData: result,
         });
@@ -74,6 +89,7 @@ class PlanerBar extends Component {
 
   render() {
     const { rankData, planData } = this.state;
+    // console.log('ze', this.state.planImg[0]);
     return (
       <header className="planerContainer">
         <section className="planerContainerLeft">
@@ -103,15 +119,17 @@ class PlanerBar extends Component {
           </div>
           <div className="planerLeftContent">
             {planData.map((data, index) => {
+              console.log('뭐하고있어? >>>', data[0].planTitle);
               return (
                 <div className="planerContent" key={index}>
                   <div className="planerContentImg">
-                    <img src={data.planImg} alt="planerProduct" />
+                    <img src={this.state.planImg[0]} alt="planerProduct" />
                   </div>
                   <div className="planerContentText">
-                    <span className="planerTitle">{data.planTitle}</span>
+                    <span className="planerTitle">{data[0].planTitle}</span>
                     <div className="planerProductList">
-                      {data.products.map((subdata, index) => {
+                      {data[0].products.map((subdata, index) => {
+                        console.log('알려줘 >>>>', subdata);
                         return (
                           <div
                             className="planerProduct"

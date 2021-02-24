@@ -15,6 +15,9 @@ class Main extends Component {
       items: 6,
       preItems: 0,
       categoryName: '전체보기',
+      firstSelect: '1',
+      secondSelect: '1',
+      queryResult: '',
     };
   }
 
@@ -109,8 +112,59 @@ class Main extends Component {
     }
   };
 
+  //드랍박스 값 받아오나 ?
+  selectFirst = first => {
+    this.setState({
+      firstSelect: first,
+    });
+  };
+  selectSecond = second => {
+    this.setState(
+      {
+        secondSelect: second,
+      },
+      () => {
+        this.selectChoice();
+      }
+    );
+  };
+  selectChoice = () => {
+    let newObj = {
+      firstOption: this.state.firstSelect,
+      secondOption: this.state.secondSelect,
+    };
+
+    let result = Object.entries(newObj).map(e => e.join('='));
+    let realResult = '?' + result.join('&');
+
+    console.log('이건어때', newObj);
+    console.log('여길봐야해', result);
+    console.log('이걸안봐?', realResult);
+
+    return realResult;
+  };
+
   render() {
-    const { categoryData, categoryName, products } = this.state;
+    const {
+      categoryData,
+      categoryName,
+      products,
+      firstSelect,
+      secondSelect,
+    } = this.state;
+    console.log(
+      '너타입뭐야? Left >>>>',
+      typeof firstSelect,
+      '값은?? >>>>',
+      firstSelect
+    );
+    console.log(
+      '너타입뭐야? Right >>>>',
+      typeof secondSelect,
+      '값은?? >>>>',
+      secondSelect
+    );
+    console.log('오굿' + this.selectChoice());
     return (
       <div>
         <MainSlider />
@@ -120,7 +174,12 @@ class Main extends Component {
           categoryClick={this.categoryClick}
           // categoryId={categoryData}
         />
-        <MainProductList cateProducts={products} categoryName={categoryName} />
+        <MainProductList
+          cateProducts={products}
+          categoryName={categoryName}
+          selectFirst={this.selectFirst}
+          selectSecond={this.selectSecond}
+        />
       </div>
     );
   }

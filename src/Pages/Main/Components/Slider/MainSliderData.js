@@ -1,15 +1,19 @@
 const SLIDERIMG = [
   {
     id: 1,
-    img: './images/Artboard.png',
+    img: './images/banner1.png',
   },
   {
     id: 2,
-    img: './images/b2.jpg',
+    img: './images/banner2.png',
   },
   {
     id: 3,
-    img: './images/b3.jpg',
+    img: './images/banner3.jpg',
+  },
+  {
+    id: 4,
+    img: './images/banner4.jpg',
   },
 ];
 

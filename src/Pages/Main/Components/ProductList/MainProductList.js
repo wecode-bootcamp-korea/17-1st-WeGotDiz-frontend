@@ -8,8 +8,8 @@ class MainProductList extends Component {
     this.state = {
       isSearch: false,
       searchText: '',
-      selectLeft: 'all',
-      selectRight: 'recommend',
+      selectLeft: '1',
+      // selectRight: 'recommend',
       items: 6,
       preItems: 0,
     };
@@ -41,16 +41,17 @@ class MainProductList extends Component {
 
   //셀렉트 박스 값 받기
 
-  handleSelect = e => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+  handleFirstSelect = e => {
+    this.props.selectFirst(e.target.value);
+  };
+  handleSecondSelect = e => {
+    this.props.selectSecond(e.target.value);
   };
 
   //========================================
 
   render() {
-    const { isSearch, searchText, products } = this.state;
+    const { isSearch, searchText } = this.state;
     const { categoryName } = this.props;
 
     //필터링
@@ -79,24 +80,24 @@ class MainProductList extends Component {
 
             <select
               className="productSelectLeft"
-              onChange={this.handleSelect}
+              onChange={this.handleFirstSelect}
               name="selectLeft"
             >
-              <option value="all">전체</option>
-              <option value="ing">진행중</option>
-              <option value="end">종료된</option>
+              <option value="1">전체</option>
+              <option value="2">진행중</option>
+              <option value="3">종료된</option>
             </select>
             <select
               className="productSelectRight"
-              onChange={this.handleSelect}
+              onChange={this.handleSecondSelect}
               name="selectRight"
             >
-              <option value="recommend">추천순</option>
-              <option value="popularity">인기순</option>
-              <option value="price">펀딩액순</option>
-              <option value="soon">마감임박순</option>
-              <option value="new">최신순</option>
-              <option value="followers">응원참여자순</option>
+              <option value="1">추천순</option>
+              <option value="2">인기순</option>
+              <option value="3">펀딩액순</option>
+              <option value="4">마감임박순</option>
+              <option value="5">최신순</option>
+              <option value="6">응원참여자순</option>
             </select>
           </form>
         </header>

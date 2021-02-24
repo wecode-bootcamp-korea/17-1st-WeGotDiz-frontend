@@ -80,6 +80,15 @@
       margin: 5px 0;
       font-size: 13px;
     }
+
+    .checkboxList {
+      display: flex;
+      margin: 30px 0;
+
+      .checkboxRect {
+        margin-right: 40px;
+      }
+    }
   }
 
   .fundingTotalInfo {

@@ -7,6 +7,7 @@ class AlertInfo extends Component {
     super();
     this.state = {
       isDetailsClicked: false,
+      isCheckboxClicked: false,
     };
   }
 
@@ -18,15 +19,21 @@ class AlertInfo extends Component {
     });
   };
 
+  handleCheckbox = () => {
+    this.setState({
+      isCheckboxClicked: true,
+    });
+  };
+
   render() {
     const { isDetailsClicked } = this.state;
-    const { title, content, details, detailsInfo } = this.props;
+    const { title, content, details, detailsInfo, id } = this.props;
 
     return (
       <div className="alertInfo">
         <dl>
-          <dt className="checkboxContainer">
-            <CheckboxRound label={title} />
+          <dt className="checkboxContainer" onClick={this.handleCheckbox}>
+            <CheckboxRound label={title} checked={id} />
           </dt>
           <dd className="checkboxInfo">
             <div dangerouslySetInnerHTML={{ __html: content }} />

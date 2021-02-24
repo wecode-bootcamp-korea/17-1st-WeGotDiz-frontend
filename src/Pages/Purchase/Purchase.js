@@ -12,17 +12,19 @@ class Purchase extends Component {
   constructor() {
     super();
     this.state = {
-      isModalOn: false,
-      isChooseRewardShow: false,
-      isReservationShow: true,
+      isModalOn: true,
+      isChooseRewardShow: true,
+      isReservationShow: false,
       isPurchaseCompleted: false,
       productData: {},
       rewardData: [],
-      amount: 1,
+      quantity: 1,
+      extraFunding: 0,
     };
   }
 
   componentDidMount() {
+    document.body.style.overflow = 'hidden';
     this.handlePurchaseData();
   }
 
@@ -37,9 +39,28 @@ class Purchase extends Component {
       });
   };
 
+  handleQuantity = e => {
+    this.setState({
+      quantity: e.target.value,
+    });
+  };
+
+  addQuantity = () => {
+    const { quantity } = this.state;
+    this.setState({
+      quantity: quantity + 1,
+    });
+  };
+
+  subtractQuantity = () => {
+    const { quantity } = this.state;
+    this.setState({
+      quantity: 1 < quantity - 1 ? quantity - 1 : 1,
+    });
+  };
+
   handleModal = () => {
-    const { isModalOn } = this.state;
-    document.body.style.overflow = isModalOn ? 'hidden' : 'unset';
+    document.body.style.overflow = 'unset';
     this.setState({
       isModalOn: false,
     });
@@ -61,6 +82,16 @@ class Purchase extends Component {
     window.scrollTo(0, 0);
   };
 
+  handleChecked = () => {};
+
+  handleReward = () => {};
+
+  handleExtraFunding = e => {
+    this.setState({
+      extraFunding: e.target.value,
+    });
+  };
+
   goToStory = () => {
     this.props.history.push('/product/details');
   };
@@ -73,10 +104,20 @@ class Purchase extends Component {
       isPurchaseCompleted,
       productData,
       rewardData,
-      amount,
+      quantity,
+      extraFunding,
     } = this.state;
 
-    const { handleModal, handleChooseReward, handleSubmit, goToStory } = this;
+    const {
+      handleModal,
+      handleChooseReward,
+      handleSubmit,
+      goToStory,
+      handleQuantity,
+      addQuantity,
+      subtractQuantity,
+      handleExtraFunding,
+    } = this;
 
     return (
       <div className="purchase">
@@ -93,11 +134,19 @@ class Purchase extends Component {
           <ChooseReward
             handleChooseReward={handleChooseReward}
             rewardData={rewardData}
-            amount={amount}
+            quantity={quantity}
+            handleQuantity={handleQuantity}
+            addQuantity={addQuantity}
+            subtractQuantity={subtractQuantity}
+            handleExtraFunding={handleExtraFunding}
+            extraFunding={extraFunding}
           />
         )}
         {isReservationShow && (
-          <PurchaseReservation handleSubmit={handleSubmit} />
+          <PurchaseReservation
+            handleSubmit={handleSubmit}
+            extraFunding={extraFunding}
+          />
         )}
         {isPurchaseCompleted && <PurchaseComplete />}
       </div>

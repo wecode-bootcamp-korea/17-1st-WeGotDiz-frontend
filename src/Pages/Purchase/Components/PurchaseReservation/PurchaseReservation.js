@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import CheckboxRect from '../CheckboxRect/CheckboxRect';
 import CheckboxRound from '../CheckboxRound/CheckboxRound';
-import InputRect from '../InputRect/InputRect';
 import InputRound from '../InputRound/InputRound';
 import List from '../List/List';
 import './PurchaseReservation.scss';
@@ -30,9 +29,35 @@ class PurchaseReservation extends Component {
       });
   };
 
+  handleInputData = e => {
+    this.setState({
+      name: e.target.value,
+    });
+  };
+
+  // handlePurchase = () => {
+  //   fetch('ip', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       "fullname": ,
+  //       "contact_number":,
+  //       "delivery_note": ,
+  //       "address": ,
+  //       "id_quantity": {
+  //         "id": ,
+  //         "quantity":
+  //       }
+  //       ,
+  //       "total_amount":
+  //     }),
+  //   });
+  // };
+
   render() {
     const { userName, userEmail } = this.state;
-    const { handleSubmit } = this.props;
+    const { handleSubmit, extraFunding, quantity, price } = this.props;
+    // const rewardPrice = (quantity * price * rewardChecked).toLocaleString();
+    const totalPice = (extraFunding + 2500).toLocaleString();
     return (
       <div className="purchaseReservation">
         <div className="purchaseInfo">
@@ -43,8 +68,8 @@ class PurchaseReservation extends Component {
               1개 ( 200g )
             </p>
             <div className="amountPriceContainer">
-              <span>수량 1개</span>
-              <span>50,000원</span>
+              <span>수량 {quantity}개</span>
+              <span>50,000 원</span>
             </div>
             <div className="extraShippingFeeContainer">
               <List title="추가 후원금" content="0원" />
@@ -53,11 +78,11 @@ class PurchaseReservation extends Component {
           </div>
           <div className="totalPriceContainer">
             <List title="펀딩 금액" content="50,000 원" />
-            <List title="추가 후원금" content="0원" />
-            <List title="배송비" content="2,500원" />
+            <List title="추가 후원금" content={extraFunding} />
+            <List title="배송비" content={`${totalPice}원`} />
             <dl>
               <dt className="totalPriceTitle">최종결제금액</dt>
-              <dd className="totalPrice">50,000원</dd>
+              <dd className="totalPrice">{totalPice}원</dd>
             </dl>
           </div>
         </div>
@@ -95,26 +120,26 @@ class PurchaseReservation extends Component {
             <div className="cardNum">
               <label className="cardNumInput">
                 신용카드번호
-                <input />
+                <input name="cardNum1" />
               </label>
               <label className="cardNumInput">
-                <input />
+                <input name="cardNum2" />
               </label>
               <label className="cardNumInput">
-                <input />
+                <input name="cardNum3" />
               </label>
               <label>
-                <input />
+                <input name="cardNum4" />
               </label>
             </div>
             <div className="cardInfo">
               <label className="cardNum" id="dueDate">
                 유효기간
-                <input placeholder="MM/YY" />
+                <input placeholder="MM/YY" name="cardDate" />
               </label>
               <label className="cardNum">
                 카드 비밀번호
-                <input placeholder="앞 2자리" />
+                <input placeholder="앞 2자리" name="cardPw" />
               </label>
             </div>
             <label>

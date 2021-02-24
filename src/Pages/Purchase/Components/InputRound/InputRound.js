@@ -5,10 +5,12 @@ class InputRound extends Component {
   render() {
     const { label, placeholder } = this.props;
     return (
-      <label className="inputRound">
-        {label}
-        <input placeholder={placeholder} />
-      </label>
+      <div className="inputRound">
+        <label className="label">
+          {label}
+          <input placeholder={placeholder} />
+        </label>
+      </div>
     );
   }
 }

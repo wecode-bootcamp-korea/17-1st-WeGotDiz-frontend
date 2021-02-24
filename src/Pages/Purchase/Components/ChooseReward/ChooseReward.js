@@ -1,11 +1,29 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import CheckboxRect from '../CheckboxRect/CheckboxRect';
 import Reward from '../Reward/Reward';
 import './ChooseReward.scss';
 
 class ChooseReward extends Component {
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     isFundingPublic: ,
+  //   };
+  // }
+
   render() {
-    const { handleChooseReward, rewardData, amount } = this.props;
+    const {
+      handleChooseReward,
+      rewardData,
+      quantity,
+      handleQuantity,
+      addQuantity,
+      handleReward,
+      subtractQuantity,
+      handleExtraFunding,
+      extraFunding,
+    } = this.props;
 
     return (
       <div className="chooseReward">
@@ -22,14 +40,18 @@ class ChooseReward extends Component {
         <dl className="rewardList">
           {rewardData.map(reward => (
             <Reward
+              reward={reward}
               key={reward.id}
               id={reward.id}
               price={reward.price}
               stock={reward.remaining_stock}
               name={reward.name}
               combination={reward.combination}
-              deliveryFee={reward.delivery_fee}
-              amount={amount}
+              quantity={quantity}
+              handleQuantity={handleQuantity}
+              addQuantity={addQuantity}
+              handleReward={handleReward}
+              subtractQuantity={subtractQuantity}
             />
           ))}
         </dl>
@@ -42,7 +64,11 @@ class ChooseReward extends Component {
             </p>
             <div>
               <label>
-                <input type="number" placeholder="0" />
+                <input
+                  type="number"
+                  placeholder="0"
+                  onChange={handleExtraFunding}
+                />
               </label>
               <span>원을 추가로 후원합니다.</span>
             </div>
@@ -59,11 +85,18 @@ class ChooseReward extends Component {
               커뮤니티, 새소식 댓글 작성 시에는 비공개 여부와 상관없이 펀딩
               참여자 표시가 노출됩니다.
             </p>
+            <div className="checkboxList">
+              <CheckboxRect label="공개" />
+              <CheckboxRect label="비공개" />
+            </div>
           </div>
         </div>
         <p className="fundingTotalInfo">
           아무나 먹는 비건 소스 3종 비건, 이제는 '맛있게' 받아들이세요!에{' '}
-          <em className="totalPrice">0</em> 원을 펀딩합니다.
+          <em className="totalPrice">
+            {extraFunding ? +(extraFunding * 1 + 2500) : 0}
+          </em>{' '}
+          원을 펀딩합니다.
         </p>
         <button className="nextBtn" onClick={handleChooseReward}>
           다음 단계로 <i className="fas fa-chevron-right" />

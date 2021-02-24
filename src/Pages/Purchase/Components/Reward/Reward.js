@@ -6,14 +6,24 @@ class Reward extends Component {
   addAmount = () => {};
   reduceAmount = () => {};
   render() {
-    const { id, price, stock, name, combination, amount } = this.props;
-
-    const { addAmount, reduceAmount } = this;
+    const {
+      id,
+      price,
+      stock,
+      name,
+      combination,
+      quantity,
+      handleQuantity,
+      addQuantity,
+      handleReward,
+      reward,
+      subtractQuantity,
+    } = this.props;
 
     return (
-      <li className="reward" onClick="chooseReward" id={id}>
+      <li className="reward" onClick={handleReward} id={id}>
         <div className="checkboxContainer">
-          <CheckboxRect />
+          <CheckboxRect checked={reward.id} />
         </div>
         <div className="rewardDetailsContainer">
           <div className="price">
@@ -33,14 +43,18 @@ class Reward extends Component {
           <div>
             <p>수량</p>
             <div className="option">
-              <button className="minusBtn" onClick={reduceAmount}>
-                {' '}
-                -{' '}
+              <button className="minusBtn" onClick={() => subtractQuantity()}>
+                -
               </button>
-              <input type="number" min="1" max="20" value={amount} />
-              <button className="plusBtn" onClick={addAmount}>
-                {' '}
-                +{' '}
+              <input
+                type="number"
+                min="1"
+                max="20"
+                value={quantity}
+                onChange={handleQuantity}
+              />
+              <button className="plusBtn" onClick={() => addQuantity()}>
+                +
               </button>
             </div>
           </div>

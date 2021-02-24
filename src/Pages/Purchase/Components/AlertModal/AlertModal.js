@@ -51,6 +51,7 @@ class AlertModal extends Component {
                 content={info.content}
                 details={info.details}
                 detailsInfo={info.detailsInfo}
+                checked={info.checked}
               />
             ))}
           </div>

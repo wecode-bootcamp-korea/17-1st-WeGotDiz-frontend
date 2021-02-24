@@ -1,16 +1,15 @@
 @import '../../../../styles/common.scss';
 
 .checkboxRound {
-  display: block;
-  position: relative;
-  padding-left: 30px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: pointer;
-
   .label {
+    display: block;
+    padding-left: 15px;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
     color: #b4aea4;
     font-size: 17px;
   }

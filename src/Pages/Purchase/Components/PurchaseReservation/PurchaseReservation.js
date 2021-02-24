@@ -48,41 +48,53 @@ class PurchaseReservation extends Component {
   //         "quantity":
   //       }
   //       ,
-  //       "total_amount":
+  //       "total_price": total_amountdㅔ서 price로 수정 논의
   //     }),
   //   });
   // };
 
   render() {
     const { userName, userEmail } = this.state;
-    const { handleSubmit, extraFunding, quantity, price } = this.props;
-    // const rewardPrice = (quantity * price * rewardChecked).toLocaleString();
-    const totalPice = (extraFunding + 2500).toLocaleString();
+    const {
+      handleSubmit,
+      extraFunding,
+      quantity,
+      combination,
+      name,
+      selectedReward,
+    } = this.props;
+    //
+    const totalPrice = (extraFunding * 1 + 2500).toLocaleString();
+    console.log('reservation', selectedReward);
+
     return (
       <div className="purchaseReservation">
         <div className="purchaseInfo">
           <div className="purchaseReward">
-            <p className="title">[얼리버드] 딥소스 3종 세트 ( 10% 할인 )</p>
-            <p className="details">
-              화이트 딥소스 1개 ( 200g ) 옐로우 딥소스 1개 ( 200g ) 블랙 딥소스
-              1개 ( 200g )
-            </p>
-            <div className="amountPriceContainer">
-              <span>수량 {quantity}개</span>
-              <span>50,000 원</span>
-            </div>
+            {selectedReward.map(reward => {
+              return (
+                <div className="selectedRewards" key={reward.id}>
+                  <p className="title">{reward.name}</p>
+                  <p className="details">{reward.combination}</p>
+                  <div className="amountPriceContainer">
+                    <span>수량 {reward.quantity}개</span>
+                    <span>{reward.price} 원</span>
+                  </div>
+                </div>
+              );
+            })}
             <div className="extraShippingFeeContainer">
-              <List title="추가 후원금" content="0원" />
+              <List title="추가 후원금" content={`${extraFunding}원`} />
               <List title="배송비" content="2,500원" />
             </div>
           </div>
           <div className="totalPriceContainer">
             <List title="펀딩 금액" content="50,000 원" />
-            <List title="추가 후원금" content={extraFunding} />
-            <List title="배송비" content={`${totalPice}원`} />
+            <List title="추가 후원금" content={`${extraFunding}원`} />
+            <List title="배송비" content={`${totalPrice}원`} />
             <dl>
               <dt className="totalPriceTitle">최종결제금액</dt>
-              <dd className="totalPrice">{totalPice}원</dd>
+              <dd className="totalPrice">{totalPrice}원</dd>
             </dl>
           </div>
         </div>
@@ -97,7 +109,10 @@ class PurchaseReservation extends Component {
               <p className="supporterInfoTitle">휴대폰 번호</p>
               <p className="supporterInfoContent">01042068806</p>
               <div className="line" />
-              <CheckboxRect label="(필수) 펀딩 진행에 대한 새소식 및 결제 관련 안내를 받습니다." />
+              <CheckboxRect
+                checked="checked"
+                label="(필수) 펀딩 진행에 대한 새소식 및 결제 관련 안내를 받습니다."
+              />
             </div>
           </div>
           <div className="shippingAddressContainer">

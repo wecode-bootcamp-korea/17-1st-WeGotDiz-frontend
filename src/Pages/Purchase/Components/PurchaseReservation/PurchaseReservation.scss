@@ -13,28 +13,31 @@
     font-size: 14px;
 
     .purchaseReward {
-      .title,
-      .details {
-        padding: 15px;
-        font-weight: 400;
-      }
+      .selectedRewards {
+        border-top: $border;
 
-      .title {
-        color: $color-main;
-      }
+        .title,
+        .details {
+          margin: 15px;
+          font-weight: 400;
+        }
 
-      .details {
-        color: $color-gray;
-        font-size: 12px;
-      }
+        .title {
+          color: $color-main;
+        }
 
+        .details {
+          color: $color-gray;
+          font-size: 12px;
+        }
+      }
       .amountPriceContainer {
         display: flex;
         justify-content: flex-end;
 
         span {
-          font-weight: 400;
           padding: 15px;
+          font-weight: 400;
         }
       }
 

@@ -1,66 +1,65 @@
 @import '../../../../styles/common.scss';
 
 .checkboxRect {
-  display: block;
-  position: relative;
-  padding-left: 30px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: pointer;
-
   .label {
+    display: block;
+    position: relative;
+    padding-left: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     color: $color-dark-gray;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.4;
-  }
-
-  &:hover input ~ .checkmark {
-    border: 1px solid $color-main;
-    transition: border 0.2s;
-  }
-
-  input {
-    position: absolute;
-    width: 0;
-    height: 0;
-    opacity: 0;
     cursor: pointer;
 
-    &:checked ~ .checkmark {
-      background-color: $color-main;
+    &:hover input ~ .checkmark {
       border: 1px solid $color-main;
+      transition: border 0.2s;
+    }
 
-      &::after {
-        display: block;
+    input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      cursor: pointer;
+
+      &:checked ~ .checkmark {
+        background-color: $color-main;
+        border: 1px solid $color-main;
+
+        &::after {
+          display: block;
+        }
       }
     }
-  }
 
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background-color: #fff;
-    border: $border;
-
-    &::after {
-      content: '';
+    .checkmark {
       position: absolute;
-      display: none;
-      left: 6px;
-      top: 3px;
-      width: 4px;
-      height: 8px;
-      border: 1px solid #fff;
-      border-width: 0 2px 2px 0;
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      transform: rotate(45deg);
+      top: 0;
+      left: 0;
+      height: 20px;
+      width: 20px;
+      background-color: #fff;
+      border: $border;
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: none;
+        left: 6px;
+        top: 3px;
+        width: 4px;
+        height: 8px;
+        border: 1px solid #fff;
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
     }
   }
 }

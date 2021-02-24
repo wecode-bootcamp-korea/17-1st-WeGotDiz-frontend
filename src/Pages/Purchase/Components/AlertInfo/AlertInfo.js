@@ -33,7 +33,7 @@ class AlertInfo extends Component {
       <div className="alertInfo">
         <dl>
           <dt className="checkboxContainer" onClick={this.handleCheckbox}>
-            <CheckboxRound label={title} checked={id} />
+            <CheckboxRound label={title} />
           </dt>
           <dd className="checkboxInfo">
             <div dangerouslySetInnerHTML={{ __html: content }} />

@@ -12,14 +12,20 @@ class Purchase extends Component {
   constructor() {
     super();
     this.state = {
+      //컴포넌트 연결용
       isModalOn: true,
       isChooseRewardShow: true,
       isReservationShow: false,
       isPurchaseCompleted: false,
-      productData: {},
+      //프로덕트 정보
+      id: 0,
+      productTitle: '',
+      makerName: '',
+      makerImage: '',
+      //데이터 담는 용
       rewardData: [],
-      quantity: 1,
       extraFunding: 0,
+      quantity: 1,
     };
   }
 
@@ -28,42 +34,43 @@ class Purchase extends Component {
     this.handlePurchaseData();
   }
 
-  handlePurchaseData = () => {
-    fetch('/data/purchaseData.json')
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          productData: res.product_info,
-          rewardData: res.reward_list,
-        });
-      });
-  };
-
-  handleQuantity = e => {
-    this.setState({
-      quantity: e.target.value,
-    });
-  };
-
-  addQuantity = () => {
+  incrementCount = () => {
     const { quantity } = this.state;
+
     this.setState({
       quantity: quantity + 1,
     });
   };
 
-  subtractQuantity = () => {
+  decrementCount = () => {
     const { quantity } = this.state;
+
     this.setState({
       quantity: 1 < quantity - 1 ? quantity - 1 : 1,
     });
   };
+
+  // 필요한 함수
 
   handleModal = () => {
     document.body.style.overflow = 'unset';
     this.setState({
       isModalOn: false,
     });
+  };
+
+  handlePurchaseData = () => {
+    fetch('/data/purchaseData.json')
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          id: res.product_info.id,
+          productTitle: res.product_info.title,
+          makerName: res.product_info.maker_name,
+          makerImage: res.product_info.maker_image,
+          rewardData: res.reward_list,
+        });
+      });
   };
 
   handleChooseReward = () => {
@@ -82,18 +89,31 @@ class Purchase extends Component {
     window.scrollTo(0, 0);
   };
 
-  handleChecked = () => {};
+  goToStory = () => {
+    const id = this.state;
+    this.props.history.push(`API/product/details/${id}`);
+  };
 
-  handleReward = () => {};
+  handleCheckedReward = e => {
+    const id = e.target.id;
+    this.setState(prevState => ({
+      rewardData: prevState.rewardData.map(reward =>
+        reward.id === +id ? { ...reward, value: e.target.checked } : reward
+      ),
+    }));
+  };
 
   handleExtraFunding = e => {
+    const { name, value } = e.target;
     this.setState({
-      extraFunding: e.target.value,
+      [name]: value,
     });
   };
 
-  goToStory = () => {
-    this.props.history.push('/product/details');
+  handleQuantity = e => {
+    this.setState = {
+      quantity: e.target.value,
+    };
   };
 
   render() {
@@ -102,29 +122,40 @@ class Purchase extends Component {
       isChooseRewardShow,
       isReservationShow,
       isPurchaseCompleted,
-      productData,
+      productTitle,
+      makerName,
+      makerImage,
       rewardData,
-      quantity,
       extraFunding,
+      rewardPrice,
+      quantity,
     } = this.state;
 
     const {
+      incrementCount,
       handleModal,
-      handleChooseReward,
       handleSubmit,
       goToStory,
+      handleCheckedReward,
+      handleChooseReward,
       handleQuantity,
-      addQuantity,
-      subtractQuantity,
       handleExtraFunding,
+      decrementCount,
     } = this;
+
+    const selectedReward = rewardData.filter(reward => reward.value);
 
     return (
       <div className="purchase">
         {isModalOn && (
           <AlertModal handleModal={handleModal} goToStory={goToStory} />
         )}
-        <ProductHeader goToStory={goToStory} productData={productData} />
+        <ProductHeader
+          goToStory={goToStory}
+          productTitle={productTitle}
+          makerName={makerName}
+          makerImage={makerImage}
+        />
         <PurchaseStep
           isChooseRewardShow={isChooseRewardShow}
           isReservationShow={isReservationShow}
@@ -132,20 +163,26 @@ class Purchase extends Component {
         />
         {isChooseRewardShow && (
           <ChooseReward
-            handleChooseReward={handleChooseReward}
+            incrementCount={incrementCount}
             rewardData={rewardData}
-            quantity={quantity}
-            handleQuantity={handleQuantity}
-            addQuantity={addQuantity}
-            subtractQuantity={subtractQuantity}
-            handleExtraFunding={handleExtraFunding}
             extraFunding={extraFunding}
+            handleCheckedReward={handleCheckedReward}
+            handleChooseReward={handleChooseReward}
+            selectedReward={selectedReward}
+            handleQuantity={handleQuantity}
+            quantity={quantity}
+            handleExtraFunding={handleExtraFunding}
+            decrementCount={decrementCount}
+            productTitle={productTitle}
           />
         )}
         {isReservationShow && (
           <PurchaseReservation
+            handleChooseReward={handleChooseReward}
+            selectedReward={selectedReward}
             handleSubmit={handleSubmit}
             extraFunding={extraFunding}
+            rewardPrice={rewardPrice}
           />
         )}
         {isPurchaseCompleted && <PurchaseComplete />}

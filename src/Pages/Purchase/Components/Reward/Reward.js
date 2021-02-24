@@ -3,27 +3,36 @@ import CheckboxRect from '../CheckboxRect/CheckboxRect';
 import './Reward.scss';
 
 class Reward extends Component {
-  addAmount = () => {};
-  reduceAmount = () => {};
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     quantity: 1,
+  //   };
+  // }
+
   render() {
     const {
+      value,
       id,
       price,
       stock,
       name,
       combination,
-      quantity,
+      handleCheckedReward,
       handleQuantity,
-      addQuantity,
-      handleReward,
-      reward,
-      subtractQuantity,
+      quantity,
+      incrementCount,
+      decrementCount,
     } = this.props;
 
     return (
-      <li className="reward" onClick={handleReward} id={id}>
+      <li className="reward" onClick={() => this.check} value={id}>
         <div className="checkboxContainer">
-          <CheckboxRect checked={reward.id} />
+          <CheckboxRect
+            checked={value}
+            id={id}
+            onChange={handleCheckedReward}
+          />
         </div>
         <div className="rewardDetailsContainer">
           <div className="price">
@@ -40,24 +49,24 @@ class Reward extends Component {
             <div className="line" />
             <span>리워드 제공 예상일 : 2021년 04월 중순 (11~20일) 예정</span>
           </div>
-          <div>
-            <p>수량</p>
-            <div className="option">
-              <button className="minusBtn" onClick={() => subtractQuantity()}>
-                -
-              </button>
-              <input
-                type="number"
-                min="1"
-                max="20"
-                value={quantity}
-                onChange={handleQuantity}
-              />
-              <button className="plusBtn" onClick={() => addQuantity()}>
-                +
-              </button>
+          {value && (
+            <div className="chooseQuantity">
+              <p>수량</p>
+              <div className="option">
+                <button className="minusBtn" onClick={decrementCount}>
+                  -
+                </button>
+                <input
+                  type="number"
+                  value={quantity ? quantity : 1}
+                  onChange={handleQuantity}
+                />
+                <button className="plusBtn" onClick={incrementCount}>
+                  +
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </li>
     );

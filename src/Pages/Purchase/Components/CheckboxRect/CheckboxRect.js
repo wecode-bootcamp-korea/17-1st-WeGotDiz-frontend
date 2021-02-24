@@ -3,13 +3,20 @@ import './CheckboxRect.scss';
 
 class CheckboxRect extends Component {
   render() {
-    const { label } = this.props;
+    const { label, checked, onChange, id } = this.props;
     return (
-      <label className="checkboxRect">
-        <span className="label">{label}</span>
-        <input type="checkbox" />
-        <span className="checkmark" />
-      </label>
+      <div className="checkboxRect">
+        <label className="label">
+          <span className="label">{label}</span>
+          <input
+            id={id}
+            type="checkbox"
+            onChange={onChange}
+            checked={checked}
+          />
+          <span className="checkmark" />
+        </label>
+      </div>
     );
   }
 }

@@ -3,15 +3,15 @@
 .checkboxRound {
   .label {
     display: block;
-    padding-left: 15px;
     position: relative;
+    padding-left: 15px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    cursor: pointer;
     color: #b4aea4;
     font-size: 17px;
+    cursor: pointer;
   }
 
   &:hover input ~ .checkmark {

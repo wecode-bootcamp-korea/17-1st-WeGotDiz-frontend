@@ -3,12 +3,17 @@ import './CheckboxRound.scss';
 
 class CheckboxRound extends Component {
   render() {
-    const { label, checked, onClick } = this.props;
+    const { label, checked, onChange, id } = this.props;
     return (
-      <div className="checkboxRound">
+      <div className="checkboxRound" id={id}>
         <label className="label">
           <span className="label">{label}</span>
-          <input type="checkbox" checked={checked} onClick={onClick} />
+          <input
+            id={id}
+            type="checkbox"
+            onChange={onChange}
+            checked={checked}
+          />
           <span className="checkmark" />
         </label>
       </div>

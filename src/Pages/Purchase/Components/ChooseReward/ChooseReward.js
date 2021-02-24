@@ -5,25 +5,31 @@ import Reward from '../Reward/Reward';
 import './ChooseReward.scss';
 
 class ChooseReward extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     isFundingPublic: ,
-  //   };
-  // }
+  // handleTotalPrice = () => {
+  //   const { selectedReward, extraFunding } = this.props;
 
+  //   if (selectedReward || extraFunding) {
+  //     Math.floor(
+  //       selectedReward.reduce((acc, cur) => acc + cur.price, 0) + extraFunding
+  //     ).toLocaleString();
+  //   } else return 0;
+  // };
   render() {
     const {
-      handleChooseReward,
       rewardData,
-      quantity,
-      handleQuantity,
-      addQuantity,
-      handleReward,
-      subtractQuantity,
+      incrementCount,
+      handleCheckedReward,
       handleExtraFunding,
+      handleChooseReward,
       extraFunding,
+      handleQuantity,
+      quantity,
+      selectedReward,
+      decrementCount,
+      productTitle,
     } = this.props;
+
+    console.log(selectedReward.price);
 
     return (
       <div className="chooseReward">
@@ -43,15 +49,16 @@ class ChooseReward extends Component {
               reward={reward}
               key={reward.id}
               id={reward.id}
+              value={reward.value}
               price={reward.price}
               stock={reward.remaining_stock}
               name={reward.name}
               combination={reward.combination}
-              quantity={quantity}
+              handleCheckedReward={handleCheckedReward}
               handleQuantity={handleQuantity}
-              addQuantity={addQuantity}
-              handleReward={handleReward}
-              subtractQuantity={subtractQuantity}
+              quantity={quantity}
+              incrementCount={incrementCount}
+              decrementCount={decrementCount}
             />
           ))}
         </dl>
@@ -67,6 +74,7 @@ class ChooseReward extends Component {
                 <input
                   type="number"
                   placeholder="0"
+                  name="extraFunding"
                   onChange={handleExtraFunding}
                 />
               </label>
@@ -86,15 +94,21 @@ class ChooseReward extends Component {
               참여자 표시가 노출됩니다.
             </p>
             <div className="checkboxList">
-              <CheckboxRect label="공개" />
-              <CheckboxRect label="비공개" />
+              <CheckboxRect label="이름 비공개" />
+              <CheckboxRect label="펀딩금액 비공개" />
             </div>
           </div>
         </div>
         <p className="fundingTotalInfo">
-          아무나 먹는 비건 소스 3종 비건, 이제는 '맛있게' 받아들이세요!에{' '}
+          {productTitle} 에{' '}
           <em className="totalPrice">
-            {extraFunding ? +(extraFunding * 1 + 2500) : 0}
+            {selectedReward &&
+              (selectedReward || extraFunding
+                ? (
+                    selectedReward.reduce((acc, cur) => acc + cur.price, 0) +
+                    extraFunding * 1
+                  ).toLocaleString()
+                : 0)}
           </em>{' '}
           원을 펀딩합니다.
         </p>

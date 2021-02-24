@@ -4,17 +4,8 @@
   width: 100%;
   height: fit-content;
   padding: 60px 30px;
-  color: #fff;
   background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
-  background-size: cover;
-
-  .bgImg {
-    position: absolute;
-    width: 100%;
-    height: fit-content;
-    backdrop-filter: blur(2px);
-  }
 
   .category {
     margin-bottom: 20px;
@@ -33,5 +24,12 @@
   .productTtile {
     position: relative;
     z-index: 1000;
+  }
+
+  .image {
+    width: 100%;
+    height: fit-content;
+    background-size: cover;
+    backdrop-filter: blur(2px);
   }
 }

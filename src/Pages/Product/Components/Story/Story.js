@@ -25,8 +25,12 @@ class Story extends Component {
           },
           () => {
             const { productData } = this.state;
-            const openingDate = productData.opening_date.slice(0, 10);
-            const closingDate = productData.closing_date.slice(0, 10);
+            const openingDate = productData.opening_date
+              .slice(0, 10)
+              .replaceAll('-', '.');
+            const closingDate = productData.closing_date
+              .slice(0, 10)
+              .replaceAll('-', '.');
             this.setState({
               openingDate: openingDate,
               closingDate: closingDate,

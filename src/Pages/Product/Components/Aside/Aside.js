@@ -30,6 +30,7 @@ class Aside extends Component {
       isLikeCliked,
       handleLike,
     } = this.props;
+
     const {
       total_likes,
       maker_name,

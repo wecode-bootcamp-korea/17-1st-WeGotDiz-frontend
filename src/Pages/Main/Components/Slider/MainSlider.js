@@ -21,12 +21,15 @@ class MainSlider extends Component {
   render() {
     const settings = {
       dots: true,
+      fade: true,
       infinite: true,
       speed: 1000,
       autoplay: true,
+      autoplaySpeed: 2000,
       slidesToShow: 1,
       slidesToScroll: 1,
       lazyLoad: true,
+      draggable: true,
     };
     const { data } = this.state;
     return (

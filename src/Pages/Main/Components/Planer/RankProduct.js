@@ -14,7 +14,7 @@ class RankProduct extends Component {
           <span className="Rankcategory">{product.rankcategory}</span>
         </div>
         <div className="RankImg">
-          <img src={product.rankImg} alt="" />
+          <img src={product.rankImg} alt="rankImg" />
         </div>
       </div>
     );

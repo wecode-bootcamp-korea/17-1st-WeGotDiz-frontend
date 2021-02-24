@@ -25,9 +25,10 @@ class Product extends Component {
   }
 
   handleData = () => {
-    fetch(`http://10.58.2.108:8000/product/${this.props.match.params.id}`)
+    fetch(`http://10.58.1.148:8000/product/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(res => {
+        console.log('뭐야', res);
         this.setState({
           productData: res.data,
           infoData: res.data.info_box,

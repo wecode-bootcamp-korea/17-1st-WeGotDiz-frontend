@@ -8,8 +8,6 @@ class MainProductList extends Component {
     this.state = {
       isSearch: false,
       searchText: '',
-      selectLeft: '1',
-      // selectRight: 'recommend',
       items: 6,
       preItems: 0,
     };
@@ -70,18 +68,17 @@ class MainProductList extends Component {
               onChange={this.handleSearchChange}
               onKeyPress={this.handleSearchEnter}
               value={searchText}
-            ></input>
+            />
             <button
               className="searchToggleBtn"
               onClick={this.handleSearchToggle}
             >
-              <i class="fas fa-search "></i>
+              <i class="fas fa-search " />
             </button>
 
             <select
               className="productSelectLeft"
               onChange={this.handleFirstSelect}
-              name="selectLeft"
             >
               <option value="1">전체</option>
               <option value="2">진행중</option>
@@ -90,7 +87,6 @@ class MainProductList extends Component {
             <select
               className="productSelectRight"
               onChange={this.handleSecondSelect}
-              name="selectRight"
             >
               <option value="1">추천순</option>
               <option value="2">인기순</option>

@@ -23,7 +23,7 @@ class Main extends Component {
 
   componentDidMount = () => {
     this.categoryMount();
-    this.mainProduct(); //전체상품받기
+    this.mainProduct();
   };
 
   //카테고리 mock data로 찍기
@@ -63,7 +63,7 @@ class Main extends Component {
     window.addEventListener('scroll', this.infiniteScroll, true);
   };
 
-  //카테고리 누를 시 상품 받기
+  //카테고리 리스트 중 누를 시 상품 받기
   categoryClick = category => {
     if (category.path === 'main') {
       fetch(`http://10.58.2.108:8000/product/main`, {
@@ -71,7 +71,6 @@ class Main extends Component {
       })
         .then(res => res.json())
         .then(res => {
-          console.log('여기 메인 >>>', res);
           this.setState({
             products: res.DATA,
             categoryName: category.name,
@@ -83,7 +82,6 @@ class Main extends Component {
       })
         .then(res => res.json())
         .then(res => {
-          console.log('여기 카테고리 >>>', res);
           this.setState({
             products: res.DATA,
             categoryName: category.name,
@@ -112,7 +110,7 @@ class Main extends Component {
     }
   };
 
-  //드랍박스 값 받아오나 ?
+  //드랍박스 값 필터 받아오기
   selectFirst = first => {
     this.setState({
       firstSelect: first,
@@ -128,43 +126,22 @@ class Main extends Component {
       }
     );
   };
+
+  //쿼리 스트링 변환
   selectChoice = () => {
     let newObj = {
       firstOption: this.state.firstSelect,
       secondOption: this.state.secondSelect,
     };
-
     let result = Object.entries(newObj).map(e => e.join('='));
     let realResult = '?' + result.join('&');
-
-    console.log('이건어때', newObj);
-    console.log('여길봐야해', result);
-    console.log('이걸안봐?', realResult);
 
     return realResult;
   };
 
   render() {
-    const {
-      categoryData,
-      categoryName,
-      products,
-      firstSelect,
-      secondSelect,
-    } = this.state;
-    console.log(
-      '너타입뭐야? Left >>>>',
-      typeof firstSelect,
-      '값은?? >>>>',
-      firstSelect
-    );
-    console.log(
-      '너타입뭐야? Right >>>>',
-      typeof secondSelect,
-      '값은?? >>>>',
-      secondSelect
-    );
-    console.log('오굿' + this.selectChoice());
+    const { categoryData, categoryName, products } = this.state;
+
     return (
       <div>
         <MainSlider />

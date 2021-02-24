@@ -18,7 +18,7 @@ class Story extends Component {
 
   handleData = () => {
     // fetch('/data/productData.json')
-    fetch(`http://10.58.2.108:8000/product/${this.props.match.params.id}`)
+    fetch(`http://10.58.1.148:8000/product/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(res => {
         this.setState(
@@ -43,7 +43,7 @@ class Story extends Component {
       thumbnail_url,
       description,
       goal_amount,
-      story,
+      tab,
     } = this.state.productData;
 
     const { openingDate, closingDate } = this.state;
@@ -63,7 +63,7 @@ class Story extends Component {
             모이지 않으면 결제가 진행되지 않습니다.
           </p>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: story }} />
+        <div dangerouslySetInnerHTML={{ __html: tab }} />
       </div>
     );
   }

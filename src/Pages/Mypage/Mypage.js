@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import FundList from './Components/Funded/FundList/FundList';
 import LikeList from './Components/Liked/LikeList/LikeList';
 import MypageHeader from './Components/MypageHeader';
@@ -41,7 +42,7 @@ class Mypage extends Component {
     return (
       <div className="myPage">
         <div className="header">
-          <MypageHeader userInfo={userInfo} />
+          <MypageHeader userInfo={userInfo} fundList={funding_list} />
           <div className="category">
             {CATEGORY_ARR.map((category, idx) => {
               return (
@@ -66,4 +67,4 @@ class Mypage extends Component {
   }
 }
 
-export default Mypage;
+export default withRouter(Mypage);

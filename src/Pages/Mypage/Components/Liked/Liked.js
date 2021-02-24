@@ -13,11 +13,9 @@ class Liked extends Component {
           <div className="test">
             <Progressbar percent={percent} />
           </div>
-          {/* <div className="info"> */}
           <div className="leftText">
             <span className="percent">{percent}%</span>
             <span className="price">{price}원 달성</span>
-            {/* <span className="date">{date}일 남음</span> */}
             {date[0] === '-' ? (
               <span className="date">종료</span>
             ) : (

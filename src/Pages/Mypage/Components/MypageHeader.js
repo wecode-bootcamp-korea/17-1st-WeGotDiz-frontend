@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FundList from './Funded/FundList/FundList';
 import './MypageHeader.scss';
 
 class MypageHeader extends Component {

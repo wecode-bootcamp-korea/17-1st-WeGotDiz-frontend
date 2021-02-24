@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Progressbar from '../../../../Components/Progressbar/Progressbar';
 import './Liked.scss';
 
 class Liked extends Component {
@@ -8,18 +9,21 @@ class Liked extends Component {
       <div className="liked">
         <div className="imgBox">
           <img src={img} alt={catagory} />
-          <div className="info">
-            <div className="leftText">
-              <span className="percent">{percent}%</span>
-              <span className="price">{price}원 달성</span>
-              <span className="date">{date}일 남음</span>
-            </div>
-            {/* {date[0] === '-' ? (
+          <div className="test">
+            <Progressbar percent={percent} />
+          </div>
+          {/* <div className="info"> */}
+          <div className="leftText">
+            <span className="percent">{percent}%</span>
+            <span className="price">{price}원 달성</span>
+            <span className="date">{date}일 남음</span>
+          </div>
+          {/* {date[0] === '-' ? (
               <span className="productDate">종료</span>
             ) : (
               <span className="productDate">{date}일 남음</span>
             )} */}
-          </div>
+          {/* </div> */}
         </div>
         <div className="textBox">
           <h4 className="title">{title}</h4>

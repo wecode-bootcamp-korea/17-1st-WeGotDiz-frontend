@@ -2,7 +2,7 @@
 "data": {
   "user_info" :   [{
     "id": 1,
-    "userName":"위갓디즈",
+    "userName":"위갓디즈"
   }],
   "funding_list" : [{
     "product_achieved_rate":"12.00",

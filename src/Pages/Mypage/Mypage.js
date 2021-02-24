@@ -37,23 +37,22 @@ class Mypage extends Component {
 
   render() {
     const { currentId, userInfo, funding_list, like_list } = this.state;
+    const CATEGORY_ARR = ['펀딩한', '좋아한'];
     return (
       <div className="myPage">
         <div className="header">
           <MypageHeader userInfo={userInfo} />
           <div className="category">
-            <span
-              className={currentId === 1 ? 'tabOn' : 'tabOff'}
-              onClick={() => this.clickHandler(1)}
-            >
-              펀딩한
-            </span>
-            <span
-              className={currentId === 2 ? 'tabOn' : 'tabOff'}
-              onClick={() => this.clickHandler(2)}
-            >
-              좋아한
-            </span>
+            {CATEGORY_ARR.map((category, idx) => {
+              return (
+                <span
+                  className={currentId === idx + 1 ? 'tabOn' : 'tabOff'}
+                  onClick={() => this.clickHandler(idx + 1)}
+                >
+                  {category}
+                </span>
+              );
+            })}
           </div>
         </div>
         <div className="body">

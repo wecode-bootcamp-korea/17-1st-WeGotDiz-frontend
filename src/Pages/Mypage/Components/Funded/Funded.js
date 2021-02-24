@@ -4,7 +4,6 @@ import './Funded.scss';
 
 class Funded extends Component {
   render() {
-    //console.log('this.pros.fundDataList>>>', this.props);
     const { img, percent, price, title, date, company, catagory } = this.props;
     return (
       <div className="funded">

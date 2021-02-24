@@ -3,7 +3,6 @@ import './MypageHeader.scss';
 
 class MypageHeader extends Component {
   render() {
-    //console.log('this.props.userInfo>>', this.props);
     const { userInfo } = this.props;
     return (
       <div className="mypageHeader">
@@ -19,11 +18,11 @@ class MypageHeader extends Component {
               />
               <ul className="headerText">
                 <li>
-                  <strong>{info.total_fundings}</strong>
+                  <strong>99</strong>
                   <span>펀딩</span>
                 </li>
                 <li>
-                  <strong>{info.total_likes}</strong>
+                  <strong>99</strong>
                   <span>좋아요</span>
                 </li>
               </ul>

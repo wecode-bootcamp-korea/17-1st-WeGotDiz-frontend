@@ -8,6 +8,7 @@ class Funded extends Component {
     return (
       <div className="funded">
         <div className="imgBox">
+          <span className="label">리워드</span>
           <img src={img} alt={catagory} />
           <div className="test">
             <Progressbar percent={percent} />
@@ -16,14 +17,13 @@ class Funded extends Component {
           <div className="leftText">
             <span className="percent">{percent}%</span>
             <span className="price">{price}원 달성</span>
-            <span className="date">{date}일 남음</span>
-          </div>
-          {/* {date[0] === '-' ? (
-              <span className="productDate">종료</span>
+            {/* <span className="date">{date}일 남음</span> */}
+            {date[0] === '-' ? (
+              <span className="date">종료</span>
             ) : (
-              <span className="productDate">{date}일 남음</span>
-            )} */}
-          {/* </div> */}
+              <span className="date">{date}일 남음</span>
+            )}
+          </div>
         </div>
         <div className="textBox">
           <h4 className="title">{title}</h4>

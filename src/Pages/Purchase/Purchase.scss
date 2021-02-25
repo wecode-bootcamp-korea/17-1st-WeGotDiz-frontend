@@ -1,0 +1,13 @@
+@import '../../styles/common.scss';
+
+.purchase {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 56px;
+
+  button,
+  a {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,123 @@
+@import '../../../../styles/common.scss';
+
+.chooseReward {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 860px;
+  margin: auto;
+
+  .sectionTitle {
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 10px;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 40px;
+
+    .sectionDescription {
+      font-size: 14px;
+    }
+
+    a {
+      color: $color-main;
+      text-decoration: none;
+      position: absolute;
+      right: 0;
+      color: $color-main;
+      font-size: 12px;
+      text-align: right;
+      text-decoration: underline;
+    }
+  }
+
+  .extraFundingOption,
+  .publicPrivateOption {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 50px;
+
+    .sectionTitle {
+      width: 200px;
+      font-size: 16px;
+    }
+  }
+
+  .extraFundingOption {
+    .extraFundingInput {
+      line-height: 1.2;
+
+      input {
+        width: 202px;
+        height: 48px;
+        margin: 20px 10px 0 0;
+        padding: 0 16px;
+        border: $border;
+        font-size: 17px;
+        text-align: right;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          margin: 0;
+          -webkit-appearance: none;
+        }
+      }
+    }
+  }
+
+  .publicPrivateOption {
+    color: $color-dark-gray;
+
+    .sectionDescription {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .subSectionDescription {
+      margin: 5px 0;
+      font-size: 13px;
+    }
+
+    .checkboxList {
+      display: flex;
+      margin: 30px 0;
+
+      .checkboxRect {
+        margin-right: 40px;
+      }
+    }
+  }
+
+  .fundingTotalInfo {
+    margin: 40px 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+
+    .totalPrice {
+      color: $color-main;
+      text-decoration: underline;
+    }
+  }
+
+  .nextBtn {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    margin: 20px auto;
+    padding: 0 30px;
+    color: #fff;
+    background-color: $color-main;
+    border: none;
+    border-radius: 3px;
+    font-size: 17px;
+
+    i {
+      margin-left: 4px;
+      font-size: 13px;
+    }
+  }
+}

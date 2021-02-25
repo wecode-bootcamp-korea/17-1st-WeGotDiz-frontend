@@ -10,6 +10,7 @@ class Mypage extends Component {
     super();
     this.state = {
       currentId: 1,
+      isLoggedIn: false,
       funding_user_Info: [],
       funding_list: [],
       like_user_Info: [],

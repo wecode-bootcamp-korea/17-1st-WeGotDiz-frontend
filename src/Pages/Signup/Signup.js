@@ -73,7 +73,7 @@ class Signup extends Component {
       .then(response => response.json())
       .then(result =>
         result.message === 'SUCCESS'
-          ? this.props.history.push('/')
+          ? this.props.history.push('/login')
           : alert('회원가입실패')
       );
   };

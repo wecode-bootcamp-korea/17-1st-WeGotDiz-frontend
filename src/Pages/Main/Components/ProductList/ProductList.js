@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Product from './Product';
 
 class ProductList extends Component {
+  goTop = () => {
+    window.scrollTo(0, 800);
+  };
   render() {
     const { products } = this.props;
     return (
@@ -21,6 +24,9 @@ class ProductList extends Component {
             />
           );
         })}
+        <button className="mainTopBtn" onClick={() => this.goTop()}>
+          <i class="fas fa-arrow-up"></i>
+        </button>
       </main>
     );
   }

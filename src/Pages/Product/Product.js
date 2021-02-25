@@ -21,13 +21,16 @@ class Product extends Component {
   }
 
   componentDidMount() {
+    //fefe
+    window.scrollTo(0, 0);
     this.handleData();
   }
 
   handleData = () => {
-    fetch('/data/productData.json')
+    fetch(`http://10.58.6.78:8000/product/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(res => {
+        console.log('뭐야', res);
         this.setState({
           productData: res.data,
           infoData: res.data.info_box,
@@ -61,7 +64,6 @@ class Product extends Component {
       tabsData,
       makerInfoData,
     } = this.state;
-
     return (
       <main className="product">
         {productData && (

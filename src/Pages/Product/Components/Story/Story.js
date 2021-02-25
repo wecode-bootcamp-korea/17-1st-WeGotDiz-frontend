@@ -19,8 +19,7 @@ class Story extends Component {
   handleData = () => {
     fetch(`http://10.58.6.78:8000/product/${this.props.match.params.id}`, {
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTF9.RivuQ0U93IBQhRIAjPTm50BI3cmsAnPFF80DsNey0ng',
+        Authorization: localStorage.getItem('access_token'),
       },
     })
       .then(res => res.json())
@@ -53,8 +52,8 @@ class Story extends Component {
       goal_amount,
       tab,
     } = this.state.productData;
-
     const { openingDate, closingDate } = this.state;
+
     return (
       <div className="story">
         <img src={thumbnail_url} alt="Product" />
@@ -64,7 +63,7 @@ class Story extends Component {
             목표 금액 {Math.floor(goal_amount).toLocaleString()}원
           </p>
           <p className="term">
-            펀딩 기간 {openingDate} ~ {closingDate}
+            펀딩 기간 {openingDate} - {closingDate}
           </p>
           <p className="fundingNotice">
             100% 이상 모이면 펀딩이 성공되며, 펀딩 마감일까지 목표 금액이 100%

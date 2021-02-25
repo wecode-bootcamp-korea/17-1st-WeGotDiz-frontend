@@ -18,26 +18,8 @@ class Aside extends Component {
     });
   };
 
-  goToPurchase = () => {
-    const { id } = this.props.productData;
-
-    fetch('', {
-      method: 'GET',
-      headers: {
-        Authorization: localStorage.getItem('access_token'),
-      },
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (!localStorage.getItem('access_token')) {
-          this.props.history.push('/login');
-        }
-        this.props.history.push(`/product/purchase/${id}`);
-      });
-  };
-
   render() {
-    const { goToPurchase, handleMakerInfo } = this;
+    const { handleMakerInfo } = this;
     const { isMakerInfoClicked } = this.state;
     const {
       makerInfoData,
@@ -45,6 +27,7 @@ class Aside extends Component {
       isLikeCliked,
       handleLike,
       likes,
+      goToPurchase,
     } = this.props;
 
     const { maker_name, days_left } = this.props.productData;
@@ -54,9 +37,12 @@ class Aside extends Component {
       total_amount,
       total_supporters,
     } = this.props.infoData;
+
+    const done = String(days_left)[0] === '-';
+
     return (
       <aside>
-        {String(days_left)[0] === '-' ? (
+        {done ? (
           <p className="daysLeft">마감</p>
         ) : (
           <p className="daysLeft">{days_left}일 남음</p>
@@ -74,9 +60,15 @@ class Aside extends Component {
             명의 서포터
           </li>
         </ul>
-        <button onClick={goToPurchase} className="fundingBtn">
-          펀딩하기
-        </button>
+        {done ? (
+          <button onClick={goToPurchase} className="fundingBtn">
+            펀딩하기
+          </button>
+        ) : (
+          <button className="fundingBtn" disabled>
+            펀딩 마감
+          </button>
+        )}
         <div className="btnWrapper">
           <button className="likeBtn" onClick={handleLike}>
             <i className="fas fa-heart" id={isLikeCliked ? 'like' : 'unlike'} />

@@ -20,6 +20,7 @@ class Product extends Component {
       isLikeCliked: false,
       id: 0,
       likes: 0,
+      liked: false,
     };
   }
 
@@ -28,40 +29,10 @@ class Product extends Component {
     this.handleData();
   }
 
-  handleLike = () => {
-    const { id, isLikeCliked } = this.state;
-
-    this.setState({
-      isLikeCliked: !isLikeCliked,
-    });
-
-    fetch(`http://10.58.6.78:8000/product/${id}/like`, {
-      method: 'POST',
-      headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTF9.RivuQ0U93IBQhRIAjPTm50BI3cmsAnPFF80DsNey0ng',
-      },
-    })
-      .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        if (res.message === 'LIKE_SUCCESS') {
-          this.setState({
-            likes: res.total_likes,
-          });
-        } else if (res.message === 'UNLIKE_SUCCESS') {
-          this.setState({
-            likes: res.total_likes,
-          });
-        }
-      });
-  };
-
   handleData = () => {
     fetch(`http://10.58.6.78:8000/product/${this.props.match.params.id}`, {
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTF9.RivuQ0U93IBQhRIAjPTm50BI3cmsAnPFF80DsNey0ng',
+        Authorization: localStorage.getItem('access_token'),
       },
     })
       .then(res => res.json())
@@ -73,14 +44,55 @@ class Product extends Component {
           tabsData: res.data.tab_names,
           id: res.data.id,
           likes: res.data.total_likes,
+          isLikeCliked: res.data.liked,
         });
       });
+
     fetch('/data/makerInfoData.json')
       .then(res => res.json())
       .then(res => {
         this.setState({
           makerInfoData: res,
         });
+      });
+  };
+  ㅁ;
+
+  handleLike = () => {
+    const { id, isLikeCliked } = this.state;
+
+    fetch(`http://10.58.6.78:8000/product/${id}/like`, {
+      method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('access_token'),
+      },
+    })
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          likes: res.total_likes,
+          isLikeCliked: !isLikeCliked,
+        });
+      });
+  };
+
+  goToPurchase = () => {
+    const { id } = this.props.productData;
+
+    fetch('', {
+      method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('access_token'),
+      },
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (!localStorage.getItem('access_token')) {
+          alert('로그인해주세요!');
+          this.props.history.push('/login');
+        } else {
+          this.props.history.push(`/product/purchase/${id}`);
+        }
       });
   };
 
@@ -91,7 +103,7 @@ class Product extends Component {
   };
 
   render() {
-    const { handleTab, handleLike } = this;
+    const { handleTab, handleLike, goToPurchase } = this;
     const {
       currentId,
       productData,
@@ -102,6 +114,7 @@ class Product extends Component {
       isLikeCliked,
       likes,
     } = this.state;
+
     return (
       <main className="product">
         {productData && (
@@ -115,12 +128,13 @@ class Product extends Component {
             <div className="contentsContainer">
               <content>{MAPPING_TAB[currentId]}</content>
               <Aside
+                goToPurchase={goToPurchase}
+                handleLike={handleLike}
                 productData={productData}
                 infoData={infoData}
                 makerInfoData={makerInfoData}
                 makerLevelData={makerLevelData}
                 isLikeCliked={isLikeCliked}
-                handleLike={handleLike}
                 likes={likes}
               />
             </div>

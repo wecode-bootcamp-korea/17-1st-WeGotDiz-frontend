@@ -12,7 +12,7 @@ class MainProductList extends Component {
       preItems: 0,
     };
   }
-  //검색창 On Off
+
   handleSearchToggle = e => {
     this.setState({
       isSearch: true,
@@ -20,14 +20,12 @@ class MainProductList extends Component {
     e.preventDefault();
   };
 
-  //검색 체인지
   handleSearchChange = e => {
     this.setState({
       searchText: e.target.value,
     });
   };
 
-  //검색 엔터 누를 시 검색 되면서 텍스트 초기화
   handleSearchEnter = e => {
     const { searchText } = this.state;
     if (e.key === 'Enter' && searchText) {
@@ -37,8 +35,6 @@ class MainProductList extends Component {
     }
   };
 
-  //셀렉트 박스 값 받기
-
   handleFirstSelect = e => {
     this.props.selectFirst(e.target.value);
   };
@@ -46,13 +42,10 @@ class MainProductList extends Component {
     this.props.selectSecond(e.target.value);
   };
 
-  //========================================
-
   render() {
     const { isSearch, searchText } = this.state;
     const { categoryName } = this.props;
 
-    //필터링
     const filteredProducts = this.props.cateProducts.filter(product => {
       return product.title.toLowerCase().includes(searchText.toLowerCase());
     });
@@ -89,10 +82,8 @@ class MainProductList extends Component {
               onChange={this.handleSecondSelect}
             >
               <option value="recommend">추천순</option>
-              {/* <option value="price">인기순</option> */}
               <option value="price">펀딩액순</option>
               <option value="date">마감임박순</option>
-              {/* <option value="5">최신순</option> */}
               <option value="support">응원참여자순</option>
             </select>
           </form>

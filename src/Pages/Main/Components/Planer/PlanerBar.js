@@ -45,8 +45,6 @@ class PlanerBar extends Component {
       });
   };
 
-  // 기획전 페이지 이동
-
   changePlanData = e => {
     const { value } = e.target;
     let prevNum = (Number(value) - 1) * 2;

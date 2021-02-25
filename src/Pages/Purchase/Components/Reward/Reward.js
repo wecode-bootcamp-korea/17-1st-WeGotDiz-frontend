@@ -26,7 +26,7 @@ class Reward extends Component {
     } = this.props;
 
     return (
-      <li className="reward" onClick={() => this.check} value={id}>
+      <li className="reward" value={id}>
         <div className="checkboxContainer">
           <CheckboxRect
             checked={value}

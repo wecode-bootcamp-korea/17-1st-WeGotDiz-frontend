@@ -12,17 +12,14 @@ class Purchase extends Component {
   constructor() {
     super();
     this.state = {
-      //컴포넌트 연결용
       isModalOn: true,
       isChooseRewardShow: true,
       isReservationShow: false,
       isPurchaseCompleted: false,
-      //프로덕트 정보
       id: 0,
       productTitle: '',
       makerName: '',
       makerImage: '',
-      //데이터 담는 용
       rewardData: [],
       extraFunding: 0,
       quantity: 1,
@@ -49,8 +46,6 @@ class Purchase extends Component {
       quantity: 1 < quantity - 1 ? quantity - 1 : 1,
     });
   };
-
-  // 필요한 함수
 
   handleModal = () => {
     document.body.style.overflow = 'unset';
@@ -129,6 +124,7 @@ class Purchase extends Component {
       extraFunding,
       rewardPrice,
       quantity,
+      id,
     } = this.state;
 
     const {
@@ -183,6 +179,7 @@ class Purchase extends Component {
             handleSubmit={handleSubmit}
             extraFunding={extraFunding}
             rewardPrice={rewardPrice}
+            id={id}
           />
         )}
         {isPurchaseCompleted && <PurchaseComplete />}

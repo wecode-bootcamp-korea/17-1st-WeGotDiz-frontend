@@ -13,7 +13,6 @@ class AlertInfo extends Component {
 
   handleDetails = e => {
     const { isDetailsClicked } = this.state;
-
     this.setState({
       isDetailsClicked: !isDetailsClicked,
     });
@@ -27,7 +26,7 @@ class AlertInfo extends Component {
 
   render() {
     const { isDetailsClicked } = this.state;
-    const { title, content, details, detailsInfo, id } = this.props;
+    const { title, content, details, detailsInfo } = this.props;
 
     return (
       <div className="alertInfo">

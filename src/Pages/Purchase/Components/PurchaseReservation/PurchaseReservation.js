@@ -12,8 +12,14 @@ class PurchaseReservation extends Component {
     this.state = {
       userName: '',
       userEmail: '',
+      fullName: '',
+      contactNumber: '',
+      deliveryNote: '',
+      address: '',
+      totalamount: 0,
     };
   }
+
   componentDidMount() {
     this.handleUserInfo();
   }
@@ -30,42 +36,60 @@ class PurchaseReservation extends Component {
   };
 
   handleInputData = e => {
+    const { value, name } = e.target;
     this.setState({
-      name: e.target.value,
+      [name]: value,
     });
   };
 
-  // handlePurchase = () => {
-  //   fetch('ip', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       "fullname": ,
-  //       "contact_number":,
-  //       "delivery_note": ,
-  //       "address": ,
-  //       "id_quantity": {
-  //         "id": ,
-  //         "quantity":
-  //       }
-  //       ,
-  //       "total_price": total_amountdㅔ서 price로 수정 논의
-  //     }),
-  //   });
-  // };
+  handlePurchase = () => {
+    const { fullName, contactNumber, deliveryNote, address } = this.state;
+    const { id, selectedReward, extraFunding } = this.props;
+
+    const totalPrice =
+      selectedReward || extraFunding
+        ? (
+            selectedReward.reduce((acc, cur) => acc + cur.price, 0) +
+            extraFunding * 1 +
+            2500
+          ).toLocaleString()
+        : 0;
+
+    fetch('ip', {
+      method: 'POST',
+      body: JSON.stringify({
+        fullname: fullName,
+        contact_number: contactNumber,
+        delivery_note: deliveryNote,
+        address: address,
+        id_quantity: {
+          id: id,
+          quantity: 1,
+        },
+        total_price: totalPrice,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        result.message === 'SUCCESS' ? alert('결제 완료') : alert('결제 실패');
+      });
+  };
 
   render() {
     const { userName, userEmail } = this.state;
-    const {
-      handleSubmit,
-      extraFunding,
-      quantity,
-      combination,
-      name,
-      selectedReward,
-    } = this.props;
+    const { handleInputData } = this;
+    const { handleSubmit, extraFunding, selectedReward } = this.props;
     //
-    const totalPrice = (extraFunding * 1 + 2500).toLocaleString();
-    console.log('reservation', selectedReward);
+    const totalPrice =
+      selectedReward || extraFunding
+        ? (
+            selectedReward.reduce((acc, cur) => acc + cur.price, 0) +
+            extraFunding * 1 +
+            2500
+          ).toLocaleString()
+        : 0;
+
+    console.log(this.state.fullName);
 
     return (
       <div className="purchaseReservation">
@@ -77,7 +101,7 @@ class PurchaseReservation extends Component {
                   <p className="title">{reward.name}</p>
                   <p className="details">{reward.combination}</p>
                   <div className="amountPriceContainer">
-                    <span>수량 {reward.quantity}개</span>
+                    <span>수량 1개</span>
                     <span>{reward.price} 원</span>
                   </div>
                 </div>
@@ -89,7 +113,7 @@ class PurchaseReservation extends Component {
             </div>
           </div>
           <div className="totalPriceContainer">
-            <List title="펀딩 금액" content="50,000 원" />
+            <List title="펀딩 금액" content={`${totalPrice} 원`} />
             <List title="추가 후원금" content={`${extraFunding}원`} />
             <List title="배송비" content={`${totalPrice}원`} />
             <dl>
@@ -118,12 +142,27 @@ class PurchaseReservation extends Component {
           <div className="shippingAddressContainer">
             <p className="supporterInfoContainerTitle">리워드 배송지</p>
             <div className="addressInfo">
-              <InputRound label="이름" />
-              <InputRound label="휴대폰 번호" />
-              <InputRound label="주소" placeholder="상세주소" />
+              <InputRound
+                label="이름"
+                name="fullName"
+                onChange={handleInputData}
+              />
+              <InputRound
+                label="휴대폰 번호"
+                name="contactNumber"
+                onChange={handleInputData}
+              />
+              <InputRound
+                label="주소"
+                placeholder="상세주소"
+                name="address"
+                onChange={handleInputData}
+              />
               <InputRound
                 label="배송 시 요청사항 (선택)"
                 placeholder="ex) 부재시 경비실에 보관해주세요."
+                name="deliveryNote"
+                onChange={handleInputData}
               />
             </div>
           </div>

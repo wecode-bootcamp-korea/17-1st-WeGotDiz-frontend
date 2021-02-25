@@ -5,15 +5,6 @@ import Reward from '../Reward/Reward';
 import './ChooseReward.scss';
 
 class ChooseReward extends Component {
-  // handleTotalPrice = () => {
-  //   const { selectedReward, extraFunding } = this.props;
-
-  //   if (selectedReward || extraFunding) {
-  //     Math.floor(
-  //       selectedReward.reduce((acc, cur) => acc + cur.price, 0) + extraFunding
-  //     ).toLocaleString();
-  //   } else return 0;
-  // };
   render() {
     const {
       rewardData,
@@ -28,8 +19,6 @@ class ChooseReward extends Component {
       decrementCount,
       productTitle,
     } = this.props;
-
-    console.log(selectedReward.price);
 
     return (
       <div className="chooseReward">

@@ -25,8 +25,6 @@ class AlertModal extends Component {
       });
   };
 
-  handleBtn = () => {};
-
   render() {
     const { alertInfoData, isbtnDisabled } = this.state;
     const { goToStory, handleModal } = this.props;

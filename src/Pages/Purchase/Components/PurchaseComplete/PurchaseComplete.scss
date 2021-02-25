@@ -1,1 +1,29 @@
 @import '../../../../styles/common.scss';
+
+.purchaseComplete {
+  display: flex;
+  justify-content: center;
+  padding: 100px 0 200px;
+
+  .purchaseCompletedContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    height: fit-content;
+    margin: auto;
+    padding: 80px;
+    background-color: $color-light-gray;
+    border-radius: 10px;
+    text-align: center;
+
+    header {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    p {
+      padding: 30px 0;
+    }
+  }
+}

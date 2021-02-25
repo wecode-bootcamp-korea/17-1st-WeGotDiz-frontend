@@ -55,15 +55,20 @@ class Purchase extends Component {
   };
 
   handlePurchaseData = () => {
-    fetch('/data/purchaseData.json')
+    fetch('http://10.58.6.65:8000/product/1/purchase/rewardlist', {
+      method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('access_token'),
+      },
+    })
       .then(res => res.json())
       .then(res => {
         this.setState({
-          id: res.product_info.id,
-          productTitle: res.product_info.title,
-          makerName: res.product_info.maker_name,
-          makerImage: res.product_info.maker_image,
-          rewardData: res.reward_list,
+          id: res.data.product_info.id,
+          productTitle: res.data.product_info.title,
+          makerName: res.data.product_info.maker_name,
+          makerImage: res.data.product_info.maker_image,
+          rewardData: res.data.reward_list,
         });
       });
   };
@@ -180,6 +185,7 @@ class Purchase extends Component {
             extraFunding={extraFunding}
             rewardPrice={rewardPrice}
             id={id}
+            goToStory={goToStory}
           />
         )}
         {isPurchaseCompleted && <PurchaseComplete />}

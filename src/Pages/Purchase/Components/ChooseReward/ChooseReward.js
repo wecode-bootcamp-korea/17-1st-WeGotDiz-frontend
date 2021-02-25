@@ -39,7 +39,7 @@ class ChooseReward extends Component {
               key={reward.id}
               id={reward.id}
               value={reward.value}
-              price={reward.price}
+              price={Math.floor(reward.price)}
               stock={reward.remaining_stock}
               name={reward.name}
               combination={reward.combination}
@@ -94,7 +94,10 @@ class ChooseReward extends Component {
             {selectedReward &&
               (selectedReward || extraFunding
                 ? (
-                    selectedReward.reduce((acc, cur) => acc + cur.price, 0) +
+                    selectedReward.reduce(
+                      (acc, cur) => acc + cur.price * 1,
+                      0
+                    ) +
                     extraFunding * 1
                   ).toLocaleString()
                 : 0)}

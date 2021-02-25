@@ -16,7 +16,7 @@ class PurchaseReservation extends Component {
       contactNumber: '',
       deliveryNote: '',
       address: '',
-      totalamount: 0,
+      quantity: 0,
     };
   }
 
@@ -25,12 +25,16 @@ class PurchaseReservation extends Component {
   }
 
   handleUserInfo = () => {
-    fetch('/data/userInfoData.json')
+    fetch('http://10.58.6.65:8000/product/1/purchase/userinfo', {
+      headers: {
+        Authorization: localStorage.getItem('access_token'),
+      },
+    })
       .then(res => res.json())
       .then(res => {
         this.setState({
-          userName: res.User_info.name,
-          userEmail: res.User_info.email,
+          userName: res.user_info.name,
+          userEmail: res.user_info.email,
         });
       });
   };
@@ -44,48 +48,61 @@ class PurchaseReservation extends Component {
 
   handlePurchase = () => {
     const { fullName, contactNumber, deliveryNote, address } = this.state;
-    const { id, selectedReward, extraFunding } = this.props;
-
+    const {
+      selectedReward,
+      extraFunding,
+      handleSubmit,
+      goToStory,
+    } = this.props;
     const totalPrice =
       selectedReward || extraFunding
         ? (
-            selectedReward.reduce((acc, cur) => acc + cur.price, 0) +
+            selectedReward.reduce((acc, cur) => acc + cur.price * 1, 0) +
             extraFunding * 1 +
             2500
           ).toLocaleString()
         : 0;
 
-    fetch('ip', {
+    fetch('http://10.58.6.65:8000/product/1/purchase/rewardorder', {
       method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('access_token'),
+      },
       body: JSON.stringify({
         fullname: fullName,
         contact_number: contactNumber,
         delivery_note: deliveryNote,
         address: address,
-        id_quantity: {
-          id: id,
-          quantity: 1,
-        },
+        id_quantity: selectedReward.map(reward => {
+          return {
+            id: reward.id,
+            quantity: 1,
+          };
+        }),
         total_price: totalPrice,
       }),
     })
       .then(response => response.json())
       .then(result => {
-        result.message === 'SUCCESS' ? alert('결제 완료') : alert('결제 실패');
+        if (result.message === 'SUCCESS') {
+          alert('결제 완료');
+          handleSubmit();
+        } else {
+          alert('결제 실패');
+          goToStory();
+        }
       });
   };
 
   render() {
     const { userName, userEmail } = this.state;
-    const { handleInputData } = this;
-    const { handleSubmit, extraFunding, selectedReward } = this.props;
-    //
+    const { handleInputData, handlePurchase } = this;
+    const { extraFunding, selectedReward } = this.props;
 
     const deliveryFee = 2500;
     const fundingPrice =
-      selectedReward.reduce((acc, cur) => acc + cur.price, 0) +
+      selectedReward.reduce((acc, cur) => acc + cur.price * 1, 0) +
       extraFunding * 1;
-
     const totalPrice = fundingPrice + deliveryFee * 1;
 
     return (
@@ -99,7 +116,7 @@ class PurchaseReservation extends Component {
                   <p className="details">{reward.combination}</p>
                   <div className="amountPriceContainer">
                     <span>수량 1개</span>
-                    <span>{reward.price.toLocaleString()} 원</span>
+                    <span>{Math.floor(reward.price).toLocaleString()} 원</span>
                   </div>
                 </div>
               );
@@ -227,8 +244,8 @@ class PurchaseReservation extends Component {
             <div className="displayFlex">
               <span>-</span>
               <p>
-                결제 예약 이후, 결제할 카드를 변경하려면 마이페이지 > 나의
-                펀딩의 결제정보에서 카드정보를 변경해주세요.
+                결제 예약 이후, 결제할 카드를 변경하려면 마이페이지 나의 펀딩의
+                결제정보에서 카드정보를 변경해주세요.
               </p>
             </div>
           </div>
@@ -247,7 +264,7 @@ class PurchaseReservation extends Component {
             </dd>
           </dl>
         </div>
-        <button className="submitPurchaseReservation" onClick={handleSubmit}>
+        <button className="submitPurchaseReservation" onClick={handlePurchase}>
           결제 예약하기
         </button>
       </div>

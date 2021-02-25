@@ -1,0 +1,26 @@
+{
+  "data": {
+    "product_info": {
+      "id": 1,
+      "maker_image": "https://images.unsplash.com/photo-1554426105-c591d28a6208?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=785&q=80",
+      "maker_name": "주식회사 윈도우",
+      "title": "[누적 2억] 리얼 개발 잘되는 노트북 (맥북보다 좋음)"
+    },
+    "reward_list": [
+      {
+        "combination": "얼마나 좋게요",
+        "id": 1,
+        "name": "[얼리버드][누적 2억] 리얼 개발 잘되는 노트북 (맥북보다 좋음)",
+        "price": "62000.00",
+        "remaining_stock": 414
+      },
+      {
+        "combination": "",
+        "id": 2,
+        "name": "[슈퍼 얼리버드][누적 2억] 리얼 개발 잘되는 노트북 (맥북보다 좋음)",
+        "price": "70000.00",
+        "remaining_stock": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+@import '../../../../styles/common.scss';
+
+.reward {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 8px;
+  background-color: #f9f9f9;
+  border-radius: 3px;
+  cursor: pointer;
+
+  .checkboxContainer {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    padding: 50px;
+  }
+
+  .rewardDetailsContainer {
+    color: $color-black;
+    padding: 24px 10px;
+
+    .price {
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .rewardName {
+      margin-bottom: 10px;
+      font-size: 14px;
+
+      .amount {
+        margin-left: 10px;
+        font-size: 12px;
+      }
+    }
+
+    p {
+      margin-bottom: 10px;
+      color: $color-dark-gray;
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .deliveryInfo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+      font-size: 12px;
+
+      .line {
+        width: 1px;
+        height: 10px;
+        margin: 0 4px;
+        background-color: $color-black;
+      }
+    }
+  }
+
+  .option {
+    display: flex;
+
+    button,
+    input {
+      border-radius: 3px;
+    }
+
+    button {
+      width: 32px;
+      margin: 0 4px;
+    }
+
+    input {
+      text-align: right;
+      width: 60px;
+      height: 32px;
+      border: 1px solid $color-main;
+      text-align: right;
+      padding-right: 10px;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+}

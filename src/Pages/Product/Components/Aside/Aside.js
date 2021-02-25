@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Progressbar from '../../../../Components/Progressbar/Progressbar';
 import './Aside.scss';
 
 class Aside extends Component {
@@ -18,7 +19,21 @@ class Aside extends Component {
   };
 
   goToPurchase = () => {
-    this.props.history.push('/purchase');
+    const { id } = this.props.productData;
+
+    fetch('', {
+      method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('access_token'),
+      },
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (!localStorage.getItem('access_token')) {
+          this.props.history.push('/login');
+        }
+        this.props.history.push(`/product/purchase/${id}`);
+      });
   };
 
   render() {
@@ -29,14 +44,10 @@ class Aside extends Component {
       makerLevelData,
       isLikeCliked,
       handleLike,
+      likes,
     } = this.props;
 
-    const {
-      total_likes,
-      maker_name,
-      maker_levels,
-      days_left,
-    } = this.props.productData;
+    const { maker_name, days_left } = this.props.productData;
 
     const {
       achieved_rate,
@@ -46,7 +57,12 @@ class Aside extends Component {
 
     return (
       <aside>
-        <p className="daysLeft">{days_left}일 남음</p>
+        {String(days_left)[0] === '-' ? (
+          <p className="daysLeft">마감</p>
+        ) : (
+          <p className="daysLeft">{days_left}일 남음</p>
+        )}
+        <Progressbar percent={achieved_rate} />
         <ul className="productNumInfo">
           <li className="achievement">
             <span>{Math.floor(achieved_rate)}</span>% 달성
@@ -65,7 +81,7 @@ class Aside extends Component {
         <div className="btnWrapper">
           <button className="likeBtn" onClick={handleLike}>
             <i className="fas fa-heart" id={isLikeCliked ? 'like' : 'unlike'} />
-            {isLikeCliked ? total_likes + 1 : total_likes}
+            {likes}
           </button>
           <button>공유하기</button>
         </div>
@@ -90,7 +106,16 @@ class Aside extends Component {
             <span>BETA</span>
             <i className="far fa-question-circle" />
           </div>
-          <div className="makerTrustInfo" />
+          <div className="makerTrustInfo">
+            {makerLevelData.map((data, idx) => {
+              return (
+                <div className="makerGraph" key={idx}>
+                  <span className="graphTitle">{data.name}</span>
+                  <Progressbar percent={Math.floor(data.level) * 10} />
+                </div>
+              );
+            })}
+          </div>
           <div className="makerContact">
             <span>메이커 평균 응답 시간</span>
             <span className="makerResponseHours">17시간 이내</span>

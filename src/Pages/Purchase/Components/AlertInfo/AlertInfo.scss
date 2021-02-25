@@ -1,0 +1,63 @@
+@import '../../../../styles/common.scss';
+
+.alertInfo {
+  margin-bottom: 10px;
+  border: $border;
+
+  .checkboxInfo,
+  .checkboxInfoDetailsBtn,
+  .checkboxInfoDetailsText {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .checkboxContainer {
+    width: 100%;
+    height: fit-content;
+    padding: 12px;
+    font-size: 17px;
+    line-height: 1.2;
+  }
+
+  .checkboxInfo {
+    color: $color-dark-gray;
+    border-top: $border;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+
+    p {
+      padding: 4px 0;
+
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .checkboxInfoDetails {
+    width: 100%;
+
+    .checkboxInfoDetailsBtn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: fit-content;
+      color: $color-gray;
+      background-color: inherit;
+      border: none;
+      border-top: $border;
+      font-size: 15px;
+
+      .fa-chevron-down {
+        margin-right: 5px;
+      }
+    }
+
+    .checkboxInfoDetailsText p {
+      height: fit-content;
+      font-size: 10px;
+    }
+  }
+}

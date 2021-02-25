@@ -80,16 +80,13 @@ class PurchaseReservation extends Component {
     const { handleInputData } = this;
     const { handleSubmit, extraFunding, selectedReward } = this.props;
     //
-    const totalPrice =
-      selectedReward || extraFunding
-        ? (
-            selectedReward.reduce((acc, cur) => acc + cur.price, 0) +
-            extraFunding * 1 +
-            2500
-          ).toLocaleString()
-        : 0;
 
-    console.log(this.state.fullName);
+    const deliveryFee = 2500;
+    const fundingPrice =
+      selectedReward.reduce((acc, cur) => acc + cur.price, 0) +
+      extraFunding * 1;
+
+    const totalPrice = fundingPrice + deliveryFee * 1;
 
     return (
       <div className="purchaseReservation">
@@ -102,23 +99,32 @@ class PurchaseReservation extends Component {
                   <p className="details">{reward.combination}</p>
                   <div className="amountPriceContainer">
                     <span>수량 1개</span>
-                    <span>{reward.price} 원</span>
+                    <span>{reward.price.toLocaleString()} 원</span>
                   </div>
                 </div>
               );
             })}
             <div className="extraShippingFeeContainer">
-              <List title="추가 후원금" content={`${extraFunding}원`} />
+              <List
+                title="추가 후원금"
+                content={`${extraFunding.toLocaleString()}원`}
+              />
               <List title="배송비" content="2,500원" />
             </div>
           </div>
           <div className="totalPriceContainer">
-            <List title="펀딩 금액" content={`${totalPrice} 원`} />
-            <List title="추가 후원금" content={`${extraFunding}원`} />
-            <List title="배송비" content={`${totalPrice}원`} />
+            <List
+              title="펀딩 금액"
+              content={`${fundingPrice.toLocaleString()} 원`}
+            />
+            <List
+              title="추가 후원금"
+              content={`${extraFunding.toLocaleString()}원`}
+            />
+            <List title="배송비" content="2,500원" />
             <dl>
               <dt className="totalPriceTitle">최종결제금액</dt>
-              <dd className="totalPrice">{totalPrice}원</dd>
+              <dd className="totalPrice">{totalPrice.toLocaleString()}원</dd>
             </dl>
           </div>
         </div>

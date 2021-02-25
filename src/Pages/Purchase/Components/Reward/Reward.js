@@ -3,12 +3,12 @@ import CheckboxRect from '../CheckboxRect/CheckboxRect';
 import './Reward.scss';
 
 class Reward extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     quantity: 1,
-  //   };
-  // }
+  constructor() {
+    super();
+    this.state = {
+      quantity: 1,
+    };
+  }
 
   render() {
     const {

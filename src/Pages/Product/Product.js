@@ -87,11 +87,11 @@ class Product extends Component {
     })
       .then(res => res.json())
       .then(res => {
-        if (!localStorage.getItem('access_token')) {
+        if (res.message === 'SUCCESS') {
+          this.props.history.push(`/product/purchase/${id}`);
+        } else {
           alert('로그인해주세요!');
           this.props.history.push('/login');
-        } else {
-          this.props.history.push(`/product/purchase/${id}`);
         }
       });
   };

@@ -91,7 +91,7 @@ class Purchase extends Component {
 
   goToStory = () => {
     const id = this.state;
-    this.props.history.push(`API/product/${id}`);
+    this.props.history.push(`/product/${id}`);
   };
 
   handleCheckedReward = e => {

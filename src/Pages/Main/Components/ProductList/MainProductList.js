@@ -73,7 +73,7 @@ class MainProductList extends Component {
               className="searchToggleBtn"
               onClick={this.handleSearchToggle}
             >
-              <i class="fas fa-search " />
+              <i className="fas fa-search " />
             </button>
 
             <select
@@ -88,12 +88,12 @@ class MainProductList extends Component {
               className="productSelectRight"
               onChange={this.handleSecondSelect}
             >
-              <option value="1">추천순</option>
-              <option value="2">인기순</option>
-              <option value="3">펀딩액순</option>
-              <option value="4">마감임박순</option>
-              <option value="5">최신순</option>
-              <option value="6">응원참여자순</option>
+              <option value="recommend">추천순</option>
+              {/* <option value="price">인기순</option> */}
+              <option value="price">펀딩액순</option>
+              <option value="date">마감임박순</option>
+              {/* <option value="5">최신순</option> */}
+              <option value="support">응원참여자순</option>
             </select>
           </form>
         </header>

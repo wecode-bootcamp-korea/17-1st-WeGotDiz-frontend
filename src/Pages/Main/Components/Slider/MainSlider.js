@@ -21,7 +21,7 @@ class MainSlider extends Component {
   render() {
     const settings = {
       dots: true,
-      fade: true,
+      // fade: true,
       infinite: true,
       speed: 1000,
       autoplay: true,

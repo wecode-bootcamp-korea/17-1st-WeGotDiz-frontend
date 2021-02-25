@@ -30,6 +30,7 @@ class Routes extends Component {
           <Route exact path="/product/:id" component={Product} />
           {/* <Route exact path="/product/:id" component={Story} /> */}
           <Route exact path="/product/purchase" component={Purchase} />
+          <Route exact path="/product/purchase/:id" component={Purchase} />
         </Switch>
         <Footer />
       </Router>

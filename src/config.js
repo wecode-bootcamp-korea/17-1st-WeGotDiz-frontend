@@ -3,13 +3,13 @@ export const API = '';
 
 //local mock data
 
-export const RANK_DATA = '/public/data/planerRankData.json';
-export const PLAN_DATA = '/public/data/planerData.json';
-export const PRODUCTLIST_DATA = '/public/data/productListData.json';
+export const RANK_DATA = '/data/planerRankData.json';
+export const PLAN_DATA = '/data/planerData.json';
+export const PRODUCTLIST_DATA = '/data/productListData.json';
+export const CATEGORYLIST_DATA = '/data/categoryListData.json';
 
 export const PRODUCTDETAIL_DATA = '/public/data/productData.json';
 export const MAKERINFO_DATA = '/public/data/productData.json';
-export const CATEGORYLIST_DATA = '/public/data/categoryListData.json';
 
 //정민님 메인 상품페이지, 기획전 상품리스트, 카테고리 정렬, 전체/진행/종료 필터링
 export const PRODUCTLIST_API = `http://10.58.2.108:8000/product/main`;

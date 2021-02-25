@@ -33,12 +33,12 @@ class PlanerBar extends Component {
   };
 
   planDataAdd = () => {
-    fetch('http://10.58.1.148:8000/product/main', {
+    fetch('http://10.58.6.78:8000/product/main', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(res => {
-        let result = res.data.slice(this.state.prevPlan, this.state.endPlan);
+        let result = res.result.slice(this.state.prevPlan, this.state.endPlan);
         this.setState({
           planData: result,
         });
@@ -66,12 +66,13 @@ class PlanerBar extends Component {
         <section className="planerContainerLeft">
           <div className="planerLeftHeader">기획전</div>
           <div className="planerPageBtnList">
-            {[...Array(3)].map(i => {
+            {[...Array(3)].map((v, i) => {
               return (
                 <button
                   className="planerPageBtn"
                   value={i + 1}
                   onClick={this.changePlanData}
+                  key={i}
                 >
                   {i + 1}
                 </button>

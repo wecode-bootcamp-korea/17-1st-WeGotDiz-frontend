@@ -13,7 +13,7 @@ class ProductList extends Component {
               img={data.thumbnail}
               text={data.title}
               category={data.category}
-              brand={data.brand}
+              brand={data.maker_info_name}
               percent={Math.floor(data.achieved_rate)}
               price={Math.floor(data.toal_amount).toLocaleString()}
               date={data.closing_date}

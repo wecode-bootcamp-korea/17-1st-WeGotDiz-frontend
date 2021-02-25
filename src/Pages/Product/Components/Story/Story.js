@@ -18,7 +18,7 @@ class Story extends Component {
 
   handleData = () => {
     // fetch('/data/productData.json')
-    fetch(`http://10.58.1.148:8000/product/${this.props.match.params.id}`)
+    fetch(`http://10.58.6.78:8000/product/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(res => {
         this.setState(

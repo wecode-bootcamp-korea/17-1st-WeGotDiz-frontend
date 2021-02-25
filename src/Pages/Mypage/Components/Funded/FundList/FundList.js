@@ -18,7 +18,7 @@ class FundList extends Component {
               title={data.product_title}
               date={data.product_date_countdown}
               company={data.product_maker_info}
-              catagory={data.product_catagory}
+              category={data.product_category}
             />
           );
         })}

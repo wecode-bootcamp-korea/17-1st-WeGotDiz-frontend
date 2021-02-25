@@ -13,7 +13,7 @@ class Funded extends Component {
       title,
       date,
       company,
-      catagory,
+      category,
     } = this.props;
     return (
       <div
@@ -23,7 +23,7 @@ class Funded extends Component {
       >
         <div className="imgBox">
           <span className="label">리워드</span>
-          <img src={img} alt={catagory[0]} />
+          <img src={img} alt={category} />
           <div className="test">
             <Progressbar percent={percent} />
           </div>
@@ -39,7 +39,7 @@ class Funded extends Component {
           <h4 className="title">{title}</h4>
           <p className="company">{company}</p>
           <div className="bottomText">
-            <span className="catagory">{catagory}</span>
+            <span className="category">{category[0]}</span>
             <span className="rewardText">성공해야 리워드</span>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './Story.scss';
 
 class Story extends Component {
@@ -16,7 +17,8 @@ class Story extends Component {
   }
 
   handleData = () => {
-    fetch('/data/productData.json')
+    // fetch('/data/productData.json')
+    fetch(`http://10.58.6.78:8000/product/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(res => {
         this.setState(
@@ -41,11 +43,10 @@ class Story extends Component {
       thumbnail_url,
       description,
       goal_amount,
-      story,
+      tab,
     } = this.state.productData;
 
     const { openingDate, closingDate } = this.state;
-
     return (
       <div className="story">
         <img src={thumbnail_url} alt="Product" />
@@ -62,10 +63,10 @@ class Story extends Component {
             모이지 않으면 결제가 진행되지 않습니다.
           </p>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: story }} />
+        <div dangerouslySetInnerHTML={{ __html: tab }} />
       </div>
     );
   }
 }
 
-export default Story;
+export default withRouter(Story);

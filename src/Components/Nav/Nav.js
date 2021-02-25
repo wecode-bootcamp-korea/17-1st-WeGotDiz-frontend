@@ -77,14 +77,12 @@ class Nav extends Component {
   //로그아웃
   logOut = () => {
     localStorage.clear();
-    console.log('clear 됨');
     this.setState({
       isloggedIn: false,
     });
   };
 
   render() {
-    console.log(this.state.text);
     const { isNavSearch, isloggedIn, searchArr, text } = this.state;
     return (
       <div>

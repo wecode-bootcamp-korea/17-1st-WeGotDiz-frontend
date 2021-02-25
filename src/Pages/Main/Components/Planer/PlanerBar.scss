@@ -1,0 +1,194 @@
+@import '../../../../styles/common.scss';
+
+.planerContainer {
+  @extend %flex-center;
+  padding: 0 80px;
+  width: 100%;
+  margin-top: 50px;
+  padding-bottom: 80px;
+  height: 100%;
+  border-bottom: $border;
+
+  .planerContainerLeft {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    height: 350px;
+
+    .planerLeftHeader {
+      font-size: 30px;
+      font-weight: 700;
+      padding-bottom: 20px;
+    }
+    .planerPageBtnList {
+      position: absolute;
+      right: 0;
+      top: 12px;
+      .planerPageBtn {
+        background-color: #ffffff;
+        border: none;
+        margin-left: 5px;
+        cursor: pointer;
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 13px;
+        font-weight: 400;
+
+        :active {
+          color: $color-sub;
+          font-size: 20px;
+        }
+      }
+    }
+    .planerLeftContent {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+
+      .planerContent {
+        display: flex;
+        flex-direction: column;
+        width: 330px;
+        border-radius: 5px;
+        color: rgba(0, 0, 0, 0.84);
+        .planerContentImg {
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 120px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .planerContentText {
+          display: flex;
+          flex-direction: column;
+          padding: 16px 13px 0;
+
+          .planerTitle {
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: 700;
+          }
+
+          .planerProductList {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            .planerProduct {
+              display: flex;
+              margin: 10px 0;
+
+              .planerProductText {
+                width: 200px;
+                font-size: 14px;
+                margin-right: 40px;
+                p {
+                  color: $color-black;
+                  font-weight: 400;
+                  margin-bottom: 5px;
+                }
+                .planerPercent {
+                  color: $color-sub;
+                  font-weight: 700;
+                  margin-right: 5px;
+                }
+                .planercategory {
+                  color: $color-gray;
+                  font-weight: 400;
+                }
+              }
+
+              .planerProductImg {
+                width: 90px;
+                height: 50px;
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .planerContainerRight {
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+    margin-left: 50px;
+    height: 350px;
+
+    .planerRightHeader {
+      font-size: 30px;
+      font-weight: 700;
+    }
+    .planerRightContent {
+      width: 100%;
+
+      .RightContentHeader {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        padding: 20px 0;
+        color: $color-black;
+        font-weight: 400;
+
+        i {
+          opacity: 0.5;
+        }
+      }
+
+      .RightContentRank {
+        display: flex;
+        margin-bottom: 10px;
+        cursor: pointer;
+        .RankNumber {
+          font-size: 17px;
+          font-weight: bold;
+          margin-right: 10px;
+        }
+        .RankContent {
+          width: 250px;
+          margin-right: 50px;
+          font-size: 13px;
+          font-weight: 400;
+
+          p {
+            color: $color-black;
+            font-weight: 400;
+            margin-bottom: 5px;
+          }
+
+          .RankPercent {
+            color: $color-sub;
+            font-weight: 700;
+            margin-right: 5px;
+          }
+
+          .Rankcategory {
+            color: $color-gray;
+            font-weight: 400;
+          }
+        }
+
+        .RankImg {
+          width: 55px;
+          height: 40px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}

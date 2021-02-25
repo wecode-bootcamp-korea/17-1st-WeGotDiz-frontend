@@ -46,12 +46,9 @@ class Product extends Component {
       .then(res => {
         console.log(res);
         if (res.message === 'LIKE_SUCCESS') {
-          this.setState(
-            {
-              likes: res.total_likes,
-            }
-            // () => console.log(this.state.likes)
-          );
+          this.setState({
+            likes: res.total_likes,
+          });
         } else if (res.message === 'UNLIKE_SUCCESS') {
           this.setState({
             likes: res.total_likes,
@@ -61,7 +58,12 @@ class Product extends Component {
   };
 
   handleData = () => {
-    fetch(`http://10.58.6.78:8000/product/${this.props.match.params.id}`)
+    fetch(`http://10.58.6.78:8000/product/${this.props.match.params.id}`, {
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTF9.RivuQ0U93IBQhRIAjPTm50BI3cmsAnPFF80DsNey0ng',
+      },
+    })
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -100,7 +102,6 @@ class Product extends Component {
       isLikeCliked,
       likes,
     } = this.state;
-
     return (
       <main className="product">
         {productData && (

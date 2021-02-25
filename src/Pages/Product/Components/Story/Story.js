@@ -17,8 +17,12 @@ class Story extends Component {
   }
 
   handleData = () => {
-    // fetch('/data/productData.json')
-    fetch(`http://10.58.6.78:8000/product/${this.props.match.params.id}`)
+    fetch(`http://10.58.6.78:8000/product/${this.props.match.params.id}`, {
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTF9.RivuQ0U93IBQhRIAjPTm50BI3cmsAnPFF80DsNey0ng',
+      },
+    })
       .then(res => res.json())
       .then(res => {
         this.setState(
@@ -51,7 +55,6 @@ class Story extends Component {
     } = this.state.productData;
 
     const { openingDate, closingDate } = this.state;
-
     return (
       <div className="story">
         <img src={thumbnail_url} alt="Product" />

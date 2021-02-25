@@ -54,7 +54,6 @@ class Aside extends Component {
       total_amount,
       total_supporters,
     } = this.props.infoData;
-
     return (
       <aside>
         {String(days_left)[0] === '-' ? (

@@ -23,15 +23,18 @@ class Mypage extends Component {
     });
   };
 
-  componentDidUpdate() {}
-
   componentDidMount() {
     this.fundingDataAdd();
     this.likedDataAdd();
   }
 
   fundingDataAdd = () => {
-    fetch('/data/fundingData.json')
+    fetch('http://10.58.6.65:8000/user/fundinglist', {
+      method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('access_token'),
+      },
+    })
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -42,7 +45,12 @@ class Mypage extends Component {
   };
 
   likedDataAdd = () => {
-    fetch('/data/likeData.json')
+    fetch('/data/likeData.json', {
+      method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('access_token'),
+      },
+    })
       .then(res => res.json())
       .then(res => {
         this.setState({

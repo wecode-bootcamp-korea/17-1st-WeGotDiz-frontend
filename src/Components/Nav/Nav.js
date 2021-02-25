@@ -68,17 +68,10 @@ class Nav extends Component {
       e.preventDefault();
     }
   };
-  //로그인테스트
 
-  // login = () => {
-  //   this.setState({
-  //     isloggedIn: true,
-  //   });
-  // };
   //로그아웃
   logOut = () => {
     localStorage.clear();
-    console.log('clear 됨');
     this.setState({
       isloggedIn: false,
     });
@@ -92,7 +85,6 @@ class Nav extends Component {
   }
 
   render() {
-    console.log(this.state.text);
     const { isNavSearch, isloggedIn, searchArr, text } = this.state;
     return (
       <div>

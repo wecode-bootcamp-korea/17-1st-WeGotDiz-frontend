@@ -18,7 +18,7 @@ class Liked extends Component {
     return (
       <div
         className="liked"
-        onClick={() => this.props.history.push(`/product/details/${id}`)}
+        onClick={() => this.props.history.push(`/product/${id}`)}
       >
         <div className="imgBox">
           <span className="label">리워드</span>
@@ -39,7 +39,7 @@ class Liked extends Component {
           <p className="company">{company}</p>
           <div className="bottomText">
             <span className="catagory">{catagory}</span>
-            <span className="reward">성공해야 리워드</span>
+            <span className="rewardText">성공해야 리워드</span>
           </div>
         </div>
       </div>

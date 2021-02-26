@@ -29,6 +29,24 @@ class Product extends Component {
   }
 
   handleData = () => {
+    fetch(`http://10.58.1.63:8000/product/${this.props.match.params.id}`, {
+      headers: {
+        Authorization: localStorage.getItem('access_token'),
+      },
+    })
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          productData: res.data,
+          infoData: res.data.info_box,
+          makerLevelData: res.data.levels,
+          tabsData: res.data.tab_names,
+          id: res.data.id,
+          likes: res.data.total_likes,
+          isLikeClicked: false,
+        });
+      });
+
     if (localStorage.getItem('access_token')) {
       fetch(
         `http://10.58.1.63:8000/product/${this.props.match.params.id}/user`,
@@ -48,24 +66,6 @@ class Product extends Component {
             id: res.data.id,
             likes: res.data.total_likes,
             isLikeClicked: res.data.liked,
-          });
-        });
-    } else {
-      fetch(`http://10.58.1.63:8000/product/${this.props.match.params.id}`, {
-        headers: {
-          Authorization: localStorage.getItem('access_token'),
-        },
-      })
-        .then(res => res.json())
-        .then(res => {
-          this.setState({
-            productData: res.data,
-            infoData: res.data.info_box,
-            makerLevelData: res.data.levels,
-            tabsData: res.data.tab_names,
-            id: res.data.id,
-            likes: res.data.total_likes,
-            isLikeClicked: false,
           });
         });
     }

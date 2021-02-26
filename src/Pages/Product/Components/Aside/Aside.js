@@ -61,12 +61,12 @@ class Aside extends Component {
           </li>
         </ul>
         {done ? (
-          <button onClick={goToPurchase} className="fundingBtn">
-            펀딩하기
-          </button>
-        ) : (
           <button className="fundingBtn" disabled>
             펀딩 마감
+          </button>
+        ) : (
+          <button onClick={goToPurchase} className="fundingBtn">
+            펀딩하기
           </button>
         )}
         <div className="btnWrapper">

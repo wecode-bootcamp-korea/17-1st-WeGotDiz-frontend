@@ -18,14 +18,6 @@ class Aside extends Component {
     });
   };
 
-<<<<<<< HEAD
-  goToPurchase = () => {
-    const id = this.props.id;
-    this.props.history.push(`/product/purchase/${id}`);
-  };
-
-=======
->>>>>>> main
   render() {
     const { handleMakerInfo } = this;
     const { isMakerInfoClicked } = this.state;

@@ -29,17 +29,14 @@ class Product extends Component {
   }
 
   handleData = () => {
-<<<<<<< HEAD
-    fetch(`http://10.58.1.63:8000/product/${this.props.match.params.id}`)
-=======
     fetch(`http://10.58.1.63:8000/product/${this.props.match.params.id}`, {
       headers: {
         Authorization: localStorage.getItem('access_token'),
       },
     })
->>>>>>> main
       .then(res => res.json())
       .then(res => {
+        console.log('여긴 디테일>>>>', res);
         this.setState({
           productData: res.data,
           infoData: res.data.info_box,
@@ -148,12 +145,8 @@ class Product extends Component {
             <div className="contentsContainer">
               <content>{MAPPING_TAB[currentId]}</content>
               <Aside
-<<<<<<< HEAD
-                id={productData.id}
-=======
                 goToPurchase={goToPurchase}
                 handleLike={handleLike}
->>>>>>> main
                 productData={productData}
                 infoData={infoData}
                 makerInfoData={makerInfoData}

@@ -27,7 +27,8 @@ class Aside extends Component {
   };
 
   goToPurchase = () => {
-    this.props.history.push('/purchase');
+    const id = this.props.id;
+    this.props.history.push(`/product/purchase/${id}`);
   };
 
   render() {

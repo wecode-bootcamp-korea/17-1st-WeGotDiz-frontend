@@ -10,7 +10,6 @@ class Mypage extends Component {
     super();
     this.state = {
       currentId: 1,
-      isLoggedIn: false,
       funding_user_Info: [],
       funding_list: [],
       like_user_Info: [],
@@ -30,7 +29,7 @@ class Mypage extends Component {
   }
 
   fundingDataAdd = () => {
-    fetch('http://10.58.6.65:8000/user/fundinglist', {
+    fetch('http://10.58.1.63:8000/user/fundinglist', {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('access_token'),
@@ -46,7 +45,7 @@ class Mypage extends Component {
   };
 
   likedDataAdd = () => {
-    fetch('/data/likeData.json', {
+    fetch('http://10.58.1.63:8000/user/likelist', {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('access_token'),

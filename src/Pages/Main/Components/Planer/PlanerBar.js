@@ -33,7 +33,7 @@ class PlanerBar extends Component {
   };
 
   planDataAdd = () => {
-    fetch('http://10.58.6.78:8000/product/main', {
+    fetch('http://10.58.1.63:8000/product/main', {
       method: 'GET',
     })
       .then(res => res.json())

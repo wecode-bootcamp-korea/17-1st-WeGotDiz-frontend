@@ -55,7 +55,7 @@ class Purchase extends Component {
   };
 
   handlePurchaseData = () => {
-    fetch('http://10.58.6.65:8000/product/1/purchase/rewardlist', {
+    fetch('http://10.58.1.63/product/1/purchase/rewardlist', {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('access_token'),

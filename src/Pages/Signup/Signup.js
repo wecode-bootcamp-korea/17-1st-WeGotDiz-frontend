@@ -62,7 +62,7 @@ class Signup extends Component {
 
   goToMain = () => {
     // e.preventDefault();
-    fetch('http://10.58.6.65:8000/user/signup', {
+    fetch('http://10.58.1.63:8000/user/signup', {
       method: 'POST',
       body: JSON.stringify({
         email: this.state.email,

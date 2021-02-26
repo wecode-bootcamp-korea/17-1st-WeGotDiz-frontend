@@ -1,0 +1,79 @@
+{
+  "data": {
+    "user_info" :   [{
+      "id": 1,
+      "userName":"WeGotDiz"
+    }],
+    "funding_list" : [{
+      "product_achieved_rate":"12.00",
+      "product_catagory":["테크 ∙ 가전"],
+      "product_id":1,
+      "product_date_countdown":99,
+      "product_image":"https://postfiles.pstatic.net/MjAyMTAxMTNfOTgg/MDAxNjEwNTEwNDg4MjY5.ofmsFuFWtJjJG5jDq8VOBTu55jyiUmRtL6fcuhMzUxsg.gd7T6wB55s-W76mrggfXtuQxHM7EMC-JBo9QltSQAHMg.JPEG.you024024/35.jpg?type=w773",
+      "product_maker_info":"마녀배달부",
+      "product_title":"[귀여운] 지브리의 마녀배달부 키키",
+      "product_total_amount":"12345670.00"
+    },
+    {
+      "product_achieved_rate":"12.00",
+      "product_catagory":["테크 ∙ 가전"],
+      "product_id":2,
+      "product_date_countdown":99,
+      "product_image":"https://postfiles.pstatic.net/MjAyMTAxMTNfOTgg/MDAxNjEwNTEwNDg4MjY5.ofmsFuFWtJjJG5jDq8VOBTu55jyiUmRtL6fcuhMzUxsg.gd7T6wB55s-W76mrggfXtuQxHM7EMC-JBo9QltSQAHMg.JPEG.you024024/35.jpg?type=w773",
+      "product_maker_info":"마녀배달부",
+      "product_title":"[귀여운] 지브리의 마녀배달부 키키",
+      "product_total_amount":"12345670.00"
+    },
+    {
+      "product_achieved_rate":"12.00",
+      "product_catagory":["테크 ∙ 가전"],
+      "product_id":3,
+      "product_date_countdown":99,
+      "product_image":"https://postfiles.pstatic.net/MjAyMTAxMTNfOTgg/MDAxNjEwNTEwNDg4MjY5.ofmsFuFWtJjJG5jDq8VOBTu55jyiUmRtL6fcuhMzUxsg.gd7T6wB55s-W76mrggfXtuQxHM7EMC-JBo9QltSQAHMg.JPEG.you024024/35.jpg?type=w773",
+      "product_maker_info":"마녀배달부",
+      "product_title":"[귀여운] 지브리의 마녀배달부 키키",
+      "product_total_amount":"12345670.00"
+    },
+    {
+      "product_achieved_rate":"12.00",
+      "product_catagory":["테크 ∙ 가전"],
+      "product_id":4,
+      "product_date_countdown":99,
+      "product_image":"https://postfiles.pstatic.net/MjAyMTAxMTNfOTgg/MDAxNjEwNTEwNDg4MjY5.ofmsFuFWtJjJG5jDq8VOBTu55jyiUmRtL6fcuhMzUxsg.gd7T6wB55s-W76mrggfXtuQxHM7EMC-JBo9QltSQAHMg.JPEG.you024024/35.jpg?type=w773",
+      "product_maker_info":"마녀배달부",
+      "product_title":"[귀여운] 지브리의 마녀배달부 키키",
+      "product_total_amount":"12345670.00"
+    },
+    {
+      "product_achieved_rate":"12.00",
+      "product_catagory":["테크 ∙ 가전"],
+      "product_id":5,
+      "product_date_countdown":99,
+      "product_image":"https://postfiles.pstatic.net/MjAyMTAxMTNfOTgg/MDAxNjEwNTEwNDg4MjY5.ofmsFuFWtJjJG5jDq8VOBTu55jyiUmRtL6fcuhMzUxsg.gd7T6wB55s-W76mrggfXtuQxHM7EMC-JBo9QltSQAHMg.JPEG.you024024/35.jpg?type=w773",
+      "product_maker_info":"마녀배달부",
+      "product_title":"[귀여운] 지브리의 마녀배달부 키키",
+      "product_total_amount":"12345670.00"
+    },    
+    {
+      "product_achieved_rate":"12.00",
+      "product_catagory":["테크 ∙ 가전"],
+      "product_id":6,
+      "product_date_countdown":99,
+      "product_image":"https://postfiles.pstatic.net/MjAyMTAxMTNfOTgg/MDAxNjEwNTEwNDg4MjY5.ofmsFuFWtJjJG5jDq8VOBTu55jyiUmRtL6fcuhMzUxsg.gd7T6wB55s-W76mrggfXtuQxHM7EMC-JBo9QltSQAHMg.JPEG.you024024/35.jpg?type=w773",
+      "product_maker_info":"마녀배달부",
+      "product_title":"[귀여운] 지브리의 마녀배달부 키키",
+      "product_total_amount":"12345670.00"
+    },    
+    {
+      "product_achieved_rate":"12.00",
+      "product_catagory":["테크 ∙ 가전"],
+      "product_id":7,
+      "product_date_countdown":99,
+      "product_image":"https://postfiles.pstatic.net/MjAyMTAxMTNfOTgg/MDAxNjEwNTEwNDg4MjY5.ofmsFuFWtJjJG5jDq8VOBTu55jyiUmRtL6fcuhMzUxsg.gd7T6wB55s-W76mrggfXtuQxHM7EMC-JBo9QltSQAHMg.JPEG.you024024/35.jpg?type=w773",
+      "product_maker_info":"마녀배달부",
+      "product_title":"[귀여운] 지브리의 마녀배달부 키키",
+      "product_total_amount":"12345670.00"
+        }
+      ]
+    }
+  }

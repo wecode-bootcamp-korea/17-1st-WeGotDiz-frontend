@@ -90,7 +90,6 @@ class Purchase extends Component {
   };
 
   goToStory = () => {
-    const id = this.state;
     this.props.history.push(`/product/${this.props.match.params.id}`);
   };
 

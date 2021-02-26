@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import SearchText from './Components/SearchText';
 import './Nav.scss';
+
 class Nav extends Component {
   constructor() {
     super();
@@ -14,6 +15,35 @@ class Nav extends Component {
       text: '',
       searchArr: [],
     };
+  }
+
+  componentDidMount() {
+    const isLoggedIn = localStorage.getItem('access_token');
+    if (isLoggedIn) {
+      this.setState({ isloggedIn: true });
+    }
+  }
+
+  // state or props update 무조건 호출되는 라이프사이클 메소드
+  //location.pathname이 변경되는 것을 감지하여 setState를 실행시켜주는 것
+  componentDidUpdate(prevProps) {
+    if (prevProps.location !== this.props.location) {
+      if (localStorage.getItem('access_token')) {
+        this.setState({
+          isloggedIn: true,
+        });
+      } else {
+        this.setState({
+          isloggedIn: false,
+        });
+      }
+
+      //추후 확인 및 학습을 위한 console.log
+      // console.log(
+      //   'changed location.pathname >>>',
+      //   this.props.location.pathname
+      // );
+    }
   }
 
   //검색 input시 드롭다운 생성
@@ -67,13 +97,7 @@ class Nav extends Component {
       e.preventDefault();
     }
   };
-  //로그인테스트
 
-  login = () => {
-    this.setState({
-      isloggedIn: true,
-    });
-  };
   //로그아웃
   logOut = () => {
     localStorage.clear();
@@ -84,6 +108,7 @@ class Nav extends Component {
 
   render() {
     const { isNavSearch, isloggedIn, searchArr, text } = this.state;
+    console.log({ isloggedIn });
     return (
       <div>
         <header className="navContainer">
@@ -198,7 +223,7 @@ class Nav extends Component {
                 </span>
               )}
               {!isloggedIn && (
-                <span className="navJoin" onClick={this.login}>
+                <span className="navJoin">
                   <Link to="/login">로그인</Link>
                   {/* 로그인 */}
                 </span>
@@ -221,4 +246,5 @@ class Nav extends Component {
     );
   }
 }
-export default Nav;
+
+export default withRouter(Nav);

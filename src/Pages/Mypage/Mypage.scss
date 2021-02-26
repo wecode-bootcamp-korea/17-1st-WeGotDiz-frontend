@@ -1,0 +1,51 @@
+@import '../../styles/common.scss';
+
+.myPage {
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 310px;
+    background-color: #fff;
+
+    .category {
+      display: flex;
+      position: relative;
+      right: 50px;
+      margin-top: 5px;
+      width: 900px;
+      height: 30px;
+
+      span {
+        cursor: pointer;
+        color: gray;
+        margin-right: 15px;
+        bottom: 0;
+        font-size: 15px;
+      }
+
+      .tabOff {
+        color: gray;
+        border: none;
+      }
+
+      .tabOn {
+        color: $color-main;
+        border-bottom: 2px solid $color-main;
+      }
+    }
+  }
+
+  .contents {
+    background-color: $color-light-gray;
+    padding-top: 30px;
+    .click {
+      font-weight: 700;
+      border: 2px none none solid none $color-main;
+    }
+  }
+}

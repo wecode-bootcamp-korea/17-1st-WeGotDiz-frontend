@@ -25,7 +25,7 @@ class PurchaseReservation extends Component {
   }
 
   handleUserInfo = () => {
-    fetch('http://110.58.1.63:8000/product/1/purchase/userinfo', {
+    fetch('http://10.58.1.63:8000/product/1/purchase/userinfo', {
       headers: {
         Authorization: localStorage.getItem('access_token'),
       },
@@ -56,11 +56,9 @@ class PurchaseReservation extends Component {
     } = this.props;
     const totalPrice =
       selectedReward || extraFunding
-        ? (
-            selectedReward.reduce((acc, cur) => acc + cur.price * 1, 0) +
-            extraFunding * 1 +
-            2500
-          ).toLocaleString()
+        ? selectedReward.reduce((acc, cur) => acc + cur.price * 1, 0) +
+          extraFunding * 1 +
+          2500
         : 0;
 
     fetch('http://10.58.1.63:8000/product/1/purchase/rewardorder', {

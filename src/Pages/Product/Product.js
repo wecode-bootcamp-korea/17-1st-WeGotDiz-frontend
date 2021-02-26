@@ -36,6 +36,7 @@ class Product extends Component {
     })
       .then(res => res.json())
       .then(res => {
+        console.log('여긴 디테일>>>>', res);
         this.setState({
           productData: res.data,
           infoData: res.data.info_box,

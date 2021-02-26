@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './Progressbar.scss';
+
 class Progressbar extends Component {
   render() {
     const { percent } = this.props;
+
     return (
       <div className="progressBarAll">
         {Number(percent) >= 100 ? (

@@ -12,6 +12,7 @@ class Header extends Component {
       >
         <p className="category">{category}</p>
         <h1 className="productTtile">{title}</h1>
+        <div className="image" />
       </div>
     );
   }

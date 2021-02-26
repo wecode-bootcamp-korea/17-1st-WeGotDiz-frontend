@@ -17,8 +17,11 @@ class Story extends Component {
   }
 
   handleData = () => {
-    // fetch('/data/productData.json')
-    fetch(`http://10.58.1.63:8000/product/${this.props.match.params.id}`)
+    fetch(`http://10.58.1.63:8000/product/${this.props.match.params.id}`, {
+      headers: {
+        Authorization: localStorage.getItem('access_token'),
+      },
+    })
       .then(res => res.json())
       .then(res => {
         this.setState(
@@ -27,8 +30,12 @@ class Story extends Component {
           },
           () => {
             const { productData } = this.state;
-            const openingDate = productData.opening_date.slice(0, 10);
-            const closingDate = productData.closing_date.slice(0, 10);
+            const openingDate = productData.opening_date
+              .slice(0, 10)
+              .replaceAll('-', '.');
+            const closingDate = productData.closing_date
+              .slice(0, 10)
+              .replaceAll('-', '.');
             this.setState({
               openingDate: openingDate,
               closingDate: closingDate,
@@ -45,8 +52,8 @@ class Story extends Component {
       goal_amount,
       tab,
     } = this.state.productData;
-
     const { openingDate, closingDate } = this.state;
+
     return (
       <div className="story">
         <img src={thumbnail_url} alt="Product" />
@@ -56,7 +63,7 @@ class Story extends Component {
             목표 금액 {Math.floor(goal_amount).toLocaleString()}원
           </p>
           <p className="term">
-            펀딩 기간 {openingDate} ~ {closingDate}
+            펀딩 기간 {openingDate} - {closingDate}
           </p>
           <p className="fundingNotice">
             100% 이상 모이면 펀딩이 성공되며, 펀딩 마감일까지 목표 금액이 100%

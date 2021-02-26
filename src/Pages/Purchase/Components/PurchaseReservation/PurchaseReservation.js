@@ -25,7 +25,7 @@ class PurchaseReservation extends Component {
   }
 
   handleUserInfo = () => {
-    fetch('http://10.58.6.65:8000/product/1/purchase/userinfo', {
+    fetch('http://110.58.1.63:8000/product/1/purchase/userinfo', {
       headers: {
         Authorization: localStorage.getItem('access_token'),
       },
@@ -63,7 +63,7 @@ class PurchaseReservation extends Component {
           ).toLocaleString()
         : 0;
 
-    fetch('http://10.58.6.65:8000/product/1/purchase/rewardorder', {
+    fetch('http://10.58.1.63:8000/product/1/purchase/rewardorder', {
       method: 'POST',
       headers: {
         Authorization: localStorage.getItem('access_token'),

@@ -55,7 +55,7 @@ class Purchase extends Component {
   };
 
   handlePurchaseData = () => {
-    fetch('http://10.58.6.65:8000/product/1/purchase/rewardlist', {
+    fetch('http://10.58.1.63:8000/product/1/purchase/rewardlist', {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('access_token'),
@@ -91,7 +91,7 @@ class Purchase extends Component {
 
   goToStory = () => {
     const id = this.state;
-    this.props.history.push(`/product/${id}`);
+    this.props.history.push(`/product/${this.props.match.params.id}`);
   };
 
   handleCheckedReward = e => {

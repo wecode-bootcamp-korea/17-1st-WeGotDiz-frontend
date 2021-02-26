@@ -17,27 +17,58 @@ class Product extends Component {
       infoData: {},
       makerLevelData: [],
       tabsData: [],
+      isLikeClicked: false,
+      id: 0,
+      likes: 0,
     };
   }
 
   componentDidMount() {
-    //fefe
     window.scrollTo(0, 0);
     this.handleData();
   }
 
   handleData = () => {
-    fetch(`http://10.58.6.78:8000/product/${this.props.match.params.id}`)
+    fetch(`http://10.58.1.63:8000/product/${this.props.match.params.id}`, {
+      headers: {
+        Authorization: localStorage.getItem('access_token'),
+      },
+    })
       .then(res => res.json())
       .then(res => {
-        console.log('뭐야', res);
         this.setState({
           productData: res.data,
           infoData: res.data.info_box,
-          makerLevelData: res.data.maker_levels,
+          makerLevelData: res.data.levels,
           tabsData: res.data.tab_names,
+          id: res.data.id,
+          likes: res.data.total_likes,
+          isLikeClicked: false,
         });
       });
+
+    if (localStorage.getItem('access_token')) {
+      fetch(
+        `http://10.58.1.63:8000/product/${this.props.match.params.id}/user`,
+        {
+          headers: {
+            Authorization: localStorage.getItem('access_token'),
+          },
+        }
+      )
+        .then(res => res.json())
+        .then(res => {
+          this.setState({
+            productData: res.data,
+            infoData: res.data.info_box,
+            makerLevelData: res.data.levels,
+            tabsData: res.data.tab_names,
+            id: res.data.id,
+            likes: res.data.total_likes,
+            isLikeClicked: res.data.liked,
+          });
+        });
+    }
 
     fetch('/data/makerInfoData.json')
       .then(res => res.json())
@@ -48,6 +79,39 @@ class Product extends Component {
       });
   };
 
+  handleLike = () => {
+    const { id, isLikeClicked } = this.state;
+
+    if (localStorage.getItem('access_token')) {
+      fetch(`http://10.58.1.63:8000/product/${id}/like`, {
+        method: 'POST',
+        headers: {
+          Authorization: localStorage.getItem('access_token'),
+        },
+      })
+        .then(res => res.json())
+        .then(res => {
+          this.setState({
+            likes: res.total_likes,
+            isLikeClicked: !isLikeClicked,
+          });
+        });
+    } else {
+      alert('좋아요 기능은 로그인한 회원만 가능합니다!');
+    }
+  };
+
+  goToPurchase = () => {
+    if (localStorage.getItem('access_token')) {
+      this.props.history.push(
+        `/product/purchase/${this.props.match.params.id}`
+      );
+    } else {
+      alert('로그인해주세요!');
+      this.props.history.push('/login');
+    }
+  };
+
   handleTab = id => {
     this.setState({
       currentId: id,
@@ -55,7 +119,7 @@ class Product extends Component {
   };
 
   render() {
-    const { handleTab } = this;
+    const { handleTab, handleLike, goToPurchase } = this;
     const {
       currentId,
       productData,
@@ -63,7 +127,10 @@ class Product extends Component {
       makerLevelData,
       tabsData,
       makerInfoData,
+      isLikeClicked,
+      likes,
     } = this.state;
+
     return (
       <main className="product">
         {productData && (
@@ -77,10 +144,14 @@ class Product extends Component {
             <div className="contentsContainer">
               <content>{MAPPING_TAB[currentId]}</content>
               <Aside
+                goToPurchase={goToPurchase}
+                handleLike={handleLike}
                 productData={productData}
                 infoData={infoData}
                 makerInfoData={makerInfoData}
                 makerLevelData={makerLevelData}
+                isLikeClicked={isLikeClicked}
+                likes={likes}
               />
             </div>
           </>

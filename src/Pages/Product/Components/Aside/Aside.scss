@@ -7,7 +7,18 @@ aside {
   .daysLeft {
     padding-bottom: 25px;
     font-size: 28px;
-    border-bottom: solid #00c4c4 3px;
+  }
+
+  .progressBarAll {
+    position: relative;
+
+    .progressBarAll {
+      // position: absolute;
+
+      .progressBarPlay {
+        z-index: 10;
+      }
+    }
   }
 
   .productNumInfo {
@@ -33,6 +44,11 @@ aside {
     border: none;
     border-radius: 3px;
     font-size: 17px;
+
+    &:disabled {
+      background-color: $color-gray;
+      opacity: 0.5;
+    }
   }
 
   .btnWrapper {
@@ -130,27 +146,15 @@ aside {
     .makerTrustInfo {
       display: flex;
       margin: 20px 0;
-      padding: 0 16px;
 
       .makerGraph {
-        padding: 0 12px;
+        display: flex;
+        flex-direction: column;
+        padding: 0 16px;
 
         .graphTitle {
-          padding-bottom: 6px;
           color: #60656a;
           font-size: 12px;
-        }
-
-        .graphStatus {
-          height: 4px;
-        }
-
-        #off {
-          background-color: #f0f0f0;
-        }
-
-        #on {
-          background-color: $color-main;
         }
       }
     }

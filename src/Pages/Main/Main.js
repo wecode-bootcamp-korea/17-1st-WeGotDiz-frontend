@@ -41,7 +41,7 @@ class Main extends Component {
 
   mainProduct = () => {
     const { preItems, items } = this.state;
-    fetch('http://10.58.6.78:8000/product/main', {
+    fetch('http://10.58.1.63:8000/product/main', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -57,7 +57,7 @@ class Main extends Component {
 
   categoryClick = category => {
     if (category.path === 'main') {
-      fetch(`http://10.58.6.78:8000/product/main`, {
+      fetch(`http://10.58.1.63:8000/product/main`, {
         method: 'GET',
       })
         .then(res => res.json())
@@ -68,7 +68,7 @@ class Main extends Component {
           });
         });
     } else if (category.path === 'category') {
-      fetch(`http://10.58.6.78:8000/product/main/${category.id}`, {
+      fetch(`http://10.58.1.63:8000/product/main/${category.id}`, {
         method: 'GET',
       })
         .then(res => res.json())
@@ -106,7 +106,7 @@ class Main extends Component {
         endYN: first,
       },
       () => {
-        fetch(`http://10.58.6.78:8000/product/main${this.selectChoice()}`, {
+        fetch(`http://10.58.1.63:8000/product/main${this.selectChoice()}`, {
           method: 'GET',
         })
           .then(res => res.json())
@@ -125,7 +125,7 @@ class Main extends Component {
         order: second,
       },
       () => {
-        fetch(`http://10.58.6.78:8000/product/main${this.selectChoice()}`, {
+        fetch(`http://10.58.1.63:8000/product/main${this.selectChoice()}`, {
           method: 'GET',
         })
           .then(res => res.json())

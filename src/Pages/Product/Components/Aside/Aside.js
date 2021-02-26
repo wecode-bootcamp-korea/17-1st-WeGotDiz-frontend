@@ -24,7 +24,7 @@ class Aside extends Component {
     const {
       makerInfoData,
       makerLevelData,
-      isLikeCliked,
+      isLikeClicked,
       handleLike,
       likes,
       goToPurchase,
@@ -71,7 +71,10 @@ class Aside extends Component {
         )}
         <div className="btnWrapper">
           <button className="likeBtn" onClick={handleLike}>
-            <i className="fas fa-heart" id={isLikeCliked ? 'like' : 'unlike'} />
+            <i
+              className="fas fa-heart"
+              id={isLikeClicked ? 'like' : 'unlike'}
+            />
             {likes}
           </button>
           <button>공유하기</button>

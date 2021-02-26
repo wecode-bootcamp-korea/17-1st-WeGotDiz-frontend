@@ -17,10 +17,9 @@ class Product extends Component {
       infoData: {},
       makerLevelData: [],
       tabsData: [],
-      isLikeCliked: false,
+      isLikeClicked: false,
       id: 0,
       likes: 0,
-      liked: false,
     };
   }
 
@@ -30,23 +29,46 @@ class Product extends Component {
   }
 
   handleData = () => {
-    fetch(`http://10.58.6.78:8000/product/${this.props.match.params.id}`, {
-      headers: {
-        Authorization: localStorage.getItem('access_token'),
-      },
-    })
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          productData: res.data,
-          infoData: res.data.info_box,
-          makerLevelData: res.data.levels,
-          tabsData: res.data.tab_names,
-          id: res.data.id,
-          likes: res.data.total_likes,
-          isLikeCliked: res.data.liked,
+    if (localStorage.getItem('access_token')) {
+      fetch(
+        `http://10.58.1.63:8000/product/${this.props.match.params.id}/user`,
+        {
+          headers: {
+            Authorization: localStorage.getItem('access_token'),
+          },
+        }
+      )
+        .then(res => res.json())
+        .then(res => {
+          this.setState({
+            productData: res.data,
+            infoData: res.data.info_box,
+            makerLevelData: res.data.levels,
+            tabsData: res.data.tab_names,
+            id: res.data.id,
+            likes: res.data.total_likes,
+            isLikeClicked: res.data.liked,
+          });
         });
-      });
+    } else {
+      fetch(`http://10.58.1.63:8000/product/${this.props.match.params.id}`, {
+        headers: {
+          Authorization: localStorage.getItem('access_token'),
+        },
+      })
+        .then(res => res.json())
+        .then(res => {
+          this.setState({
+            productData: res.data,
+            infoData: res.data.info_box,
+            makerLevelData: res.data.levels,
+            tabsData: res.data.tab_names,
+            id: res.data.id,
+            likes: res.data.total_likes,
+            isLikeClicked: false,
+          });
+        });
+    }
 
     fetch('/data/makerInfoData.json')
       .then(res => res.json())
@@ -56,44 +78,38 @@ class Product extends Component {
         });
       });
   };
-  ㅁ;
 
   handleLike = () => {
-    const { id, isLikeCliked } = this.state;
+    const { id, isLikeClicked } = this.state;
 
-    fetch(`http://10.58.6.78:8000/product/${id}/like`, {
-      method: 'POST',
-      headers: {
-        Authorization: localStorage.getItem('access_token'),
-      },
-    })
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          likes: res.total_likes,
-          isLikeCliked: !isLikeCliked,
+    if (localStorage.getItem('access_token')) {
+      fetch(`http://10.58.1.63:8000/product/${id}/like`, {
+        method: 'POST',
+        headers: {
+          Authorization: localStorage.getItem('access_token'),
+        },
+      })
+        .then(res => res.json())
+        .then(res => {
+          this.setState({
+            likes: res.total_likes,
+            isLikeClicked: !isLikeClicked,
+          });
         });
-      });
+    } else {
+      alert('좋아요 기능은 로그인한 회원만 가능합니다!');
+    }
   };
 
   goToPurchase = () => {
-    const { id } = this.props.productData;
-
-    fetch('', {
-      method: 'GET',
-      headers: {
-        Authorization: localStorage.getItem('access_token'),
-      },
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.message === 'SUCCESS') {
-          this.props.history.push(`/product/purchase/${id}`);
-        } else {
-          alert('로그인해주세요!');
-          this.props.history.push('/login');
-        }
-      });
+    if (localStorage.getItem('access_token')) {
+      this.props.history.push(
+        `/product/purchase/${this.props.match.params.id}`
+      );
+    } else {
+      alert('로그인해주세요!');
+      this.props.history.push('/login');
+    }
   };
 
   handleTab = id => {
@@ -111,7 +127,7 @@ class Product extends Component {
       makerLevelData,
       tabsData,
       makerInfoData,
-      isLikeCliked,
+      isLikeClicked,
       likes,
     } = this.state;
 
@@ -134,7 +150,7 @@ class Product extends Component {
                 infoData={infoData}
                 makerInfoData={makerInfoData}
                 makerLevelData={makerLevelData}
-                isLikeCliked={isLikeCliked}
+                isLikeClicked={isLikeClicked}
                 likes={likes}
               />
             </div>

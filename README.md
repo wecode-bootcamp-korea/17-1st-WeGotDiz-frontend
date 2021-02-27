@@ -37,7 +37,7 @@
 
 -back-end : PYTHON / Django / bycyrpt / pyjwt / RESTfulAPI / Aquery Tool / MYSQL / coreheader
 
--communication tool : Notion / Slack / Trello / Git / GitHub / Zoom / Google Meet
+-communication tool : Figma / Notion / Slack / Trello / Git / GitHub / Zoom / Google Meet
 
 ---
 

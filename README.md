@@ -85,13 +85,13 @@
 
 이지윤
 
-1.<br> 2.<br> 3.<br> 4.<br> 5.<br>
+1.와디즈 Aquery 작성 <br>2.작성한 Aquery 기반으로한 전체 modelling 구현 <br>3.상품 상세페이지 구현 <br>4.상품 찜하기 기능 구현 <br>5.상품상세페이지는 회원/비회원 구분없이 접속 가능하지만, 회원에게만 본인이 찜한 상품정보를 반영하도록 구현 <br>6.main 페이지의 기획전 및 기획전 별 상품 리스트 구현
 
 <br>
 
 최호진
 
-1. 위갓디즈 Aquery 작성<br> 2. 작성한 Aqeury를 기반으로 한 전체 modeling 구현<br> 3. db_uploader.py에서 many to many 관계의 데이터가 바르게 들어가도록 수정 <br> 4. 결제 페이지의 프로덕트(product)의 상품(reward) 리스트 반환 기능 구현<br> 5. 배송지, 핸드폰 번호 등 사용자의 정보가 입력되고 결제 가능하도록 구현<br> 6. 결제된 내역에 따라 프로덕트(product)의 총 펀딩된 금액과 총 팔린 리워드 수량 업데이트 기능 구현<br>
+1.위갓디즈 Aquery 작성<br> 2.작성한 Aqeury를 기반으로 한 전체 modeling 구현<br> 3.db_uploader.py에서 many to many 관계의 데이터가 바르게 들어가도록 수정 <br> 4.결제 페이지의 프로덕트(product)의 상품(reward) 리스트 반환 기능 구현<br> 5.배송지, 핸드폰 번호 등 사용자의 정보가 입력되고 결제 가능하도록 구현<br> 6.결제된 내역에 따라 프로덕트(product)의 총 펀딩된 금액과 총 팔린 리워드 수량 업데이트 기능 구현<br>
 
 ---
 
@@ -102,5 +102,5 @@
 허혜성 :<br>
 이동근 : https://velog.io/@eagle5424/TIL-Project-7<br>
 이지윤 :<br>
-최호진 :<br>
-허민지 :<br>
+최호진 : https://velog.io/@hojin11choi/%ED%9A%8C%EA%B3%A0%EB%A1%9D-1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-WeGotDiz<br>
+허민지 : https://velog.io/@mjhuh263/Wecode-%EB%A7%A4%EC%B6%9C-150%EC%96%B5-%ED%81%AC%EB%9D%BC%EC%9A%B0%EB%93%9C-%ED%8E%80%EB%94%A9-%EC%A4%91%EA%B0%9C-%ED%94%8C%EB%9E%AB%ED%8F%BC-Wadiz-Clone-Project-WeGotDiz<br>

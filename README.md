@@ -101,6 +101,6 @@
 이정민 : https://velog.io/@93jm/%EC%9C%84%EC%BD%94%EB%93%9C-1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%81%9D-%ED%9A%8C%EA%B3%A0%EB%A1%9D<br>
 허혜성 : https://velog.io/@hyehye/%ED%9A%8C%EA%B3%A0%EB%A1%9D-1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%9A%B0%EB%A6%AC%EB%8A%94-WeGotDiz<br>
 이동근 : https://velog.io/@eagle5424/TIL-Project-7<br>
-이지윤 : https://velog.io/@yoon1ee/reflection-clone-project-WeGotDiz-%EC%99%80%EB%94%94%EC%A6%88-%ED%81%B4%EB%A1%A0<br>
+이지윤 : https://velog.io/@yoon1ee/reflection-clone-project-WeGotDiz <br>
 최호진 : https://velog.io/@hojin11choi/%ED%9A%8C%EA%B3%A0%EB%A1%9D-1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-WeGotDiz<br>
 허민지 : https://velog.io/@mjhuh263/Wecode-%EB%A7%A4%EC%B6%9C-150%EC%96%B5-%ED%81%AC%EB%9D%BC%EC%9A%B0%EB%93%9C-%ED%8E%80%EB%94%A9-%EC%A4%91%EA%B0%9C-%ED%94%8C%EB%9E%AB%ED%8F%BC-Wadiz-Clone-Project-WeGotDiz<br>

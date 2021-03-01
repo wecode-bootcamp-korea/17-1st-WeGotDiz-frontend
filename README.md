@@ -73,7 +73,7 @@
 
 허민지(PM)
 
-1.와디즈 Aquery 작성<br>2.작성한 Aqeury를 기반으로 한 전체 modeling 구현<br>3.로그인 decorator 구현<br>4.비밀번호 validator 구현<br>5.bcrypt 암호화<br>6.로그인시 jwt access token 전송 및 유효성 검사<br>7.my wadiz 좋아요 목록 기능 구현<br>8.mywadiz 펀딩한 목록 기능 구현
+1.와디즈 Aquery 작성<br>2.작성한 Aqeury를 기반으로 한 전체 modeling 구현<br>3.로그인 decorator 구현<br>4.비밀번호 validator 구현<br>5.bcrypt 암호화<br>6.로그인 기능 구현 및 jwt access token 전송 및 유효성 검사 기능 구현 <br>7.my wadiz 좋아요 목록 기능 구현<br>8.mywadiz 펀딩한 목록 기능 구현<br>9.회원가입 기능 구현
 
 <br>
 

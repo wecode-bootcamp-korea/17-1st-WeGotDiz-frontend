@@ -97,9 +97,9 @@
 
 ## 회고록
 
-이사랑 :<br>
+이사랑 : https://velog.io/@rosarang/1st-team-project<br>
 이정민 : https://velog.io/@93jm/%EC%9C%84%EC%BD%94%EB%93%9C-1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%81%9D-%ED%9A%8C%EA%B3%A0%EB%A1%9D<br>
-허혜성 :<br>
+허혜성 : https://velog.io/@hyehye/%ED%9A%8C%EA%B3%A0%EB%A1%9D-1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%9A%B0%EB%A6%AC%EB%8A%94-WeGotDiz<br>
 이동근 : https://velog.io/@eagle5424/TIL-Project-7<br>
 이지윤 :<br>
 최호진 : https://velog.io/@hojin11choi/%ED%9A%8C%EA%B3%A0%EB%A1%9D-1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-WeGotDiz<br>

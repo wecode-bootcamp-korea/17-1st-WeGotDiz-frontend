@@ -17,7 +17,7 @@
 
 ---
 
-<img src="/images/wegotdizteam.jpg" width="700" height="370">
+![wegotdizteam](https://user-images.githubusercontent.com/65124480/109486928-e0e2b800-7ac6-11eb-8f93-6fb8e0aeacf2.jpg)
 
 ## 팀원 소개
 

@@ -108,7 +108,6 @@ class Nav extends Component {
 
   render() {
     const { isNavSearch, isloggedIn, searchArr, text } = this.state;
-    console.log({ isloggedIn });
     return (
       <div>
         <header className="navContainer">

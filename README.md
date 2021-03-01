@@ -1,4 +1,4 @@
-<img src="/images/Group 3.png" width="700" height="370">
+![Group 3](https://user-images.githubusercontent.com/65124480/109486777-aaa53880-7ac6-11eb-8ee4-ba7fdf6c86dc.png)
 
 ## 와디즈 기업 소개
 

@@ -14,56 +14,56 @@
     },
     {
       "id": 2,
-      "img": "./images/디자인소품.jpg",
-      "name": "디자인소품",
-      "path": "category"
-    },
-    {
-      "id": 3,
       "img": "./images/기부후원.jpg",
       "name": "기부·후원",
       "path": "category"
     },
     {
-      "id": 4,
+      "id": 3,
       "img": "./images/여행레저.jpg",
       "name": "여행·레저",
       "path": "category"
     },
     {
-      "id": 5,
+      "id": 4,
       "img": "./images/모임.jpg",
       "name": "모임",
       "path": "category"
     },
     {
-      "id": 6,
+      "id": 5,
       "img": "./images/푸드.jpg",
       "name": "푸드",
       "path": "category"
     },
     {
-      "id": 7,
+      "id": 6,
       "img": "./images/홈리빙.jpg",
       "name": "홈리빙",
       "path": "category"
     },
     {
-      "id": 8,
+      "id": 7,
       "img": "./images/소셜캠페인.png",
       "name": "소셜·캠페인",
       "path": "category"
     },
     {
-      "id": 9,
+      "id": 8,
       "img": "./images/패션잡화.jpg",
       "name": "패션·잡화",
       "path": "category"
     },
     {
-      "id": 10,
+      "id": 9,
       "img": "./images/반려동물.jpg",
       "name": "반려동물",
+      "path": "category"
+    },
+    {
+      "id": 10,
+      "img": "./images/출판.jpg",
+      "name": "출판",
       "path": "category"
     },
     {
